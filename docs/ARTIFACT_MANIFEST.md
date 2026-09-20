@@ -5,6 +5,12 @@ and embedded hashes remain authoritative. Gate C approved the benchmark/failure
 explorer form and memo claim boundaries on 20 September 2026; Gate D remains
 pending, so none of these entries implies public-release approval.
 
+A later pre-release audit found a mixed-line-ending clean-checkout defect in
+the source-freeze tree. The release candidate adds only path-specific byte
+contracts for the affected evidence classes. Frozen scientific values,
+predictions, metrics, decisions, and model bytes are unchanged. See
+`REPRODUCIBILITY_NOTE.md`.
+
 ## Frozen data and protocol
 
 | Artifact | SHA-256 / identity | Status |
@@ -60,7 +66,7 @@ remain the decision history for D011/D012.
 
 `README.md`, `docs/RESULTS.md`, `ERROR_ANALYSIS.md`, `ROBUSTNESS.md`,
 `MODEL_CARD.md`, `SYSTEM_CARD.md`, `CLAIM_EVIDENCE_MAP.csv`, and
-`RESEARCH_DECISIONS.md` now reflect the frozen evidence and the Gate C product
+`RESEARCH_DECISIONS.md`, plus `REPRODUCIBILITY_NOTE.md`, reflect the frozen evidence and the Gate C product
 boundary. Detailed internal decision, AI-assistance, contribution, and
 continuity records remain outside the prospective public source tree.
 
@@ -80,8 +86,9 @@ transparency is provided by `docs/AUTHORSHIP.md`,
 
 ## Still unavailable
 
-- Independent frozen-path reproduction and final contribution/authorship
-  sign-off.
+- Applicant-performed independent reproduction and final
+  contribution/authorship sign-off. Cross-platform corrective verification is
+  system-executed evidence and does not establish applicant mastery.
 - Immutable source commit and history scan, Gate D approval record,
   `v1.0.0` tag, remote repository, protected Pages environment, deployed URL,
   build ID, live public smoke, and rollback evidence.

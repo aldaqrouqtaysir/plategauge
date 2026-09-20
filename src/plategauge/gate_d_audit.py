@@ -255,7 +255,13 @@ def audit_gate_d_candidate(repo_root: str | Path) -> dict[str, Any]:
     host_paths, secrets = _scan_hygiene(root, files)
     raw_candidates = _raw_data_candidates(root, files)
     local_raw_present = (root / "data/raw").is_dir()
-    local_raw_ignored = _git(root, "check-ignore", "data/raw").returncode == 0
+    # Check a sentinel below the ignored boundary so a clean checkout, where
+    # ``data/raw`` correctly does not exist, proves the same policy as a local
+    # checkout that happens to contain ignored source data.
+    local_raw_ignored = (
+        _git(root, "check-ignore", "data/raw/.plategauge-ignore-probe").returncode
+        == 0
+    )
     raw_boundary_pass = not raw_candidates and (
         not local_raw_present or local_raw_ignored
     )

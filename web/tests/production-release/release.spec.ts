@@ -51,7 +51,10 @@ test("serves the built fixed-example release using only allowlisted same-origin 
     "href",
     "/plategauge/legal/NOTICE.txt",
   );
-  await expect(page.getByText(/documented AI-assisted development workflow/i)).toBeVisible();
+  await expect(page.getByText(/Substantially AI-assisted/i)).toBeVisible();
+  await expect(
+    page.getByText(/set the objectives and constraints, approved the protocol and claim boundaries/i),
+  ).toBeVisible();
   await expect(page.getByText(/accepts no uploads and sends no inference API requests/i)).toBeVisible();
   await expect(page.getByText(/GitHub Pages serves the static files and may process ordinary request metadata/i)).toBeVisible();
   await expect(page.getByRole("link", { name: "Notices", exact: true })).toHaveAttribute(

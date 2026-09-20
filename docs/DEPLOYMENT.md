@@ -30,7 +30,9 @@ secret, or arbitrary-image input.
 
 ## Approval-bound release flow
 
-1. Complete independent frozen-path reproduction and contribution-language review.
+1. Complete contribution-language review. Either record applicant-performed
+   independent frozen-path reproduction before making that claim, or retain the
+   explicit public statement that independent reproduction is not established.
 2. Sanitize the prospective public tree, rerun the local audit, create the
    immutable source commit, and let the named maintainer inspect its exact identity.
 3. Obtain explicit Gate D approval for that source commit and public claim set.

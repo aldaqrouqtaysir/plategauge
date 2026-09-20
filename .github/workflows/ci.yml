@@ -15,6 +15,7 @@ concurrency:
 jobs:
   python:
     name: Python quality and tests
+    needs: web
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
@@ -28,6 +29,11 @@ jobs:
           uv sync --locked --all-extras
       - name: Verify browser benchmark evidence is canonical
         run: uv run python scripts/verify_web_benchmark_evidence.py verify --repo-root .
+      - name: Restore the exact static candidate built by the web job
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          name: ci-static-candidate
+          path: web/dist
       - name: Lint
         run: uv run ruff check .
       - name: Type-check
@@ -50,6 +56,44 @@ jobs:
           name: python-scan-evidence
           path: ci-artifacts
           if-no-files-found: error
+
+  checkout-portability:
+    name: Evidence-byte portability (${{ matrix.os }})
+    needs: web
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: "3.12.14"
+          cache: pip
+      - name: Install the locked Python environment
+        shell: bash
+        run: |
+          python -m pip install --disable-pip-version-check uv==0.12.17
+          uv sync --locked --all-extras
+      - name: Verify frozen browser evidence bytes
+        shell: bash
+        run: uv run python scripts/verify_web_benchmark_evidence.py verify --repo-root .
+      - name: Restore the exact static candidate built by the web job
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          name: ci-static-candidate
+          path: web/dist
+      - name: Run focused provenance and release-integrity tests
+        shell: bash
+        run: >-
+          uv run python -m pytest
+          tests/python/test_data_audit.py
+          tests/python/test_gate_d_audit.py
+          tests/python/test_release_artifacts.py
+          tests/python/test_release_bundle_audit.py
+          tests/python/test_review_package.py
+          tests/python/test_web_evidence.py
 
   web:
     name: Browser app quality and unit tests
@@ -89,6 +133,12 @@ jobs:
         env:
           VITE_SOURCE_URL: ${{ github.server_url }}/${{ github.repository }}
         run: pnpm build
+      - name: Upload the exact static candidate for integrity tests
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: ci-static-candidate
+          path: web/dist
+          if-no-files-found: error
       - name: Upload JavaScript scan evidence
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4

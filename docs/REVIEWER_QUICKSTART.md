@@ -40,12 +40,16 @@ the locked environment is already installed, verify the browser evidence with:
 ```
 
 This checks the generated visible values and examples against canonical frozen
-sources; it does not retrain or modify evidence.
+sources; it does not retrain or modify evidence. The release candidate also
+uses path-specific line-ending rules to reconstruct the same evidence bytes on
+default-Windows and LF-preserving checkouts; see
+`docs/REPRODUCIBILITY_NOTE.md`.
 
 ## Minute 5 — check reproducibility and boundaries
 
 Read `docs/MODEL_CARD.md`, `docs/DATASHEET.md`, and
-`docs/AI_ASSISTANCE_PUBLIC.md`. `docs/TEST_REPORT.md` records 209 passed Python
+`docs/AI_ASSISTANCE_PUBLIC.md`, then read
+`docs/REPRODUCIBILITY_NOTE.md`. `docs/TEST_REPORT.md` records 209 passed Python
 tests, one intentional skip, and `85.51%` coverage for the configured
 **non-training Python scope**;
 `model.py`, `training.py`, and `export.py` are excluded from that coverage

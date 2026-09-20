@@ -10,9 +10,10 @@ license: Apache-2.0
 repository-code: "https://github.com/aldaqrouqtaysir/plategauge"
 keywords:
   - computer vision
-  - food waste measurement
-  - uncertainty
-  - local-browser inference
+  - leftover-fraction benchmarking
+  - category shift
+  - failure analysis
+  - reproducible research
 references:
   - type: dataset
     title: "LeFood-Set v1"

@@ -285,6 +285,7 @@ function FrozenExample({ example }: { example: BenchmarkExample }) {
         <span className="evidence-badge">
           {kindLabel(example.kind)} · {example.kind === "largest_error" ? `rank ${example.rank}` : `set ${example.rank}`}
         </span>
+        <span>Historical held-out record—not a new estimate</span>
         <span>Outer fold {example.fold} · category {example.category}</span>
       </div>
       <div className="example-title-row">
@@ -1002,14 +1003,14 @@ export default function App() {
       <footer>
         <div className="brand footer-brand"><span className="brand-mark" aria-hidden="true"><span /></span><span>PlateGauge</span></div>
         <div className="footer-disclosure">
-          <p>Directed and evidence-reviewed by Taysir Al Daqrouq through a documented AI-assisted development workflow.</p>
+          <p>Substantially AI-assisted. Taysir Al Daqrouq set the objectives and constraints, approved the protocol and claim boundaries, and reviewed the frozen evidence.</p>
           <p>This explorer accepts no uploads and sends no inference API requests. GitHub Pages serves the static files and may process ordinary request metadata.</p>
         </div>
         <div className="footer-links">
           <a href={`${import.meta.env.BASE_URL}legal/PRIVACY_NOTICE.md`}>Privacy</a>
           <a href={`${import.meta.env.BASE_URL}legal/NOTICE.txt`}>Notices</a>
           <a href={`${import.meta.env.BASE_URL}legal/THIRD_PARTY_LICENSES.json`}>Dependency licenses</a>
-          <a href={`${import.meta.env.BASE_URL}legal/AI_ASSISTANCE_LOG.md`}>AI-assistance log</a>
+          <a href={`${import.meta.env.BASE_URL}legal/AI_ASSISTANCE_LOG.md`}>AI-assistance disclosure</a>
           {sourceUrl ? <a href={sourceUrl} rel="noreferrer">Source</a> : <span>Source unavailable in this development build</span>}
         </div>
       </footer>

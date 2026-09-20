@@ -6,6 +6,10 @@
 > provide estimates for visitor-supplied images. Any later release must be
 > verified from the approval record, tag, release manifest, and public smoke
 > evidence rather than inferred from this system card.
+>
+> The release candidate includes a path-specific cross-platform byte contract
+> added after a pre-release portability audit. Frozen science and model bytes
+> are unchanged; see `REPRODUCIBILITY_NOTE.md`.
 
 ## Current purpose
 
@@ -152,6 +156,10 @@ On 20 September 2026, when this source-freeze card was prepared:
   public smoke evidence were absent; and
 - independent frozen-path reproduction, contribution wording review,
   and public-claim sign-off were not completed.
+
+Later system-executed cross-platform verification corrected the source-freeze
+tree's line-ending portability defect without changing scientific values. It
+does not establish applicant-performed independent reproduction.
 
 Any later status belongs in the commit-bound release manifest, Gate D approval
 record, deployment record, and post-deploy smoke evidence.

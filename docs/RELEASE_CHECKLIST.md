@@ -72,6 +72,9 @@ technical evidence only unless they explicitly record a human decision.
 - [x] No “first,” SOTA, production, clinical, UAE-wide, smartphone, robustness,
       scale-replacement, guaranteed-interval, or realized-impact claim appears
       in the reviewed candidate surfaces.
+- [x] The release candidate documents the path-specific cross-platform byte
+      contract without changing frozen scientific values or claiming
+      applicant-performed independent reproduction.
 
 ## Deployment and recovery
 
@@ -91,6 +94,7 @@ technical evidence only unless they explicitly record a human decision.
 - Machine Gate C recommendation: **benchmark/failure explorer**.
 - Gate C evidence/product decision: **Approved 20 September 2026**, as
   a benchmark/failure explorer with the Gate C review memo's claim boundaries.
-- Gate D public-release approval: **Pending**.
+- Gate D public-release approval for the exact release-candidate commit:
+  **Pending in this pre-approval checkout**.
 - Release timestamp/tag/commit/URL: **Absent**.
 - Contribution wording and any independent-reproduction review: **Pending**.

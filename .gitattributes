@@ -1,0 +1,73 @@
+# PlateGauge v1 byte contracts. These rules reconstruct the exact checkout
+# bytes cited by the frozen evidence graph; they are deliberately path-scoped.
+LICENSE text eol=lf
+NOTICE text eol=lf
+artifacts/plategauge.onnx.evidence.json text eol=lf
+configs/experiment.toml text eol=lf
+configs/frozen_folds.json text eol=lf
+configs/web_benchmark_selection.json text eol=lf
+data/manifests/lefood_v1_duplicate_candidates.csv text eol=lf
+data/manifests/lefood_v1_manifest.csv text eol=lf
+data/manifests/lefood_v1_source_audit.csv text eol=lf
+docs/AI_ASSISTANCE_PUBLIC.md text eol=lf
+docs/PRIVACY_NOTICE.md text eol=lf
+release/browser-benchmark-measurement.json text eol=lf
+reports/bootstrap_comparisons.json text eol=lf
+reports/browser_benchmark.json text eol=lf
+reports/data_gate/fold_amendment_applied.json text eol=lf
+reports/data_gate/fold_amendment_candidate.json text eol=lf
+reports/error_analysis.json text eol=lf
+reports/error_review_annotations.csv text eol=lf
+reports/experiments/confirmatory/run.json text eol=lf
+reports/experiments/confirmatory/selections/*.json text eol=lf
+reports/experiments/confirmatory/tasks/*/result.json text eol=lf
+reports/experiments/confirmatory/tasks/*/workload/*.csv text eol=lf
+reports/experiments/confirmatory/tasks/final.deploy.paired_mobilenet/task.json text eol=lf
+reports/experiments/confirmatory/tasks/outer.fold-*.paired_mobilenet/task.json text eol=lf
+reports/experiments/same_category_v1/run.json text eol=lf
+reports/experiments/same_category_v1/summary.json text eol=lf
+reports/experiments/same_category_v1/tasks/*/result.json text eol=lf
+reports/experiments/same_category_v1/tasks/*/workload/predictions.csv text eol=lf
+reports/figures/gate_c_*.svg text eol=lf
+reports/label_sensitivity.json text eol=lf
+reports/results.json text eol=lf
+reports/robustness.json text eol=lf
+src/plategauge/baselines.py text eol=lf
+src/plategauge/data.py text eol=lf
+src/plategauge/error_analysis.py text eol=lf
+src/plategauge/evaluation.py text eol=lf
+src/plategauge/features.py text eol=lf
+src/plategauge/folds.py text eol=lf
+src/plategauge/label_sensitivity.py text eol=lf
+src/plategauge/metrics.py text eol=lf
+src/plategauge/model.py text eol=lf
+src/plategauge/orchestration.py text eol=lf
+src/plategauge/post_evaluation.py text eol=lf
+src/plategauge/schema.py text eol=lf
+src/plategauge/training.py text eol=lf
+src/plategauge/transforms.py text eol=lf
+src/plategauge/uncertainty.py text eol=lf
+src/plategauge/workloads.py text eol=lf
+web/playwright.production.config.ts text eol=lf
+web/public/evidence/benchmark-evidence.json text eol=lf
+web/public/models/release.json text eol=lf
+web/src/generated/benchmarkEvidence.json text eol=lf
+web/tests/production-release/release.spec.ts text eol=lf
+
+# These ten historical artifacts were cited by their original Windows CRLF
+# working-tree hashes. Preserve those bytes instead of rewriting provenance.
+configs/same_category_folds_v1.json text eol=crlf
+data/manifests/lefood_v1_audit.json text eol=crlf
+reports/data_gate/same_category_folds_v1_validation.json text eol=crlf
+reports/experiments/failed_attempts/20260919_inner_metric_precision_v1/superseded_same_category_folds_runner_bound.json text eol=crlf
+reports/release/static-bundle-audit.json text eol=crlf
+reports/security/node-full-audit.json text eol=crlf
+reports/security/node-production-audit.json text eol=crlf
+reports/security/node-production-licenses.json text eol=crlf
+reports/security/python-audit.json text eol=crlf
+reports/security/python-licenses.json text eol=crlf
+
+# Dependency snapshots are operational rather than scientific evidence. Keep
+# them LF in every checkout so they can be byte-compared deterministically.
+uv.lock text eol=lf
+web/pnpm-lock.yaml text eol=lf

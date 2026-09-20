@@ -8,6 +8,14 @@
 > absent. Any later release status must be verified from its commit-bound
 > approval, manifest, deployment, and public-smoke records.
 
+> **Pre-release portability correction:** a later clean-checkout audit found
+> incompatible LF/CRLF reconstruction in the source-freeze tree. The release
+> candidate adds path-specific line-ending rules and is rechecked under both
+> default-Windows and LF-preserving profiles. Frozen scientific values, model
+> bytes, predictions, and metrics are unchanged. See
+> `REPRODUCIBILITY_NOTE.md`. This system-executed correction is not evidence of
+> applicant-performed independent reproduction.
+
 ## Frozen evidence validation
 
 | Check | Required invariant | Verified result |
