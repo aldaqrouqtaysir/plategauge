@@ -1,0 +1,26 @@
+{
+  "cross_fold_duplicate_components": 0,
+  "duplicate_components": 9,
+  "exact_duplicate_components": 0,
+  "expected_counts_match": true,
+  "files_verified": true,
+  "fold_counts": {
+    "0": 103,
+    "1": 103,
+    "2": 103,
+    "3": 103,
+    "4": 102
+  },
+  "hashes_verified": true,
+  "invalid_mass_pairs": 10,
+  "issues": [],
+  "manifest_sha256": "0d8aae8e28b5aa8fcd5c35b89a40c7e90db55df893562043086485dde1f7ee16",
+  "matched_pairs": 524,
+  "missing_image_rows": 154,
+  "near_duplicate_edges": 10,
+  "passed": true,
+  "schema_version": "1.0",
+  "valid_categories": 34,
+  "valid_pairs": 514,
+  "workbook_rows": 678
+}

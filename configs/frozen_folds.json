@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "status": "approved; duplicate-safe amendment active",
+  "amendment": {
+    "approved_date": "2026-09-19",
+    "source": "reports/data_gate/fold_amendment_candidate.json",
+    "source_sha256": "92ddb108511ab082ede3606ca4f9cce75288c1186316ca7a9b1cb2b070040610"
+  },
+  "folds": {
+    "0": {"categories": ["001", "005", "019", "022", "032"], "expected_n": 103},
+    "1": {"categories": ["002", "008", "010", "014"], "expected_n": 103},
+    "2": {"categories": ["009", "011", "012", "016", "025", "028", "029", "033"], "expected_n": 103},
+    "3": {"categories": ["003", "006", "013", "015", "017", "021", "026", "031"], "expected_n": 103},
+    "4": {"categories": ["000", "004", "007", "018", "020", "023", "024", "027", "030"], "expected_n": 102}
+  }
+}

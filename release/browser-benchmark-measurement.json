@@ -1,0 +1,62 @@
+{
+  "benchmark_input": {
+    "after_asset_sha256": "ea71f3b1113d564bf04d1056c6177bdc063194f5a84fb88b9150158997a28b90",
+    "before_asset_sha256": "e90d69a5f213cfa5b30c651a5e9572308adb245bed9bc87c02a8d5c316c44506",
+    "kind": "fixed_bundled_pair",
+    "numeric_prediction_recorded": false,
+    "sample_id": "lefood-0192"
+  },
+  "kind": "browser_benchmark_measurement",
+  "measured_at": "2026-09-20T01:35:35.756Z",
+  "measurements": {
+    "first_load_bytes": 25128921,
+    "memory_measurement_method": "performance.measureUserAgentSpecificMemory",
+    "memory_measurement_notes": "Maximum of 24 application-memory samples: one after model initialization and one after every warmup/measured inference; cross-origin-isolated local static build; browser API bytes converted to MiB. First-load bytes are the sum of no-store response-body bytes served through model and fixed-pair readiness (HTTP headers excluded).",
+    "peak_application_memory_mb": 45.64192485809326,
+    "warm_inference_ms": [
+      17.889999985694885,
+      22.119999885559082,
+      19.175000071525574,
+      16.734999895095825,
+      16.674999952316284,
+      18.450000047683716,
+      19.834999918937683,
+      17.694999933242798,
+      19.764999985694885,
+      25.5,
+      18.855000019073486,
+      21.18999993801117,
+      19.06000006198883,
+      19.865000009536743,
+      18.044999957084656,
+      18.894999980926514,
+      17.80999994277954,
+      18.444999933242798,
+      18.679999947547913,
+      18.78000009059906
+    ],
+    "warmup_runs": 3
+  },
+  "model_sha256": "9c830e80cab86acd85c5b27b5733126594561844d0398d602a039c68befbd675",
+  "reference_device": {
+    "cpu": "13th Gen Intel(R) Core(TM) i7-1355U",
+    "label": "HP reference laptop",
+    "manufacturer_model": "HP HP Laptop 15-fd0xxx",
+    "operating_system": "Windows_NT 10.0.22631 (x64)",
+    "physical_device": true,
+    "ram_gb": 15.652114868164062
+  },
+  "release_evidence_sha256": "cea7f533fa53388345c5ea45828bc9d3dd20cc79a013c3c843b6f2d5f9268c54",
+  "runtime": {
+    "browser_mode": "headed",
+    "browser_name": "Chrome",
+    "browser_version": "152.0.7977.83",
+    "build_source": "local_static_build",
+    "execution_provider": "wasm",
+    "onnxruntime_web_version": "1.30.0",
+    "wasm_threads": 1,
+    "webgpu_enabled": false
+  },
+  "schema_version": "1.0",
+  "status": "measured"
+}

@@ -1,0 +1,67 @@
+schema_version = "1.0"
+protocol_status = "approved_for_execution"
+confirmatory_seed = 20260919
+stability_seeds = [20260920, 20260921]
+maximum_total_gpu_hours = 10
+outer_folds = 5
+maximum_epochs = 80
+patience = 12
+freeze_encoder_epochs = 5
+batch_size = 32
+weight_decay = 0.0001
+gradient_clip = 1.0
+mixed_precision_on_cuda = true
+
+[preprocessing]
+resize_shorter_edge = 256
+crop_size = 224
+normalization = "ImageNet mean/std"
+
+[augmentation]
+horizontal_flip_probability = 0.5
+maximum_rotation_degrees = 8.0
+maximum_translation_fraction = 0.05
+minimum_scale = 0.95
+maximum_scale = 1.05
+brightness_jitter = 0.10
+contrast_jitter = 0.10
+vertical_flip = false
+shared_geometry = true
+independent_color_jitter = true
+
+[model]
+architecture = "shared_encoder_late_fusion_ordered_quantiles"
+checkpoint = "mobilenetv3_small_100.lamb_in1k"
+pretrained_source = "timm/Hugging Face"
+pretrained_repository = "timm/mobilenetv3_small_100.lamb_in1k"
+pretrained_filename = "model.safetensors"
+pretrained_revision = "1824797e7887cbec1990e4adbd6675960a36c589"
+pretrained_sha256 = "46d2c063b18125884c48937afa4c49e18128869e52e8db96df48bf0a4d7ff697"
+pretrained_size_bytes = 10241912
+feature_dimension = 1024
+fusion_dimension = 4096
+head_hidden_dimension = 256
+quantiles = [0.05, 0.50, 0.95]
+interval_loss_weight = 0.5
+
+[model.pin_gate]
+required_before_training = true
+reason = "Training accepts only a local artifact matching the pinned revision's exact size and SHA-256."
+
+[configuration.M1]
+encoder_learning_rate = 0.00003
+head_learning_rate = 0.0003
+dropout = 0.2
+
+[configuration.M2]
+encoder_learning_rate = 0.0001
+head_learning_rate = 0.001
+dropout = 0.4
+
+[ridge]
+alphas = [0.01, 0.1, 1.0, 10.0, 100.0]
+
+[uncertainty]
+nominal_coverage = 0.90
+maximum_abstention_width = 0.30
+retention_quantile = 0.80

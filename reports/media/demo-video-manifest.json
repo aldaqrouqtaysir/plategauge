@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "status": "LOCAL_REVIEW_DRAFT_NOT_RELEASED",
+  "generatedDate": "2026-09-20",
+  "sourceUrl": "redacted; recording restricted to 127.0.0.1",
+  "file": {
+    "name": "plategauge-local-review-demo.webm",
+    "bytes": 4142129,
+    "sha256": "7a02ad8915ab2c91492270443b9fd82f6043163a3b726221f9e662f8c1c761e0",
+    "audio": false,
+    "format": "WebM"
+  },
+  "boundaries": [
+    "Captioned silent local walkthrough; no human narration or independent-reproduction claim.",
+    "No arbitrary-image estimator or new numeric result is shown.",
+    "Not evidence of release approval, deployment, or operational validity."
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "artifacts": [
+    {
+      "path": "workload/predictions.csv",
+      "role": "predictions",
+      "sha256": "40c75f1c280395343a02c0d8e7cfcaae25e5cc530f855cc744d3e59e5b5aaf52",
+      "size_bytes": 10595
+    }
+  ],
+  "payload": {
+    "fold_macro_category_mae_all_rows": 0.08356211437185952,
+    "fold_macro_category_mae_seen_categories": 0.08356211437185952,
+    "interval_status": "raw_uncalibrated_not_for_coverage_or_public_interval_claims",
+    "prediction_count": 103,
+    "seen_category_prediction_count": 103,
+    "training_count": 411
+  },
+  "payload_sha256": "b294a2a5a40d726f6c889ed625aad7ee60da5066eea03cbe0b9be67c3a4fac03",
+  "run_id": "5a6f6c490737da6284e81b6c88f82d24308c96ceb60609ae3975697a26d47e5c",
+  "runner_fingerprint": "89e6eaafe67abd780b399984bd3bf326696d4a8dda8b6cbaffd0ba95f242a5ca",
+  "schema_version": "1.0",
+  "status": "complete",
+  "task_id": "same-category.fold-0.paired_mobilenet",
+  "task_spec_sha256": "6f377714cf7753b495793fd5f08de0924b1cd281b0fdc7ef60946fadc363e808"
+}

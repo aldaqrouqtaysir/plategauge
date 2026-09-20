@@ -1,0 +1,3704 @@
+{
+  "assignments": [
+    {
+      "category": "000",
+      "component_id": "singleton:lefood-0001",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0001"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0002",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0002"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0003",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0003"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0004",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0004"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0005",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0005"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0006",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0006"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0007",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0007"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0008",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0008"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0009",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0009"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0010",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0010"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0011",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0011"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0012",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0012"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0013",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0013"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0014",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0014"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0015",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0015"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0016",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0016"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0017",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0017"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0018",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0018"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0019",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0019"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0020",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0020"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0021",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0021"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0022",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0022"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0023",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0023"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0024",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0024"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0025",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0025"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0026",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0026"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0027",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0027"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0028",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0028"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0029",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0029"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0030",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0030"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0031",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0031"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0032",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0032"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0033",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0033"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0034",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0034"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0035",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0035"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0036",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0036"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0037",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0037"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0038",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0038"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0039",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0039"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0040",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0040"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0041",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0041"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0043",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0043"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0044",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0044"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0045",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0045"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0046",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0046"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0047",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0047"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0048",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0048"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0049",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0049"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0050",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0050"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0051",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0051"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0052",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0052"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0053",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0053"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0054",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0054"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0055",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0055"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0056",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0056"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0057",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0057"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0058",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0058"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0059",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0059"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0060",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0060"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0061",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0061"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0062",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0062"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0063",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0063"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0064",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0064"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0065",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0065"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0066",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0066"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0067",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0067"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0068",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0068"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0069",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0069"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0070",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0070"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0071",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0071"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0072",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0072"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0073",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0073"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0074",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0074"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0075",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0075"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0076",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0076"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0077",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0077"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0078",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0078"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0079",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0079"
+    },
+    {
+      "category": "001",
+      "component_id": "singleton:lefood-0080",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0080"
+    },
+    {
+      "category": "002",
+      "component_id": "singleton:lefood-0081",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0081"
+    },
+    {
+      "category": "002",
+      "component_id": "singleton:lefood-0082",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0082"
+    },
+    {
+      "category": "002",
+      "component_id": "singleton:lefood-0083",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0083"
+    },
+    {
+      "category": "002",
+      "component_id": "singleton:lefood-0084",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0084"
+    },
+    {
+      "category": "002",
+      "component_id": "singleton:lefood-0085",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0085"
+    },
+    {
+      "category": "002",
+      "component_id": "singleton:lefood-0086",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0086"
+    },
+    {
+      "category": "002",
+      "component_id": "singleton:lefood-0087",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0087"
+    },
+    {
+      "category": "002",
+      "component_id": "singleton:lefood-0088",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0088"
+    },
+    {
+      "category": "002",
+      "component_id": "singleton:lefood-0089",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0089"
+    },
+    {
+      "category": "002",
+      "component_id": "singleton:lefood-0090",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0090"
+    },
+    {
+      "category": "002",
+      "component_id": "singleton:lefood-0091",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0091"
+    },
+    {
+      "category": "002",
+      "component_id": "singleton:lefood-0092",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0092"
+    },
+    {
+      "category": "002",
+      "component_id": "singleton:lefood-0093",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0093"
+    },
+    {
+      "category": "002",
+      "component_id": "singleton:lefood-0094",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0094"
+    },
+    {
+      "category": "002",
+      "component_id": "singleton:lefood-0095",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0095"
+    },
+    {
+      "category": "002",
+      "component_id": "singleton:lefood-0096",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0096"
+    },
+    {
+      "category": "002",
+      "component_id": "singleton:lefood-0097",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0097"
+    },
+    {
+      "category": "002",
+      "component_id": "singleton:lefood-0098",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0098"
+    },
+    {
+      "category": "002",
+      "component_id": "singleton:lefood-0099",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0099"
+    },
+    {
+      "category": "002",
+      "component_id": "singleton:lefood-0100",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0100"
+    },
+    {
+      "category": "002",
+      "component_id": "singleton:lefood-0101",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0101"
+    },
+    {
+      "category": "002",
+      "component_id": "singleton:lefood-0102",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0102"
+    },
+    {
+      "category": "002",
+      "component_id": "singleton:lefood-0103",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0103"
+    },
+    {
+      "category": "002",
+      "component_id": "singleton:lefood-0104",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0104"
+    },
+    {
+      "category": "002",
+      "component_id": "singleton:lefood-0105",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0105"
+    },
+    {
+      "category": "002",
+      "component_id": "singleton:lefood-0106",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0106"
+    },
+    {
+      "category": "002",
+      "component_id": "singleton:lefood-0107",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0107"
+    },
+    {
+      "category": "002",
+      "component_id": "singleton:lefood-0108",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0108"
+    },
+    {
+      "category": "002",
+      "component_id": "singleton:lefood-0109",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0109"
+    },
+    {
+      "category": "002",
+      "component_id": "singleton:lefood-0110",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0110"
+    },
+    {
+      "category": "002",
+      "component_id": "singleton:lefood-0111",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0111"
+    },
+    {
+      "category": "002",
+      "component_id": "duplicate:dup-7d86091f77cf",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0112"
+    },
+    {
+      "category": "002",
+      "component_id": "singleton:lefood-0113",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0113"
+    },
+    {
+      "category": "002",
+      "component_id": "duplicate:dup-7d86091f77cf",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0114"
+    },
+    {
+      "category": "002",
+      "component_id": "duplicate:dup-7d86091f77cf",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0115"
+    },
+    {
+      "category": "002",
+      "component_id": "singleton:lefood-0116",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0116"
+    },
+    {
+      "category": "002",
+      "component_id": "singleton:lefood-0117",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0117"
+    },
+    {
+      "category": "002",
+      "component_id": "singleton:lefood-0118",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0118"
+    },
+    {
+      "category": "002",
+      "component_id": "singleton:lefood-0119",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0119"
+    },
+    {
+      "category": "002",
+      "component_id": "singleton:lefood-0120",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0120"
+    },
+    {
+      "category": "002",
+      "component_id": "singleton:lefood-0121",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0121"
+    },
+    {
+      "category": "002",
+      "component_id": "singleton:lefood-0122",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0122"
+    },
+    {
+      "category": "002",
+      "component_id": "singleton:lefood-0123",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0123"
+    },
+    {
+      "category": "002",
+      "component_id": "singleton:lefood-0124",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0124"
+    },
+    {
+      "category": "002",
+      "component_id": "singleton:lefood-0125",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0125"
+    },
+    {
+      "category": "002",
+      "component_id": "singleton:lefood-0126",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0126"
+    },
+    {
+      "category": "002",
+      "component_id": "singleton:lefood-0127",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0127"
+    },
+    {
+      "category": "002",
+      "component_id": "singleton:lefood-0128",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0128"
+    },
+    {
+      "category": "002",
+      "component_id": "singleton:lefood-0130",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0130"
+    },
+    {
+      "category": "002",
+      "component_id": "singleton:lefood-0131",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0131"
+    },
+    {
+      "category": "002",
+      "component_id": "singleton:lefood-0132",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0132"
+    },
+    {
+      "category": "002",
+      "component_id": "singleton:lefood-0133",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0133"
+    },
+    {
+      "category": "002",
+      "component_id": "singleton:lefood-0134",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0134"
+    },
+    {
+      "category": "002",
+      "component_id": "singleton:lefood-0135",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0135"
+    },
+    {
+      "category": "002",
+      "component_id": "singleton:lefood-0136",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0136"
+    },
+    {
+      "category": "002",
+      "component_id": "singleton:lefood-0137",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0137"
+    },
+    {
+      "category": "002",
+      "component_id": "singleton:lefood-0138",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0138"
+    },
+    {
+      "category": "002",
+      "component_id": "singleton:lefood-0139",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0139"
+    },
+    {
+      "category": "002",
+      "component_id": "singleton:lefood-0140",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0140"
+    },
+    {
+      "category": "002",
+      "component_id": "singleton:lefood-0142",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0142"
+    },
+    {
+      "category": "002",
+      "component_id": "singleton:lefood-0143",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0143"
+    },
+    {
+      "category": "002",
+      "component_id": "singleton:lefood-0144",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0144"
+    },
+    {
+      "category": "002",
+      "component_id": "singleton:lefood-0145",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0145"
+    },
+    {
+      "category": "002",
+      "component_id": "singleton:lefood-0146",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0146"
+    },
+    {
+      "category": "002",
+      "component_id": "singleton:lefood-0147",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0147"
+    },
+    {
+      "category": "002",
+      "component_id": "singleton:lefood-0148",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0148"
+    },
+    {
+      "category": "002",
+      "component_id": "singleton:lefood-0149",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0149"
+    },
+    {
+      "category": "002",
+      "component_id": "singleton:lefood-0150",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0150"
+    },
+    {
+      "category": "002",
+      "component_id": "singleton:lefood-0151",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0151"
+    },
+    {
+      "category": "002",
+      "component_id": "singleton:lefood-0152",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0152"
+    },
+    {
+      "category": "002",
+      "component_id": "singleton:lefood-0153",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0153"
+    },
+    {
+      "category": "002",
+      "component_id": "singleton:lefood-0154",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0154"
+    },
+    {
+      "category": "002",
+      "component_id": "singleton:lefood-0155",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0155"
+    },
+    {
+      "category": "002",
+      "component_id": "singleton:lefood-0156",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0156"
+    },
+    {
+      "category": "002",
+      "component_id": "singleton:lefood-0157",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0157"
+    },
+    {
+      "category": "002",
+      "component_id": "singleton:lefood-0158",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0158"
+    },
+    {
+      "category": "003",
+      "component_id": "singleton:lefood-0159",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0159"
+    },
+    {
+      "category": "004",
+      "component_id": "singleton:lefood-0160",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0160"
+    },
+    {
+      "category": "004",
+      "component_id": "singleton:lefood-0161",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0161"
+    },
+    {
+      "category": "004",
+      "component_id": "singleton:lefood-0162",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0162"
+    },
+    {
+      "category": "004",
+      "component_id": "singleton:lefood-0163",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0163"
+    },
+    {
+      "category": "004",
+      "component_id": "singleton:lefood-0164",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0164"
+    },
+    {
+      "category": "004",
+      "component_id": "singleton:lefood-0166",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0166"
+    },
+    {
+      "category": "004",
+      "component_id": "duplicate:dup-15f25e4070f6",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0167"
+    },
+    {
+      "category": "004",
+      "component_id": "singleton:lefood-0168",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0168"
+    },
+    {
+      "category": "004",
+      "component_id": "singleton:lefood-0169",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0169"
+    },
+    {
+      "category": "004",
+      "component_id": "singleton:lefood-0170",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0170"
+    },
+    {
+      "category": "004",
+      "component_id": "singleton:lefood-0171",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0171"
+    },
+    {
+      "category": "004",
+      "component_id": "singleton:lefood-0172",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0172"
+    },
+    {
+      "category": "004",
+      "component_id": "singleton:lefood-0173",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0173"
+    },
+    {
+      "category": "004",
+      "component_id": "singleton:lefood-0174",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0174"
+    },
+    {
+      "category": "004",
+      "component_id": "singleton:lefood-0175",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0175"
+    },
+    {
+      "category": "004",
+      "component_id": "singleton:lefood-0177",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0177"
+    },
+    {
+      "category": "004",
+      "component_id": "singleton:lefood-0178",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0178"
+    },
+    {
+      "category": "005",
+      "component_id": "singleton:lefood-0179",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0179"
+    },
+    {
+      "category": "005",
+      "component_id": "singleton:lefood-0180",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0180"
+    },
+    {
+      "category": "006",
+      "component_id": "singleton:lefood-0181",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0181"
+    },
+    {
+      "category": "006",
+      "component_id": "singleton:lefood-0182",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0182"
+    },
+    {
+      "category": "007",
+      "component_id": "singleton:lefood-0183",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0183"
+    },
+    {
+      "category": "007",
+      "component_id": "singleton:lefood-0184",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0184"
+    },
+    {
+      "category": "007",
+      "component_id": "singleton:lefood-0185",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0185"
+    },
+    {
+      "category": "007",
+      "component_id": "singleton:lefood-0187",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0187"
+    },
+    {
+      "category": "007",
+      "component_id": "singleton:lefood-0188",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0188"
+    },
+    {
+      "category": "007",
+      "component_id": "singleton:lefood-0189",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0189"
+    },
+    {
+      "category": "007",
+      "component_id": "singleton:lefood-0190",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0190"
+    },
+    {
+      "category": "007",
+      "component_id": "singleton:lefood-0191",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0191"
+    },
+    {
+      "category": "007",
+      "component_id": "singleton:lefood-0192",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0192"
+    },
+    {
+      "category": "007",
+      "component_id": "singleton:lefood-0194",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0194"
+    },
+    {
+      "category": "007",
+      "component_id": "singleton:lefood-0195",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0195"
+    },
+    {
+      "category": "007",
+      "component_id": "singleton:lefood-0196",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0196"
+    },
+    {
+      "category": "007",
+      "component_id": "singleton:lefood-0197",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0197"
+    },
+    {
+      "category": "007",
+      "component_id": "singleton:lefood-0198",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0198"
+    },
+    {
+      "category": "007",
+      "component_id": "singleton:lefood-0200",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0200"
+    },
+    {
+      "category": "007",
+      "component_id": "singleton:lefood-0201",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0201"
+    },
+    {
+      "category": "007",
+      "component_id": "singleton:lefood-0202",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0202"
+    },
+    {
+      "category": "008",
+      "component_id": "singleton:lefood-0203",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0203"
+    },
+    {
+      "category": "008",
+      "component_id": "singleton:lefood-0204",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0204"
+    },
+    {
+      "category": "008",
+      "component_id": "singleton:lefood-0205",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0205"
+    },
+    {
+      "category": "008",
+      "component_id": "singleton:lefood-0206",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0206"
+    },
+    {
+      "category": "009",
+      "component_id": "duplicate:dup-84e0fa596bc4",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0207"
+    },
+    {
+      "category": "009",
+      "component_id": "singleton:lefood-0208",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0208"
+    },
+    {
+      "category": "009",
+      "component_id": "singleton:lefood-0209",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0209"
+    },
+    {
+      "category": "009",
+      "component_id": "duplicate:dup-3b1522964d95",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0210"
+    },
+    {
+      "category": "009",
+      "component_id": "duplicate:dup-3b1522964d95",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0211"
+    },
+    {
+      "category": "009",
+      "component_id": "singleton:lefood-0212",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0212"
+    },
+    {
+      "category": "009",
+      "component_id": "singleton:lefood-0213",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0213"
+    },
+    {
+      "category": "009",
+      "component_id": "singleton:lefood-0214",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0214"
+    },
+    {
+      "category": "009",
+      "component_id": "singleton:lefood-0215",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0215"
+    },
+    {
+      "category": "009",
+      "component_id": "singleton:lefood-0216",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0216"
+    },
+    {
+      "category": "009",
+      "component_id": "singleton:lefood-0217",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0217"
+    },
+    {
+      "category": "009",
+      "component_id": "singleton:lefood-0218",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0218"
+    },
+    {
+      "category": "009",
+      "component_id": "singleton:lefood-0219",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0219"
+    },
+    {
+      "category": "009",
+      "component_id": "singleton:lefood-0220",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0220"
+    },
+    {
+      "category": "009",
+      "component_id": "singleton:lefood-0221",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0221"
+    },
+    {
+      "category": "009",
+      "component_id": "singleton:lefood-0222",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0222"
+    },
+    {
+      "category": "009",
+      "component_id": "duplicate:dup-faf29cbb02fd",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0223"
+    },
+    {
+      "category": "009",
+      "component_id": "singleton:lefood-0224",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0224"
+    },
+    {
+      "category": "009",
+      "component_id": "singleton:lefood-0225",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0225"
+    },
+    {
+      "category": "009",
+      "component_id": "singleton:lefood-0226",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0226"
+    },
+    {
+      "category": "009",
+      "component_id": "singleton:lefood-0227",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0227"
+    },
+    {
+      "category": "010",
+      "component_id": "singleton:lefood-0228",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0228"
+    },
+    {
+      "category": "010",
+      "component_id": "singleton:lefood-0229",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0229"
+    },
+    {
+      "category": "010",
+      "component_id": "singleton:lefood-0230",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0230"
+    },
+    {
+      "category": "010",
+      "component_id": "singleton:lefood-0231",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0231"
+    },
+    {
+      "category": "010",
+      "component_id": "singleton:lefood-0232",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0232"
+    },
+    {
+      "category": "010",
+      "component_id": "singleton:lefood-0233",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0233"
+    },
+    {
+      "category": "010",
+      "component_id": "singleton:lefood-0234",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0234"
+    },
+    {
+      "category": "010",
+      "component_id": "singleton:lefood-0235",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0235"
+    },
+    {
+      "category": "010",
+      "component_id": "singleton:lefood-0236",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0236"
+    },
+    {
+      "category": "011",
+      "component_id": "singleton:lefood-0237",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0237"
+    },
+    {
+      "category": "011",
+      "component_id": "singleton:lefood-0238",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0238"
+    },
+    {
+      "category": "011",
+      "component_id": "singleton:lefood-0239",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0239"
+    },
+    {
+      "category": "011",
+      "component_id": "singleton:lefood-0240",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0240"
+    },
+    {
+      "category": "011",
+      "component_id": "singleton:lefood-0241",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0241"
+    },
+    {
+      "category": "011",
+      "component_id": "singleton:lefood-0242",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0242"
+    },
+    {
+      "category": "011",
+      "component_id": "singleton:lefood-0243",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0243"
+    },
+    {
+      "category": "011",
+      "component_id": "singleton:lefood-0244",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0244"
+    },
+    {
+      "category": "011",
+      "component_id": "singleton:lefood-0245",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0245"
+    },
+    {
+      "category": "011",
+      "component_id": "singleton:lefood-0246",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0246"
+    },
+    {
+      "category": "011",
+      "component_id": "singleton:lefood-0247",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0247"
+    },
+    {
+      "category": "011",
+      "component_id": "singleton:lefood-0248",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0248"
+    },
+    {
+      "category": "011",
+      "component_id": "singleton:lefood-0249",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0249"
+    },
+    {
+      "category": "011",
+      "component_id": "singleton:lefood-0250",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0250"
+    },
+    {
+      "category": "011",
+      "component_id": "singleton:lefood-0251",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0251"
+    },
+    {
+      "category": "011",
+      "component_id": "singleton:lefood-0252",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0252"
+    },
+    {
+      "category": "011",
+      "component_id": "singleton:lefood-0253",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0253"
+    },
+    {
+      "category": "011",
+      "component_id": "singleton:lefood-0254",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0254"
+    },
+    {
+      "category": "012",
+      "component_id": "singleton:lefood-0255",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0255"
+    },
+    {
+      "category": "012",
+      "component_id": "singleton:lefood-0256",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0256"
+    },
+    {
+      "category": "012",
+      "component_id": "singleton:lefood-0258",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0258"
+    },
+    {
+      "category": "012",
+      "component_id": "singleton:lefood-0259",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0259"
+    },
+    {
+      "category": "012",
+      "component_id": "singleton:lefood-0260",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0260"
+    },
+    {
+      "category": "012",
+      "component_id": "singleton:lefood-0261",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0261"
+    },
+    {
+      "category": "012",
+      "component_id": "singleton:lefood-0262",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0262"
+    },
+    {
+      "category": "012",
+      "component_id": "singleton:lefood-0263",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0263"
+    },
+    {
+      "category": "012",
+      "component_id": "singleton:lefood-0264",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0264"
+    },
+    {
+      "category": "012",
+      "component_id": "singleton:lefood-0265",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0265"
+    },
+    {
+      "category": "012",
+      "component_id": "singleton:lefood-0266",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0266"
+    },
+    {
+      "category": "012",
+      "component_id": "singleton:lefood-0267",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0267"
+    },
+    {
+      "category": "012",
+      "component_id": "singleton:lefood-0268",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0268"
+    },
+    {
+      "category": "012",
+      "component_id": "singleton:lefood-0269",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0269"
+    },
+    {
+      "category": "012",
+      "component_id": "singleton:lefood-0270",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0270"
+    },
+    {
+      "category": "012",
+      "component_id": "singleton:lefood-0271",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0271"
+    },
+    {
+      "category": "013",
+      "component_id": "singleton:lefood-0272",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0272"
+    },
+    {
+      "category": "013",
+      "component_id": "singleton:lefood-0273",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0273"
+    },
+    {
+      "category": "013",
+      "component_id": "singleton:lefood-0274",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0274"
+    },
+    {
+      "category": "013",
+      "component_id": "singleton:lefood-0275",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0275"
+    },
+    {
+      "category": "013",
+      "component_id": "singleton:lefood-0276",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0276"
+    },
+    {
+      "category": "013",
+      "component_id": "singleton:lefood-0277",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0277"
+    },
+    {
+      "category": "013",
+      "component_id": "duplicate:dup-c7a1ff728d7c",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0278"
+    },
+    {
+      "category": "013",
+      "component_id": "singleton:lefood-0279",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0279"
+    },
+    {
+      "category": "013",
+      "component_id": "singleton:lefood-0280",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0280"
+    },
+    {
+      "category": "013",
+      "component_id": "singleton:lefood-0281",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0281"
+    },
+    {
+      "category": "013",
+      "component_id": "singleton:lefood-0282",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0282"
+    },
+    {
+      "category": "013",
+      "component_id": "singleton:lefood-0283",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0283"
+    },
+    {
+      "category": "013",
+      "component_id": "singleton:lefood-0284",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0284"
+    },
+    {
+      "category": "013",
+      "component_id": "singleton:lefood-0285",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0285"
+    },
+    {
+      "category": "013",
+      "component_id": "singleton:lefood-0286",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0286"
+    },
+    {
+      "category": "013",
+      "component_id": "singleton:lefood-0287",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0287"
+    },
+    {
+      "category": "013",
+      "component_id": "singleton:lefood-0288",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0288"
+    },
+    {
+      "category": "013",
+      "component_id": "singleton:lefood-0289",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0289"
+    },
+    {
+      "category": "013",
+      "component_id": "duplicate:dup-d06da4f9b06c",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0290"
+    },
+    {
+      "category": "013",
+      "component_id": "singleton:lefood-0291",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0291"
+    },
+    {
+      "category": "013",
+      "component_id": "singleton:lefood-0292",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0292"
+    },
+    {
+      "category": "013",
+      "component_id": "singleton:lefood-0293",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0293"
+    },
+    {
+      "category": "014",
+      "component_id": "singleton:lefood-0295",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0295"
+    },
+    {
+      "category": "014",
+      "component_id": "singleton:lefood-0296",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0296"
+    },
+    {
+      "category": "014",
+      "component_id": "singleton:lefood-0297",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0297"
+    },
+    {
+      "category": "014",
+      "component_id": "singleton:lefood-0298",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0298"
+    },
+    {
+      "category": "014",
+      "component_id": "singleton:lefood-0299",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0299"
+    },
+    {
+      "category": "014",
+      "component_id": "singleton:lefood-0300",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0300"
+    },
+    {
+      "category": "014",
+      "component_id": "singleton:lefood-0301",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0301"
+    },
+    {
+      "category": "014",
+      "component_id": "singleton:lefood-0302",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0302"
+    },
+    {
+      "category": "014",
+      "component_id": "singleton:lefood-0303",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0303"
+    },
+    {
+      "category": "014",
+      "component_id": "singleton:lefood-0304",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0304"
+    },
+    {
+      "category": "014",
+      "component_id": "singleton:lefood-0305",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0305"
+    },
+    {
+      "category": "014",
+      "component_id": "singleton:lefood-0306",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0306"
+    },
+    {
+      "category": "014",
+      "component_id": "singleton:lefood-0307",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0307"
+    },
+    {
+      "category": "014",
+      "component_id": "singleton:lefood-0308",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0308"
+    },
+    {
+      "category": "015",
+      "component_id": "singleton:lefood-0309",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0309"
+    },
+    {
+      "category": "015",
+      "component_id": "singleton:lefood-0310",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0310"
+    },
+    {
+      "category": "015",
+      "component_id": "singleton:lefood-0311",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0311"
+    },
+    {
+      "category": "015",
+      "component_id": "singleton:lefood-0312",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0312"
+    },
+    {
+      "category": "015",
+      "component_id": "singleton:lefood-0313",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0313"
+    },
+    {
+      "category": "015",
+      "component_id": "singleton:lefood-0314",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0314"
+    },
+    {
+      "category": "015",
+      "component_id": "singleton:lefood-0315",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0315"
+    },
+    {
+      "category": "015",
+      "component_id": "singleton:lefood-0317",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0317"
+    },
+    {
+      "category": "015",
+      "component_id": "singleton:lefood-0318",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0318"
+    },
+    {
+      "category": "015",
+      "component_id": "singleton:lefood-0319",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0319"
+    },
+    {
+      "category": "015",
+      "component_id": "singleton:lefood-0320",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0320"
+    },
+    {
+      "category": "015",
+      "component_id": "singleton:lefood-0321",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0321"
+    },
+    {
+      "category": "015",
+      "component_id": "duplicate:dup-c7a1ff728d7c",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0322"
+    },
+    {
+      "category": "015",
+      "component_id": "singleton:lefood-0323",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0323"
+    },
+    {
+      "category": "015",
+      "component_id": "singleton:lefood-0324",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0324"
+    },
+    {
+      "category": "015",
+      "component_id": "singleton:lefood-0325",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0325"
+    },
+    {
+      "category": "015",
+      "component_id": "singleton:lefood-0326",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0326"
+    },
+    {
+      "category": "015",
+      "component_id": "duplicate:dup-d06da4f9b06c",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0327"
+    },
+    {
+      "category": "015",
+      "component_id": "singleton:lefood-0328",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0328"
+    },
+    {
+      "category": "015",
+      "component_id": "singleton:lefood-0330",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0330"
+    },
+    {
+      "category": "016",
+      "component_id": "singleton:lefood-0331",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0331"
+    },
+    {
+      "category": "016",
+      "component_id": "singleton:lefood-0332",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0332"
+    },
+    {
+      "category": "016",
+      "component_id": "singleton:lefood-0333",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0333"
+    },
+    {
+      "category": "016",
+      "component_id": "singleton:lefood-0334",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0334"
+    },
+    {
+      "category": "016",
+      "component_id": "singleton:lefood-0335",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0335"
+    },
+    {
+      "category": "017",
+      "component_id": "singleton:lefood-0336",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0336"
+    },
+    {
+      "category": "017",
+      "component_id": "singleton:lefood-0337",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0337"
+    },
+    {
+      "category": "017",
+      "component_id": "singleton:lefood-0338",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0338"
+    },
+    {
+      "category": "017",
+      "component_id": "singleton:lefood-0339",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0339"
+    },
+    {
+      "category": "017",
+      "component_id": "singleton:lefood-0340",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0340"
+    },
+    {
+      "category": "018",
+      "component_id": "singleton:lefood-0341",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0341"
+    },
+    {
+      "category": "018",
+      "component_id": "singleton:lefood-0342",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0342"
+    },
+    {
+      "category": "018",
+      "component_id": "singleton:lefood-0343",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0343"
+    },
+    {
+      "category": "018",
+      "component_id": "singleton:lefood-0344",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0344"
+    },
+    {
+      "category": "019",
+      "component_id": "singleton:lefood-0345",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0345"
+    },
+    {
+      "category": "019",
+      "component_id": "singleton:lefood-0346",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0346"
+    },
+    {
+      "category": "019",
+      "component_id": "singleton:lefood-0348",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0348"
+    },
+    {
+      "category": "019",
+      "component_id": "singleton:lefood-0349",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0349"
+    },
+    {
+      "category": "019",
+      "component_id": "singleton:lefood-0350",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0350"
+    },
+    {
+      "category": "019",
+      "component_id": "duplicate:dup-c67b65330d5d",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0351"
+    },
+    {
+      "category": "019",
+      "component_id": "singleton:lefood-0353",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0353"
+    },
+    {
+      "category": "019",
+      "component_id": "singleton:lefood-0354",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0354"
+    },
+    {
+      "category": "019",
+      "component_id": "singleton:lefood-0355",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0355"
+    },
+    {
+      "category": "019",
+      "component_id": "singleton:lefood-0356",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0356"
+    },
+    {
+      "category": "019",
+      "component_id": "singleton:lefood-0358",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0358"
+    },
+    {
+      "category": "019",
+      "component_id": "singleton:lefood-0359",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0359"
+    },
+    {
+      "category": "019",
+      "component_id": "singleton:lefood-0360",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0360"
+    },
+    {
+      "category": "019",
+      "component_id": "singleton:lefood-0361",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0361"
+    },
+    {
+      "category": "020",
+      "component_id": "singleton:lefood-0362",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0362"
+    },
+    {
+      "category": "020",
+      "component_id": "singleton:lefood-0363",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0363"
+    },
+    {
+      "category": "020",
+      "component_id": "singleton:lefood-0364",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0364"
+    },
+    {
+      "category": "020",
+      "component_id": "singleton:lefood-0365",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0365"
+    },
+    {
+      "category": "020",
+      "component_id": "singleton:lefood-0366",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0366"
+    },
+    {
+      "category": "020",
+      "component_id": "singleton:lefood-0367",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0367"
+    },
+    {
+      "category": "021",
+      "component_id": "singleton:lefood-0368",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0368"
+    },
+    {
+      "category": "021",
+      "component_id": "singleton:lefood-0369",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0369"
+    },
+    {
+      "category": "021",
+      "component_id": "singleton:lefood-0370",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0370"
+    },
+    {
+      "category": "021",
+      "component_id": "singleton:lefood-0372",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0372"
+    },
+    {
+      "category": "021",
+      "component_id": "singleton:lefood-0373",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0373"
+    },
+    {
+      "category": "021",
+      "component_id": "singleton:lefood-0374",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0374"
+    },
+    {
+      "category": "021",
+      "component_id": "singleton:lefood-0375",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0375"
+    },
+    {
+      "category": "021",
+      "component_id": "singleton:lefood-0376",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0376"
+    },
+    {
+      "category": "021",
+      "component_id": "singleton:lefood-0377",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0377"
+    },
+    {
+      "category": "021",
+      "component_id": "singleton:lefood-0378",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0378"
+    },
+    {
+      "category": "021",
+      "component_id": "singleton:lefood-0379",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0379"
+    },
+    {
+      "category": "021",
+      "component_id": "singleton:lefood-0380",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0380"
+    },
+    {
+      "category": "022",
+      "component_id": "singleton:lefood-0381",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0381"
+    },
+    {
+      "category": "022",
+      "component_id": "singleton:lefood-0382",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0382"
+    },
+    {
+      "category": "022",
+      "component_id": "singleton:lefood-0383",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0383"
+    },
+    {
+      "category": "022",
+      "component_id": "singleton:lefood-0385",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0385"
+    },
+    {
+      "category": "022",
+      "component_id": "singleton:lefood-0386",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0386"
+    },
+    {
+      "category": "022",
+      "component_id": "singleton:lefood-0387",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0387"
+    },
+    {
+      "category": "023",
+      "component_id": "singleton:lefood-0388",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0388"
+    },
+    {
+      "category": "023",
+      "component_id": "singleton:lefood-0389",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0389"
+    },
+    {
+      "category": "023",
+      "component_id": "singleton:lefood-0391",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0391"
+    },
+    {
+      "category": "023",
+      "component_id": "singleton:lefood-0392",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0392"
+    },
+    {
+      "category": "023",
+      "component_id": "singleton:lefood-0393",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0393"
+    },
+    {
+      "category": "023",
+      "component_id": "singleton:lefood-0394",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0394"
+    },
+    {
+      "category": "023",
+      "component_id": "duplicate:dup-15f25e4070f6",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0395"
+    },
+    {
+      "category": "023",
+      "component_id": "singleton:lefood-0396",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0396"
+    },
+    {
+      "category": "023",
+      "component_id": "singleton:lefood-0397",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0397"
+    },
+    {
+      "category": "023",
+      "component_id": "singleton:lefood-0398",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0398"
+    },
+    {
+      "category": "023",
+      "component_id": "singleton:lefood-0399",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0399"
+    },
+    {
+      "category": "023",
+      "component_id": "singleton:lefood-0400",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0400"
+    },
+    {
+      "category": "023",
+      "component_id": "singleton:lefood-0401",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0401"
+    },
+    {
+      "category": "023",
+      "component_id": "singleton:lefood-0402",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0402"
+    },
+    {
+      "category": "023",
+      "component_id": "singleton:lefood-0403",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0403"
+    },
+    {
+      "category": "023",
+      "component_id": "singleton:lefood-0404",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0404"
+    },
+    {
+      "category": "023",
+      "component_id": "singleton:lefood-0405",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0405"
+    },
+    {
+      "category": "023",
+      "component_id": "singleton:lefood-0407",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0407"
+    },
+    {
+      "category": "023",
+      "component_id": "singleton:lefood-0408",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0408"
+    },
+    {
+      "category": "023",
+      "component_id": "singleton:lefood-0409",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0409"
+    },
+    {
+      "category": "023",
+      "component_id": "singleton:lefood-0410",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0410"
+    },
+    {
+      "category": "023",
+      "component_id": "singleton:lefood-0411",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0411"
+    },
+    {
+      "category": "024",
+      "component_id": "singleton:lefood-0412",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0412"
+    },
+    {
+      "category": "024",
+      "component_id": "singleton:lefood-0413",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0413"
+    },
+    {
+      "category": "024",
+      "component_id": "singleton:lefood-0414",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0414"
+    },
+    {
+      "category": "024",
+      "component_id": "singleton:lefood-0415",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0415"
+    },
+    {
+      "category": "024",
+      "component_id": "singleton:lefood-0416",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0416"
+    },
+    {
+      "category": "024",
+      "component_id": "singleton:lefood-0417",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0417"
+    },
+    {
+      "category": "024",
+      "component_id": "singleton:lefood-0418",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0418"
+    },
+    {
+      "category": "024",
+      "component_id": "singleton:lefood-0419",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0419"
+    },
+    {
+      "category": "024",
+      "component_id": "singleton:lefood-0420",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0420"
+    },
+    {
+      "category": "024",
+      "component_id": "singleton:lefood-0421",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0421"
+    },
+    {
+      "category": "024",
+      "component_id": "singleton:lefood-0422",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0422"
+    },
+    {
+      "category": "024",
+      "component_id": "singleton:lefood-0423",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0423"
+    },
+    {
+      "category": "024",
+      "component_id": "singleton:lefood-0424",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0424"
+    },
+    {
+      "category": "024",
+      "component_id": "singleton:lefood-0426",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0426"
+    },
+    {
+      "category": "024",
+      "component_id": "singleton:lefood-0427",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0427"
+    },
+    {
+      "category": "024",
+      "component_id": "singleton:lefood-0428",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0428"
+    },
+    {
+      "category": "024",
+      "component_id": "singleton:lefood-0429",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0429"
+    },
+    {
+      "category": "024",
+      "component_id": "singleton:lefood-0430",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0430"
+    },
+    {
+      "category": "024",
+      "component_id": "singleton:lefood-0431",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0431"
+    },
+    {
+      "category": "024",
+      "component_id": "singleton:lefood-0432",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0432"
+    },
+    {
+      "category": "024",
+      "component_id": "singleton:lefood-0433",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0433"
+    },
+    {
+      "category": "025",
+      "component_id": "singleton:lefood-0434",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0434"
+    },
+    {
+      "category": "026",
+      "component_id": "singleton:lefood-0435",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0435"
+    },
+    {
+      "category": "026",
+      "component_id": "singleton:lefood-0436",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0436"
+    },
+    {
+      "category": "026",
+      "component_id": "singleton:lefood-0437",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0437"
+    },
+    {
+      "category": "026",
+      "component_id": "singleton:lefood-0438",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0438"
+    },
+    {
+      "category": "026",
+      "component_id": "singleton:lefood-0439",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0439"
+    },
+    {
+      "category": "026",
+      "component_id": "singleton:lefood-0440",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0440"
+    },
+    {
+      "category": "026",
+      "component_id": "singleton:lefood-0441",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0441"
+    },
+    {
+      "category": "026",
+      "component_id": "singleton:lefood-0442",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0442"
+    },
+    {
+      "category": "026",
+      "component_id": "singleton:lefood-0443",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0443"
+    },
+    {
+      "category": "026",
+      "component_id": "singleton:lefood-0444",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0444"
+    },
+    {
+      "category": "026",
+      "component_id": "singleton:lefood-0445",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0445"
+    },
+    {
+      "category": "026",
+      "component_id": "singleton:lefood-0446",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0446"
+    },
+    {
+      "category": "026",
+      "component_id": "singleton:lefood-0447",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0447"
+    },
+    {
+      "category": "026",
+      "component_id": "singleton:lefood-0448",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0448"
+    },
+    {
+      "category": "026",
+      "component_id": "singleton:lefood-0449",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0449"
+    },
+    {
+      "category": "026",
+      "component_id": "singleton:lefood-0450",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0450"
+    },
+    {
+      "category": "026",
+      "component_id": "singleton:lefood-0451",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0451"
+    },
+    {
+      "category": "026",
+      "component_id": "singleton:lefood-0452",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0452"
+    },
+    {
+      "category": "026",
+      "component_id": "singleton:lefood-0453",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0453"
+    },
+    {
+      "category": "027",
+      "component_id": "singleton:lefood-0454",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0454"
+    },
+    {
+      "category": "027",
+      "component_id": "singleton:lefood-0456",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0456"
+    },
+    {
+      "category": "027",
+      "component_id": "singleton:lefood-0457",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0457"
+    },
+    {
+      "category": "028",
+      "component_id": "singleton:lefood-0458",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0458"
+    },
+    {
+      "category": "028",
+      "component_id": "singleton:lefood-0459",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0459"
+    },
+    {
+      "category": "028",
+      "component_id": "singleton:lefood-0461",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0461"
+    },
+    {
+      "category": "028",
+      "component_id": "singleton:lefood-0462",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0462"
+    },
+    {
+      "category": "028",
+      "component_id": "singleton:lefood-0463",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0463"
+    },
+    {
+      "category": "029",
+      "component_id": "singleton:lefood-0464",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0464"
+    },
+    {
+      "category": "029",
+      "component_id": "singleton:lefood-0465",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0465"
+    },
+    {
+      "category": "029",
+      "component_id": "singleton:lefood-0466",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0466"
+    },
+    {
+      "category": "029",
+      "component_id": "singleton:lefood-0467",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0467"
+    },
+    {
+      "category": "029",
+      "component_id": "singleton:lefood-0470",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0470"
+    },
+    {
+      "category": "029",
+      "component_id": "singleton:lefood-0471",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0471"
+    },
+    {
+      "category": "029",
+      "component_id": "singleton:lefood-0472",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0472"
+    },
+    {
+      "category": "029",
+      "component_id": "singleton:lefood-0474",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0474"
+    },
+    {
+      "category": "029",
+      "component_id": "singleton:lefood-0475",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0475"
+    },
+    {
+      "category": "029",
+      "component_id": "duplicate:dup-84e0fa596bc4",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0476"
+    },
+    {
+      "category": "029",
+      "component_id": "singleton:lefood-0477",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0477"
+    },
+    {
+      "category": "029",
+      "component_id": "duplicate:dup-197ebd289b8e",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0478"
+    },
+    {
+      "category": "029",
+      "component_id": "singleton:lefood-0479",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0479"
+    },
+    {
+      "category": "029",
+      "component_id": "singleton:lefood-0480",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0480"
+    },
+    {
+      "category": "029",
+      "component_id": "singleton:lefood-0481",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0481"
+    },
+    {
+      "category": "029",
+      "component_id": "singleton:lefood-0482",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0482"
+    },
+    {
+      "category": "029",
+      "component_id": "singleton:lefood-0483",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0483"
+    },
+    {
+      "category": "029",
+      "component_id": "duplicate:dup-197ebd289b8e",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0484"
+    },
+    {
+      "category": "029",
+      "component_id": "duplicate:dup-faf29cbb02fd",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0485"
+    },
+    {
+      "category": "029",
+      "component_id": "singleton:lefood-0486",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0486"
+    },
+    {
+      "category": "029",
+      "component_id": "singleton:lefood-0487",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0487"
+    },
+    {
+      "category": "029",
+      "component_id": "singleton:lefood-0488",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0488"
+    },
+    {
+      "category": "029",
+      "component_id": "singleton:lefood-0489",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0489"
+    },
+    {
+      "category": "029",
+      "component_id": "singleton:lefood-0490",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0490"
+    },
+    {
+      "category": "029",
+      "component_id": "singleton:lefood-0491",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0491"
+    },
+    {
+      "category": "029",
+      "component_id": "singleton:lefood-0492",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0492"
+    },
+    {
+      "category": "030",
+      "component_id": "singleton:lefood-0493",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0493"
+    },
+    {
+      "category": "030",
+      "component_id": "singleton:lefood-0494",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0494"
+    },
+    {
+      "category": "030",
+      "component_id": "singleton:lefood-0495",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0495"
+    },
+    {
+      "category": "030",
+      "component_id": "singleton:lefood-0496",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0496"
+    },
+    {
+      "category": "030",
+      "component_id": "singleton:lefood-0497",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0497"
+    },
+    {
+      "category": "030",
+      "component_id": "singleton:lefood-0498",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0498"
+    },
+    {
+      "category": "030",
+      "component_id": "singleton:lefood-0499",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0499"
+    },
+    {
+      "category": "030",
+      "component_id": "singleton:lefood-0500",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0500"
+    },
+    {
+      "category": "030",
+      "component_id": "singleton:lefood-0501",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0501"
+    },
+    {
+      "category": "030",
+      "component_id": "singleton:lefood-0502",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0502"
+    },
+    {
+      "category": "030",
+      "component_id": "singleton:lefood-0503",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0503"
+    },
+    {
+      "category": "031",
+      "component_id": "singleton:lefood-0504",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0504"
+    },
+    {
+      "category": "031",
+      "component_id": "singleton:lefood-0505",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0505"
+    },
+    {
+      "category": "031",
+      "component_id": "singleton:lefood-0506",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0506"
+    },
+    {
+      "category": "031",
+      "component_id": "singleton:lefood-0507",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0507"
+    },
+    {
+      "category": "031",
+      "component_id": "singleton:lefood-0508",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0508"
+    },
+    {
+      "category": "031",
+      "component_id": "singleton:lefood-0509",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0509"
+    },
+    {
+      "category": "031",
+      "component_id": "singleton:lefood-0510",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0510"
+    },
+    {
+      "category": "031",
+      "component_id": "singleton:lefood-0511",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0511"
+    },
+    {
+      "category": "031",
+      "component_id": "singleton:lefood-0512",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0512"
+    },
+    {
+      "category": "031",
+      "component_id": "singleton:lefood-0513",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0513"
+    },
+    {
+      "category": "031",
+      "component_id": "singleton:lefood-0514",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0514"
+    },
+    {
+      "category": "031",
+      "component_id": "singleton:lefood-0515",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0515"
+    },
+    {
+      "category": "031",
+      "component_id": "singleton:lefood-0516",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0516"
+    },
+    {
+      "category": "031",
+      "component_id": "singleton:lefood-0517",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0517"
+    },
+    {
+      "category": "031",
+      "component_id": "singleton:lefood-0518",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0518"
+    },
+    {
+      "category": "031",
+      "component_id": "singleton:lefood-0519",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0519"
+    },
+    {
+      "category": "031",
+      "component_id": "singleton:lefood-0520",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0520"
+    },
+    {
+      "category": "031",
+      "component_id": "singleton:lefood-0521",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0521"
+    },
+    {
+      "category": "031",
+      "component_id": "singleton:lefood-0522",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0522"
+    },
+    {
+      "category": "031",
+      "component_id": "singleton:lefood-0523",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0523"
+    },
+    {
+      "category": "031",
+      "component_id": "singleton:lefood-0524",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0524"
+    },
+    {
+      "category": "031",
+      "component_id": "singleton:lefood-0525",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0525"
+    },
+    {
+      "category": "032",
+      "component_id": "singleton:lefood-0526",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0526"
+    },
+    {
+      "category": "032",
+      "component_id": "duplicate:dup-c67b65330d5d",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0527"
+    },
+    {
+      "category": "032",
+      "component_id": "singleton:lefood-0529",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0529"
+    },
+    {
+      "category": "033",
+      "component_id": "singleton:lefood-0530",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0530"
+    },
+    {
+      "category": "033",
+      "component_id": "singleton:lefood-0531",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0531"
+    },
+    {
+      "category": "033",
+      "component_id": "singleton:lefood-0532",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0532"
+    },
+    {
+      "category": "033",
+      "component_id": "singleton:lefood-0533",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0533"
+    },
+    {
+      "category": "033",
+      "component_id": "singleton:lefood-0534",
+      "diagnostic_fold": 2,
+      "sample_id": "lefood-0534"
+    },
+    {
+      "category": "033",
+      "component_id": "singleton:lefood-0535",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0535"
+    },
+    {
+      "category": "033",
+      "component_id": "singleton:lefood-0536",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0536"
+    },
+    {
+      "category": "033",
+      "component_id": "singleton:lefood-0537",
+      "diagnostic_fold": 3,
+      "sample_id": "lefood-0537"
+    },
+    {
+      "category": "033",
+      "component_id": "singleton:lefood-0538",
+      "diagnostic_fold": 0,
+      "sample_id": "lefood-0538"
+    },
+    {
+      "category": "033",
+      "component_id": "singleton:lefood-0539",
+      "diagnostic_fold": 1,
+      "sample_id": "lefood-0539"
+    },
+    {
+      "category": "033",
+      "component_id": "singleton:lefood-0540",
+      "diagnostic_fold": 4,
+      "sample_id": "lefood-0540"
+    }
+  ],
+  "bindings": {
+    "confirmatory_protocol_id": "9450069d1260248bb5900c20c0b0784086513573735fb408c2bd2c85bb373e8f",
+    "confirmatory_seed": 20260919,
+    "manifest_sha256": "0d8aae8e28b5aa8fcd5c35b89a40c7e90db55df893562043086485dde1f7ee16",
+    "protocol_input_hashes": {
+      "audit_report": "bd6322294895d474b1250b90e8f12c8a296ddf32156a8d5934a81367b1d63dd1",
+      "experiment_config": "58b9a9c1cdcfd4aa9dd6333f5bf29996e7123d01a7101c179b63af69166283a4",
+      "frozen_folds": "feb8143a9d8e238cefd0b60f629f7313a9962a53cca54b9c6783293ccaa4ecbe",
+      "manifest": "0d8aae8e28b5aa8fcd5c35b89a40c7e90db55df893562043086485dde1f7ee16"
+    }
+  },
+  "category_summary": {
+    "000": {
+      "atomic_component_count": 1,
+      "balanced_within_atomic_constraint": true,
+      "count_range": 1,
+      "fold_counts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 1
+      },
+      "largest_atomic_contribution": 1,
+      "maximum_populatable_folds": 1,
+      "maximum_population_achieved": true,
+      "n": 1,
+      "populated_folds": 1
+    },
+    "001": {
+      "atomic_component_count": 78,
+      "balanced_within_atomic_constraint": true,
+      "count_range": 1,
+      "fold_counts": {
+        "0": 15,
+        "1": 16,
+        "2": 16,
+        "3": 16,
+        "4": 15
+      },
+      "largest_atomic_contribution": 1,
+      "maximum_populatable_folds": 5,
+      "maximum_population_achieved": true,
+      "n": 78,
+      "populated_folds": 5
+    },
+    "002": {
+      "atomic_component_count": 74,
+      "balanced_within_atomic_constraint": true,
+      "count_range": 1,
+      "fold_counts": {
+        "0": 15,
+        "1": 15,
+        "2": 15,
+        "3": 15,
+        "4": 16
+      },
+      "largest_atomic_contribution": 3,
+      "maximum_populatable_folds": 5,
+      "maximum_population_achieved": true,
+      "n": 76,
+      "populated_folds": 5
+    },
+    "003": {
+      "atomic_component_count": 1,
+      "balanced_within_atomic_constraint": true,
+      "count_range": 1,
+      "fold_counts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 1
+      },
+      "largest_atomic_contribution": 1,
+      "maximum_populatable_folds": 1,
+      "maximum_population_achieved": true,
+      "n": 1,
+      "populated_folds": 1
+    },
+    "004": {
+      "atomic_component_count": 17,
+      "balanced_within_atomic_constraint": true,
+      "count_range": 1,
+      "fold_counts": {
+        "0": 3,
+        "1": 3,
+        "2": 3,
+        "3": 4,
+        "4": 4
+      },
+      "largest_atomic_contribution": 1,
+      "maximum_populatable_folds": 5,
+      "maximum_population_achieved": true,
+      "n": 17,
+      "populated_folds": 5
+    },
+    "005": {
+      "atomic_component_count": 2,
+      "balanced_within_atomic_constraint": true,
+      "count_range": 1,
+      "fold_counts": {
+        "0": 1,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 1
+      },
+      "largest_atomic_contribution": 1,
+      "maximum_populatable_folds": 2,
+      "maximum_population_achieved": true,
+      "n": 2,
+      "populated_folds": 2
+    },
+    "006": {
+      "atomic_component_count": 2,
+      "balanced_within_atomic_constraint": true,
+      "count_range": 1,
+      "fold_counts": {
+        "0": 0,
+        "1": 0,
+        "2": 1,
+        "3": 1,
+        "4": 0
+      },
+      "largest_atomic_contribution": 1,
+      "maximum_populatable_folds": 2,
+      "maximum_population_achieved": true,
+      "n": 2,
+      "populated_folds": 2
+    },
+    "007": {
+      "atomic_component_count": 17,
+      "balanced_within_atomic_constraint": true,
+      "count_range": 1,
+      "fold_counts": {
+        "0": 4,
+        "1": 4,
+        "2": 3,
+        "3": 3,
+        "4": 3
+      },
+      "largest_atomic_contribution": 1,
+      "maximum_populatable_folds": 5,
+      "maximum_population_achieved": true,
+      "n": 17,
+      "populated_folds": 5
+    },
+    "008": {
+      "atomic_component_count": 4,
+      "balanced_within_atomic_constraint": true,
+      "count_range": 1,
+      "fold_counts": {
+        "0": 1,
+        "1": 0,
+        "2": 1,
+        "3": 1,
+        "4": 1
+      },
+      "largest_atomic_contribution": 1,
+      "maximum_populatable_folds": 4,
+      "maximum_population_achieved": true,
+      "n": 4,
+      "populated_folds": 4
+    },
+    "009": {
+      "atomic_component_count": 20,
+      "balanced_within_atomic_constraint": true,
+      "count_range": 1,
+      "fold_counts": {
+        "0": 4,
+        "1": 4,
+        "2": 5,
+        "3": 4,
+        "4": 4
+      },
+      "largest_atomic_contribution": 2,
+      "maximum_populatable_folds": 5,
+      "maximum_population_achieved": true,
+      "n": 21,
+      "populated_folds": 5
+    },
+    "010": {
+      "atomic_component_count": 9,
+      "balanced_within_atomic_constraint": true,
+      "count_range": 1,
+      "fold_counts": {
+        "0": 2,
+        "1": 2,
+        "2": 2,
+        "3": 1,
+        "4": 2
+      },
+      "largest_atomic_contribution": 1,
+      "maximum_populatable_folds": 5,
+      "maximum_population_achieved": true,
+      "n": 9,
+      "populated_folds": 5
+    },
+    "011": {
+      "atomic_component_count": 18,
+      "balanced_within_atomic_constraint": true,
+      "count_range": 1,
+      "fold_counts": {
+        "0": 3,
+        "1": 4,
+        "2": 4,
+        "3": 3,
+        "4": 4
+      },
+      "largest_atomic_contribution": 1,
+      "maximum_populatable_folds": 5,
+      "maximum_population_achieved": true,
+      "n": 18,
+      "populated_folds": 5
+    },
+    "012": {
+      "atomic_component_count": 16,
+      "balanced_within_atomic_constraint": true,
+      "count_range": 1,
+      "fold_counts": {
+        "0": 3,
+        "1": 4,
+        "2": 3,
+        "3": 3,
+        "4": 3
+      },
+      "largest_atomic_contribution": 1,
+      "maximum_populatable_folds": 5,
+      "maximum_population_achieved": true,
+      "n": 16,
+      "populated_folds": 5
+    },
+    "013": {
+      "atomic_component_count": 22,
+      "balanced_within_atomic_constraint": true,
+      "count_range": 1,
+      "fold_counts": {
+        "0": 5,
+        "1": 4,
+        "2": 4,
+        "3": 5,
+        "4": 4
+      },
+      "largest_atomic_contribution": 1,
+      "maximum_populatable_folds": 5,
+      "maximum_population_achieved": true,
+      "n": 22,
+      "populated_folds": 5
+    },
+    "014": {
+      "atomic_component_count": 14,
+      "balanced_within_atomic_constraint": true,
+      "count_range": 1,
+      "fold_counts": {
+        "0": 2,
+        "1": 3,
+        "2": 3,
+        "3": 3,
+        "4": 3
+      },
+      "largest_atomic_contribution": 1,
+      "maximum_populatable_folds": 5,
+      "maximum_population_achieved": true,
+      "n": 14,
+      "populated_folds": 5
+    },
+    "015": {
+      "atomic_component_count": 20,
+      "balanced_within_atomic_constraint": true,
+      "count_range": 0,
+      "fold_counts": {
+        "0": 4,
+        "1": 4,
+        "2": 4,
+        "3": 4,
+        "4": 4
+      },
+      "largest_atomic_contribution": 1,
+      "maximum_populatable_folds": 5,
+      "maximum_population_achieved": true,
+      "n": 20,
+      "populated_folds": 5
+    },
+    "016": {
+      "atomic_component_count": 5,
+      "balanced_within_atomic_constraint": true,
+      "count_range": 0,
+      "fold_counts": {
+        "0": 1,
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1
+      },
+      "largest_atomic_contribution": 1,
+      "maximum_populatable_folds": 5,
+      "maximum_population_achieved": true,
+      "n": 5,
+      "populated_folds": 5
+    },
+    "017": {
+      "atomic_component_count": 5,
+      "balanced_within_atomic_constraint": true,
+      "count_range": 0,
+      "fold_counts": {
+        "0": 1,
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1
+      },
+      "largest_atomic_contribution": 1,
+      "maximum_populatable_folds": 5,
+      "maximum_population_achieved": true,
+      "n": 5,
+      "populated_folds": 5
+    },
+    "018": {
+      "atomic_component_count": 4,
+      "balanced_within_atomic_constraint": true,
+      "count_range": 1,
+      "fold_counts": {
+        "0": 1,
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 0
+      },
+      "largest_atomic_contribution": 1,
+      "maximum_populatable_folds": 4,
+      "maximum_population_achieved": true,
+      "n": 4,
+      "populated_folds": 4
+    },
+    "019": {
+      "atomic_component_count": 14,
+      "balanced_within_atomic_constraint": true,
+      "count_range": 1,
+      "fold_counts": {
+        "0": 3,
+        "1": 3,
+        "2": 3,
+        "3": 2,
+        "4": 3
+      },
+      "largest_atomic_contribution": 1,
+      "maximum_populatable_folds": 5,
+      "maximum_population_achieved": true,
+      "n": 14,
+      "populated_folds": 5
+    },
+    "020": {
+      "atomic_component_count": 6,
+      "balanced_within_atomic_constraint": true,
+      "count_range": 1,
+      "fold_counts": {
+        "0": 2,
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1
+      },
+      "largest_atomic_contribution": 1,
+      "maximum_populatable_folds": 5,
+      "maximum_population_achieved": true,
+      "n": 6,
+      "populated_folds": 5
+    },
+    "021": {
+      "atomic_component_count": 12,
+      "balanced_within_atomic_constraint": true,
+      "count_range": 1,
+      "fold_counts": {
+        "0": 2,
+        "1": 3,
+        "2": 3,
+        "3": 2,
+        "4": 2
+      },
+      "largest_atomic_contribution": 1,
+      "maximum_populatable_folds": 5,
+      "maximum_population_achieved": true,
+      "n": 12,
+      "populated_folds": 5
+    },
+    "022": {
+      "atomic_component_count": 6,
+      "balanced_within_atomic_constraint": true,
+      "count_range": 1,
+      "fold_counts": {
+        "0": 2,
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1
+      },
+      "largest_atomic_contribution": 1,
+      "maximum_populatable_folds": 5,
+      "maximum_population_achieved": true,
+      "n": 6,
+      "populated_folds": 5
+    },
+    "023": {
+      "atomic_component_count": 22,
+      "balanced_within_atomic_constraint": true,
+      "count_range": 1,
+      "fold_counts": {
+        "0": 4,
+        "1": 4,
+        "2": 5,
+        "3": 5,
+        "4": 4
+      },
+      "largest_atomic_contribution": 1,
+      "maximum_populatable_folds": 5,
+      "maximum_population_achieved": true,
+      "n": 22,
+      "populated_folds": 5
+    },
+    "024": {
+      "atomic_component_count": 21,
+      "balanced_within_atomic_constraint": true,
+      "count_range": 1,
+      "fold_counts": {
+        "0": 4,
+        "1": 5,
+        "2": 4,
+        "3": 4,
+        "4": 4
+      },
+      "largest_atomic_contribution": 1,
+      "maximum_populatable_folds": 5,
+      "maximum_population_achieved": true,
+      "n": 21,
+      "populated_folds": 5
+    },
+    "025": {
+      "atomic_component_count": 1,
+      "balanced_within_atomic_constraint": true,
+      "count_range": 1,
+      "fold_counts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 1,
+        "4": 0
+      },
+      "largest_atomic_contribution": 1,
+      "maximum_populatable_folds": 1,
+      "maximum_population_achieved": true,
+      "n": 1,
+      "populated_folds": 1
+    },
+    "026": {
+      "atomic_component_count": 19,
+      "balanced_within_atomic_constraint": true,
+      "count_range": 1,
+      "fold_counts": {
+        "0": 3,
+        "1": 4,
+        "2": 4,
+        "3": 4,
+        "4": 4
+      },
+      "largest_atomic_contribution": 1,
+      "maximum_populatable_folds": 5,
+      "maximum_population_achieved": true,
+      "n": 19,
+      "populated_folds": 5
+    },
+    "027": {
+      "atomic_component_count": 3,
+      "balanced_within_atomic_constraint": true,
+      "count_range": 1,
+      "fold_counts": {
+        "0": 1,
+        "1": 1,
+        "2": 0,
+        "3": 0,
+        "4": 1
+      },
+      "largest_atomic_contribution": 1,
+      "maximum_populatable_folds": 3,
+      "maximum_population_achieved": true,
+      "n": 3,
+      "populated_folds": 3
+    },
+    "028": {
+      "atomic_component_count": 5,
+      "balanced_within_atomic_constraint": true,
+      "count_range": 0,
+      "fold_counts": {
+        "0": 1,
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1
+      },
+      "largest_atomic_contribution": 1,
+      "maximum_populatable_folds": 5,
+      "maximum_population_achieved": true,
+      "n": 5,
+      "populated_folds": 5
+    },
+    "029": {
+      "atomic_component_count": 25,
+      "balanced_within_atomic_constraint": true,
+      "count_range": 1,
+      "fold_counts": {
+        "0": 5,
+        "1": 5,
+        "2": 5,
+        "3": 6,
+        "4": 5
+      },
+      "largest_atomic_contribution": 2,
+      "maximum_populatable_folds": 5,
+      "maximum_population_achieved": true,
+      "n": 26,
+      "populated_folds": 5
+    },
+    "030": {
+      "atomic_component_count": 11,
+      "balanced_within_atomic_constraint": true,
+      "count_range": 1,
+      "fold_counts": {
+        "0": 3,
+        "1": 2,
+        "2": 2,
+        "3": 2,
+        "4": 2
+      },
+      "largest_atomic_contribution": 1,
+      "maximum_populatable_folds": 5,
+      "maximum_population_achieved": true,
+      "n": 11,
+      "populated_folds": 5
+    },
+    "031": {
+      "atomic_component_count": 22,
+      "balanced_within_atomic_constraint": true,
+      "count_range": 1,
+      "fold_counts": {
+        "0": 4,
+        "1": 5,
+        "2": 4,
+        "3": 5,
+        "4": 4
+      },
+      "largest_atomic_contribution": 1,
+      "maximum_populatable_folds": 5,
+      "maximum_population_achieved": true,
+      "n": 22,
+      "populated_folds": 5
+    },
+    "032": {
+      "atomic_component_count": 3,
+      "balanced_within_atomic_constraint": true,
+      "count_range": 1,
+      "fold_counts": {
+        "0": 1,
+        "1": 0,
+        "2": 1,
+        "3": 1,
+        "4": 0
+      },
+      "largest_atomic_contribution": 1,
+      "maximum_populatable_folds": 3,
+      "maximum_population_achieved": true,
+      "n": 3,
+      "populated_folds": 3
+    },
+    "033": {
+      "atomic_component_count": 11,
+      "balanced_within_atomic_constraint": true,
+      "count_range": 1,
+      "fold_counts": {
+        "0": 3,
+        "1": 2,
+        "2": 2,
+        "3": 2,
+        "4": 2
+      },
+      "largest_atomic_contribution": 1,
+      "maximum_populatable_folds": 5,
+      "maximum_population_achieved": true,
+      "n": 11,
+      "populated_folds": 5
+    }
+  },
+  "counts": {
+    "atomic_components": 504,
+    "categories": 34,
+    "fold_counts": {
+      "0": 103,
+      "1": 103,
+      "2": 103,
+      "3": 103,
+      "4": 102
+    },
+    "multi_row_duplicate_components": 9,
+    "valid_rows": 514
+  },
+  "method": {
+    "balance_policy": "multi-row components first by affected-category balance; remaining singletons go to the category's least-populated fold; seeded hashes break exact ties",
+    "duplicate_policy": "all rows in a duplicate component share one fold",
+    "fold_count": 5,
+    "outcomes_used": false,
+    "small_category_policy": "populate min(5, atomic_component_count) distinct folds; folds that cannot be populated remain empty",
+    "version": "duplicate-component-balanced-greedy/v1"
+  },
+  "purpose": "same-category diagnostic only; never replaces category-disjoint primary result",
+  "schema_version": "1.0",
+  "split_id": "129580d2a5560e8ad1f82ffca99bbb10e18d876a375603bbe0c3fb4b038ea1a2",
+  "status": "frozen_pre_outcome_secondary_diagnostic"
+}

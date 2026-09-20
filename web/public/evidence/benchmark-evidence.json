@@ -1,0 +1,624 @@
+{
+  "benchmarkExamples": [
+    {
+      "afterMassG": 0,
+      "afterOnlyPrediction": 0.004163026809692383,
+      "beforeMassG": 28,
+      "category": "028",
+      "fold": 2,
+      "foodName": "Tempe goreng",
+      "id": "lefood-0461",
+      "kind": "representative_success",
+      "note": "Selected as a near-zero example with very small frozen paired-model error.",
+      "pairedPrediction": 1.7889440641738474e-05,
+      "rank": 1,
+      "target": 0.0
+    },
+    {
+      "afterMassG": 1,
+      "afterOnlyPrediction": 0.056570399552583694,
+      "beforeMassG": 174,
+      "category": "002",
+      "fold": 1,
+      "foodName": "Tim",
+      "id": "lefood-0142",
+      "kind": "representative_success",
+      "note": "Selected as a low-leftover example with very small frozen paired-model error.",
+      "pairedPrediction": 0.005009825341403484,
+      "rank": 2,
+      "target": 0.005747126436781609
+    },
+    {
+      "afterMassG": 18,
+      "afterOnlyPrediction": 0.6542222499847412,
+      "beforeMassG": 39,
+      "category": "007",
+      "fold": 4,
+      "foodName": "Ikan Acar Kuning",
+      "id": "lefood-0192",
+      "kind": "representative_success",
+      "note": "Selected as a mid-range example with a close frozen paired-model prediction.",
+      "pairedPrediction": 0.4435316324234009,
+      "rank": 3,
+      "target": 0.46153846153846156
+    },
+    {
+      "afterMassG": 24,
+      "afterOnlyPrediction": 0.746091365814209,
+      "beforeMassG": 37,
+      "category": "026",
+      "fold": 3,
+      "foodName": "Tahu bumbu kecap",
+      "id": "lefood-0441",
+      "kind": "representative_success",
+      "note": "Selected as a higher-leftover example with a close frozen paired-model prediction.",
+      "pairedPrediction": 0.6532344818115234,
+      "rank": 4,
+      "target": 0.6486486486486487
+    },
+    {
+      "afterMassG": 36,
+      "afterOnlyPrediction": 0.9816821813583374,
+      "beforeMassG": 36,
+      "category": "029",
+      "fold": 2,
+      "foodName": "Tempe bumbu bacem",
+      "id": "lefood-0489",
+      "kind": "representative_success",
+      "note": "Selected as an exact-one boundary example with very small frozen paired-model error.",
+      "pairedPrediction": 0.9999643564224243,
+      "rank": 5,
+      "target": 1.0
+    },
+    {
+      "afterMassG": 0,
+      "afterOnlyPrediction": 0.8889121413230896,
+      "beforeMassG": 37,
+      "category": "033",
+      "fold": 2,
+      "foodName": "Oseng Tahu",
+      "id": "lefood-0530",
+      "kind": "largest_error",
+      "note": "Visible food remains in the after image although the recorded after mass and target are zero. Treat as a possible image-to-mass inconsistency, not a confirmed label error.",
+      "pairedPrediction": 0.9798145890235901,
+      "rank": 1,
+      "target": 0.0
+    },
+    {
+      "afterMassG": 41,
+      "afterOnlyPrediction": 0.08678670227527618,
+      "beforeMassG": 48,
+      "category": "015",
+      "fold": 3,
+      "foodName": "Telur Mata Sapi",
+      "id": "lefood-0320",
+      "kind": "largest_error",
+      "note": "The after image appears nearly empty while the recorded target is 0.854. The observer score is also 7, so the visual and observer evidence both conflict with the mass ratio.",
+      "pairedPrediction": 0.003188706934452057,
+      "rank": 2,
+      "target": 0.8541666666666666
+    },
+    {
+      "afterMassG": 56,
+      "afterOnlyPrediction": 0.3649308979511261,
+      "beforeMassG": 56,
+      "category": "009",
+      "fold": 2,
+      "foodName": "Bali Telur",
+      "id": "lefood-0226",
+      "kind": "largest_error",
+      "note": "The intact item is translated and rotated between images, with sauce distribution changing. The target of 1.0 is visually plausible, but the paired prediction is low.",
+      "pairedPrediction": 0.16025446355342865,
+      "rank": 3,
+      "target": 1.0
+    },
+    {
+      "afterMassG": 0,
+      "afterOnlyPrediction": 0.8095113039016724,
+      "beforeMassG": 30,
+      "category": "023",
+      "fold": 4,
+      "foodName": "Bali Tahu",
+      "id": "lefood-0400",
+      "kind": "largest_error",
+      "note": "A whole item remains visible in the after image although the recorded target is zero. Do not adjudicate whether the image pairing, weighing, or interpretation is responsible.",
+      "pairedPrediction": 0.8028483986854553,
+      "rank": 4,
+      "target": 0.0
+    },
+    {
+      "afterMassG": 20,
+      "afterOnlyPrediction": 0.005281155928969383,
+      "beforeMassG": 27,
+      "category": "031",
+      "fold": 3,
+      "foodName": "Orek tempe",
+      "id": "lefood-0507",
+      "kind": "largest_error",
+      "note": "The after image appears almost empty while the mass ratio is 0.741 and the observer score is 7. This is a possible image-to-mass inconsistency and one of the narrow-interval failures.",
+      "pairedPrediction": 0.0004280311113689095,
+      "rank": 5,
+      "target": 0.7407407407407407
+    }
+  ],
+  "categoryComparisons": [
+    {
+      "afterOnlyMae": 0.009849557897439798,
+      "category": "000",
+      "pairedMae": 0.09621494052709023,
+      "pairedMinusAfterOnly": 0.08636538262965043,
+      "support": 1
+    },
+    {
+      "afterOnlyMae": 0.13147033042619985,
+      "category": "001",
+      "pairedMae": 0.13095310493004947,
+      "pairedMinusAfterOnly": -0.0005172254961503808,
+      "support": 78
+    },
+    {
+      "afterOnlyMae": 0.14960680750222358,
+      "category": "002",
+      "pairedMae": 0.15862708980216123,
+      "pairedMinusAfterOnly": 0.009020282299937649,
+      "support": 76
+    },
+    {
+      "afterOnlyMae": 0.09135103225708008,
+      "category": "003",
+      "pairedMae": 0.2789977788925171,
+      "pairedMinusAfterOnly": 0.187646746635437,
+      "support": 1
+    },
+    {
+      "afterOnlyMae": 0.03052662404283355,
+      "category": "004",
+      "pairedMae": 0.03390467192850418,
+      "pairedMinusAfterOnly": 0.003378047885670629,
+      "support": 17
+    },
+    {
+      "afterOnlyMae": 0.12033470236993096,
+      "category": "005",
+      "pairedMae": 0.07440443332869925,
+      "pairedMinusAfterOnly": -0.04593026904123171,
+      "support": 2
+    },
+    {
+      "afterOnlyMae": 0.12045493721961975,
+      "category": "006",
+      "pairedMae": 0.20808866620063782,
+      "pairedMinusAfterOnly": 0.08763372898101807,
+      "support": 2
+    },
+    {
+      "afterOnlyMae": 0.09866814787382862,
+      "category": "007",
+      "pairedMae": 0.12032662850740561,
+      "pairedMinusAfterOnly": 0.02165848063357699,
+      "support": 17
+    },
+    {
+      "afterOnlyMae": 0.06231694651075952,
+      "category": "008",
+      "pairedMae": 0.05461856541809184,
+      "pairedMinusAfterOnly": -0.007698381092667683,
+      "support": 4
+    },
+    {
+      "afterOnlyMae": 0.10113317659959146,
+      "category": "009",
+      "pairedMae": 0.1367359869191676,
+      "pairedMinusAfterOnly": 0.03560281031957614,
+      "support": 21
+    },
+    {
+      "afterOnlyMae": 0.13664442768783694,
+      "category": "010",
+      "pairedMae": 0.14849288103310718,
+      "pairedMinusAfterOnly": 0.011848453345270238,
+      "support": 9
+    },
+    {
+      "afterOnlyMae": 0.0900809716406189,
+      "category": "011",
+      "pairedMae": 0.1460645263911854,
+      "pairedMinusAfterOnly": 0.05598355475056649,
+      "support": 18
+    },
+    {
+      "afterOnlyMae": 0.16115172719432788,
+      "category": "012",
+      "pairedMae": 0.18143000848953397,
+      "pairedMinusAfterOnly": 0.02027828129520609,
+      "support": 16
+    },
+    {
+      "afterOnlyMae": 0.15437432304749707,
+      "category": "013",
+      "pairedMae": 0.08898039337725037,
+      "pairedMinusAfterOnly": -0.0653939296702467,
+      "support": 22
+    },
+    {
+      "afterOnlyMae": 0.16382600475458278,
+      "category": "014",
+      "pairedMae": 0.16096804281254393,
+      "pairedMinusAfterOnly": -0.002857961942038856,
+      "support": 14
+    },
+    {
+      "afterOnlyMae": 0.09536691755935264,
+      "category": "015",
+      "pairedMae": 0.07870166509020828,
+      "pairedMinusAfterOnly": -0.016665252469144368,
+      "support": 20
+    },
+    {
+      "afterOnlyMae": 0.06482688933610917,
+      "category": "016",
+      "pairedMae": 0.09232663496222812,
+      "pairedMinusAfterOnly": 0.027499745626118954,
+      "support": 5
+    },
+    {
+      "afterOnlyMae": 0.0707988112559812,
+      "category": "017",
+      "pairedMae": 0.1691486916145195,
+      "pairedMinusAfterOnly": 0.09834988035853831,
+      "support": 5
+    },
+    {
+      "afterOnlyMae": 0.09806086915955972,
+      "category": "018",
+      "pairedMae": 0.17809551257119607,
+      "pairedMinusAfterOnly": 0.08003464341163635,
+      "support": 4
+    },
+    {
+      "afterOnlyMae": 0.18103058476137399,
+      "category": "019",
+      "pairedMae": 0.09944174484408388,
+      "pairedMinusAfterOnly": -0.0815888399172901,
+      "support": 14
+    },
+    {
+      "afterOnlyMae": 0.09858648980507391,
+      "category": "020",
+      "pairedMae": 0.060307217499605194,
+      "pairedMinusAfterOnly": -0.038279272305468716,
+      "support": 6
+    },
+    {
+      "afterOnlyMae": 0.07662004345049413,
+      "category": "021",
+      "pairedMae": 0.061730825221011525,
+      "pairedMinusAfterOnly": -0.014889218229482602,
+      "support": 12
+    },
+    {
+      "afterOnlyMae": 0.01218211028857955,
+      "category": "022",
+      "pairedMae": 0.015450883095452029,
+      "pairedMinusAfterOnly": 0.003268772806872478,
+      "support": 6
+    },
+    {
+      "afterOnlyMae": 0.22007404083535234,
+      "category": "023",
+      "pairedMae": 0.2903102015938965,
+      "pairedMinusAfterOnly": 0.07023616075854414,
+      "support": 22
+    },
+    {
+      "afterOnlyMae": 0.04939315432687795,
+      "category": "024",
+      "pairedMae": 0.08603375418471633,
+      "pairedMinusAfterOnly": 0.03664059985783838,
+      "support": 21
+    },
+    {
+      "afterOnlyMae": 0.00672354968264699,
+      "category": "025",
+      "pairedMae": 0.0012578382156789303,
+      "pairedMinusAfterOnly": -0.0054657114669680595,
+      "support": 1
+    },
+    {
+      "afterOnlyMae": 0.07554186363090852,
+      "category": "026",
+      "pairedMae": 0.10936715100351498,
+      "pairedMinusAfterOnly": 0.033825287372606455,
+      "support": 19
+    },
+    {
+      "afterOnlyMae": 0.023216698998333635,
+      "category": "027",
+      "pairedMae": 0.028941154849153383,
+      "pairedMinusAfterOnly": 0.005724455850819748,
+      "support": 3
+    },
+    {
+      "afterOnlyMae": 0.014894984339309091,
+      "category": "028",
+      "pairedMae": 0.010564525553662163,
+      "pairedMinusAfterOnly": -0.004330458785646928,
+      "support": 5
+    },
+    {
+      "afterOnlyMae": 0.10896131481792365,
+      "category": "029",
+      "pairedMae": 0.11107592929804631,
+      "pairedMinusAfterOnly": 0.0021146144801226646,
+      "support": 26
+    },
+    {
+      "afterOnlyMae": 0.08216129017781895,
+      "category": "030",
+      "pairedMae": 0.20502274439881563,
+      "pairedMinusAfterOnly": 0.12286145422099667,
+      "support": 11
+    },
+    {
+      "afterOnlyMae": 0.1181515425909518,
+      "category": "031",
+      "pairedMae": 0.16053309772236846,
+      "pairedMinusAfterOnly": 0.04238155513141666,
+      "support": 22
+    },
+    {
+      "afterOnlyMae": 0.09122764048915283,
+      "category": "032",
+      "pairedMae": 0.09924410082663492,
+      "pairedMinusAfterOnly": 0.008016460337482087,
+      "support": 3
+    },
+    {
+      "afterOnlyMae": 0.21754943959357573,
+      "category": "033",
+      "pairedMae": 0.2973383203397901,
+      "pairedMinusAfterOnly": 0.07978888074621435,
+      "support": 11
+    }
+  ],
+  "endpointPrevalence": {
+    "caveat": "Exact zero and exact one are endpoint targets; their prevalence can make aggregate error look better than performance on interior leftover fractions.",
+    "endpointFraction": 0.49416342412451364,
+    "endpointTotal": 254,
+    "exactOne": 47,
+    "exactZero": 207,
+    "interior": 260,
+    "total": 514
+  },
+  "engineeringEvidence": {
+    "maximumPytorchOnnxDrift": 5.185604095458984e-06,
+    "modelBytes": 10355122,
+    "paritySampleCount": 8,
+    "peakMemoryMiB": 45.64192485809326,
+    "referenceBrowser": "Chrome 152.0.7977.83",
+    "warmMeasurementCount": 20,
+    "warmP95Ms": 22.119999885559082,
+    "warmupRuns": 3
+  },
+  "frozenMetrics": {
+    "afterOnlyMacroMae": 0.09785758682716902,
+    "bestNonNeuralMacroMae": 0.2515036087782471,
+    "categories": 34,
+    "evaluationSeed": 20260919,
+    "pairedMacroMae": 0.12275587386595668,
+    "pairedMicroMae": 0.13392757808175082,
+    "pairedMinusAfterOnly": 0.024898287038787673,
+    "pairedMinusAfterOnlyCi95": [
+      0.007664708956515841,
+      0.043684385882585365
+    ],
+    "pairedP90AbsoluteError": 0.38161105546813745,
+    "pairedWithinTenPoints": 0.6167315175097277,
+    "validPairs": 514,
+    "worstBroadTargetSliceMicroMae": 0.27451098263719975
+  },
+  "provenance": {
+    "kind": "derived_frozen_web_benchmark_evidence",
+    "protocolId": "9450069d1260248bb5900c20c0b0784086513573735fb408c2bd2c85bb373e8f",
+    "runId": "f1c7cfd1d13d16ecc9fc5f7d90ec9cb0394832741b3b786002c2b22be832eda4",
+    "sourceFiles": {
+      "artifacts/plategauge.onnx.evidence.json": "cea7f533fa53388345c5ea45828bc9d3dd20cc79a013c3c843b6f2d5f9268c54",
+      "configs/web_benchmark_selection.json": "3ae8aaf5539b800e9e4b4c5b51d84cf212aee059b071da4c9355994d2da5fdbd",
+      "data/manifests/lefood_v1_manifest.csv": "0d8aae8e28b5aa8fcd5c35b89a40c7e90db55df893562043086485dde1f7ee16",
+      "reports/browser_benchmark.json": "73a2ad2a4c945964b608edb4520adb9dcc97d53368e6fe9756b71691a94a3a2f",
+      "reports/error_analysis.json": "16d4cf8099e307692b102aedb1e17fda55145ec77ebf1f54426ed8028cf93df9",
+      "reports/error_review_annotations.csv": "17818944cfbc60662e10f7dcb3a8f5df3f7f9451971bba5d99792804339f8f6c",
+      "reports/experiments/confirmatory/tasks/outer.fold-0.after_only_mobilenet/workload/predictions.csv": "b63875a7aa32338ebec4ef336dce2645fd900f8ba40c2fd2bc1022facb08cc38",
+      "reports/experiments/confirmatory/tasks/outer.fold-0.paired_mobilenet/workload/predictions.csv": "cd29345129740f2e152135ded99043ea35085638b00b3e94e109c28368f64e22",
+      "reports/experiments/confirmatory/tasks/outer.fold-1.after_only_mobilenet/workload/predictions.csv": "bf6fdfc94c6ba8f06c85b34877680457d244eeb9d1ed8440b2718f8bf47bbc56",
+      "reports/experiments/confirmatory/tasks/outer.fold-1.paired_mobilenet/workload/predictions.csv": "4598215c78759e7de91eb6ef4752076ff7845758243e91a8d22866b2ddb16f1e",
+      "reports/experiments/confirmatory/tasks/outer.fold-2.after_only_mobilenet/workload/predictions.csv": "fbbe7f637a90adcddc5f3f1d000e4f4c9079bcc504a8ac9a026caee1c8b08394",
+      "reports/experiments/confirmatory/tasks/outer.fold-2.paired_mobilenet/workload/predictions.csv": "6f578d76d654ed4da123009910fb09407624963ab0976a4f1c71ba0c14a4faa8",
+      "reports/experiments/confirmatory/tasks/outer.fold-3.after_only_mobilenet/workload/predictions.csv": "d34a7bae4a6658a2d35be7aef2717c63649e724cfb695686c753b43ee67718b9",
+      "reports/experiments/confirmatory/tasks/outer.fold-3.paired_mobilenet/workload/predictions.csv": "e5f217805d8e3fa1504068666697d9d4e82a868cae79dcc35b14ab324c4b06e8",
+      "reports/experiments/confirmatory/tasks/outer.fold-4.after_only_mobilenet/workload/predictions.csv": "2b450e69ccbe5060782864d91cb3985d841f0fb85b32d1cc040c462f2e91e35a",
+      "reports/experiments/confirmatory/tasks/outer.fold-4.paired_mobilenet/workload/predictions.csv": "d4f7aa228f6b3d5f16ec541ac4558708e1e53493a3e5f2e34d02f90bc1884297",
+      "reports/results.json": "75d653292e34f1ad31118c5cf6249027ba3395f449bdcdeba717a94bc9444c12",
+      "reports/robustness.json": "ba9e75328a5066681770d952293e7828d0de4b4de1a413505bab359494314fe6"
+    },
+    "successSelectionPolicy": "Five reviewed examples selected to span the target range; this is a curated display, not a random or best-five sample."
+  },
+  "robustnessSummary": {
+    "caveat": "These measurements use the final model trained on all 514 pairs and are not a held-out generalization estimate. Misuse conditions are diagnostics, not routine robustness-gate inputs.",
+    "downgradeRequired": true,
+    "records": [
+      {
+        "categoryCount": 34,
+        "count": 514,
+        "deltaFromClean": 0.0,
+        "id": "clean",
+        "label": "Clean all-data model evaluation",
+        "macroCategoryMae": 0.11568785572290101,
+        "role": "clean_reference",
+        "thresholdBreached": false
+      },
+      {
+        "categoryCount": 34,
+        "count": 514,
+        "deltaFromClean": 0.034532527658502635,
+        "downgradeThreshold": 0.03,
+        "id": "after_gaussian_blur_sigma_1",
+        "label": "After-image Gaussian blur (sigma=1)",
+        "macroCategoryMae": 0.15022038338140364,
+        "role": "routine_perturbation",
+        "thresholdBreached": true
+      },
+      {
+        "categoryCount": 34,
+        "count": 514,
+        "deltaFromClean": 0.495383087774476,
+        "id": "misuse_same_before_image",
+        "label": "Same image supplied twice",
+        "macroCategoryMae": 0.611070943497377,
+        "misuseRule": "same_before_image",
+        "role": "misuse_test",
+        "thresholdBreached": false
+      },
+      {
+        "categoryCount": 34,
+        "count": 514,
+        "deltaFromClean": 0.04765910440937919,
+        "id": "misuse_swapped_order",
+        "label": "Before/after order swapped",
+        "macroCategoryMae": 0.1633469601322802,
+        "misuseRule": "swapped_order",
+        "role": "misuse_test",
+        "thresholdBreached": false
+      },
+      {
+        "categoryCount": 34,
+        "count": 514,
+        "deltaFromClean": 0.2784212170458907,
+        "id": "misuse_unrelated_after",
+        "label": "Unrelated after image",
+        "macroCategoryMae": 0.3941090727687917,
+        "misuseRule": "unrelated_after",
+        "role": "misuse_test",
+        "thresholdBreached": false
+      }
+    ]
+  },
+  "schemaVersion": 1,
+  "semantics": {
+    "evaluationBoundary": "All confirmatory workload and category comparisons are frozen category-disjoint outer-fold results on 514 valid LeFood pairs across categories 000-033.",
+    "macroCategoryMae": "Mean of the 34 per-category mean absolute errors; lower is better. A value of 0.10 is ten percentage points of absolute leftover-fraction error.",
+    "pairedMinusAfterOnly": "Paired-model category MAE minus after-only category MAE; positive values mean the paired model was worse.",
+    "publicClaimBoundary": "Benchmark and failure-analysis evidence only; no estimator, interval, robustness, operational, impact, smartphone, UAE, clinical, or production-validity claim.",
+    "target": "leftover fraction = recorded after mass divided by recorded before mass; 0 means none left and 1 means all left"
+  },
+  "targetSliceMetrics": [
+    {
+      "count": 207,
+      "label": "Exact zero",
+      "microMae": 0.023364543784486737
+    },
+    {
+      "count": 59,
+      "label": "(0, 0.25]",
+      "microMae": 0.10230135111089604
+    },
+    {
+      "count": 60,
+      "label": "(0.25, 0.50]",
+      "microMae": 0.19949092935414495
+    },
+    {
+      "count": 57,
+      "label": "(0.50, 0.75]",
+      "microMae": 0.27451098263719975
+    },
+    {
+      "count": 84,
+      "label": "(0.75, 1)",
+      "microMae": 0.22637132429088028
+    },
+    {
+      "count": 47,
+      "label": "Exact one",
+      "microMae": 0.24116514559755933
+    }
+  ],
+  "workloadEvidence": {
+    "contextualReferenceCount": 1,
+    "modelAndControlWorkloadCount": 7,
+    "records": [
+      {
+        "categoryCount": 34,
+        "caveat": "Contextual observer-score reference only; it is not a deployable model and is not available from the image pair alone.",
+        "count": 514,
+        "id": "observer_score_context_only",
+        "label": "Observer score",
+        "macroCategoryMae": 0.09246755947645773,
+        "role": "contextual_reference"
+      },
+      {
+        "categoryCount": 34,
+        "caveat": "Uses only the after image and is the required paired-value comparator.",
+        "count": 514,
+        "id": "after_only_mobilenet",
+        "label": "After-only MobileNet",
+        "macroCategoryMae": 0.09785758682716902,
+        "role": "required_ablation"
+      },
+      {
+        "categoryCount": 34,
+        "caveat": "Accuracy reference only; it is not the browser deployment model.",
+        "count": 514,
+        "id": "frozen_paired_dinov2",
+        "label": "Frozen paired DINOv2",
+        "macroCategoryMae": 0.10326069208068257,
+        "role": "heavy_representation_reference"
+      },
+      {
+        "categoryCount": 34,
+        "caveat": "Primary confirmatory paired model; it did not outperform the after-only ablation under the frozen category-shift protocol.",
+        "count": 514,
+        "id": "paired_mobilenet",
+        "label": "Paired MobileNet",
+        "macroCategoryMae": 0.12275587386595668,
+        "role": "primary_confirmatory_model"
+      },
+      {
+        "categoryCount": 34,
+        "caveat": "Single-task paired reproduction used as an architecture-family control.",
+        "count": 514,
+        "id": "paired_resnet50",
+        "label": "Paired ResNet-50",
+        "macroCategoryMae": 0.1599835086610811,
+        "role": "architecture_family_control"
+      },
+      {
+        "categoryCount": 34,
+        "caveat": "Best specified non-neural baseline on the same frozen outer folds.",
+        "count": 514,
+        "id": "handcrafted_ridge",
+        "label": "Handcrafted paired Ridge",
+        "macroCategoryMae": 0.2515036087782471,
+        "role": "non_neural_baseline"
+      },
+      {
+        "categoryCount": 34,
+        "caveat": "Constant prediction fitted only from each outer training partition.",
+        "count": 514,
+        "id": "training_median",
+        "label": "Training-fold median",
+        "macroCategoryMae": 0.3743778436680452,
+        "role": "constant_baseline"
+      },
+      {
+        "categoryCount": 34,
+        "caveat": "Destructive input/target mismatch in both training and evaluation; its poor result is not evidence that the before image adds predictive value.",
+        "count": 514,
+        "id": "fixed_within_category_wrong_pair",
+        "label": "Wrong-pair control",
+        "macroCategoryMae": 0.3893594497207027,
+        "role": "destructive_mismatch_control"
+      }
+    ]
+  }
+}

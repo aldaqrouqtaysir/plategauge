@@ -1,0 +1,137 @@
+{
+  "changes_frozen_results": false,
+  "conclusion": {
+    "direction_reversed": false,
+    "paired_still_worse_than_after_only": true
+  },
+  "confirmatory": false,
+  "evidence_sha256": "b394fb69a7c9d32468457df6f91224734db7dddfbf16bee4c01b46abb7e9ee09",
+  "excluded_count": 4,
+  "excluded_sample_ids": [
+    "lefood-0320",
+    "lefood-0400",
+    "lefood-0507",
+    "lefood-0530"
+  ],
+  "interpretation": "The exclusions were chosen after visual review and cannot support a new confirmatory estimate. They test only whether the central paired-versus-after-only direction reverses under this declared omission.",
+  "kind": "posthoc_visual_discordance_sensitivity",
+  "original": {
+    "after_only_mobilenet": {
+      "category_count": 34,
+      "macro_category_mae": 0.09785758682716902,
+      "median_absolute_error": 0.0626399403769676,
+      "micro_mae": 0.11957294086505867,
+      "n": 514,
+      "p90_absolute_error": 0.30528636873062015,
+      "rmse": 0.18618388632711544,
+      "signed_bias": 0.013081102931571465,
+      "spearman": 0.8757046570482484,
+      "within_0_10": 0.5894941634241245,
+      "within_0_20": 0.7898832684824902
+    },
+    "paired_minus_after_only_macro_category_mae": 0.02489828703878766,
+    "paired_mobilenet": {
+      "category_count": 34,
+      "macro_category_mae": 0.12275587386595668,
+      "median_absolute_error": 0.055020540207624424,
+      "micro_mae": 0.13392757808175082,
+      "n": 514,
+      "p90_absolute_error": 0.38161105546813745,
+      "rmse": 0.2196864149443202,
+      "signed_bias": -0.06024387698451169,
+      "spearman": 0.8548378735024158,
+      "within_0_10": 0.6167315175097277,
+      "within_0_20": 0.72568093385214
+    }
+  },
+  "retained_count": 510,
+  "schema_version": "1.0",
+  "sensitivity_after_exclusion": {
+    "after_only_mobilenet": {
+      "category_count": 34,
+      "macro_category_mae": 0.09315260329606655,
+      "median_absolute_error": 0.06067587124264756,
+      "micro_mae": 0.11423378158865144,
+      "n": 510,
+      "p90_absolute_error": 0.29998220412098636,
+      "rmse": 0.17287803566896323,
+      "signed_bias": 0.012800201981972813,
+      "spearman": 0.8921711699451075,
+      "within_0_10": 0.5941176470588235,
+      "within_0_20": 0.796078431372549
+    },
+    "paired_minus_after_only_macro_category_mae": 0.02487065641104165,
+    "paired_mobilenet": {
+      "category_count": 34,
+      "macro_category_mae": 0.1180232597071082,
+      "median_absolute_error": 0.05219951195380243,
+      "micro_mae": 0.12836239505284178,
+      "n": 510,
+      "p90_absolute_error": 0.37344096899032597,
+      "rmse": 0.20736394817871573,
+      "signed_bias": -0.06109161782036562,
+      "spearman": 0.8752098846264482,
+      "within_0_10": 0.6215686274509804,
+      "within_0_20": 0.7313725490196078
+    }
+  },
+  "sources": {
+    "after_only_mobilenet": [
+      {
+        "outer_fold": "0",
+        "path": "tasks/outer.fold-0.after_only_mobilenet/workload/predictions.csv",
+        "sha256": "b63875a7aa32338ebec4ef336dce2645fd900f8ba40c2fd2bc1022facb08cc38"
+      },
+      {
+        "outer_fold": "1",
+        "path": "tasks/outer.fold-1.after_only_mobilenet/workload/predictions.csv",
+        "sha256": "bf6fdfc94c6ba8f06c85b34877680457d244eeb9d1ed8440b2718f8bf47bbc56"
+      },
+      {
+        "outer_fold": "2",
+        "path": "tasks/outer.fold-2.after_only_mobilenet/workload/predictions.csv",
+        "sha256": "fbbe7f637a90adcddc5f3f1d000e4f4c9079bcc504a8ac9a026caee1c8b08394"
+      },
+      {
+        "outer_fold": "3",
+        "path": "tasks/outer.fold-3.after_only_mobilenet/workload/predictions.csv",
+        "sha256": "d34a7bae4a6658a2d35be7aef2717c63649e724cfb695686c753b43ee67718b9"
+      },
+      {
+        "outer_fold": "4",
+        "path": "tasks/outer.fold-4.after_only_mobilenet/workload/predictions.csv",
+        "sha256": "2b450e69ccbe5060782864d91cb3985d841f0fb85b32d1cc040c462f2e91e35a"
+      }
+    ],
+    "analysis_code_path": "src/plategauge/label_sensitivity.py",
+    "analysis_code_sha256": "dd2bdd3898e959c9d9340508f946670348fe9a0e8906ebba763016868c2270eb",
+    "paired_mobilenet": [
+      {
+        "outer_fold": "0",
+        "path": "tasks/outer.fold-0.paired_mobilenet/workload/predictions.csv",
+        "sha256": "cd29345129740f2e152135ded99043ea35085638b00b3e94e109c28368f64e22"
+      },
+      {
+        "outer_fold": "1",
+        "path": "tasks/outer.fold-1.paired_mobilenet/workload/predictions.csv",
+        "sha256": "4598215c78759e7de91eb6ef4752076ff7845758243e91a8d22866b2ddb16f1e"
+      },
+      {
+        "outer_fold": "2",
+        "path": "tasks/outer.fold-2.paired_mobilenet/workload/predictions.csv",
+        "sha256": "6f578d76d654ed4da123009910fb09407624963ab0976a4f1c71ba0c14a4faa8"
+      },
+      {
+        "outer_fold": "3",
+        "path": "tasks/outer.fold-3.paired_mobilenet/workload/predictions.csv",
+        "sha256": "e5f217805d8e3fa1504068666697d9d4e82a868cae79dcc35b14ab324c4b06e8"
+      },
+      {
+        "outer_fold": "4",
+        "path": "tasks/outer.fold-4.paired_mobilenet/workload/predictions.csv",
+        "sha256": "d4f7aa228f6b3d5f16ec541ac4558708e1e53493a3e5f2e34d02f90bc1884297"
+      }
+    ]
+  },
+  "status": "complete"
+}

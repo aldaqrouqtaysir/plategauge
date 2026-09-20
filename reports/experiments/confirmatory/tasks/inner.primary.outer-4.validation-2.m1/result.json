@@ -1,0 +1,29 @@
+{
+  "artifacts": [
+    {
+      "path": "workload/checkpoint.pt",
+      "role": "checkpoint",
+      "sha256": "caee5105d7c8f2787fc5b308ba910a814f81660eaaa8399338ab8ad7f094be8c",
+      "size_bytes": 10426761
+    },
+    {
+      "path": "workload/validation_predictions.csv",
+      "role": "validation_predictions",
+      "sha256": "204f8e7e4bd762ba914c7cda2e75a5badb08f373c57fe56acd7ae8b465a75f54",
+      "size_bytes": 11574
+    }
+  ],
+  "payload": {
+    "best_epoch": 5,
+    "macro_category_mae": 0.10329993242880958,
+    "training_count": 309,
+    "validation_count": 103
+  },
+  "payload_sha256": "7835cad2ffe6ad9e84d173b8b14538cc7ed42b81011bfe69354906e44049d7e2",
+  "protocol_id": "9450069d1260248bb5900c20c0b0784086513573735fb408c2bd2c85bb373e8f",
+  "runner_fingerprint": "89e6eaafe67abd780b399984bd3bf326696d4a8dda8b6cbaffd0ba95f242a5ca",
+  "schema_version": "1.0",
+  "status": "complete",
+  "task_id": "inner.primary.outer-4.validation-2.m1",
+  "task_spec_sha256": "efa9b81d6c2b06ed138665f4aa3c6c75d87dd9a8d25d8da61c2774f3e106a673"
+}

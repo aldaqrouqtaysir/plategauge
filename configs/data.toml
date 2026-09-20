@@ -1,0 +1,21 @@
+schema_version = "1.0"
+dataset_name = "LeFood-Set v1"
+doi = "10.17632/cchsk79jkt.1"
+license = "CC BY 4.0"
+default_root = "data/raw/lefood-v1/LeFood-Set Leftovers Food Dataset/LeFood-Set"
+workbook = "data_original.xlsx"
+image_directory = "leftover dataset"
+expected_workbook_rows = 678
+expected_matched_pairs = 524
+expected_missing_image_rows = 154
+expected_invalid_mass_pairs = 10
+expected_valid_pairs = 514
+expected_categories = 34
+
+[duplicate_detection]
+phash_size = 8
+phash_source_size = 32
+maximum_hamming_distance = 4
+ssim_window_size = 11
+ssim_gaussian_sigma = 1.5
+minimum_ssim = 0.995

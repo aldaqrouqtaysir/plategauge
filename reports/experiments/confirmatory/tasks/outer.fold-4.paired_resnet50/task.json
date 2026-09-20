@@ -1,0 +1,49 @@
+{
+  "evaluation_fold": 4,
+  "expected_counts": {
+    "prediction_count": 102,
+    "training_count": 412
+  },
+  "outer_fold": 4,
+  "parameters": {
+    "batch_size": 32,
+    "configuration": "M1",
+    "dropout": 0.2,
+    "encoder_learning_rate": 3e-05,
+    "epoch": 8,
+    "fixed_recipe": "M1_with_primary_selected_epoch",
+    "freeze_encoder_epochs": 5,
+    "gradient_clip": 1.0,
+    "head_learning_rate": 0.0003,
+    "input_size": 224,
+    "interval_loss_weight": 0.5,
+    "maximum_epochs": 80,
+    "outer_open_policy": "open_once_after_inner_selection",
+    "patience": 12,
+    "pretrained_artifact": {
+      "checkpoint": "resnet50.a1_in1k",
+      "filename": "model.safetensors",
+      "license": "Apache-2.0",
+      "repository": "timm/resnet50.a1_in1k",
+      "revision": "93271f4677dbf7b4d7f7e7d9d7811bd66c327e56",
+      "sha256": "773525d5821de224f8f30c33377b7a795d7863e08522698200d3217d3f2a41bb",
+      "size_bytes": 102469840
+    },
+    "seed": 20260919,
+    "selection_metric": "macro_category_mae",
+    "weight_decay": 0.0001
+  },
+  "required_artifact_roles": [
+    "predictions"
+  ],
+  "stage": "outer",
+  "task_id": "outer.fold-4.paired_resnet50",
+  "training_folds": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "validation_folds": [],
+  "workload": "paired_resnet50"
+}

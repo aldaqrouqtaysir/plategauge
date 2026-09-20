@@ -1,0 +1,26 @@
+{
+  "evaluation_fold": 4,
+  "expected_counts": {
+    "prediction_count": 102,
+    "training_count": 412
+  },
+  "outer_fold": 4,
+  "parameters": {
+    "fit_scope": "development_targets_only",
+    "outer_open_policy": "open_once_after_inner_selection",
+    "seed": 20260919
+  },
+  "required_artifact_roles": [
+    "predictions"
+  ],
+  "stage": "outer",
+  "task_id": "outer.fold-4.training_median",
+  "training_folds": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "validation_folds": [],
+  "workload": "training_median"
+}

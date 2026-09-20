@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "status": "LOCAL_REVIEW_DRAFT_NOT_RELEASED",
+  "generatedDate": "2026-09-20",
+  "source": {
+    "productForm": "benchmark_failure_explorer",
+    "localPreviewUrl": "redacted; capture restricted to 127.0.0.1",
+    "modelSha256": "9c830e80cab86acd85c5b27b5733126594561844d0398d602a039c68befbd675",
+    "productionInventorySha256": "19bddecb77d6af2fef39fd47e6d6954398ab9b909f58a7dab23302d8b8684485",
+    "staticBundleAuditVerified": true,
+    "staticBundleAuditSha256": "8ee2a409f2f109561598435b3c5c8cd69e662d6b299113024bbb14be507f4417"
+  },
+  "files": [
+    {
+      "filename": "01-question-and-boundary.png",
+      "description": "Benchmark question, primary negative finding, and non-estimator boundary.",
+      "selector": "#top",
+      "bytes": 473570,
+      "sha256": "fc7c5e8ac75e687fda9d3694ed74825082cd038b4c0dbc42caa2841d2a1ad47b"
+    },
+    {
+      "filename": "02-frozen-results.png",
+      "description": "Frozen paired-versus-after-only result and release-gate summary.",
+      "selector": "#results",
+      "bytes": 274111,
+      "sha256": "7d86fcc80a6c219df5bba0268c8ce14c3ba0b8a3e59a71c14fcfc2465feb997b"
+    },
+    {
+      "filename": "03-selected-success.png",
+      "description": "Disclosed close-error benchmark example with both model comparisons.",
+      "selector": "#explorer",
+      "bytes": 317927,
+      "sha256": "530aebff6182bd55075bbb0e286f534db0efb33b83731339d95c905f9f05444c"
+    },
+    {
+      "filename": "plategauge-full-page-review.png",
+      "description": "Full local review page with the default disclosed success selected.",
+      "selector": "full page",
+      "bytes": 1231282,
+      "sha256": "87b279b3d995e93d2de1f01a08ca7b402aa1462c3bb30c345acee0a73225e892"
+    },
+    {
+      "filename": "04-largest-failure.png",
+      "description": "Disclosed large-error benchmark example with limitations visible.",
+      "selector": "#explorer",
+      "bytes": 334767,
+      "sha256": "c967e9c8844e406653b09239cd205748e7e7abc1ab893010a34b3dd9c30f9d8b"
+    },
+    {
+      "filename": "05-category-shift-method.png",
+      "description": "Frozen category-disjoint method and honest comparison design.",
+      "selector": "#method",
+      "bytes": 45281,
+      "sha256": "f738aee7ae03647c6312f23d55da540208fda196551fd7431888c3fe7f427dde"
+    },
+    {
+      "filename": "06-limits-and-attribution.png",
+      "description": "Unsupported claims, external-validity boundary, and LeFood attribution.",
+      "selector": "#limits + .attribution-section",
+      "bytes": 67198,
+      "sha256": "b6eea31f2196d4fbb8e240ce4027a4549b9739e8aecffa3ad3b0892aaea9b1d2"
+    },
+    {
+      "filename": "plategauge-social-preview-1280x640.png",
+      "description": "GitHub-compatible social preview from the exact local candidate.",
+      "selector": "#top (1280x640 crop)",
+      "bytes": 398427,
+      "sha256": "b146bb2e1ee5d84eadd88188466a706ea8c6c5bc093c370695e373e7bd813116"
+    }
+  ],
+  "boundaries": [
+    "Generated from the exact local benchmark/failure-explorer build.",
+    "No arbitrary-image estimator or new numeric result is shown.",
+    "Bundled LeFood example images retain the repository NOTICE and CC BY 4.0 attribution.",
+    "These files are review assets, not evidence of release approval or deployment."
+  ]
+}

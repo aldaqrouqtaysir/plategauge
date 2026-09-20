@@ -1,0 +1,26 @@
+{
+  "evaluation_fold": 0,
+  "expected_counts": {
+    "prediction_count": 103,
+    "training_count": 411
+  },
+  "outer_fold": 0,
+  "parameters": {
+    "alpha": 10.0,
+    "outer_open_policy": "open_once_after_inner_selection",
+    "seed": 20260919
+  },
+  "required_artifact_roles": [
+    "predictions"
+  ],
+  "stage": "outer",
+  "task_id": "outer.fold-0.handcrafted_ridge",
+  "training_folds": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "validation_folds": [],
+  "workload": "handcrafted_ridge"
+}

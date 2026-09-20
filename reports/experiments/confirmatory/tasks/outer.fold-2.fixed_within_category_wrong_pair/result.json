@@ -1,0 +1,37 @@
+{
+  "artifacts": [
+    {
+      "path": "workload/pairing_map.csv",
+      "role": "pairing_map",
+      "sha256": "fca6acfe64fe32b4433652ebb73be500d8df767dd70b21c4dcb02e2b0061e010",
+      "size_bytes": 87718
+    },
+    {
+      "path": "workload/predictions.csv",
+      "role": "predictions",
+      "sha256": "d0119e46cc9b5c4c002da87c69ac20aa1a96547f5a433b67cff7e7eda51d11ad",
+      "size_bytes": 13228
+    }
+  ],
+  "payload": {
+    "macro_category_mae": 0.3512138845352757,
+    "prediction_count": 103,
+    "singleton_fallback_count": 6,
+    "singleton_fallback_sample_ids": [
+      "lefood-0001",
+      "lefood-0159",
+      "lefood-0178",
+      "lefood-0182",
+      "lefood-0227",
+      "lefood-0434"
+    ],
+    "training_count": 411
+  },
+  "payload_sha256": "180c93c89f84aa0f0889290132f2086d558c341fe2fc2a329ea773ec2493615e",
+  "protocol_id": "9450069d1260248bb5900c20c0b0784086513573735fb408c2bd2c85bb373e8f",
+  "runner_fingerprint": "89e6eaafe67abd780b399984bd3bf326696d4a8dda8b6cbaffd0ba95f242a5ca",
+  "schema_version": "1.0",
+  "status": "complete",
+  "task_id": "outer.fold-2.fixed_within_category_wrong_pair",
+  "task_spec_sha256": "ed7e2c4a53fc1ee274f1a6c08922c7cba17d05eac983f91a8f8f9ad92b9a310a"
+}

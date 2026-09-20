@@ -1,0 +1,132 @@
+{
+  "all_row_mixed_context": {
+    "category_count": 34,
+    "macro_category_mae": 0.10571025119863885,
+    "median_absolute_error": 0.047815876400077784,
+    "micro_mae": 0.11415260537084723,
+    "n": 514,
+    "p90_absolute_error": 0.3024121619151823,
+    "rmse": 0.18757433854446917,
+    "signed_bias": -0.039661565790825304,
+    "spearman": 0.8650270503759124,
+    "within_0_10": 0.6264591439688716,
+    "within_0_20": 0.7684824902723736
+  },
+  "coverage": {
+    "all_categories": 34,
+    "all_rows": 514,
+    "seen_categories": 31,
+    "seen_category_rows": 511,
+    "unseen_category_rows": 3,
+    "unseen_sample_ids": [
+      "lefood-0001",
+      "lefood-0159",
+      "lefood-0434"
+    ]
+  },
+  "decision_role": "context_only_no_release_gate",
+  "interpretation": {
+    "positive_gap": "category-disjoint evaluation had higher macro-category MAE",
+    "recipe_caveat": "The same five fold-index recipes are reused, but an individual sample may be scored under a different fold recipe across regimes.",
+    "scope": "Observed CV performance gap under the matched five-recipe protocol; not a causal estimate and not a replacement for the primary result."
+  },
+  "interval_status": "raw_quantiles_not_calibrated_or_evaluated_for_interval_claims",
+  "kind": "secondary_same_category_diagnostic",
+  "matched_seen_category_estimand": {
+    "category_disjoint_primary": {
+      "category_count": 31,
+      "macro_category_mae": 0.12249126302604002,
+      "median_absolute_error": 0.05437490940093992,
+      "micro_mae": 0.13397711267394258,
+      "n": 511,
+      "p90_absolute_error": 0.3817785978317261,
+      "rmse": 0.2199432033549226,
+      "signed_bias": -0.05986574929321933,
+      "spearman": 0.8543682561431513,
+      "within_0_10": 0.6164383561643836,
+      "within_0_20": 0.726027397260274
+    },
+    "observed_gap_category_disjoint_minus_same_category": 0.01809427964160802,
+    "paired_category_bootstrap_primary_minus_same_category": {
+      "estimate_a_minus_b": 0.018094279641608046,
+      "lower_95": -0.0009412969421444412,
+      "metric": "macro_category_mae",
+      "replicates": 10000,
+      "seed": 20260919,
+      "upper_95": 0.03899995097197909
+    },
+    "same_category": {
+      "category_count": 31,
+      "macro_category_mae": 0.104396983384432,
+      "median_absolute_error": 0.04691747198366136,
+      "micro_mae": 0.11412249922657368,
+      "n": 511,
+      "p90_absolute_error": 0.30252000192801154,
+      "rmse": 0.18776778728443022,
+      "signed_bias": -0.03938500930852219,
+      "spearman": 0.8649498865210001,
+      "within_0_10": 0.6262230919765166,
+      "within_0_20": 0.7690802348336595
+    }
+  },
+  "run_id": "5a6f6c490737da6284e81b6c88f82d24308c96ceb60609ae3975697a26d47e5c",
+  "schema_version": "1.0",
+  "sources": {
+    "confirmatory_primary_tasks": [
+      {
+        "predictions_sha256": "cd29345129740f2e152135ded99043ea35085638b00b3e94e109c28368f64e22",
+        "result_sha256": "58a4c57d725ac99b112b475847ca9a0c7bd19e071ca5c9aa2664057ab1bdcbe8",
+        "task_id": "outer.fold-0.paired_mobilenet"
+      },
+      {
+        "predictions_sha256": "4598215c78759e7de91eb6ef4752076ff7845758243e91a8d22866b2ddb16f1e",
+        "result_sha256": "a5bd9b404275e81063892093ecaf54262121a1b860b0ca9b9db9e79ff740a6a3",
+        "task_id": "outer.fold-1.paired_mobilenet"
+      },
+      {
+        "predictions_sha256": "6f578d76d654ed4da123009910fb09407624963ab0976a4f1c71ba0c14a4faa8",
+        "result_sha256": "00982618867f18cfaa0b2681f6f07cbc11fb6baff650a404bd313ccfb4eb1708",
+        "task_id": "outer.fold-2.paired_mobilenet"
+      },
+      {
+        "predictions_sha256": "e5f217805d8e3fa1504068666697d9d4e82a868cae79dcc35b14ab324c4b06e8",
+        "result_sha256": "9ac0aa4bc83503df2d602b16b197916964c831adb48ed250cd262cb224dee9a2",
+        "task_id": "outer.fold-3.paired_mobilenet"
+      },
+      {
+        "predictions_sha256": "d4f7aa228f6b3d5f16ec541ac4558708e1e53493a3e5f2e34d02f90bc1884297",
+        "result_sha256": "51b8b41367765b69a71c1cc5c49607133f22f28f92dac016e35ca41bb827610d",
+        "task_id": "outer.fold-4.paired_mobilenet"
+      }
+    ],
+    "diagnostic_tasks": [
+      {
+        "predictions_sha256": "40c75f1c280395343a02c0d8e7cfcaae25e5cc530f855cc744d3e59e5b5aaf52",
+        "result_sha256": "ad2a290c94152199f9fac5137d758a19368371a03933834996a64de44bcddcbf",
+        "task_id": "same-category.fold-0.paired_mobilenet"
+      },
+      {
+        "predictions_sha256": "23a18b224d40514013a9d3e5b9bedf9c3eae2f511e8887fb979775a77f08df68",
+        "result_sha256": "94b87d4a89018202b6546d73ef0a1ec788beb67f99ad32cd12e99365b922ad7c",
+        "task_id": "same-category.fold-1.paired_mobilenet"
+      },
+      {
+        "predictions_sha256": "388cb9a56771e4aecc5b3240e9c81374dc8d6a678e606846eb96efe69d46a1a5",
+        "result_sha256": "7e1e9ca12a209e53f5dd53ce9afd560711fca2b394c9d2560d3eb54be380234e",
+        "task_id": "same-category.fold-2.paired_mobilenet"
+      },
+      {
+        "predictions_sha256": "d75cc04151d4f9c1d12e73bad39a29854a5f6a05f146332f7a66e35dcb903644",
+        "result_sha256": "8f3699346d5e9c60f2858cd530fcd5499fa7ef672b00ab211c61d6acad3cc013",
+        "task_id": "same-category.fold-3.paired_mobilenet"
+      },
+      {
+        "predictions_sha256": "ea2ba8c41203981ade9b1100b2eca83339b363fb82c28b5407c75d40ff237172",
+        "result_sha256": "651773716d2208a33d36e9b05f5f1f057162baa987345e08134cec33b79dc4f9",
+        "task_id": "same-category.fold-4.paired_mobilenet"
+      }
+    ]
+  },
+  "split_id": "129580d2a5560e8ad1f82ffca99bbb10e18d876a375603bbe0c3fb4b038ea1a2",
+  "status": "complete"
+}

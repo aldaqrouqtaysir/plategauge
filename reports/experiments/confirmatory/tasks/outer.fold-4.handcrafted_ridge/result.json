@@ -1,0 +1,22 @@
+{
+  "artifacts": [
+    {
+      "path": "workload/predictions.csv",
+      "role": "predictions",
+      "sha256": "e44d4367f2f3f85f6ed2f85875b90dfc0bbed66cb9b9989b7be41a322d4705f9",
+      "size_bytes": 10176
+    }
+  ],
+  "payload": {
+    "macro_category_mae": 0.2835288273977062,
+    "prediction_count": 102,
+    "training_count": 412
+  },
+  "payload_sha256": "3e5a62927852a1f954a28fd8db8cb8b2c17e16f25149c368c605afccb5f6c68c",
+  "protocol_id": "9450069d1260248bb5900c20c0b0784086513573735fb408c2bd2c85bb373e8f",
+  "runner_fingerprint": "89e6eaafe67abd780b399984bd3bf326696d4a8dda8b6cbaffd0ba95f242a5ca",
+  "schema_version": "1.0",
+  "status": "complete",
+  "task_id": "outer.fold-4.handcrafted_ridge",
+  "task_spec_sha256": "7f2e5421ffc4763692b208b5072cf746b7a6a64f08d4e41c2b5ed5334181aa88"
+}

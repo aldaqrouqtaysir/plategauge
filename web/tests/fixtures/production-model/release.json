@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "modelVersion": "integration-fixture/v1-not-for-release",
+  "modelPath": "models/plategauge.onnx",
+  "modelSha256": "a093cd474fc3dd65111a455d92a97582631f9de4d96afff264643abc821c8413",
+  "beforeInputName": "before",
+  "afterInputName": "after",
+  "outputName": "quantiles",
+  "calibration": {
+    "lowerExpansion": 0,
+    "upperExpansion": 0,
+    "abstentionWidth": 1,
+    "intervalGatePassed": true
+  }
+}

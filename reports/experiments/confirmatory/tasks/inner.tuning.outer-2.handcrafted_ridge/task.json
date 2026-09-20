@@ -1,0 +1,43 @@
+{
+  "evaluation_fold": null,
+  "expected_counts": {
+    "development_count": 411
+  },
+  "outer_fold": 2,
+  "parameters": {
+    "alphas": [
+      0.01,
+      0.1,
+      1.0,
+      10.0,
+      100.0
+    ],
+    "nested_validation_folds": [
+      0,
+      1,
+      3,
+      4
+    ],
+    "seed": 20260919,
+    "selection_metric": "mean_inner_macro_category_mae",
+    "tie_break": "smallest_alpha"
+  },
+  "required_artifact_roles": [
+    "oof_predictions"
+  ],
+  "stage": "inner_tuning",
+  "task_id": "inner.tuning.outer-2.handcrafted_ridge",
+  "training_folds": [
+    0,
+    1,
+    3,
+    4
+  ],
+  "validation_folds": [
+    0,
+    1,
+    3,
+    4
+  ],
+  "workload": "handcrafted_ridge"
+}

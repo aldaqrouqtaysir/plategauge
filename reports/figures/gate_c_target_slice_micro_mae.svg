@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="720" viewBox="0 0 1100 720" role="img" aria-labelledby="paired-target-slice-mae-title paired-target-slice-mae-description">
+<title id="paired-target-slice-mae-title">Paired MobileNet micro-MAE by leftover-fraction slice</title>
+<desc id="paired-target-slice-mae-description">Bars show micro mean absolute error for six mutually exclusive target slices. The public numeric-demo gate is 0.15. Exact values: 0=0.023364543784486737; (0, 0.25]=0.10230135111089604; (0.25, 0.50]=0.19949092935414495; (0.50, 0.75]=0.27451098263719975; (0.75, 1)=0.22637132429088028; 1=0.24116514559755933.</desc>
+<style>
+text{font-family:Inter,Segoe UI,Arial,sans-serif;fill:#172033}.title{font-size:25px;font-weight:700}.subtitle{font-size:14px;fill:#475569}.axis{font-size:13px;fill:#334155}.tick{font-size:12px;fill:#475569}.value{font-size:12px;font-weight:650}.category{font-size:10px;font-weight:650}.note{font-size:12px;fill:#475569}.grid{stroke:#dbe3ec;stroke-width:1}.axis-line{stroke:#64748b;stroke-width:1.25}
+</style>
+<rect width="1100" height="720" fill="#ffffff"/>
+<metadata id="paired-target-slice-mae-metadata">{"figure_id":"paired-target-slice-mae","schema_version":"1.0","sources":{"manifest_sha256":"0d8aae8e28b5aa8fcd5c35b89a40c7e90db55df893562043086485dde1f7ee16","protocol_id":"9450069d1260248bb5900c20c0b0784086513573735fb408c2bd2c85bb373e8f","results_sha256":"75d653292e34f1ad31118c5cf6249027ba3395f449bdcdeba717a94bc9444c12","robustness_evidence_sha256":"f62a467bfa64e74c904143e3e72bce99d53f4bd97fce8419ae60f855d0cfe0c2","robustness_sha256":"ba9e75328a5066681770d952293e7828d0de4b4de1a413505bab359494314fe6","run_descriptor_sha256":"a38e21c55a46449a275f36caea564ae0da57ba25606ea6ae0baf8e0f7c1ef2f8","run_id":"f1c7cfd1d13d16ecc9fc5f7d90ec9cb0394832741b3b786002c2b22be832eda4"},"values":[{"micro_mae":0.023364543784486737,"target_slice":"zero"},{"micro_mae":0.10230135111089604,"target_slice":"(0,.25]"},{"micro_mae":0.19949092935414495,"target_slice":"(.25,.50]"},{"micro_mae":0.27451098263719975,"target_slice":"(.50,.75]"},{"micro_mae":0.22637132429088028,"target_slice":"(.75,1)"},{"micro_mae":0.24116514559755933,"target_slice":"one"}]}</metadata>
+<text class="title" x="54" y="48">Error across leftover-fraction slices</text>
+<text class="subtitle" x="54" y="73">Paired MobileNet · micro-MAE · lower is better</text>
+<line class="grid" x1="102.0" y1="574" x2="1036.0" y2="574"/>
+<text class="tick" text-anchor="end" x="88" y="578">0.00</text>
+<line class="grid" x1="102.0" y1="496.333" x2="1036.0" y2="496.333"/>
+<text class="tick" text-anchor="end" x="88" y="500.333">0.05</text>
+<line class="grid" x1="102.0" y1="418.667" x2="1036.0" y2="418.667"/>
+<text class="tick" text-anchor="end" x="88" y="422.667">0.10</text>
+<line class="grid" x1="102.0" y1="341" x2="1036.0" y2="341"/>
+<text class="tick" text-anchor="end" x="88" y="345">0.15</text>
+<line class="grid" x1="102.0" y1="263.333" x2="1036.0" y2="263.333"/>
+<text class="tick" text-anchor="end" x="88" y="267.333">0.20</text>
+<line class="grid" x1="102.0" y1="185.667" x2="1036.0" y2="185.667"/>
+<text class="tick" text-anchor="end" x="88" y="189.667">0.25</text>
+<line class="grid" x1="102.0" y1="108" x2="1036.0" y2="108"/>
+<text class="tick" text-anchor="end" x="88" y="112">0.30</text>
+<line x1="102.0" y1="341" x2="1036.0" y2="341" stroke="#b91c1c" stroke-width="2" stroke-dasharray="8 6"><title>Public numeric-demo slice gate: 0.15</title></line>
+<text class="value" text-anchor="end" x="1036.0" y="332" fill="#991b1b">public gate 0.15</text>
+<rect x="133.833" y="537.707" width="92.0" height="36.293" rx="5" fill="#0f766e" data-target-slice="zero" data-value="0.023364543784486737"><title>0: micro-MAE 0.023364543784486737</title></rect>
+<text class="value" text-anchor="middle" x="179.833" y="527.707">0.023</text>
+<text class="axis" text-anchor="middle" x="179.833" y="602">0</text>
+<rect x="289.5" y="415.092" width="92.0" height="158.908" rx="5" fill="#0f766e" data-target-slice="(0,.25]" data-value="0.10230135111089604"><title>(0, 0.25]: micro-MAE 0.10230135111089604</title></rect>
+<text class="value" text-anchor="middle" x="335.5" y="405.092">0.102</text>
+<text class="axis" text-anchor="middle" x="335.5" y="602">(0, 0.25]</text>
+<rect x="445.167" y="264.124" width="92.0" height="309.876" rx="5" fill="#c2410c" data-target-slice="(.25,.50]" data-value="0.19949092935414495"><title>(0.25, 0.50]: micro-MAE 0.19949092935414495</title></rect>
+<text class="value" text-anchor="middle" x="491.167" y="254.124">0.199</text>
+<text class="axis" text-anchor="middle" x="491.167" y="602">(0.25, 0.50]</text>
+<rect x="600.833" y="147.593" width="92.0" height="426.407" rx="5" fill="#c2410c" data-target-slice="(.50,.75]" data-value="0.27451098263719975"><title>(0.50, 0.75]: micro-MAE 0.27451098263719975</title></rect>
+<text class="value" text-anchor="middle" x="646.833" y="137.593">0.275</text>
+<text class="axis" text-anchor="middle" x="646.833" y="602">(0.50, 0.75]</text>
+<rect x="756.5" y="222.37" width="92.0" height="351.63" rx="5" fill="#c2410c" data-target-slice="(.75,1)" data-value="0.22637132429088028"><title>(0.75, 1): micro-MAE 0.22637132429088028</title></rect>
+<text class="value" text-anchor="middle" x="802.5" y="212.37">0.226</text>
+<text class="axis" text-anchor="middle" x="802.5" y="602">(0.75, 1)</text>
+<rect x="912.167" y="199.39" width="92.0" height="374.61" rx="5" fill="#c2410c" data-target-slice="one" data-value="0.24116514559755933"><title>1: micro-MAE 0.24116514559755933</title></rect>
+<text class="value" text-anchor="middle" x="958.167" y="189.39">0.241</text>
+<text class="axis" text-anchor="middle" x="958.167" y="602">1</text>
+<line class="axis-line" x1="102.0" y1="574.0" x2="1036.0" y2="574.0"/>
+<text class="axis" text-anchor="middle" x="568" y="646">True leftover fraction</text>
+<text class="axis" text-anchor="middle" x="27" y="341" transform="rotate(-90 27 341)">Micro mean absolute error</text>
+<rect x="54" y="672" width="14" height="14" rx="2" fill="#0f766e"/>
+<text class="note" x="76" y="684">at or below gate</text>
+<rect x="213" y="672" width="14" height="14" rx="2" fill="#c2410c"/>
+<text class="note" x="235" y="684">above gate</text>
+<text class="note" x="706" y="684">Frozen run f1c7cfd1d13d · protocol 9450069d1260</text>
+</svg>

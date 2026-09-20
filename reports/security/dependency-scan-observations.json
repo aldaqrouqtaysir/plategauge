@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "kind": "gate_d_dependency_scan_observation",
+  "observedAt": "2026-09-20T08:10:52Z",
+  "networkAdvisoryRefresh": true,
+  "python": {
+    "tool": "pip-audit 2.10.1",
+    "lockedEnvironment": "uv.lock / local .venv",
+    "dependencyEntries": 76,
+    "auditedEntries": 75,
+    "skipped": [
+      {
+        "name": "plategauge",
+        "reason": "local editable distribution is not published on PyPI (version 1.0.0)"
+      }
+    ],
+    "knownVulnerabilities": 0,
+    "auditReport": "reports/security/python-audit.json",
+    "auditReportSha256": "8a6bbc4593a2035c9e4f73ffffe3c25a9997e24ba92e68019f75bd659257cb25",
+    "licenseEntries": 71,
+    "licenseInventory": "reports/security/python-licenses.json",
+    "licenseInventorySha256": "61e2a19942bc598c934e3b8dc22cd3ebb3f311509e8979e86ba052f3dd9d6da5"
+  },
+  "javascript": {
+    "tool": "pnpm 11.19.0 audit",
+    "lockfile": "web/pnpm-lock.yaml",
+    "fullDependencies": 339,
+    "productionDependencies": 21,
+    "knownVulnerabilities": {
+      "info": 0,
+      "low": 0,
+      "moderate": 0,
+      "high": 0,
+      "critical": 0
+    },
+    "fullAuditReport": "reports/security/node-full-audit.json",
+    "fullAuditReportSha256": "210d45fb529d6048b6af18e8687ea3ccc537c5ef72c7dfaeff96a11f2377d843",
+    "productionAuditReport": "reports/security/node-production-audit.json",
+    "productionAuditReportSha256": "724fd03d78b993029565b3345a26b47ff2f0fda22da98348b68c1facd6b3e5ba",
+    "productionLicenseInventory": "reports/security/node-production-licenses.json",
+    "productionLicenseInventorySha256": "a13aa63eb691ef5cbc9362c1d637ffdbac1bfa45c435d019ae2860a77fb35bb0",
+    "productionLicenseFamilies": [
+      "Apache-2.0",
+      "BSD-3-Clause",
+      "ISC",
+      "MIT"
+    ]
+  },
+  "interpretation": "No advisory matched the currently installed locked environments at observation time. This is time-sensitive evidence, not a guarantee that dependencies are vulnerability-free."
+}

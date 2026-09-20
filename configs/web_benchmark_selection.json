@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "successSelectionPolicy": "Five reviewed examples selected to span the target range; this is a curated display, not a random or best-five sample.",
+  "successExamples": [
+    {
+      "sampleId": "lefood-0461",
+      "note": "Selected as a near-zero example with very small frozen paired-model error."
+    },
+    {
+      "sampleId": "lefood-0142",
+      "note": "Selected as a low-leftover example with very small frozen paired-model error."
+    },
+    {
+      "sampleId": "lefood-0192",
+      "note": "Selected as a mid-range example with a close frozen paired-model prediction."
+    },
+    {
+      "sampleId": "lefood-0441",
+      "note": "Selected as a higher-leftover example with a close frozen paired-model prediction."
+    },
+    {
+      "sampleId": "lefood-0489",
+      "note": "Selected as an exact-one boundary example with very small frozen paired-model error."
+    }
+  ]
+}

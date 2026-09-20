@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/aldaqrouqtaysir/plategauge/data/manifest.schema.json",
+  "title": "PlateGauge LeFood matched-pair manifest row",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "sample_id", "source_row", "food_name", "category",
+    "before_path", "after_path", "before_mass_g", "after_mass_g",
+    "leftover_fraction", "observer_score", "before_width", "before_height",
+    "after_width", "after_height", "before_sha256", "after_sha256",
+    "duplicate_group", "is_valid", "exclusion_reason", "outer_fold",
+    "source_doi", "dataset_version", "license"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "sample_id": {"type": "string", "minLength": 1},
+    "source_row": {"type": "integer", "minimum": 2},
+    "food_name": {"type": "string"},
+    "category": {"type": "string", "pattern": "^[0-9]{3}$"},
+    "before_path": {"type": "string", "minLength": 1},
+    "after_path": {"type": "string", "minLength": 1},
+    "before_mass_g": {"type": "number", "exclusiveMinimum": 0},
+    "after_mass_g": {"type": "number", "minimum": 0},
+    "leftover_fraction": {"type": "number", "minimum": 0},
+    "observer_score": {"type": "integer", "minimum": 1, "maximum": 7},
+    "before_width": {"type": "integer", "minimum": 1},
+    "before_height": {"type": "integer", "minimum": 1},
+    "after_width": {"type": "integer", "minimum": 1},
+    "after_height": {"type": "integer", "minimum": 1},
+    "before_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "after_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "duplicate_group": {"type": "string"},
+    "is_valid": {"type": "boolean"},
+    "exclusion_reason": {"type": "string"},
+    "outer_fold": {"type": "integer", "minimum": 0, "maximum": 4},
+    "source_doi": {"const": "10.17632/cchsk79jkt.1"},
+    "dataset_version": {"const": "LeFood-Set v1"},
+    "license": {"const": "CC BY 4.0"}
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "evaluation_fold": 4,
+  "expected_counts": {
+    "prediction_count": 102,
+    "training_count": 412
+  },
+  "outer_fold": 4,
+  "parameters": {
+    "alpha": 100.0,
+    "cache_embeddings": true,
+    "embedding_batch_size_cpu": 8,
+    "embedding_batch_size_cuda": 16,
+    "encoder_mode": "frozen_embeddings",
+    "input_size": 518,
+    "outer_open_policy": "open_once_after_inner_selection",
+    "preprocessing": "documented_native_dinov2_deterministic",
+    "pretrained_artifact": {
+      "checkpoint": "vit_small_patch14_dinov2.lvd142m",
+      "filename": "model.safetensors",
+      "license": "Apache-2.0",
+      "repository": "timm/vit_small_patch14_dinov2.lvd142m",
+      "revision": "4476dc0c66daca2ef4a40d2625b4a7063f02b685",
+      "sha256": "04d27f3400d059fc0cfd7d17dd1909a75bf3ea8fb3eeb48b97cb99e57ee20081",
+      "size_bytes": 88240510
+    },
+    "seed": 20260919
+  },
+  "required_artifact_roles": [
+    "predictions"
+  ],
+  "stage": "outer",
+  "task_id": "outer.fold-4.frozen_paired_dinov2",
+  "training_folds": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "validation_folds": [],
+  "workload": "frozen_paired_dinov2"
+}

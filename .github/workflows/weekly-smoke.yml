@@ -1,0 +1,88 @@
+name: Weekly public smoke check
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 5 * * 1"
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    name: Public page and link smoke check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: refs/tags/v1.0.0
+      - name: Require an explicit HTTPS public URL
+        env:
+          PUBLIC_URL: ${{ vars.PLATEGAUGE_PUBLIC_URL }}
+        run: |
+          set -euo pipefail
+          test -n "$PUBLIC_URL"
+          case "$PUBLIC_URL" in https://*) ;; *) echo "PLATEGAUGE_PUBLIC_URL must use HTTPS" >&2; exit 1;; esac
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: "3.12.14"
+      - uses: pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1 # v4
+        with:
+          version: 11.19.0
+          run_install: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: "22.20.0"
+          cache: pnpm
+          cache-dependency-path: web/pnpm-lock.yaml
+      - name: Install locked browser-test dependencies
+        working-directory: web
+        run: pnpm install --frozen-lockfile
+      - name: Install Chromium for the public inference smoke test
+        working-directory: web
+        run: pnpm exec playwright install --with-deps chromium
+      - name: Verify public page and same-origin model files
+        env:
+          PUBLIC_URL: ${{ vars.PLATEGAUGE_PUBLIC_URL }}
+        run: |
+          set -euo pipefail
+          base="${PUBLIC_URL%/}"
+          curl --fail --silent --show-error --location "$base/" > /dev/null
+          curl --fail --silent --show-error --location "$base/models/release.json" -o release.json
+          model_path="$(python -c 'import json; print(json.load(open("release.json"))["modelPath"])')"
+          expected_sha="$(python -c 'import json; print(json.load(open("release.json"))["modelSha256"])')"
+          curl --fail --silent --show-error --location "$base/${model_path#./}" -o model.onnx
+          actual_sha="$(sha256sum model.onnx | cut -d ' ' -f 1)"
+          test "$actual_sha" = "$expected_sha"
+      - name: Verify all frozen public evidence and legal assets byte-for-byte
+        env:
+          PUBLIC_URL: ${{ vars.PLATEGAUGE_PUBLIC_URL }}
+        run: |
+          set -euo pipefail
+          base="${PUBLIC_URL%/}"
+          while IFS= read -r -d '' expected; do
+            relative="${expected#web/public/}"
+            mkdir -p "weekly-live/$(dirname "$relative")"
+            curl --fail --silent --show-error --location --compressed "$base/$relative" -o "weekly-live/$relative"
+            cmp --silent "$expected" "weekly-live/$relative"
+          done < <(find web/public -type f -print0 | sort -z)
+      - name: Run deployed real-model inference without image network traffic
+        working-directory: web
+        env:
+          PLATEGAUGE_PUBLIC_URL: ${{ vars.PLATEGAUGE_PUBLIC_URL }}
+        run: pnpm test:public-smoke
+      - name: Preserve weekly observation evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: weekly-public-smoke-${{ github.run_id }}
+          path: |
+            web/test-results
+            weekly-live
+          if-no-files-found: warn
+          retention-days: 90
+      - name: Check repository documentation links
+        uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8 # v2
+        with:
+          args: --no-progress --accept 200,429 './**/*.md'
+          fail: true

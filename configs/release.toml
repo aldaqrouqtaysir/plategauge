@@ -1,0 +1,54 @@
+schema_version = "1.0"
+
+[paired_value_gate]
+minimum_relative_improvement_over_after_only = 0.05
+minimum_relative_improvement_over_non_neural = 0.10
+require_category_bootstrap_interval_excludes_zero_for_superiority_wording = true
+
+[efficiency_gate]
+maximum_macro_mae_gap_from_dinov2 = 0.02
+maximum_fp32_model_megabytes = 15
+maximum_onnx_drift = 0.0001
+
+[numeric_demo_gate]
+maximum_macro_category_mae = 0.10
+maximum_p90_absolute_error = 0.25
+maximum_broad_slice_mae = 0.15
+
+[benchmark_only]
+lower_bound_exclusive = 0.10
+upper_bound_inclusive = 0.15
+
+[negative_research_release]
+lower_bound_exclusive = 0.15
+upper_bound_inclusive = 0.20
+public_estimator_allowed = false
+required_form = "failure-analysis-only"
+
+[stop_rule]
+macro_category_mae_above = 0.20
+must_beat_median = true
+must_beat_handcrafted = true
+unresolved_data_rights_stop = true
+contaminated_evaluation_stop = true
+
+[robustness]
+maximum_routine_mae_increase = 0.03
+
+[quantization]
+maximum_relative_mae_increase = 0.02
+minimum_latency_improvement = 0.10
+
+[browser]
+maximum_warm_p95_seconds = 1.5
+maximum_peak_memory_megabytes = 512
+
+[interval_display]
+minimum_aggregate_coverage = 0.85
+maximum_aggregate_coverage = 0.95
+maximum_mean_width = 0.30
+minimum_broad_slice_coverage = 0.80
+
+[abstention_claim]
+minimum_error_reduction = 0.20
+minimum_broad_slice_retention = 0.50

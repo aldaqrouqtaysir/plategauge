@@ -1,0 +1,59 @@
+{
+  "claim_limits": {
+    "phone_performance_claim_allowed": false,
+    "reference_device_only": true,
+    "unmeasured_browser_claim_allowed": false
+  },
+  "derived": {
+    "percentile_method": "nearest-rank",
+    "warm_p50_ms": 18.78000009059906,
+    "warm_p95_ms": 22.119999885559082
+  },
+  "evidence_sha256": "77dc5e9ee873fc453f6a081926dc2259f675c6fbf39a5e1e3e73f5053bf77be9",
+  "gates": {
+    "all_passed": true,
+    "peak_application_memory": {
+      "maximum_mb": 512.0,
+      "observed_mb": 45.64192485809326,
+      "passed": true
+    },
+    "warm_p95": {
+      "maximum_ms": 1500.0,
+      "observed_ms": 22.119999885559082,
+      "passed": true
+    }
+  },
+  "kind": "browser_benchmark_gate",
+  "measured_at": "2026-09-20T01:35:35.756Z",
+  "model_sha256": "9c830e80cab86acd85c5b27b5733126594561844d0398d602a039c68befbd675",
+  "reference_device": {
+    "cpu": "13th Gen Intel(R) Core(TM) i7-1355U",
+    "label": "HP reference laptop",
+    "manufacturer_model": "HP HP Laptop 15-fd0xxx",
+    "operating_system": "Windows_NT 10.0.22631 (x64)",
+    "physical_device": true,
+    "ram_gb": 15.652114868164062
+  },
+  "release_evidence_sha256": "cea7f533fa53388345c5ea45828bc9d3dd20cc79a013c3c843b6f2d5f9268c54",
+  "reported": {
+    "first_load_bytes": 25128921,
+    "memory_measurement_method": "performance.measureUserAgentSpecificMemory",
+    "memory_measurement_notes": "Maximum of 24 application-memory samples: one after model initialization and one after every warmup/measured inference; cross-origin-isolated local static build; browser API bytes converted to MiB. First-load bytes are the sum of no-store response-body bytes served through model and fixed-pair readiness (HTTP headers excluded).",
+    "peak_application_memory_mb": 45.64192485809326,
+    "warm_measurement_count": 20,
+    "warmup_runs": 3
+  },
+  "runtime": {
+    "browser_mode": "headed",
+    "browser_name": "Chrome",
+    "browser_version": "152.0.7977.83",
+    "build_source": "local_static_build",
+    "execution_provider": "wasm",
+    "onnxruntime_web_version": "1.30.0",
+    "wasm_threads": 1,
+    "webgpu_enabled": false
+  },
+  "schema_version": "1.0",
+  "source_measurement_sha256": "3c194e85724fda14550253a7994c34bd0c46026722cc80d1733767cb042a71f1",
+  "status": "passed"
+}

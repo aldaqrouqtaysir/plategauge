@@ -1,0 +1,22 @@
+{
+  "artifacts": [
+    {
+      "path": "workload/predictions.csv",
+      "role": "predictions",
+      "sha256": "aa475cc0f7d0aaf739e751f1f950f98e1561c0067da8e785fc1b1460f6cc1218",
+      "size_bytes": 11355
+    }
+  ],
+  "payload": {
+    "macro_category_mae": 0.388790988483973,
+    "prediction_count": 103,
+    "training_count": 411
+  },
+  "payload_sha256": "7292b3c064909ca2bed72c12229a79798b43dcb4fd8fbe1d56eed1f4ddbf6cad",
+  "protocol_id": "9450069d1260248bb5900c20c0b0784086513573735fb408c2bd2c85bb373e8f",
+  "runner_fingerprint": "89e6eaafe67abd780b399984bd3bf326696d4a8dda8b6cbaffd0ba95f242a5ca",
+  "schema_version": "1.0",
+  "status": "complete",
+  "task_id": "outer.fold-0.training_median",
+  "task_spec_sha256": "37b377af8c110b47bd4c5c3eecaffae8606264ed5864ef8b1f7489d97b9ae246"
+}

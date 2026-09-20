@@ -1,0 +1,121 @@
+{
+  "dataset_verification": {
+    "image_inventory_sha256": "7e9dfe1123f02362e8375b70cdbc2c408f32920bfe6575d30fe2c5c2ef35e37f",
+    "manifest_sha256": "0d8aae8e28b5aa8fcd5c35b89a40c7e90db55df893562043086485dde1f7ee16",
+    "record_count": 524,
+    "schema_version": "1.0",
+    "unique_image_count": 1048
+  },
+  "evidence_sha256": "210cca0b3b6e9d7e74fc6f89cf562b1b9c9852052f7803aa9e7dded9492c89c6",
+  "export_metadata": {
+    "inputs": {
+      "after": [
+        "batch",
+        3,
+        224,
+        224
+      ],
+      "before": [
+        "batch",
+        3,
+        224,
+        224
+      ]
+    },
+    "model_version": "plategauge/9450069d1260/cc9346127362",
+    "onnx_sha256": "9c830e80cab86acd85c5b27b5733126594561844d0398d602a039c68befbd675",
+    "opset_version": 18,
+    "output": {
+      "order": [
+        "q05",
+        "q50",
+        "q95"
+      ],
+      "quantiles": [
+        "batch",
+        3
+      ]
+    },
+    "schema_version": "1.0"
+  },
+  "implicit_downloads_allowed": false,
+  "kind": "frozen_final_onnx_export",
+  "model_identity": {
+    "checkpoint_size_bytes": 10439997,
+    "configuration": "M2",
+    "dropout": 0.4,
+    "epoch": 6,
+    "hashes": {
+      "audit_report_sha256": "bd6322294895d474b1250b90e8f12c8a296ddf32156a8d5934a81367b1d63dd1",
+      "checkpoint_sha256": "cc93461273626415af12eaa5217f4bfb76668a3fcb27f6338c4bda3a6035fef4",
+      "experiment_config_sha256": "58b9a9c1cdcfd4aa9dd6333f5bf29996e7123d01a7101c179b63af69166283a4",
+      "final_selection_sha256": "3284dd8dc84480403e03ef2d8453c1ae5604fe35aae6895786d4bac9e257a80f",
+      "folds_sha256": "feb8143a9d8e238cefd0b60f629f7313a9962a53cca54b9c6783293ccaa4ecbe",
+      "manifest_sha256": "0d8aae8e28b5aa8fcd5c35b89a40c7e90db55df893562043086485dde1f7ee16",
+      "run_descriptor_sha256": "a38e21c55a46449a275f36caea564ae0da57ba25606ea6ae0baf8e0f7c1ef2f8",
+      "task_result_sha256": "6517b748542a6f7ea796e548585264855b06f0b23b10142d8296fd7f1f3c5146",
+      "task_spec_sha256": "bd9a8724c72646e7537207ad0d985210c1961128dc23af8d3d14485ab33b7b4c"
+    },
+    "protocol_id": "9450069d1260248bb5900c20c0b0784086513573735fb408c2bd2c85bb373e8f",
+    "run_id": "f1c7cfd1d13d16ecc9fc5f7d90ec9cb0394832741b3b786002c2b22be832eda4",
+    "runner_fingerprint": "89e6eaafe67abd780b399984bd3bf326696d4a8dda8b6cbaffd0ba95f242a5ca",
+    "schema_version": "1.0",
+    "uncertainty_policy": {
+      "abstention_threshold": 0.3,
+      "interval_correction": 0.03567694687261813
+    }
+  },
+  "model_version": "plategauge/9450069d1260/cc9346127362",
+  "onnx": {
+    "filename": "plategauge.onnx",
+    "inputs": {
+      "after": [
+        "batch",
+        3,
+        224,
+        224
+      ],
+      "before": [
+        "batch",
+        3,
+        224,
+        224
+      ]
+    },
+    "maximum_allowed_bytes": 15000000,
+    "model_bytes": 10355122,
+    "opset_version": 18,
+    "output": {
+      "order": [
+        "q05",
+        "q50",
+        "q95"
+      ],
+      "quantiles": [
+        "batch",
+        3
+      ]
+    },
+    "precision": "FP32",
+    "sha256": "9c830e80cab86acd85c5b27b5733126594561844d0398d602a039c68befbd675"
+  },
+  "parity": {
+    "input_tensor_sha256": "8ce5644d86e46127d0d054287a08543613ac7527839c3db5595fba416d0d49a8",
+    "maximum_absolute_drift": 5.185604095458984e-06,
+    "maximum_allowed_drift": 0.0001,
+    "passed": true,
+    "sample_count": 8,
+    "sample_ids": [
+      "lefood-0001",
+      "lefood-0002",
+      "lefood-0003",
+      "lefood-0004",
+      "lefood-0005",
+      "lefood-0006",
+      "lefood-0007",
+      "lefood-0008"
+    ]
+  },
+  "schema_version": "1.0",
+  "status": "passed"
+}

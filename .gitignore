@@ -1,0 +1,79 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+dist/
+build/
+*.egg-info/
+
+# Raw data and generated training artifacts stay local.
+data/raw/
+data/cache/
+artifacts/checkpoints/
+artifacts/cache/
+artifacts/tmp/
+artifacts/superseded/
+work/
+reports/experiments/**/.attempts/
+reports/experiments/**/tasks/**/workload/*.pt
+# Full-page review composition is a private generated artifact; the six
+# numbered screenshots and social preview have separate, bounded uses.
+reports/media/plategauge-full-page-review.png
+
+# Applicant-private drafts, admissions strategy, continuity notes, and detailed
+# contribution records stay outside the public source tree. Sanitized public
+# disclosures live in AUTHORSHIP.md and AI_ASSISTANCE_PUBLIC.md.
+docs/application/
+docs/mastery/
+docs/AI_ASSISTANCE_LOG.md
+docs/APPLICATION_CRITICAL_PATH.md
+docs/APPLICATION_TIMELINE.md
+docs/CONSTRAINTS.md
+docs/CONTINUATION_PROMPT.md
+docs/CONTRIBUTION_RECORD.md
+docs/MBZUAI_ALIGNMENT.md
+docs/MILESTONES.md
+docs/NEXT_ACTION.md
+docs/PROFILE_GAP_MAP.md
+docs/PROJECT_TRACKER.md
+docs/STATE.md
+
+# Internal discovery, selection, detailed governance, and admissions-review
+# records remain in the local workspace but are not part of the prospective
+# public source tree. Public, non-verbatim summaries live in
+# RESEARCH_DECISIONS.md and the release-facing authorship disclosures.
+docs/DECISION_LOG.md
+docs/FINAL_AUDIT.md
+docs/FINALIST_COMPARISON.md
+docs/IDEA_LONG_LIST.md
+docs/IDEA_SCORECARD.csv
+docs/PROBLEM_DISCOVERY.md
+docs/PROBLEM_EVIDENCE_TABLE.csv
+docs/RISK_REGISTER.md
+docs/SOURCE_REGISTER.md
+docs/CHANGELOG.md
+release/applicant-mastery-signoff.json
+reports/release/GATE_D_LOCAL_AUDIT_SUMMARY.md
+reports/release/gate-d-local-candidate-audit.json
+
+# Web dependencies and generated bundles.
+web/node_modules/
+web/dist/
+web/playwright-report/
+web/test-results/
+web/debug.log
+debug.log
+
+# Local environment and editor files.
+.env
+.env.*
+!.env.example
+!web/.env.test
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

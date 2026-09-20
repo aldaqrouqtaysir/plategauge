@@ -1,0 +1,15 @@
+{
+  "afterInputName": "after",
+  "beforeInputName": "before",
+  "calibration": {
+    "abstentionWidth": 0.3,
+    "intervalGatePassed": false,
+    "lowerExpansion": 0.03567694687261813,
+    "upperExpansion": 0.03567694687261813
+  },
+  "modelPath": "models/plategauge.onnx",
+  "modelSha256": "9c830e80cab86acd85c5b27b5733126594561844d0398d602a039c68befbd675",
+  "modelVersion": "v1.0.0",
+  "outputName": "quantiles",
+  "schemaVersion": 1
+}

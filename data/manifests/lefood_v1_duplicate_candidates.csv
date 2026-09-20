@@ -1,0 +1,11 @@
+left_path,right_path,match_type,phash_distance,ssim,duplicate_group
+leftover dataset/data_after/004/004_166_DSC_0103_aft.JPG,leftover dataset/data_after/023/023_388_DSC_0104_aft.JPG,phash_ssim,4,0.9956140326,dup-15f25e4070f6
+leftover dataset/data_after/029/029_449_DSC_0776_aft.JPG,leftover dataset/data_after/029/029_455_DSC_0776_aft.JPG,phash_ssim,0,0.9975370519,dup-197ebd289b8e
+leftover dataset/data_before/009/009_235_DSC_0864_bef.JPG,leftover dataset/data_before/009/009_236_DSC_0865_bef.JPG,phash_ssim,2,0.9950545520,dup-3b1522964d95
+leftover dataset/data_before/002/002_070_DSC_0711_bef.JPG,leftover dataset/data_before/002/002_072_DSC_0712_bef.JPG,phash_ssim,0,0.9951381680,dup-7d86091f77cf
+leftover dataset/data_before/002/002_070_DSC_0711_bef.JPG,leftover dataset/data_before/002/002_073_DSC_0713_bef.JPG,phash_ssim,0,0.9959757315,dup-7d86091f77cf
+leftover dataset/data_after/009/009_181_DSC_0340_aft.JPG,leftover dataset/data_before/029/029_447_DSC_0340_bef.JPG,phash_ssim,4,0.9977635706,dup-84e0fa596bc4
+leftover dataset/data_after/019/019_347_DSC_0887_aft.JPG,leftover dataset/data_after/032/032_463_DSC_0888_aft.JPG,phash_ssim,4,0.9952440370,dup-c67b65330d5d
+leftover dataset/data_after/013/013_217_DSC_0698_aft.JPG,leftover dataset/data_after/015/015_337_DSC_0699_aft.JPG,phash_ssim,2,0.9961621249,dup-c7a1ff728d7c
+leftover dataset/data_after/013/013_311_DSC_0553_aft.JPG,leftover dataset/data_after/015/015_375_DSC_0554_aft.JPG,phash_ssim,2,0.9959405999,dup-d06da4f9b06c
+leftover dataset/data_after/009/009_280_DSC_0278_aft.JPG,leftover dataset/data_after/029/029_502_DSC_0280_aft.JPG,phash_ssim,2,0.9960145520,dup-faf29cbb02fd

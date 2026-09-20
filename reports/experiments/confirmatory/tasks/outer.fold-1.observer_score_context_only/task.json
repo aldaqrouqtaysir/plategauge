@@ -1,0 +1,26 @@
+{
+  "evaluation_fold": 1,
+  "expected_counts": {
+    "prediction_count": 103,
+    "training_count": 411
+  },
+  "outer_fold": 1,
+  "parameters": {
+    "context_only": true,
+    "outer_open_policy": "open_once_after_inner_selection",
+    "seed": 20260919
+  },
+  "required_artifact_roles": [
+    "predictions"
+  ],
+  "stage": "outer",
+  "task_id": "outer.fold-1.observer_score_context_only",
+  "training_folds": [
+    0,
+    2,
+    3,
+    4
+  ],
+  "validation_folds": [],
+  "workload": "observer_score_context_only"
+}

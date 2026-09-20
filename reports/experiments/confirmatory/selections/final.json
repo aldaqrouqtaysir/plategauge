@@ -1,0 +1,71 @@
+{
+  "configuration": "M2",
+  "epoch": 6,
+  "information_boundary": "inner_selections_only_no_outer_metrics",
+  "kind": "final_deploy_choice",
+  "outer_selection_sources": [
+    {
+      "outer_fold": 0,
+      "sha256": "6374b0540fd9c82e6074bde0f2be2d91e53f94f9231acdc542ef085d136b4cf0"
+    },
+    {
+      "outer_fold": 1,
+      "sha256": "1df75b6edc0f90b7e9e746847095c6811780404ef37cef2580f6f1abd3e0b0f8"
+    },
+    {
+      "outer_fold": 2,
+      "sha256": "0e2c7fd04a52627e653310ce6c16c631d99e8879ae8bb1dd2fab9f7d634ffad4"
+    },
+    {
+      "outer_fold": 3,
+      "sha256": "dc988902d6fb9f0597848243e056cf874b709456bd7a14ea35c3bec55e14ed1d"
+    },
+    {
+      "outer_fold": 4,
+      "sha256": "671552c8c7f2b77b80088cf1739fd7a75692787483158e900e1b77c81de7f164"
+    }
+  ],
+  "protocol_id": "9450069d1260248bb5900c20c0b0784086513573735fb408c2bd2c85bb373e8f",
+  "schema_version": "1.0",
+  "uncertainty_policy": {
+    "abstention_threshold": 0.3,
+    "excluded_outer_selections": [],
+    "final_configuration": "M2",
+    "included_outer_selections": [
+      {
+        "abstention_threshold": 0.3,
+        "interval_correction": 0.03567694687261813,
+        "outer_fold": 0,
+        "selected_primary_configuration": "M2"
+      },
+      {
+        "abstention_threshold": 0.3,
+        "interval_correction": 0.002400338649749756,
+        "outer_fold": 1,
+        "selected_primary_configuration": "M2"
+      },
+      {
+        "abstention_threshold": 0.3,
+        "interval_correction": 0.021815693005919456,
+        "outer_fold": 2,
+        "selected_primary_configuration": "M2"
+      },
+      {
+        "abstention_threshold": 0.3,
+        "interval_correction": 0.055686002427881465,
+        "outer_fold": 3,
+        "selected_primary_configuration": "M2"
+      },
+      {
+        "abstention_threshold": 0.3,
+        "interval_correction": 0.09346315177047954,
+        "outer_fold": 4,
+        "selected_primary_configuration": "M2"
+      }
+    ],
+    "interval_correction": 0.03567694687261813,
+    "method": "median_of_inner_only_outer_policies_matching_final_configuration",
+    "minimum_matching_outer_selections": 3,
+    "selection_rule": "include_only_outer_selections_whose_selected_primary_configuration_matches_the_final_modal_configuration"
+  }
+}

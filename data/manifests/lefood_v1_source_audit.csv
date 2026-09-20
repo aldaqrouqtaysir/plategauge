@@ -1,0 +1,679 @@
+source_row,dataset_id,food_name,category,before_filename,before_mass_g,after_filename,after_mass_g,observer_score,status,reason
+2,1,Bubur,000,000_000_DSC_0016_bef.JPG,343,000_000_DSC_0032_aft.JPG,330,1,matched_valid,
+3,2,Nasi,001,001_001_DSC_0059_bef.JPG,130,001_001_DSC_0108_aft.JPG,122,3,matched_valid,
+4,3,Nasi,001,001_002_DSC_0066_bef.JPG,135,001_002_DSC_0095_aft.JPG,127,1,matched_valid,
+5,4,Nasi,001,001_003_DSC_0067_bef.JPG,146,001_003_DSC_0097_aft.JPG,1,7,matched_valid,
+6,5,Nasi,001,001_008_DSC_0055_bef.JPG,139,001_008_DSC_0101_aft.JPG,25,6,matched_valid,
+7,6,Nasi,001,001_009_DSC_0128_bef.JPG,170,001_009_DSC_0165_aft.JPG,169,1,matched_valid,
+8,7,Nasi,001,001_010_DSC_0160_bef.JPG,173,001_010_DSC_0169_aft.JPG,54,7,matched_valid,
+9,8,Nasi,001,001_012_DSC_0222_bef.JPG,138,001_012_DSC_0260_aft.JPG,1,7,matched_valid,
+10,9,Nasi,001,001_013_DSC_0190_bef.JPG,127,001_013_DSC_0228_aft.JPG,71,5,matched_valid,
+11,10,Nasi,001,001_014_DSC_0188_bef.JPG,141,001_014_DSC_0238_aft.JPG,93,5,matched_valid,
+12,11,Nasi,001,001_015_DSC_0198_bef.JPG,123,001_015_DSC_0241_aft.JPG,106,4,matched_valid,
+13,12,Nasi,001,001_021_DSC_0278_bef.JPG,135,001_021_DSC_0326_aft.JPG,17,5,matched_valid,
+14,13,Nasi,001,001_022_DSC_0279_bef.JPG,179,001_022_DSC_0322_aft.JPG,94,4,matched_valid,
+15,14,Nasi,001,001_023_DSC_0268_bef.JPG,184,001_023_DSC_0338_aft.JPG,0,7,matched_valid,
+16,15,Nasi,001,001_026_DSC_0269_bef.JPG,186,001_026_DSC_0320_aft.JPG,186,1,matched_valid,
+17,16,Nasi,001,001_027_DSC_0350_bef.JPG,156,001_027_DSC_0421_aft.JPG,68,4,matched_valid,
+18,17,Nasi,001,001_028_DSC_0351_bef.JPG,146,001_028_DSC_0411_aft.JPG,6,6,matched_valid,
+19,18,Nasi,001,001_029_DSC_0345_bef.JPG,180,001_029_DSC_0391_aft.JPG,48,7,matched_valid,
+20,19,Nasi,001,001_030_DSC_0344_bef.JPG,133,001_030_DSC_0416_aft.JPG,0,7,matched_valid,
+21,20,Nasi,001,001_031_DSC_0343_bef.JPG,184,001_031_DSC_0393_aft.JPG,181,3,matched_valid,
+22,21,Nasi,001,001_036_DSC_0429_bef.JPG,146,001_036_DSC_0477_aft.JPG,68,5,matched_valid,
+23,22,Nasi,001,001_037_DSC_0430_bef.JPG,159,001_037_DSC_0479_aft.JPG,0,7,matched_valid,
+24,23,Nasi,001,001_038_DSC_0431_bef.JPG,154,001_038_DSC_0478_aft.JPG,0,7,matched_valid,
+25,24,Nasi,001,001_044_DSC_0521_bef.JPG,166,001_044_DSC_0581_aft.JPG,145,3,matched_valid,
+26,25,Nasi,001,001_045_DSC_0522_bef.JPG,159,001_045_DSC_0579_aft.JPG,0,6,matched_valid,
+27,26,Nasi,001,001_046_DSC_0523_bef.JPG,177,001_046_DSC_0573_aft.JPG,66,5,matched_valid,
+28,27,Nasi,001,001_049_DSC_0514_bef.JPG,166,001_049_DSC_0516_aft.JPG,166,1,matched_valid,
+29,28,Nasi,001,001_050_DSC_0515_bef.JPG,196,001_050_DSC_0517_aft.JPG,196,1,matched_valid,
+30,29,Nasi,001,001_051_DSC_0645_bef.JPG,126,001_051_DSC_0687_aft.JPG,122,1,matched_valid,
+31,30,Nasi,001,001_052_DSC_0606_bef.JPG,102,001_052_DSC_0654_aft.JPG,101,1,matched_valid,
+32,31,Nasi,001,001_053_DSC_0610_bef.JPG,103,001_053_DSC_0660_aft.JPG,8,6,matched_valid,
+33,32,Nasi,001,001_054_DSC_0612_bef.JPG,168,001_054_DSC_0664_aft.JPG,0,7,matched_valid,
+34,33,Nasi,001,001_055_DSC_0649_bef.JPG,176,001_055_DSC_0672_aft.JPG,48,5,matched_valid,
+35,34,Nasi,001,001_062_DSC_0752_bef.JPG,237,001_062_DSC_0806_aft.JPG,74,4,matched_valid,
+36,35,Nasi,001,001_063_DSC_0751_bef.JPG,145,001_063_DSC_0811_aft.JPG,0,7,matched_valid,
+37,36,Nasi,001,001_064_DSC_0738_bef.JPG,158,001_064_DSC_0790_aft.JPG,81,4,matched_valid,
+38,37,Nasi,001,001_065_DSC_0743_bef.JPG,156,001_065_DSC_0787_aft.JPG,0,7,matched_valid,
+39,38,Nasi,001,001_066_DSC_0716_bef.JPG,142,001_066_DSC_0761_aft.JPG,0,7,matched_valid,
+40,39,Nasi,001,001_067_DSC_0755_bef.JPG,153,001_067_DSC_0765_aft.JPG,18,6,matched_valid,
+41,40,Nasi,001,001_074_DSC_0824_bef.JPG,150,001_074_DSC_0879_aft.JPG,0,7,matched_valid,
+42,41,Nasi,001,001_075_DSC_0821_bef.JPG,147,001_075_DSC_0909_aft.JPG,112,4,matched_valid,
+43,43,Nasi,001,001_077_DSC_0841_bef.JPG,149,001_077_DSC_0878_aft.JPG,79,4,matched_valid,
+44,44,Nasi,001,001_078_DSC_0842_bef.JPG,114,001_078_DSC_0873_aft.JPG,0,7,matched_valid,
+45,45,Nasi,001,001_079_DSC_0843_bef.JPG,178,001_079_DSC_0872_aft.JPG,38,7,matched_valid,
+46,46,Nasi,001,001_084_DSC_0922_bef.JPG,175,001_084_DSC_0973_aft.JPG,88,4,matched_valid,
+47,47,Nasi,001,001_085_DSC_0923_bef.JPG,184,001_085_DSC_0977_aft.JPG,12,6,matched_valid,
+48,48,Nasi,001,001_086_DSC_0924_bef.JPG,168,001_086_DSC_0981_aft.JPG,83,5,matched_valid,
+49,49,Nasi,001,001_087_DSC_0921_bef.JPG,155,001_087_DSC_0988_aft.JPG,0,7,matched_valid,
+50,50,Nasi,001,001_088_DSC_0961_bef.JPG,171,001_088_DSC_0989_aft.JPG,126,3,matched_valid,
+51,51,Nasi,001,001_095_DSC_0054_bef.JPG,130,001_095_DSC_0094_aft.JPG,0,7,matched_valid,
+52,52,Nasi,001,001_096_DSC_0055_bef.JPG,130,001_096_DSC_0088_aft.JPG,128,1,matched_valid,
+53,53,Nasi,001,001_097_DSC_0056_bef.JPG,131,001_097_DSC_0085_aft.JPG,25,5,matched_valid,
+54,54,Nasi,001,001_098_DSC_0057_bef.JPG,124,001_098_DSC_0079_aft.JPG,0,7,matched_valid,
+55,55,Nasi,001,001_105_DSC_0164_bef.JPG,119,001_105_DSC_0181_aft.JPG,66,3,matched_valid,
+56,56,Nasi,001,001_106_DSC_0165_bef.JPG,147,001_106_DSC_0183_aft.JPG,0,7,matched_valid,
+57,57,Nasi,001,001_107_DSC_0163_bef.JPG,163,001_107_DSC_0186_aft.JPG,0,7,matched_valid,
+58,58,Nasi,001,001_108_DSC_0162_bef.JPG,127,001_108_DSC_0192_aft.JPG,113,1,matched_valid,
+59,59,Nasi,001,001_109_DSC_0159_bef.JPG,128,001_109_DSC_0170_aft.JPG,111,1,matched_valid,
+60,60,Nasi,001,001_110_DSC_0160_bef.JPG,132,001_110_DSC_0174_aft.JPG,0,7,matched_valid,
+61,61,Nasi,001,001_116_DSC_0225_bef.JPG,121,001_116_DSC_0272_aft.JPG,112,1,matched_valid,
+62,62,Nasi,001,001_117_DSC_0248_bef.JPG,120,001_117_DSC_0302_aft.JPG,10,6,matched_valid,
+63,63,Nasi,001,001_118_DSC_0249_bef.JPG,129,001_118_DSC_0306_aft.JPG,128,1,matched_valid,
+64,64,Nasi,001,001_119_DSC_0257_bef.JPG,110,001_119_DSC_0268_aft.JPG,0,7,matched_valid,
+65,65,Nasi,001,001_125_DSC_0339_bef.JPG,100,001_125_DSC_0396_aft.JPG,97,1,matched_valid,
+66,66,Nasi,001,001_126_DSC_0340_bef.JPG,123,001_126_DSC_0390_aft.JPG,14,6,matched_valid,
+67,67,Nasi,001,001_127_DSC_0341_bef.JPG,199,001_127_DSC_0393_aft.JPG,32,5,matched_valid,
+68,68,Nasi,001,001_128_DSC_0321_bef.JPG,148,001_128_DSC_0371_aft.JPG,31,5,matched_valid,
+69,69,Nasi,001,001_129_DSC_0323_bef.JPG,158,001_129_DSC_0377_aft.JPG,146,2,matched_valid,
+70,70,Nasi,001,001_134_DSC_0416_bef.JPG,124,001_134_DSC_0487_aft.JPG,52,3,matched_valid,
+71,71,Nasi,001,001_135_DSC_0414_bef.JPG,129,001_135_DSC_0484_aft.JPG,100,3,matched_valid,
+72,72,Nasi,001,001_136_DSC_0415_bef.JPG,132,001_136_DSC_0479_aft.JPG,9,6,matched_valid,
+73,73,Nasi,001,001_137_DSC_0435_bef.JPG,121,001_137_DSC_0455_aft.JPG,0,7,matched_valid,
+74,74,Nasi,001,001_144_DSC_0549_bef.JPG,173,001_144_DSC_0586_aft.JPG,172,1,matched_valid,
+75,75,Nasi,001,001_145_DSC_0548_bef.JPG,135,001_145_DSC_0591_aft.JPG,0,7,matched_valid,
+76,76,Nasi,001,001_146_DSC_0550_bef.JPG,134,001_146_DSC_0598_aft.JPG,61,5,matched_valid,
+77,77,Nasi,001,001_147_DSC_0551_bef.JPG,125,001_147_DSC_0580_aft.JPG,3,7,matched_valid,
+78,78,Nasi,001,001_148_DSC_0552_bef.JPG,136,001_148_DSC_0585_aft.JPG,0,7,matched_valid,
+79,79,Nasi,001,001_155_DSC_0628_bef.JPG,108,001_155_DSC_0639_aft.JPG,0,7,matched_valid,
+80,80,Nasi,001,001_156_DSC_0629_bef.JPG,72,001_156_DSC_0646_aft.JPG,0,7,matched_valid,
+81,81,Tim,002,002_004_DSC_0057_bef.JPG,154,002_004_DSC_0085_aft.JPG,41,5,matched_valid,
+82,82,Tim,002,002_005_DSC_0056_bef.JPG,174,002_005_DSC_0082_aft.JPG,6,6,matched_valid,
+83,83,Tim,002,002_006_DSC_0087_bef.JPG,178,002_006_DSC_0088_aft.JPG,178,1,matched_valid,
+84,84,Tim,002,002_007_DSC_0043_bef.JPG,182,002_007_DSC_0077_aft.JPG,106,4,matched_valid,
+85,85,Tim,002,002_011_DSC_0157_bef.JPG,168,002_011_DSC_0175_aft.JPG,57,5,matched_valid,
+86,86,Tim,002,002_016_DSC_0207_bef.JPG,168,002_016_DSC_0254_aft.JPG,44,5,matched_valid,
+87,87,Tim,002,002_017_DSC_0189_bef.JPG,149,002_017_DSC_0223_aft.JPG,0,7,matched_valid,
+88,88,Tim,002,002_018_DSC_0194_bef.JPG,147,002_018_DSC_0232_aft.JPG,0,7,matched_valid,
+89,89,Tim,002,002_019_DSC_0208_bef.JPG,156,002_019_DSC_0244_aft.JPG,125,3,matched_valid,
+90,90,Tim,002,002_020_DSC_0209_bef.JPG,132,002_020_DSC_0248_aft.JPG,75,5,matched_valid,
+91,91,Tim,002,002_024_DSC_0280_bef.JPG,179,002_024_DSC_0307_aft.JPG,127,4,matched_valid,
+92,92,Tim,002,002_025_DSC_0281_bef.JPG,168,002_025_DSC_0300_aft.JPG,60,7,matched_valid,
+93,93,Tim,002,002_032_DSC_0349_bef.JPG,183,002_032_DSC_0410_aft.JPG,0,7,matched_valid,
+94,94,Tim,002,002_033_DSC_0348_bef.JPG,172,002_033_DSC_0402_aft.JPG,0,7,matched_valid,
+95,95,Tim,002,002_034_DSC_0346_bef.JPG,172,002_034_DSC_0396_aft.JPG,0,7,matched_valid,
+96,96,Tim,002,002_035_DSC_0347_bef.JPG,171,002_035_DSC_0387_aft.JPG,63,4,matched_valid,
+97,97,Tim,002,002_039_DSC_0425_bef.JPG,117,002_039_DSC_0495_aft.JPG,43,7,matched_valid,
+98,98,Tim,002,002_040_DSC_0426_bef.JPG,189,002_040_DSC_0499_aft.JPG,0,7,matched_valid,
+99,99,Tim,002,002_041_DSC_0432_bef.JPG,227,002_041_DSC_0489_aft.JPG,1,7,matched_valid,
+100,100,Tim,002,002_042_DSC_0433_bef.JPG,123,002_042_DSC_0493_aft.JPG,87,4,matched_valid,
+101,101,Tim,002,002_043_DSC_0434_bef.JPG,152,002_043_DSC_0482_aft.JPG,49,5,matched_valid,
+102,102,Tim,002,002_047_DSC_0520_bef.JPG,183,002_047_DSC_0586_aft.JPG,181,1,matched_valid,
+103,103,Tim,002,002_048_DSC_0519_bef.JPG,183,002_048_DSC_0599_aft.JPG,145,3,matched_valid,
+104,104,Tim,002,002_056_DSC_0639_bef.JPG,167,002_056_DSC_0696_aft.JPG,18,6,matched_valid,
+105,105,Tim,002,002_057_DSC_0640_bef.JPG,145,002_057_DSC_0697_aft.JPG,27,5,matched_valid,
+106,106,Tim,002,002_058_DSC_0648_bef.JPG,190,002_058_DSC_0668_aft.JPG,157,3,matched_valid,
+107,107,Tim,002,002_059_DSC_0650_bef.JPG,175,002_059_DSC_0684_aft.JPG,142,4,matched_valid,
+108,108,Tim,002,002_060_DSC_0651_bef.JPG,173,002_060_DSC_0674_aft.JPG,0,7,matched_valid,
+109,109,Tim,002,002_061_DSC_0652_bef.JPG,124,002_061_DSC_0679_aft.JPG,54,3,matched_valid,
+110,110,Tim,002,002_068_DSC_0749_bef.JPG,152,002_068_DSC_0796_aft.JPG,0,7,matched_valid,
+111,111,Tim,002,002_069_DSC_0750_bef.JPG,156,002_069_DSC_0798_aft.JPG,94,4,matched_valid,
+112,112,Tim,002,002_070_DSC_0711_bef.JPG,149,002_070_DSC_0767_aft.JPG,95,4,matched_valid,
+113,113,Tim,002,002_071_DSC_0742_bef.JPG,129,002_071_DSC_0782_aft.JPG,2,7,matched_valid,
+114,114,Tim,002,002_072_DSC_0712_bef.JPG,163,002_072_DSC_0770_aft.JPG,143,3,matched_valid,
+115,115,Tim,002,002_073_DSC_0713_bef.JPG,159,002_073_DSC_0774_aft.JPG,159,2,matched_valid,
+116,116,Tim,002,002_080_DSC_0823_bef.JPG,168,002_080_DSC_0903_aft.JPG,161,1,matched_valid,
+117,117,Tim,002,002_081_DSC_0859_bef.JPG,162,002_081_DSC_0891_aft.JPG,0,7,matched_valid,
+118,118,Tim,002,002_082_DSC_0860_bef.JPG,155,002_082_DSC_0890_aft.JPG,77,4,matched_valid,
+119,119,Tim,002,002_083_DSC_0861_bef.JPG,156,002_083_DSC_0899_aft.JPG,5,6,matched_valid,
+120,120,Tim,002,002_089_DSC_0925_bef.JPG,145,002_089_DSC_1004_aft.JPG,79,4,matched_valid,
+121,121,Tim,002,002_090_DSC_0926_bef.JPG,152,002_090_DSC_0010_aft.JPG,150,1,matched_valid,
+122,122,Tim,002,002_091_DSC_0962_bef.JPG,150,002_091_DSC_0004_aft.JPG,0,7,matched_valid,
+123,123,Tim,002,002_092_DSC_0963_bef.JPG,146,002_092_DSC_0995_aft.JPG,145,1,matched_valid,
+124,124,Tim,002,002_093_DSC_0964_bef.JPG,150,002_093_DSC_1005_aft.JPG,0,7,matched_valid,
+125,125,Tim,002,002_094_DSC_0965_bef.JPG,136,002_094_DSC_1011_aft.JPG,71,5,matched_valid,
+126,126,Tim,002,002_099_DSC_0028_bef.JPG,188,002_099_DSC_0078_aft.JPG,94,4,matched_valid,
+127,127,Tim,002,002_100_DSC_0074_bef.JPG,140,002_100_DSC_0098_aft.JPG,10,6,matched_valid,
+128,128,Tim,002,002_101_DSC_0073_bef.JPG,155,002_101_DSC_0102_aft.JPG,0,7,matched_valid,
+129,130,Tim,002,002_103_DSC_0071_bef.JPG,170,002_103_DSC_0114_aft.JPG,170,1,matched_valid,
+130,131,Tim,002,002_104_DSC_0063_bef.JPG,152,002_104_DSC_0111_aft.JPG,0,7,matched_valid,
+131,132,Tim,002,002_111_DSC_0166_bef.JPG,205,002_111_DSC_0204_aft.JPG,203,3,matched_valid,
+132,133,Tim,002,002_112_DSC_0167_bef.JPG,152,002_112_DSC_0212_aft.JPG,0,7,matched_valid,
+133,134,Tim,002,002_113_DSC_0168_bef.JPG,151,002_113_DSC_0200_aft.JPG,16,6,matched_valid,
+134,135,Tim,002,002_114_DSC_0169_bef.JPG,157,002_114_DSC_0208_aft.JPG,112,4,matched_valid,
+135,136,Tim,002,002_115_DSC_0161_bef.JPG,193,002_115_DSC_0195_aft.JPG,0,7,matched_valid,
+136,137,Tim,002,002_120_DSC_0216_bef.JPG,165,002_120_DSC_0276_aft.JPG,0,7,matched_valid,
+137,138,Tim,002,002_121_DSC_0217_bef.JPG,159,002_121_DSC_0290_aft.JPG,0,7,matched_valid,
+138,139,Tim,002,002_122_DSC_0218_bef.JPG,152,002_122_DSC_0296_aft.JPG,0,7,matched_valid,
+139,140,Tim,002,002_123_DSC_0219_bef.JPG,158,002_123_DSC_0285_aft.JPG,27,6,matched_valid,
+140,142,Tim,002,002_130_DSC_0313_bef.JPG,174,002_130_DSC_0362_aft.JPG,1,7,matched_valid,
+141,143,Tim,002,002_131_DSC_0310_bef.JPG,170,002_131_DSC_0397_aft.JPG,131,3,matched_valid,
+142,144,Tim,002,002_132_DSC_0312_bef.JPG,190,002_132_DSC_0361_aft.JPG,2,6,matched_valid,
+143,145,Tim,002,002_133_DSC_0311_bef.JPG,174,002_133_DSC_0383_aft.JPG,2,7,matched_valid,
+144,146,Tim,002,002_138_DSC_0424_bef.JPG,186,002_138_DSC_0490_aft.JPG,184,1,matched_valid,
+145,147,Tim,002,002_139_DSC_0425_bef.JPG,183,002_139_DSC_0491_aft.JPG,74,5,matched_valid,
+146,148,Tim,002,002_140_DSC_0421_bef.JPG,168,002_140_DSC_0469_aft.JPG,94,4,matched_valid,
+147,149,Tim,002,002_141_DSC_0422_bef.JPG,159,002_141_DSC_0467_aft.JPG,117,3,matched_valid,
+148,150,Tim,002,002_142_DSC_0423_bef.JPG,160,002_142_DSC_0472_aft.JPG,159,1,matched_valid,
+149,151,Tim,002,002_143_DSC_0434_bef.JPG,196,002_143_DSC_0458_aft.JPG,155,1,matched_valid,
+150,152,Tim,002,002_149_DSC_0532_bef.JPG,185,002_149_DSC_0567_aft.JPG,96,4,matched_valid,
+151,153,Tim,002,002_150_DSC_0533_bef.JPG,185,002_150_DSC_0561_aft.JPG,0,7,matched_valid,
+152,154,Tim,002,002_151_DSC_0534_bef.JPG,166,002_151_DSC_0556_aft.JPG,0,7,matched_valid,
+153,155,Tim,002,002_152_DSC_0543_bef.JPG,159,002_152_DSC_0576_aft.JPG,58,5,matched_valid,
+154,156,Tim,002,002_153_DSC_0544_bef.JPG,166,002_153_DSC_0571_aft.JPG,14,6,matched_valid,
+155,157,Tim,002,002_154_DSC_0545_bef.JPG,161,002_154_DSC_0602_aft.JPG,109,4,matched_valid,
+156,158,Tim,002,002_157_DSC_0606_bef.JPG,150,002_157_DSC_0632_aft.JPG,5,7,matched_valid,
+157,159,Telur orak arik,003,003_158_DSC_0018_bef.JPG,39,003_158_DSC_0030_aft.JPG,39,1,matched_valid,
+158,160,Kroket Daging,004,004_159_DSC_0065_bef.JPG,28,004_159_DSC_0107_aft.JPG,15,5,matched_valid,
+159,161,Kroket Daging,004,004_160_DSC_0069_bef.JPG,17,004_160_DSC_0094_aft.JPG,0,7,matched_valid,
+160,162,Kroket Daging,004,004_161_DSC_0071_bef.JPG,24,004_161_DSC_0100_aft.JPG,0,7,matched_valid,
+161,163,Kroket Daging,004,004_162_DSC_0045_bef.JPG,25,004_162_DSC_0084_aft.JPG,0,7,matched_valid,
+162,164,Kroket Daging,004,004_163_DSC_0048_bef.JPG,26,004_163_DSC_0081_aft.JPG,0,7,matched_valid,
+163,165,Kroket Daging,004,004_164_DSC_0050_bef.JPG,27,004_164_DSC_0092_aft.JPG,29,1,matched_excluded,after_mass_exceeds_before_mass
+164,166,Kroket Daging,004,004_165_DSC_0039_bef.JPG,27,004_165_DSC_0075_aft.JPG,1,7,matched_valid,
+165,167,Kroket Daging,004,004_166_DSC_0062_bef.JPG,24,004_166_DSC_0103_aft.JPG,0,7,matched_valid,
+166,168,Kroket Daging,004,004_244_DSC_0968_bef.JPG,26,004_244_DSC_0974_aft.JPG,0,7,matched_valid,
+167,169,Kroket Daging,004,004_245_DSC_0949_bef.JPG,28,004_245_DSC_0978_aft.JPG,8,6,matched_valid,
+168,170,Kroket Daging,004,004_246_DSC_0958_bef.JPG,26,004_246_DSC_0982_aft.JPG,0,7,matched_valid,
+169,171,Kroket Daging,004,004_247_DSC_0956_bef.JPG,21,004_247_DSC_0987_aft.JPG,0,7,matched_valid,
+170,172,Kroket Daging,004,004_248_DSC_0917_bef.JPG,21,004_248_DSC_0990_aft.JPG,13,5,matched_valid,
+171,173,Kroket Daging,004,004_249_DSC_0935_bef.JPG,29,004_249_DSC_1003_aft.JPG,0,7,matched_valid,
+172,174,Kroket Daging,004,004_250_DSC_0966_bef.JPG,20,004_250_DSC_0012_aft.JPG,0,7,matched_valid,
+173,175,Kroket Daging,004,004_251_DSC_0927_bef.JPG,29,004_251_DSC_0009_aft.JPG,0,7,matched_valid,
+174,176,Kroket Daging,004,004_252_DSC_0931_bef.JPG,24,004_252_DSC_0996_aft.JPG,27,1,matched_excluded,after_mass_exceeds_before_mass
+175,177,Kroket Daging,004,004_253_DSC_0939_bef.JPG,25,004_253_DSC_1010_aft.JPG,0,7,matched_valid,
+176,178,Kroket Daging,004,004_254_DSC_0944_bef.JPG,20,004_254_DSC_1013_aft.JPG,0,7,matched_valid,
+177,179,Opor Ayam,005,005_167_DSC_0127_bef.JPG,52,005_167_DSC_0167_aft.JPG,51,1,matched_valid,
+178,180,Opor Ayam,005,005_168_DSC_0148_bef.JPG,35,005_168_DSC_0170_aft.JPG,5,7,matched_valid,
+179,181,Opor Telur,006,006_169_DSC_0158_bef.JPG,64,006_169_DSC_0172_aft.JPG,4,6,matched_valid,
+180,182,Opor Telur,006,006_203_DSC_0447_bef.JPG,57,006_203_DSC_0484_aft.JPG,57,1,matched_valid,
+181,183,Ikan Acar Kuning,007,007_170_DSC_0185_bef.JPG,40,007_170_DSC_0259_aft.JPG,3,6,matched_valid,
+182,184,Ikan Acar Kuning,007,007_171_DSC_0179_bef.JPG,28,007_171_DSC_0227_aft.JPG,17,4,matched_valid,
+183,185,Ikan Acar Kuning,007,007_172_DSC_0184_bef.JPG,30,007_172_DSC_0235_aft.JPG,30,1,matched_valid,
+184,186,Ikan Acar Kuning,007,007_173_DSC_0201_bef.JPG,42,007_173_DSC_0239_aft.JPG,43,1,matched_excluded,after_mass_exceeds_before_mass
+185,187,Ikan Acar Kuning,007,007_174_DSC_0211_bef.JPG,25,007_174_DSC_0257_aft.JPG,0,7,matched_valid,
+186,188,Ikan Acar Kuning,007,007_175_DSC_0180_bef.JPG,41,007_175_DSC_0226_aft.JPG,0,7,matched_valid,
+187,189,Ikan Acar Kuning,007,007_176_DSC_0193_bef.JPG,39,007_176_DSC_0233_aft.JPG,0,7,matched_valid,
+188,190,Ikan Acar Kuning,007,007_177_DSC_0213_bef.JPG,49,007_177_DSC_0246_aft.JPG,18,5,matched_valid,
+189,191,Ikan Acar Kuning,007,007_178_DSC_0219_bef.JPG,41,007_178_DSC_0251_aft.JPG,41,2,matched_valid,
+190,192,Ikan Acar Kuning,007,007_265_DSC_0126_bef.JPG,39,007_265_DSC_0177_aft.JPG,18,4,matched_valid,
+191,193,Ikan Acar Kuning,007,007_266_DSC_0127_bef.JPG,37,007_266_DSC_0185_aft.JPG,39,1,matched_excluded,after_mass_exceeds_before_mass
+192,194,Ikan Acar Kuning,007,007_267_DSC_0132_bef.JPG,32,007_267_DSC_0187_aft.JPG,0,7,matched_valid,
+193,195,Ikan Acar Kuning,007,007_268_DSC_0129_bef.JPG,40,007_268_DSC_0190_aft.JPG,40,1,matched_valid,
+194,196,Ikan Acar Kuning,007,007_269_DSC_0136_bef.JPG,36,007_269_DSC_0172_aft.JPG,35,1,matched_valid,
+195,197,Ikan Acar Kuning,007,007_270_DSC_0133_bef.JPG,37,007_270_DSC_0178_aft.JPG,0,7,matched_valid,
+196,198,Ikan Acar Kuning,007,007_271_DSC_0153_bef.JPG,39,007_271_DSC_0205_aft.JPG,25,3,matched_valid,
+197,199,Ikan Acar Kuning,007,007_272_DSC_0157_bef.JPG,48,007_272_DSC_0213_aft.JPG,51,1,matched_excluded,after_mass_exceeds_before_mass
+198,200,Ikan Acar Kuning,007,007_273_DSC_0151_bef.JPG,39,007_273_DSC_0201_aft.JPG,8,5,matched_valid,
+199,201,Ikan Acar Kuning,007,007_274_DSC_0155_bef.JPG,36,007_274_DSC_0209_aft.JPG,0,7,matched_valid,
+200,202,Ikan Acar Kuning,007,007_275_DSC_0148_bef.JPG,62,007_275_DSC_0197_aft.JPG,0,7,matched_valid,
+201,203,Bali Putih Telur,008,008_179_DSC_0271_bef.JPG,22,008_179_DSC_0329_aft.JPG,3,6,matched_valid,
+202,204,Bali Putih Telur,008,008_180_DSC_0275_bef.JPG,51,008_180_DSC_0323_aft.JPG,3,6,matched_valid,
+203,205,Bali Putih Telur,008,008_182_DSC_0273_bef.JPG,41,008_182_DSC_0304_aft.JPG,36,4,matched_valid,
+204,206,Bali Putih Telur,008,008_183_DSC_0277_bef.JPG,44,008_183_DSC_0302_aft.JPG,1,7,matched_valid,
+205,207,Bali Telur,009,009_181_DSC_0282_bef.JPG,55,009_181_DSC_0340_aft.JPG,0,7,matched_valid,
+206,208,Bali Telur,009,009_184_DSC_0284_bef.JPG,57,009_184_DSC_0318_aft.JPG,57,1,matched_valid,
+207,209,Bali Telur,009,009_234_DSC_0827_bef.JPG,52,009_234_DSC_0881_aft.JPG,0,7,matched_valid,
+208,210,Bali Telur,009,009_235_DSC_0864_bef.JPG,59,009_235_DSC_0911_aft.JPG,0,7,matched_valid,
+209,211,Bali Telur,009,009_236_DSC_0865_bef.JPG,51,009_236_DSC_0914_aft.JPG,0,7,matched_valid,
+210,212,Bali Telur,009,009_237_DSC_0840_bef.JPG,61,009_237_DSC_0876_aft.JPG,15,4,matched_valid,
+211,213,Bali Telur,009,009_238_DSC_0835_bef.JPG,51,009_238_DSC_0871_aft.JPG,0,7,matched_valid,
+212,214,Bali Telur,009,009_239_DSC_0837_bef.JPG,58,009_239_DSC_0868_aft.JPG,0,7,matched_valid,
+213,215,Bali Telur,009,009_240_DSC_0829_bef.JPG,54,009_240_DSC_0904_aft.JPG,54,1,matched_valid,
+214,216,Bali Telur,009,009_241_DSC_0845_bef.JPG,64,009_241_DSC_0886_aft.JPG,0,7,matched_valid,
+215,217,Bali Telur,009,009_242_DSC_0849_bef.JPG,57,009_242_DSC_0893_aft.JPG,23,4,matched_valid,
+216,218,Bali Telur,009,009_243_DSC_0852_bef.JPG,52,009_243_DSC_0895_aft.JPG,7,6,matched_valid,
+217,219,Bali Telur,009,009_276_DSC_0223_bef.JPG,57,009_276_DSC_0275_aft.JPG,53,1,matched_valid,
+218,220,Bali Telur,009,009_277_DSC_0250_bef.JPG,53,009_277_DSC_0303_aft.JPG,0,7,matched_valid,
+219,221,Bali Telur,009,009_278_DSC_0253_bef.JPG,53,009_278_DSC_0307_aft.JPG,0,7,matched_valid,
+220,222,Bali Telur,009,009_279_DSC_0260_bef.JPG,59,009_279_DSC_0269_aft.JPG,0,7,matched_valid,
+221,223,Bali Telur,009,009_280_DSC_0226_bef.JPG,60,009_280_DSC_0278_aft.JPG,0,7,matched_valid,
+222,224,Bali Telur,009,009_281_DSC_0236_bef.JPG,51,009_281_DSC_0291_aft.JPG,0,7,matched_valid,
+223,225,Bali Telur,009,009_282_DSC_0231_bef.JPG,59,009_282_DSC_0297_aft.JPG,0,7,matched_valid,
+224,226,Bali Telur,009,009_283_DSC_0240_bef.JPG,56,009_283_DSC_0283_aft.JPG,56,1,matched_valid,
+225,227,Bali Telur,009,009_284_DSC_0258_bef.JPG,59,009_284_DSC_0265_aft.JPG,58,1,matched_valid,
+226,228,Ayam Bumbu Srundeng,010,010_185_DSC_0370_bef.JPG,68,010_185_DSC_0423_aft.JPG,39,4,matched_valid,
+227,229,Ayam Bumbu Srundeng,010,010_186_DSC_0373_bef.JPG,64,010_186_DSC_0414_aft.JPG,30,5,matched_valid,
+228,230,Ayam Bumbu Srundeng,010,010_187_DSC_0355_bef.JPG,57,010_187_DSC_0388_aft.JPG,55,1,matched_valid,
+229,231,Ayam Bumbu Srundeng,010,010_188_DSC_0353_bef.JPG,47,010_188_DSC_0417_aft.JPG,0,7,matched_valid,
+230,232,Ayam Bumbu Srundeng,010,010_189_DSC_0357_bef.JPG,58,010_189_DSC_0394_aft.JPG,57,1,matched_valid,
+231,233,Ayam Bumbu Srundeng,010,010_190_DSC_0367_bef.JPG,68,010_190_DSC_0408_aft.JPG,0,7,matched_valid,
+232,234,Ayam Bumbu Srundeng,010,010_191_DSC_0363_bef.JPG,87,010_191_DSC_0404_aft.JPG,16,6,matched_valid,
+233,235,Ayam Bumbu Srundeng,010,010_192_DSC_0359_bef.JPG,52,010_192_DSC_0397_aft.JPG,0,7,matched_valid,
+234,236,Ayam Bumbu Srundeng,010,010_193_DSC_0361_bef.JPG,44,010_193_DSC_0385_aft.JPG,42,1,matched_valid,
+235,237,Rendang ayam,011,011_194_DSC_0452_bef.JPG,62,011_194_DSC_0511_aft.JPG,0,7,matched_valid,
+236,238,Rendang ayam,011,011_195_DSC_0458_bef.JPG,66,011_195_DSC_0506_aft.JPG,66,1,matched_valid,
+237,239,Rendang ayam,011,011_196_DSC_0445_bef.JPG,53,011_196_DSC_0475_aft.JPG,23,6,matched_valid,
+238,240,Rendang ayam,011,011_197_DSC_0441_bef.JPG,69,011_197_DSC_0480_aft.JPG,0,7,matched_valid,
+239,241,Rendang ayam,011,011_198_DSC_0444_bef.JPG,46,011_198_DSC_0473_aft.JPG,0,7,matched_valid,
+240,242,Rendang ayam,011,011_199_DSC_0460_bef.JPG,38,011_199_DSC_0497_aft.JPG,0,7,matched_valid,
+241,243,Rendang ayam,011,011_200_DSC_0463_bef.JPG,86,011_200_DSC_0500_aft.JPG,24,7,matched_valid,
+242,244,Rendang ayam,011,011_201_DSC_0438_bef.JPG,65,011_201_DSC_0487_aft.JPG,31,6,matched_valid,
+243,245,Rendang ayam,011,011_202_DSC_0436_bef.JPG,53,011_202_DSC_0490_aft.JPG,39,3,matched_valid,
+244,246,Rendang ayam,011,011_285_DSC_0354_bef.JPG,69,011_285_DSC_0394_aft.JPG,68,1,matched_valid,
+245,247,Rendang ayam,011,011_286_DSC_0353_bef.JPG,63,011_286_DSC_0388_aft.JPG,63,1,matched_valid,
+246,248,Rendang ayam,011,011_287_DSC_0352_bef.JPG,44,011_287_DSC_0392_aft.JPG,31,2,matched_valid,
+247,249,Rendang ayam,011,011_288_DSC_0335_bef.JPG,40,011_288_DSC_0370_aft.JPG,23,6,matched_valid,
+248,250,Rendang ayam,011,011_289_DSC_0337_bef.JPG,38,011_289_DSC_0374_aft.JPG,29,3,matched_valid,
+249,251,Rendang ayam,011,011_290_DSC_0325_bef.JPG,49,011_290_DSC_0360_aft.JPG,13,7,matched_valid,
+250,252,Rendang ayam,011,011_291_DSC_0317_bef.JPG,45,011_291_DSC_0399_aft.JPG,24,6,matched_valid,
+251,253,Rendang ayam,011,011_292_DSC_0331_bef.JPG,43,011_292_DSC_0363_aft.JPG,24,5,matched_valid,
+252,254,Rendang ayam,011,011_293_DSC_0329_bef.JPG,50,011_293_DSC_0379_aft.JPG,0,7,matched_valid,
+253,255,Ayam bumbu laos,012,012_204_DSC_0554_bef.JPG,52,012_204_DSC_0582_aft.JPG,48,2,matched_valid,
+254,256,Ayam bumbu laos,012,012_205_DSC_0558_bef.JPG,59,012_205_DSC_0575_aft.JPG,18,6,matched_valid,
+255,258,Ayam bumbu laos,012,012_207_DSC_0544_bef.JPG,59,012_207_DSC_0587_aft.JPG,59,1,matched_valid,
+256,259,Ayam bumbu laos,012,012_208_DSC_0540_bef.JPG,46,012_208_DSC_0594_aft.JPG,0,7,matched_valid,
+257,260,Ayam bumbu laos,012,012_209_DSC_0526_bef.JPG,56,012_209_DSC_0530_aft.JPG,56,1,matched_valid,
+258,261,Ayam bumbu laos,012,012_210_DSC_0528_bef.JPG,59,012_210_DSC_0534_aft.JPG,59,1,matched_valid,
+259,262,Ayam bumbu laos,012,012_294_DSC_0408_bef.JPG,49,012_294_DSC_0485_aft.JPG,20,7,matched_valid,
+260,263,Ayam bumbu laos,012,012_295_DSC_0406_bef.JPG,37,012_295_DSC_0483_aft.JPG,18,5,matched_valid,
+261,264,Ayam bumbu laos,012,012_296_DSC_0404_bef.JPG,41,012_296_DSC_0480_aft.JPG,37,3,matched_valid,
+262,265,Ayam bumbu laos,012,012_297_DSC_0410_bef.JPG,39,012_297_DSC_0457_aft.JPG,0,7,matched_valid,
+263,266,Ayam bumbu laos,012,012_298_DSC_0426_bef.JPG,60,012_298_DSC_0492_aft.JPG,54,1,matched_valid,
+264,267,Ayam bumbu laos,012,012_299_DSC_0430_bef.JPG,54,012_299_DSC_0498_aft.JPG,31,6,matched_valid,
+265,268,Ayam bumbu laos,012,012_300_DSC_0440_bef.JPG,57,012_300_DSC_0470_aft.JPG,46,1,matched_valid,
+266,269,Ayam bumbu laos,012,012_301_DSC_0442_bef.JPG,65,012_301_DSC_0464_aft.JPG,54,4,matched_valid,
+267,270,Ayam bumbu laos,012,012_302_DSC_0448_bef.JPG,58,012_302_DSC_0474_aft.JPG,58,1,matched_valid,
+268,271,Ayam bumbu laos,012,012_303_DSC_0417_bef.JPG,45,012_303_DSC_0460_aft.JPG,45,1,matched_valid,
+269,272,Ayam bumbu bistik,013,013_211_DSC_0634_bef.JPG,54,013_211_DSC_0688_aft.JPG,54,1,matched_valid,
+270,273,Ayam bumbu bistik,013,013_212_DSC_0604_bef.JPG,42,013_212_DSC_0700_aft.JPG,41,1,matched_valid,
+271,274,Ayam bumbu bistik,013,013_213_DSC_0620_bef.JPG,50,013_213_DSC_0658_aft.JPG,23,6,matched_valid,
+272,275,Ayam bumbu bistik,013,013_214_DSC_0617_bef.JPG,54,013_214_DSC_0663_aft.JPG,0,7,matched_valid,
+273,276,Ayam bumbu bistik,013,013_215_DSC_0625_bef.JPG,67,013_215_DSC_0673_aft.JPG,37,5,matched_valid,
+274,277,Ayam bumbu bistik,013,013_216_DSC_0608_bef.JPG,54,013_216_DSC_0694_aft.JPG,21,4,matched_valid,
+275,278,Ayam bumbu bistik,013,013_217_DSC_0611_bef.JPG,61,013_217_DSC_0698_aft.JPG,0,7,matched_valid,
+276,279,Ayam bumbu bistik,013,013_218_DSC_0601_bef.JPG,68,013_218_DSC_0666_aft.JPG,23,6,matched_valid,
+277,280,Ayam bumbu bistik,013,013_219_DSC_0624_bef.JPG,57,013_219_DSC_0685_aft.JPG,7,6,matched_valid,
+278,281,Ayam bumbu bistik,013,013_220_DSC_0627_bef.JPG,52,013_220_DSC_0676_aft.JPG,34,4,matched_valid,
+279,282,Ayam bumbu bistik,013,013_221_DSC_0629_bef.JPG,58,013_221_DSC_0681_aft.JPG,30,5,matched_valid,
+280,283,Ayam bumbu bistik,013,013_304_DSC_0539_bef.JPG,49,013_304_DSC_0589_aft.JPG,48,1,matched_valid,
+281,284,Ayam bumbu bistik,013,013_305_DSC_0537_bef.JPG,43,013_305_DSC_0592_aft.JPG,0,7,matched_valid,
+282,285,Ayam bumbu bistik,013,013_306_DSC_0535_bef.JPG,48,013_306_DSC_0595_aft.JPG,0,7,matched_valid,
+283,286,Ayam bumbu bistik,013,013_307_DSC_0523_bef.JPG,45,013_307_DSC_0578_aft.JPG,20,6,matched_valid,
+284,287,Ayam bumbu bistik,013,013_308_DSC_0521_bef.JPG,44,013_308_DSC_0584_aft.JPG,0,7,matched_valid,
+285,288,Ayam bumbu bistik,013,013_309_DSC_0500_bef.JPG,68,013_309_DSC_0563_aft.JPG,28,6,matched_valid,
+286,289,Ayam bumbu bistik,013,013_310_DSC_0506_bef.JPG,85,013_310_DSC_0559_aft.JPG,0,7,matched_valid,
+287,290,Ayam bumbu bistik,013,013_311_DSC_0503_bef.JPG,64,013_311_DSC_0553_aft.JPG,0,7,matched_valid,
+288,291,Ayam bumbu bistik,013,013_312_DSC_0509_bef.JPG,50,013_312_DSC_0574_aft.JPG,24,4,matched_valid,
+289,292,Ayam bumbu bistik,013,013_313_DSC_0512_bef.JPG,49,013_313_DSC_0569_aft.JPG,1,7,matched_valid,
+290,293,Ayam bumbu bistik,013,013_314_DSC_0518_bef.JPG,55,013_314_DSC_0601_aft.JPG,0,7,matched_valid,
+291,295,ikan bb asam manis,014,014_223_DSC_0722_bef.JPG,53,014_223_DSC_0810_aft.JPG,0,7,matched_valid,
+292,296,ikan bb asam manis,014,014_224_DSC_0733_bef.JPG,44,014_224_DSC_0788_aft.JPG,31,3,matched_valid,
+293,297,ikan bb asam manis,014,014_225_DSC_0741_bef.JPG,60,014_225_DSC_0786_aft.JPG,19,4,matched_valid,
+294,298,ikan bb asam manis,014,014_226_DSC_0706_bef.JPG,36,014_226_DSC_0760_aft.JPG,0,7,matched_valid,
+295,299,ikan bb asam manis,014,014_227_DSC_0715_bef.JPG,25,014_227_DSC_0763_aft.JPG,3,6,matched_valid,
+296,300,ikan bb asam manis,014,014_228_DSC_0725_bef.JPG,55,014_228_DSC_0795_aft.JPG,0,7,matched_valid,
+297,301,ikan bb asam manis,014,014_229_DSC_0728_bef.JPG,37,014_229_DSC_0799_aft.JPG,34,3,matched_valid,
+298,302,ikan bb asam manis,014,014_230_DSC_0710_bef.JPG,48,014_230_DSC_0768_aft.JPG,13,6,matched_valid,
+299,303,ikan bb asam manis,014,014_231_DSC_0737_bef.JPG,56,014_231_DSC_0781_aft.JPG,0,7,matched_valid,
+300,304,ikan bb asam manis,014,014_232_DSC_0705_bef.JPG,44,014_232_DSC_0771_aft.JPG,40,2,matched_valid,
+301,305,ikan bb asam manis,014,014_233_DSC_0708_bef.JPG,46,014_233_DSC_0775_aft.JPG,20,4,matched_valid,
+302,306,ikan bb asam manis,014,014_315_DSC_0619_bef.JPG,26,014_315_DSC_0638_aft.JPG,0,7,matched_valid,
+303,307,ikan bb asam manis,014,014_316_DSC_0621_bef.JPG,35,014_316_DSC_0641_aft.JPG,0,7,matched_valid,
+304,308,ikan bb asam manis,014,014_317_DSC_0610_bef.JPG,24,014_317_DSC_0635_aft.JPG,2,7,matched_valid,
+305,309,Telur Mata Sapi,015,015_255_DSC_0014_bef.JPG,50,015_255_DSC_0093_aft.JPG,0,7,matched_valid,
+306,310,Telur Mata Sapi,015,015_256_DSC_0016_bef.JPG,47,015_256_DSC_0089_aft.JPG,0,7,matched_valid,
+307,311,Telur Mata Sapi,015,015_257_DSC_0018_bef.JPG,46,015_257_DSC_0084_aft.JPG,15,5,matched_valid,
+308,312,Telur Mata Sapi,015,015_258_DSC_0050_bef.JPG,45,015_258_DSC_0080_aft.JPG,0,7,matched_valid,
+309,313,Telur Mata Sapi,015,015_259_DSC_0045_bef.JPG,39,015_259_DSC_0077_aft.JPG,18,5,matched_valid,
+310,314,Telur Mata Sapi,015,015_260_DSC_0030_bef.JPG,58,015_260_DSC_0096_aft.JPG,4,6,matched_valid,
+311,315,Telur Mata Sapi,015,015_261_DSC_0036_bef.JPG,47,015_261_DSC_0105_aft.JPG,0,7,matched_valid,
+312,317,Telur Mata Sapi,015,015_263_DSC_0042_bef.JPG,57,015_263_DSC_0120_aft.JPG,56,1,matched_valid,
+313,318,Telur Mata Sapi,015,015_264_DSC_0020_bef.JPG,44,015_264_DSC_0112_aft.JPG,0,7,matched_valid,
+314,319,Telur Mata Sapi,015,015_318_DSC_0049_bef.JPG,39,015_318_DSC_0091_aft.JPG,39,1,matched_valid,
+315,320,Telur Mata Sapi,015,015_319_DSC_0041_bef.JPG,48,015_319_DSC_0078_aft.JPG,41,7,matched_valid,
+316,321,Telur Mata Sapi,015,015_336_DSC_0607_bef.JPG,46,015_336_DSC_0695_aft.JPG,0,7,matched_valid,
+317,322,Telur Mata Sapi,015,015_337_DSC_0613_bef.JPG,51,015_337_DSC_0699_aft.JPG,0,7,matched_valid,
+318,323,Telur Mata Sapi,015,015_338_DSC_0600_bef.JPG,48,015_338_DSC_0667_aft.JPG,0,7,matched_valid,
+319,324,Telur Mata Sapi,015,015_372_DSC_0540_bef.JPG,45,015_372_DSC_0588_aft.JPG,44,1,matched_valid,
+320,325,Telur Mata Sapi,015,015_373_DSC_0501_bef.JPG,49,015_373_DSC_0564_aft.JPG,4,6,matched_valid,
+321,326,Telur Mata Sapi,015,015_374_DSC_0507_bef.JPG,48,015_374_DSC_0560_aft.JPG,0,7,matched_valid,
+322,327,Telur Mata Sapi,015,015_375_DSC_0504_bef.JPG,44,015_375_DSC_0554_aft.JPG,0,7,matched_valid,
+323,328,Telur Mata Sapi,015,015_376_DSC_0510_bef.JPG,50,015_376_DSC_0575_aft.JPG,0,7,matched_valid,
+324,330,Telur Mata Sapi,015,015_378_DSC_0519_bef.JPG,54,015_378_DSC_0600_aft.JPG,25,4,matched_valid,
+325,331,Ayam suwir,016,016_320_DSC_0212_bef.JPG,31,016_320_DSC_0256_aft.JPG,0,7,matched_valid,
+326,332,Ayam suwir,016,016_321_DSC_0216_bef.JPG,32,016_321_DSC_0247_aft.JPG,24,3,matched_valid,
+327,333,Ayam suwir,016,016_322_DSC_0221_bef.JPG,32,016_322_DSC_0252_aft.JPG,11,5,matched_valid,
+328,334,Ayam suwir,016,016_360_DSC_0149_bef.JPG,31,016_360_DSC_0196_aft.JPG,0,7,matched_valid,
+329,335,Ayam suwir,016,016_379_DSC_0611_bef.JPG,30,016_379_DSC_0634_aft.JPG,0,7,matched_valid,
+330,336,Oseng Bakso,017,017_323_DSC_0372_bef.JPG,25,017_323_DSC_0424_aft.JPG,4,6,matched_valid,
+331,337,Oseng Bakso,017,017_324_DSC_0375_bef.JPG,24,017_324_DSC_0413_aft.JPG,13,4,matched_valid,
+332,338,Oseng Bakso,017,017_325_DSC_0368_bef.JPG,22,017_325_DSC_0409_aft.JPG,0,7,matched_valid,
+333,339,Oseng Bakso,017,017_326_DSC_0365_bef.JPG,23,017_326_DSC_0405_aft.JPG,15,4,matched_valid,
+334,340,Oseng Bakso,017,017_327_DSC_0360_bef.JPG,21,017_327_DSC_0399_aft.JPG,0,7,matched_valid,
+335,341,Oseng Sosis,018,018_328_DSC_0451_bef.JPG,19,018_328_DSC_0513_aft.JPG,14,2,matched_valid,
+336,342,Oseng Sosis,018,018_329_DSC_0459_bef.JPG,21,018_329_DSC_0507_aft.JPG,20,1,matched_valid,
+337,343,Oseng Sosis,018,018_330_DSC_0461_bef.JPG,22,018_330_DSC_0498_aft.JPG,0,7,matched_valid,
+338,344,Oseng Sosis,018,018_331_DSC_0465_bef.JPG,21,018_331_DSC_0501_aft.JPG,0,7,matched_valid,
+339,345,Sambel Goreng Rempela Ati,019,019_332_DSC_0556_bef.JPG,12,019_332_DSC_0584_aft.JPG,12,1,matched_valid,
+340,346,Sambel Goreng Rempela Ati,019,019_333_DSC_0560_bef.JPG,11,019_333_DSC_0576_aft.JPG,0,7,matched_valid,
+341,347,Sambel Goreng Rempela Ati,019,019_334_DSC_0546_bef.JPG,19,019_334_DSC_0588_aft.JPG,20,1,matched_excluded,after_mass_exceeds_before_mass
+342,348,Sambel Goreng Rempela Ati,019,019_335_DSC_0541_bef.JPG,24,019_335_DSC_0597_aft.JPG,2,6,matched_valid,
+343,349,Sambel Goreng Rempela Ati,019,019_345_DSC_0825_bef.JPG,25,019_345_DSC_0883_aft.JPG,0,7,matched_valid,
+344,350,Sambel Goreng Rempela Ati,019,019_346_DSC_0832_bef.JPG,11,019_346_DSC_0905_aft.JPG,11,1,matched_valid,
+345,351,Sambel Goreng Rempela Ati,019,019_347_DSC_0846_bef.JPG,44,019_347_DSC_0887_aft.JPG,0,7,matched_valid,
+346,353,Sambel Goreng Rempela Ati,019,019_349_DSC_0855_bef.JPG,4,019_349_DSC_0894_aft.JPG,4,1,matched_valid,
+347,354,Sambel Goreng Rempela Ati,019,019_355_DSC_0031_bef.JPG,17,019_355_DSC_0099_aft.JPG,16,1,matched_valid,
+348,355,Sambel Goreng Rempela Ati,019,019_356_DSC_0033_bef.JPG,17,019_356_DSC_0103_aft.JPG,4,6,matched_valid,
+349,356,Sambel Goreng Rempela Ati,019,019_357_DSC_0039_bef.JPG,29,019_357_DSC_0123_aft.JPG,28,1,matched_valid,
+350,358,Sambel Goreng Rempela Ati,019,019_359_DSC_0023_bef.JPG,17,019_359_DSC_0109_aft.JPG,16,1,matched_valid,
+351,359,Sambel Goreng Rempela Ati,019,019_369_DSC_0428_bef.JPG,10,019_369_DSC_0494_aft.JPG,10,1,matched_valid,
+352,360,Sambel Goreng Rempela Ati,019,019_370_DSC_0432_bef.JPG,6,019_370_DSC_0499_aft.JPG,0,7,matched_valid,
+353,361,Sambel Goreng Rempela Ati,019,019_371_DSC_0419_bef.JPG,18,019_371_DSC_0461_aft.JPG,18,1,matched_valid,
+354,362,bola bola daging,020,020_339_DSC_0718_bef.JPG,29,020_339_DSC_0804_aft.JPG,24,4,matched_valid,
+355,363,bola bola daging,020,020_340_DSC_0721_bef.JPG,29,020_340_DSC_0809_aft.JPG,0,7,matched_valid,
+356,364,bola bola daging,020,020_341_DSC_0739_bef.JPG,31,020_341_DSC_0785_aft.JPG,0,7,matched_valid,
+357,365,bola bola daging,020,020_342_DSC_0724_bef.JPG,36,020_342_DSC_0794_aft.JPG,0,7,matched_valid,
+358,366,bola bola daging,020,020_343_DSC_0727_bef.JPG,29,020_343_DSC_0800_aft.JPG,0,7,matched_valid,
+359,367,bola bola daging,020,020_344_DSC_0735_bef.JPG,34,020_344_DSC_0780_aft.JPG,0,7,matched_valid,
+360,368,tumis bakso,021,021_350_DSC_0918_bef.JPG,13,021_350_DSC_0991_aft.JPG,0,7,matched_valid,
+361,369,tumis bakso,021,021_351_DSC_0928_bef.JPG,18,021_351_DSC_0006_aft.JPG,13,2,matched_valid,
+362,370,tumis bakso,021,021_352_DSC_0932_bef.JPG,25,021_352_DSC_0997_aft.JPG,25,1,matched_valid,
+363,372,tumis bakso,021,021_354_DSC_0945_bef.JPG,21,021_354_DSC_0001_aft.JPG,0,7,matched_valid,
+364,373,tumis bakso,021,021_361_DSC_0228_bef.JPG,12,021_361_DSC_0279_aft.JPG,0,7,matched_valid,
+365,374,tumis bakso,021,021_362_DSC_0238_bef.JPG,17,021_362_DSC_0292_aft.JPG,0,7,matched_valid,
+366,375,tumis bakso,021,021_363_DSC_0234_bef.JPG,17,021_363_DSC_0298_aft.JPG,0,7,matched_valid,
+367,376,tumis bakso,021,021_364_DSC_0242_bef.JPG,13,021_364_DSC_0282_aft.JPG,7,2,matched_valid,
+368,377,tumis bakso,021,021_365_DSC_0326_bef.JPG,27,021_365_DSC_0364_aft.JPG,0,7,matched_valid,
+369,378,tumis bakso,021,021_366_DSC_0319_bef.JPG,43,021_366_DSC_0400_aft.JPG,14,6,matched_valid,
+370,379,tumis bakso,021,021_367_DSC_0334_bef.JPG,17,021_367_DSC_0367_aft.JPG,0,7,matched_valid,
+371,380,tumis bakso,021,021_368_DSC_0330_bef.JPG,13,021_368_DSC_0380_aft.JPG,0,7,matched_valid,
+372,381,Dadar jagung goreng,022,022_380_DSC_0019_bef.JPG,29,022_380_DSC_0031_aft.JPG,29,1,matched_valid,
+373,382,Dadar jagung goreng,022,022_456_DSC_0826_bef.JPG,34,022_456_DSC_0882_aft.JPG,0,7,matched_valid,
+374,383,Dadar jagung goreng,022,022_457_DSC_0862_bef.JPG,31,022_457_DSC_0912_aft.JPG,0,7,matched_valid,
+375,385,Dadar jagung goreng,022,022_459_DSC_0839_bef.JPG,28,022_459_DSC_0875_aft.JPG,2,6,matched_valid,
+376,386,Dadar jagung goreng,022,022_460_DSC_0836_bef.JPG,19,022_460_DSC_0874_aft.JPG,0,7,matched_valid,
+377,387,Dadar jagung goreng,022,022_461_DSC_0838_bef.JPG,28,022_461_DSC_0869_aft.JPG,0,7,matched_valid,
+378,388,Bali Tahu,023,023_381_DSC_0064_bef.JPG,35,023_381_DSC_0106_aft.JPG,33,2,matched_valid,
+379,389,Bali Tahu,023,023_382_DSC_0068_bef.JPG,41,023_382_DSC_0093_aft.JPG,41,1,matched_valid,
+380,391,Bali Tahu,023,023_384_DSC_0046_bef.JPG,35,023_384_DSC_0083_aft.JPG,34,1,matched_valid,
+381,392,Bali Tahu,023,023_385_DSC_0047_bef.JPG,38,023_385_DSC_0080_aft.JPG,0,7,matched_valid,
+382,393,Bali Tahu,023,023_386_DSC_0051_bef.JPG,67,023_386_DSC_0090_aft.JPG,64,1,matched_valid,
+383,394,Bali Tahu,023,023_387_DSC_0040_bef.JPG,51,023_387_DSC_0076_aft.JPG,47,1,matched_valid,
+384,395,Bali Tahu,023,023_388_DSC_0063_bef.JPG,34,023_388_DSC_0104_aft.JPG,0,7,matched_valid,
+385,396,Bali Tahu,023,023_429_DSC_0545_bef.JPG,41,023_429_DSC_0589_aft.JPG,41,1,matched_valid,
+386,397,Bali Tahu,023,023_430_DSC_0543_bef.JPG,25,023_430_DSC_0596_aft.JPG,0,7,matched_valid,
+387,398,Bali Tahu,023,023_432_DSC_0533_bef.JPG,18,023_432_DSC_0535_aft.JPG,18,1,matched_valid,
+388,399,Bali Tahu,023,023_477_DSC_0065_bef.JPG,18,023_477_DSC_0092_aft.JPG,0,7,matched_valid,
+389,400,Bali Tahu,023,023_478_DSC_0064_bef.JPG,30,023_478_DSC_0070_aft.JPG,0,7,matched_valid,
+390,401,Bali Tahu,023,023_479_DSC_0068_bef.JPG,18,023_479_DSC_0083_aft.JPG,0,7,matched_valid,
+391,402,Bali Tahu,023,023_480_DSC_0069_bef.JPG,20,023_480_DSC_0081_aft.JPG,0,7,matched_valid,
+392,403,Bali Tahu,023,023_481_DSC_0046_bef.JPG,35,023_481_DSC_0075_aft.JPG,34,1,matched_valid,
+393,404,Bali Tahu,023,023_482_DSC_0029_bef.JPG,35,023_482_DSC_0097_aft.JPG,0,7,matched_valid,
+394,405,Bali Tahu,023,023_483_DSC_0035_bef.JPG,35,023_483_DSC_0106_aft.JPG,0,7,matched_valid,
+395,407,Bali Tahu,023,023_485_DSC_0041_bef.JPG,36,023_485_DSC_0122_aft.JPG,35,1,matched_valid,
+396,408,Bali Tahu,023,023_486_DSC_0021_bef.JPG,36,023_486_DSC_0110_aft.JPG,0,7,matched_valid,
+397,409,Bali Tahu,023,023_522_DSC_0441_bef.JPG,35,023_522_DSC_0471_aft.JPG,34,1,matched_valid,
+398,410,Bali Tahu,023,023_523_DSC_0443_bef.JPG,43,023_523_DSC_0465_aft.JPG,38,2,matched_valid,
+399,411,Bali Tahu,023,023_524_DSC_0450_bef.JPG,36,023_524_DSC_0475_aft.JPG,36,1,matched_valid,
+400,412,Perkedel Kentang,024,024_389_DSC_0129_bef.JPG,34,024_389_DSC_0166_aft.JPG,34,1,matched_valid,
+401,413,Perkedel Kentang,024,024_390_DSC_0147_bef.JPG,32,024_390_DSC_0171_aft.JPG,0,7,matched_valid,
+402,414,Perkedel Kentang,024,024_391_DSC_0159_bef.JPG,32,024_391_DSC_0174_aft.JPG,0,7,matched_valid,
+403,415,Perkedel Kentang,024,024_416_DSC_0453_bef.JPG,34,024_416_DSC_0512_aft.JPG,0,7,matched_valid,
+404,416,Perkedel Kentang,024,024_417_DSC_0457_bef.JPG,36,024_417_DSC_0508_aft.JPG,36,1,matched_valid,
+405,417,Perkedel Kentang,024,024_418_DSC_0446_bef.JPG,33,024_418_DSC_0476_aft.JPG,0,7,matched_valid,
+406,418,Perkedel Kentang,024,024_419_DSC_0442_bef.JPG,31,024_419_DSC_0481_aft.JPG,0,7,matched_valid,
+407,419,Perkedel Kentang,024,024_420_DSC_0443_bef.JPG,41,024_420_DSC_0474_aft.JPG,0,7,matched_valid,
+408,420,Perkedel Kentang,024,024_421_DSC_0462_bef.JPG,33,024_421_DSC_0496_aft.JPG,0,7,matched_valid,
+409,421,Perkedel Kentang,024,024_422_DSC_0464_bef.JPG,32,024_422_DSC_0502_aft.JPG,0,7,matched_valid,
+410,422,Perkedel Kentang,024,024_423_DSC_0437_bef.JPG,27,024_423_DSC_0488_aft.JPG,0,7,matched_valid,
+411,423,Perkedel Kentang,024,024_424_DSC_0435_bef.JPG,35,024_424_DSC_0491_aft.JPG,15,4,matched_valid,
+412,424,Perkedel Kentang,024,024_425_DSC_0439_bef.JPG,28,024_425_DSC_0485_aft.JPG,0,7,matched_valid,
+413,425,Perkedel Kentang,024,024_507_DSC_0350_bef.JPG,28,024_507_DSC_0395_aft.JPG,29,1,matched_excluded,after_mass_exceeds_before_mass
+414,426,Perkedel Kentang,024,024_508_DSC_0349_bef.JPG,27,024_508_DSC_0389_aft.JPG,0,7,matched_valid,
+415,427,Perkedel Kentang,024,024_509_DSC_0351_bef.JPG,27,024_509_DSC_0391_aft.JPG,16,4,matched_valid,
+416,428,Perkedel Kentang,024,024_510_DSC_0336_bef.JPG,24,024_510_DSC_0372_aft.JPG,0,7,matched_valid,
+417,429,Perkedel Kentang,024,024_511_DSC_0338_bef.JPG,24,024_511_DSC_0375_aft.JPG,8,5,matched_valid,
+418,430,Perkedel Kentang,024,024_512_DSC_0322_bef.JPG,27,024_512_DSC_0365_aft.JPG,0,7,matched_valid,
+419,431,Perkedel Kentang,024,024_513_DSC_0318_bef.JPG,26,024_513_DSC_0402_aft.JPG,0,7,matched_valid,
+420,432,Perkedel Kentang,024,024_514_DSC_0315_bef.JPG,25,024_514_DSC_0368_aft.JPG,0,7,matched_valid,
+421,433,Perkedel Kentang,024,024_515_DSC_0327_bef.JPG,28,024_515_DSC_0381_aft.JPG,0,7,matched_valid,
+422,434,Tahu goreng,025,025_392_DSC_0183_bef.JPG,20,025_392_DSC_0261_aft.JPG,0,7,matched_valid,
+423,435,Tahu bumbu kecap,026,026_393_DSC_0178_bef.JPG,32,026_393_DSC_0229_aft.JPG,0,7,matched_valid,
+424,436,Tahu bumbu kecap,026,026_394_DSC_0186_bef.JPG,35,026_394_DSC_0236_aft.JPG,29,2,matched_valid,
+425,437,Tahu bumbu kecap,026,026_395_DSC_0203_bef.JPG,46,026_395_DSC_0242_aft.JPG,27,4,matched_valid,
+426,438,Tahu bumbu kecap,026,026_396_DSC_0210_bef.JPG,57,026_396_DSC_0253_aft.JPG,37,3,matched_valid,
+427,439,Tahu bumbu kecap,026,026_397_DSC_0181_bef.JPG,48,026_397_DSC_0225_aft.JPG,0,7,matched_valid,
+428,440,Tahu bumbu kecap,026,026_398_DSC_0192_bef.JPG,40,026_398_DSC_0234_aft.JPG,0,7,matched_valid,
+429,441,Tahu bumbu kecap,026,026_399_DSC_0214_bef.JPG,37,026_399_DSC_0245_aft.JPG,24,4,matched_valid,
+430,442,Tahu bumbu kecap,026,026_400_DSC_0218_bef.JPG,40,026_400_DSC_0250_aft.JPG,37,1,matched_valid,
+431,443,Tahu bumbu kecap,026,026_487_DSC_0125_bef.JPG,31,026_487_DSC_0176_aft.JPG,25,2,matched_valid,
+432,444,Tahu bumbu kecap,026,026_488_DSC_0128_bef.JPG,37,026_488_DSC_0184_aft.JPG,33,1,matched_valid,
+433,445,Tahu bumbu kecap,026,026_489_DSC_0131_bef.JPG,36,026_489_DSC_0188_aft.JPG,0,7,matched_valid,
+434,446,Tahu bumbu kecap,026,026_490_DSC_0130_bef.JPG,36,026_490_DSC_0191_aft.JPG,35,1,matched_valid,
+435,447,Tahu bumbu kecap,026,026_491_DSC_0135_bef.JPG,29,026_491_DSC_0171_aft.JPG,28,1,matched_valid,
+436,448,Tahu bumbu kecap,026,026_492_DSC_0134_bef.JPG,36,026_492_DSC_0179_aft.JPG,0,7,matched_valid,
+437,449,Tahu bumbu kecap,026,026_493_DSC_0154_bef.JPG,43,026_493_DSC_0206_aft.JPG,37,3,matched_valid,
+438,450,Tahu bumbu kecap,026,026_494_DSC_0158_bef.JPG,41,026_494_DSC_0214_aft.JPG,8,6,matched_valid,
+439,451,Tahu bumbu kecap,026,026_495_DSC_0152_bef.JPG,45,026_495_DSC_0202_aft.JPG,40,2,matched_valid,
+440,452,Tahu bumbu kecap,026,026_496_DSC_0156_bef.JPG,40,026_496_DSC_0210_aft.JPG,26,4,matched_valid,
+441,453,Tahu bumbu kecap,026,026_497_DSC_0150_bef.JPG,36,026_497_DSC_0198_aft.JPG,0,7,matched_valid,
+442,454,Tempe bb Kuning,027,027_401_DSC_0270_bef.JPG,37,027_401_DSC_0324_aft.JPG,4,6,matched_valid,
+443,456,Tempe bb Kuning,027,027_404_DSC_0272_bef.JPG,66,027_404_DSC_0306_aft.JPG,33,4,matched_valid,
+444,457,Tempe bb Kuning,027,027_405_DSC_0276_bef.JPG,55,027_405_DSC_0303_aft.JPG,0,7,matched_valid,
+445,458,Tempe goreng,028,028_403_DSC_0283_bef.JPG,33,028_403_DSC_0341_aft.JPG,0,7,matched_valid,
+446,459,Tempe goreng,028,028_406_DSC_0285_bef.JPG,48,028_406_DSC_0317_aft.JPG,48,1,matched_valid,
+447,460,Tempe goreng,028,028_498_DSC_0224_bef.JPG,24,028_498_DSC_0273_aft.JPG,25,1,matched_excluded,after_mass_exceeds_before_mass
+448,461,Tempe goreng,028,028_499_DSC_0251_bef.JPG,28,028_499_DSC_0304_aft.JPG,0,7,matched_valid,
+449,462,Tempe goreng,028,028_500_DSC_0254_bef.JPG,28,028_500_DSC_0308_aft.JPG,0,7,matched_valid,
+450,463,Tempe goreng,028,028_501_DSC_0261_bef.JPG,34,028_501_DSC_0270_aft.JPG,32,1,matched_valid,
+451,464,Tempe bumbu bacem,029,029_407_DSC_0371_bef.JPG,30,029_407_DSC_0422_aft.JPG,9,5,matched_valid,
+452,465,Tempe bumbu bacem,029,029_408_DSC_0374_bef.JPG,28,029_408_DSC_0415_aft.JPG,0,7,matched_valid,
+453,466,Tempe bumbu bacem,029,029_409_DSC_0354_bef.JPG,34,029_409_DSC_0389_aft.JPG,32,1,matched_valid,
+454,467,Tempe bumbu bacem,029,029_410_DSC_0352_bef.JPG,32,029_410_DSC_0418_aft.JPG,0,7,matched_valid,
+455,468,Tempe bumbu bacem,029,029_411_DSC_0356_bef.JPG,31,029_411_DSC_0395_aft.JPG,32,1,matched_excluded,after_mass_exceeds_before_mass
+456,469,Tempe bumbu bacem,029,029_412_DSC_0366_bef.JPG,30,029_412_DSC_0407_aft.JPG,32,1,matched_excluded,after_mass_exceeds_before_mass
+457,470,Tempe bumbu bacem,029,029_413_DSC_0364_bef.JPG,38,029_413_DSC_0403_aft.JPG,0,7,matched_valid,
+458,471,Tempe bumbu bacem,029,029_414_DSC_0358_bef.JPG,36,029_414_DSC_0398_aft.JPG,0,7,matched_valid,
+459,472,Tempe bumbu bacem,029,029_415_DSC_0362_bef.JPG,36,029_415_DSC_0386_aft.JPG,16,1,matched_valid,
+460,474,Tempe bumbu bacem,029,029_445_DSC_0720_bef.JPG,37,029_445_DSC_0808_aft.JPG,0,7,matched_valid,
+461,475,Tempe bumbu bacem,029,029_446_DSC_0734_bef.JPG,44,029_446_DSC_0789_aft.JPG,0,7,matched_valid,
+462,476,Tempe bumbu bacem,029,029_447_DSC_0340_bef.JPG,32,029_447_DSC_0784_aft.JPG,0,7,matched_valid,
+463,477,Tempe bumbu bacem,029,029_448_DSC_0703_bef.JPG,43,029_448_DSC_0759_aft.JPG,0,7,matched_valid,
+464,478,Tempe bumbu bacem,029,029_449_DSC_0714_bef.JPG,48,029_449_DSC_0776_aft.JPG,0,7,matched_valid,
+465,479,Tempe bumbu bacem,029,029_450_DSC_0723_bef.JPG,33,029_450_DSC_0793_aft.JPG,29,2,matched_valid,
+466,480,Tempe bumbu bacem,029,029_451_DSC_0726_bef.JPG,42,029_451_DSC_0801_aft.JPG,0,7,matched_valid,
+467,481,Tempe bumbu bacem,029,029_452_DSC_0709_bef.JPG,41,029_452_DSC_0766_aft.JPG,41,1,matched_valid,
+468,482,Tempe bumbu bacem,029,029_453_DSC_0736_bef.JPG,43,029_453_DSC_0779_aft.JPG,0,7,matched_valid,
+469,483,Tempe bumbu bacem,029,029_454_DSC_0704_bef.JPG,51,029_454_DSC_0772_aft.JPG,22,3,matched_valid,
+470,484,Tempe bumbu bacem,029,029_455_DSC_0707_bef.JPG,34,029_455_DSC_0776_aft.JPG,2,6,matched_valid,
+471,485,Tempe bumbu bacem,029,029_502_DSC_0227_bef.JPG,37,029_502_DSC_0280_aft.JPG,0,7,matched_valid,
+472,486,Tempe bumbu bacem,029,029_503_DSC_0237_bef.JPG,37,029_503_DSC_0289_aft.JPG,0,7,matched_valid,
+473,487,Tempe bumbu bacem,029,029_504_DSC_0232_bef.JPG,36,029_504_DSC_0299_aft.JPG,0,7,matched_valid,
+474,488,Tempe bumbu bacem,029,029_505_DSC_0241_bef.JPG,40,029_505_DSC_0286_aft.JPG,0,7,matched_valid,
+475,489,Tempe bumbu bacem,029,029_506_DSC_0259_bef.JPG,36,029_506_DSC_0266_aft.JPG,36,1,matched_valid,
+476,490,Tempe bumbu bacem,029,029_537_DSC_0620_bef.JPG,32,029_537_DSC_0637_aft.JPG,20,4,matched_valid,
+477,491,Tempe bumbu bacem,029,029_538_DSC_0622_bef.JPG,42,029_538_DSC_0642_aft.JPG,0,7,matched_valid,
+478,492,Tempe bumbu bacem,029,029_539_DSC_0612_bef.JPG,36,029_539_DSC_0633_aft.JPG,9,6,matched_valid,
+479,493,Tahu bulat,030,030_426_DSC_0555_bef.JPG,19,030_426_DSC_0583_aft.JPG,0,7,matched_valid,
+480,494,Tahu bulat,030,030_427_DSC_0559_bef.JPG,20,030_427_DSC_0577_aft.JPG,0,7,matched_valid,
+481,495,Tahu bulat,030,030_428_DSC_0524_bef.JPG,15,030_428_DSC_0572_aft.JPG,2,6,matched_valid,
+482,496,Tahu bulat,030,030_431_DSC_0527_bef.JPG,18,030_431_DSC_0529_aft.JPG,18,1,matched_valid,
+483,497,Tahu bulat,030,030_516_DSC_0407_bef.JPG,18,030_516_DSC_0486_aft.JPG,2,7,matched_valid,
+484,498,Tahu bulat,030,030_517_DSC_0405_bef.JPG,16,030_517_DSC_0482_aft.JPG,16,1,matched_valid,
+485,499,Tahu bulat,030,030_518_DSC_0403_bef.JPG,16,030_518_DSC_0481_aft.JPG,0,7,matched_valid,
+486,500,Tahu bulat,030,030_519_DSC_0409_bef.JPG,17,030_519_DSC_0454_aft.JPG,17,1,matched_valid,
+487,501,Tahu bulat,030,030_520_DSC_0427_bef.JPG,19,030_520_DSC_0493_aft.JPG,19,1,matched_valid,
+488,502,Tahu bulat,030,030_521_DSC_0431_bef.JPG,19,030_521_DSC_0496_aft.JPG,9,5,matched_valid,
+489,503,Tahu bulat,030,030_525_DSC_0418_bef.JPG,19,030_525_DSC_0462_aft.JPG,19,1,matched_valid,
+490,504,Orek tempe,031,031_433_DSC_0633_bef.JPG,27,031_433_DSC_0689_aft.JPG,27,1,matched_valid,
+491,505,Orek tempe,031,031_434_DSC_0616_bef.JPG,29,031_434_DSC_0656_aft.JPG,28,1,matched_valid,
+492,506,Orek tempe,031,031_435_DSC_0621_bef.JPG,28,031_435_DSC_0659_aft.JPG,0,7,matched_valid,
+493,507,Orek tempe,031,031_436_DSC_0618_bef.JPG,27,031_436_DSC_0662_aft.JPG,20,7,matched_valid,
+494,508,Orek tempe,031,031_437_DSC_0626_bef.JPG,30,031_437_DSC_0671_aft.JPG,16,5,matched_valid,
+495,509,Orek tempe,031,031_438_DSC_0609_bef.JPG,30,031_438_DSC_0693_aft.JPG,10,4,matched_valid,
+496,510,Orek tempe,031,031_439_DSC_0614_bef.JPG,26,031_439_DSC_0690_aft.JPG,0,7,matched_valid,
+497,511,Orek tempe,031,031_440_DSC_0602_bef.JPG,35,031_440_DSC_0665_aft.JPG,0,7,matched_valid,
+498,512,Orek tempe,031,031_441_DSC_0623_bef.JPG,35,031_441_DSC_0683_aft.JPG,28,4,matched_valid,
+499,513,Orek tempe,031,031_442_DSC_0628_bef.JPG,31,031_442_DSC_0675_aft.JPG,0,7,matched_valid,
+500,514,Orek tempe,031,031_443_DSC_0630_bef.JPG,27,031_443_DSC_0680_aft.JPG,21,4,matched_valid,
+501,515,Orek tempe,031,031_526_DSC_0541_bef.JPG,32,031_526_DSC_0590_aft.JPG,32,1,matched_valid,
+502,516,Orek tempe,031,031_527_DSC_0538_bef.JPG,20,031_527_DSC_0593_aft.JPG,19,4,matched_valid,
+503,517,Orek tempe,031,031_528_DSC_0536_bef.JPG,26,031_528_DSC_0596_aft.JPG,0,7,matched_valid,
+504,518,Orek tempe,031,031_529_DSC_0524_bef.JPG,22,031_529_DSC_0579_aft.JPG,0,7,matched_valid,
+505,519,Orek tempe,031,031_530_DSC_0522_bef.JPG,26,031_530_DSC_0583_aft.JPG,0,7,matched_valid,
+506,520,Orek tempe,031,031_531_DSC_0502_bef.JPG,32,031_531_DSC_0565_aft.JPG,0,7,matched_valid,
+507,521,Orek tempe,031,031_532_DSC_0508_bef.JPG,39,031_532_DSC_0558_aft.JPG,29,4,matched_valid,
+508,522,Orek tempe,031,031_533_DSC_0505_bef.JPG,41,031_533_DSC_0555_aft.JPG,0,7,matched_valid,
+509,523,Orek tempe,031,031_534_DSC_0511_bef.JPG,30,031_534_DSC_0577_aft.JPG,13,5,matched_valid,
+510,524,Orek tempe,031,031_535_DSC_0513_bef.JPG,30,031_535_DSC_0568_aft.JPG,1,6,matched_valid,
+511,525,Orek tempe,031,031_536_DSC_0520_bef.JPG,28,031_536_DSC_0599_aft.JPG,8,6,matched_valid,
+512,526,dadar jagung kukus,032,032_462_DSC_0830_bef.JPG,30,032_462_DSC_0906_aft.JPG,30,1,matched_valid,
+513,527,dadar jagung kukus,032,032_463_DSC_0844_bef.JPG,35,032_463_DSC_0888_aft.JPG,0,1,matched_valid,
+514,529,dadar jagung kukus,032,032_465_DSC_0853_bef.JPG,34,032_465_DSC_0896_aft.JPG,11,5,matched_valid,
+515,530,Oseng Tahu,033,033_466_DSC_0936_bef.JPG,37,033_466_DSC_0975_aft.JPG,0,2,matched_valid,
+516,531,Oseng Tahu,033,033_467_DSC_0950_bef.JPG,35,033_467_DSC_0979_aft.JPG,2,6,matched_valid,
+517,532,Oseng Tahu,033,033_468_DSC_0959_bef.JPG,37,033_468_DSC_0983_aft.JPG,27,4,matched_valid,
+518,533,Oseng Tahu,033,033_469_DSC_0957_bef.JPG,44,033_469_DSC_0986_aft.JPG,27,3,matched_valid,
+519,534,Oseng Tahu,033,033_470_DSC_0919_bef.JPG,42,033_470_DSC_0992_aft.JPG,19,5,matched_valid,
+520,535,Oseng Tahu,033,033_471_DSC_0969_bef.JPG,63,033_471_DSC_1002_aft.JPG,34,4,matched_valid,
+521,536,Oseng Tahu,033,033_472_DSC_0967_bef.JPG,32,033_472_DSC_0011_aft.JPG,23,2,matched_valid,
+522,537,Oseng Tahu,033,033_473_DSC_0929_bef.JPG,34,033_473_DSC_0007_aft.JPG,0,7,matched_valid,
+523,538,Oseng Tahu,033,033_474_DSC_0933_bef.JPG,44,033_474_DSC_0998_aft.JPG,42,1,matched_valid,
+524,539,Oseng Tahu,033,033_475_DSC_0941_bef.JPG,43,033_475_DSC_1007_aft.JPG,23,4,matched_valid,
+525,540,Oseng Tahu,033,033_476_DSC_0947_bef.JPG,57,033_476_DSC_1012_aft.JPG,41,3,matched_valid,
+526,541,Bening kangkung labu siam,034,034_540_DSC_0017_bef.JPG,34,034_540_DSC_0033_aft.JPG,32,1,missing_image,"missing:034_540_DSC_0017_bef.JPG,034_540_DSC_0033_aft.JPG"
+527,542,Bening kangkung labu siam,034,034_567_DSC_0380_bef.JPG,53,034_567_DSC_0420_aft.JPG,55,1,missing_image,"missing:034_567_DSC_0380_bef.JPG,034_567_DSC_0420_aft.JPG"
+528,543,Bening kangkung labu siam,034,034_568_DSC_0381_bef.JPG,52,034_568_DSC_0412_aft.JPG,2,6,missing_image,"missing:034_568_DSC_0381_bef.JPG,034_568_DSC_0412_aft.JPG"
+529,544,Bening kangkung labu siam,034,034_569_DSC_0379_bef.JPG,46,034_569_DSC_0390_aft.JPG,2,6,missing_image,"missing:034_569_DSC_0379_bef.JPG,034_569_DSC_0390_aft.JPG"
+530,545,Bening kangkung labu siam,034,034_570_DSC_0378_bef.JPG,32,034_570_DSC_0419_aft.JPG,0,7,missing_image,"missing:034_570_DSC_0378_bef.JPG,034_570_DSC_0419_aft.JPG"
+531,546,Bening kangkung labu siam,034,034_571_DSC_0377_bef.JPG,48,034_571_DSC_0392_aft.JPG,40,3,missing_image,"missing:034_571_DSC_0377_bef.JPG,034_571_DSC_0392_aft.JPG"
+532,547,Bening kangkung labu siam,034,034_572_DSC_0382_bef.JPG,40,034_572_DSC_0406_aft.JPG,35,1,missing_image,"missing:034_572_DSC_0382_bef.JPG,034_572_DSC_0406_aft.JPG"
+533,548,Bening kangkung labu siam,034,034_573_DSC_0383_bef.JPG,52,034_573_DSC_0401_aft.JPG,13,4,missing_image,"missing:034_573_DSC_0383_bef.JPG,034_573_DSC_0401_aft.JPG"
+534,549,Bening kangkung labu siam,034,034_574_DSC_0376_bef.JPG,41,034_574_DSC_0400_aft.JPG,0,7,missing_image,"missing:034_574_DSC_0376_bef.JPG,034_574_DSC_0400_aft.JPG"
+535,550,Bening kangkung labu siam,034,034_575_DSC_0369_bef.JPG,49,034_575_DSC_0384_aft.JPG,39,2,missing_image,"missing:034_575_DSC_0369_bef.JPG,034_575_DSC_0384_aft.JPG"
+536,551,Bening kangkung labu siam,034,034_626_DSC_0943_bef.JPG,75,034_626_DSC_0976_aft.JPG,0,7,missing_image,"missing:034_626_DSC_0943_bef.JPG,034_626_DSC_0976_aft.JPG"
+537,553,Bening kangkung labu siam,034,034_630_DSC_0971_bef.JPG,60,034_630_DSC_0994_aft.JPG,41,3,missing_image,"missing:034_630_DSC_0971_bef.JPG,034_630_DSC_0994_aft.JPG"
+538,554,Bening kangkung labu siam,034,034_631_DSC_0973_bef.JPG,48,034_631_DSC_1001_aft.JPG,50,3,missing_image,"missing:034_631_DSC_0973_bef.JPG,034_631_DSC_1001_aft.JPG"
+539,555,Bening kangkung labu siam,034,034_632_DSC_0972_bef.JPG,68,034_632_DSC_0013_aft.JPG,34,1,missing_image,"missing:034_632_DSC_0972_bef.JPG,034_632_DSC_0013_aft.JPG"
+540,556,Bening kangkung labu siam,034,034_633_DSC_0952_bef.JPG,57,034_633_DSC_0005_aft.JPG,28,4,missing_image,"missing:034_633_DSC_0952_bef.JPG,034_633_DSC_0005_aft.JPG"
+541,557,Bening kangkung labu siam,034,034_634_DSC_0955_bef.JPG,61,034_634_DSC_1006_aft.JPG,41,1,missing_image,"missing:034_634_DSC_0955_bef.JPG,034_634_DSC_1006_aft.JPG"
+542,558,Bening kangkung labu siam,034,034_635_DSC_0954_bef.JPG,56,034_635_DSC_0003_aft.JPG,13,4,missing_image,"missing:034_635_DSC_0954_bef.JPG,034_635_DSC_0003_aft.JPG"
+543,559,Bobor Bayam,035,035_541_DSC_0061_bef.JPG,37,035_541_DSC_0105_aft.JPG,16,4,missing_image,"missing:035_541_DSC_0061_bef.JPG,035_541_DSC_0105_aft.JPG"
+544,560,Bobor Bayam,035,035_542_DSC_0072_bef.JPG,35,035_542_DSC_0096_aft.JPG,35,1,missing_image,"missing:035_542_DSC_0072_bef.JPG,035_542_DSC_0096_aft.JPG"
+545,561,Bobor Bayam,035,035_543_DSC_0073_bef.JPG,55,035_543_DSC_0098_aft.JPG,1,7,missing_image,"missing:035_543_DSC_0073_bef.JPG,035_543_DSC_0098_aft.JPG"
+546,562,Bobor Bayam,035,035_544_DSC_0053_bef.JPG,37,035_544_DSC_0086_aft.JPG,36,2,missing_image,"missing:035_544_DSC_0053_bef.JPG,035_544_DSC_0086_aft.JPG"
+547,563,Bobor Bayam,035,035_545_DSC_0052_bef.JPG,48,035_545_DSC_0079_aft.JPG,10,6,missing_image,"missing:035_545_DSC_0052_bef.JPG,035_545_DSC_0079_aft.JPG"
+548,564,Bobor Bayam,035,035_546_DSC_0054_bef.JPG,45,035_546_DSC_0089_aft.JPG,40,1,missing_image,"missing:035_546_DSC_0054_bef.JPG,035_546_DSC_0089_aft.JPG"
+549,565,Bobor Bayam,035,035_547_DSC_0042_bef.JPG,48,035_547_DSC_0074_aft.JPG,52,1,missing_image,"missing:035_547_DSC_0042_bef.JPG,035_547_DSC_0074_aft.JPG"
+550,566,Bobor Bayam,035,035_548_DSC_0044_bef.JPG,33,035_548_DSC_0102_aft.JPG,1,7,missing_image,"missing:035_548_DSC_0044_bef.JPG,035_548_DSC_0102_aft.JPG"
+551,567,Soto Soun Kentang,036,036_549_DSC_0143_bef.JPG,15,036_549_DSC_0164_aft.JPG,17,1,missing_image,"missing:036_549_DSC_0143_bef.JPG,036_549_DSC_0164_aft.JPG"
+552,568,Soto Soun Kentang,036,036_550_DSC_0156_bef.JPG,18,036_550_DSC_0168_aft.JPG,0,7,missing_image,"missing:036_550_DSC_0156_bef.JPG,036_550_DSC_0168_aft.JPG"
+553,569,Soto Soun Kentang,036,036_551_DSC_0161_bef.JPG,16,036_551_DSC_0173_aft.JPG,16,1,missing_image,"missing:036_551_DSC_0161_bef.JPG,036_551_DSC_0173_aft.JPG"
+554,570,Sayur Asam Labu Siam kacang Panjang,037,037_552_DSC_0182_bef.JPG,33,037_552_DSC_0258_aft.JPG,33,1,missing_image,"missing:037_552_DSC_0182_bef.JPG,037_552_DSC_0258_aft.JPG"
+555,571,Sayur Asam Labu Siam kacang Panjang,037,037_553_DSC_0196_bef.JPG,43,037_553_DSC_0230_aft.JPG,13,5,missing_image,"missing:037_553_DSC_0196_bef.JPG,037_553_DSC_0230_aft.JPG"
+556,572,Sayur Asam Labu Siam kacang Panjang,037,037_554_DSC_0187_bef.JPG,44,037_554_DSC_0237_aft.JPG,20,4,missing_image,"missing:037_554_DSC_0187_bef.JPG,037_554_DSC_0237_aft.JPG"
+557,573,Sayur Asam Labu Siam kacang Panjang,037,037_555_DSC_0200_bef.JPG,34,037_555_DSC_0240_aft.JPG,11,5,missing_image,"missing:037_555_DSC_0200_bef.JPG,037_555_DSC_0240_aft.JPG"
+558,574,Sayur Asam Labu Siam kacang Panjang,037,037_556_DSC_0215_bef.JPG,37,037_556_DSC_0255_aft.JPG,17,4,missing_image,"missing:037_556_DSC_0215_bef.JPG,037_556_DSC_0255_aft.JPG"
+559,575,Sayur Asam Labu Siam kacang Panjang,037,037_557_DSC_0197_bef.JPG,44,037_557_DSC_0224_aft.JPG,0,7,missing_image,"missing:037_557_DSC_0197_bef.JPG,037_557_DSC_0224_aft.JPG"
+560,576,Sayur Asam Labu Siam kacang Panjang,037,037_558_DSC_0195_bef.JPG,42,037_558_DSC_0231_aft.JPG,0,7,missing_image,"missing:037_558_DSC_0195_bef.JPG,037_558_DSC_0231_aft.JPG"
+561,577,Sayur Asam Labu Siam kacang Panjang,037,037_559_DSC_0217_bef.JPG,47,037_559_DSC_0243_aft.JPG,7,5,missing_image,"missing:037_559_DSC_0217_bef.JPG,037_559_DSC_0243_aft.JPG"
+562,578,Sayur Asam Labu Siam kacang Panjang,037,037_560_DSC_0220_bef.JPG,47,037_560_DSC_0249_aft.JPG,9,6,missing_image,"missing:037_560_DSC_0220_bef.JPG,037_560_DSC_0249_aft.JPG"
+563,579,Sayur Asam Labu Siam kacang Panjang,037,037_561_DSC_0288_bef.JPG,55,037_561_DSC_0325_aft.JPG,35,2,missing_image,"missing:037_561_DSC_0288_bef.JPG,037_561_DSC_0325_aft.JPG"
+564,580,Sayur Asam Labu Siam kacang Panjang,037,037_562_DSC_0286_bef.JPG,59,037_562_DSC_0301_aft.JPG,0,7,missing_image,"missing:037_562_DSC_0286_bef.JPG,037_562_DSC_0301_aft.JPG"
+565,581,Sayur Asam Labu Siam kacang Panjang,037,037_564_DSC_0287_bef.JPG,60,037_564_DSC_0305_aft.JPG,41,4,missing_image,"missing:037_564_DSC_0287_bef.JPG,037_564_DSC_0305_aft.JPG"
+566,582,Sayur Asam Labu Siam kacang Panjang,037,037_565_DSC_0289_bef.JPG,41,037_565_DSC_0321_aft.JPG,27,6,missing_image,"missing:037_565_DSC_0289_bef.JPG,037_565_DSC_0321_aft.JPG"
+567,583,Sayur Asam Labu Siam kacang Panjang,037,037_660_DSC_0262_bef.JPG,39,037_660_DSC_0271_aft.JPG,0,7,missing_image,"missing:037_660_DSC_0262_bef.JPG,037_660_DSC_0271_aft.JPG"
+568,584,Sayur Asam Labu Siam kacang Panjang,037,037_661_DSC_0244_bef.JPG,69,037_661_DSC_0281_aft.JPG,19,7,missing_image,"missing:037_661_DSC_0244_bef.JPG,037_661_DSC_0281_aft.JPG"
+569,585,Sayur Asam Labu Siam kacang Panjang,037,037_662_DSC_0245_bef.JPG,49,037_662_DSC_0288_aft.JPG,6,7,missing_image,"missing:037_662_DSC_0245_bef.JPG,037_662_DSC_0288_aft.JPG"
+570,586,Sayur Asam Labu Siam kacang Panjang,037,037_663_DSC_0246_bef.JPG,55,037_663_DSC_0295_aft.JPG,1,7,missing_image,"missing:037_663_DSC_0246_bef.JPG,037_663_DSC_0295_aft.JPG"
+571,587,Sayur Asam Labu Siam kacang Panjang,037,037_664_DSC_0247_bef.JPG,44,037_664_DSC_0287_aft.JPG,44,1,missing_image,"missing:037_664_DSC_0247_bef.JPG,037_664_DSC_0287_aft.JPG"
+572,588,Sayur Asam Labu Siam kacang Panjang,037,037_665_DSC_0263_bef.JPG,48,037_665_DSC_0267_aft.JPG,46,1,missing_image,"missing:037_665_DSC_0263_bef.JPG,037_665_DSC_0267_aft.JPG"
+573,589,Lodeh labu siam + wortel,038,038_563_DSC_0292_bef.JPG,32,038_563_DSC_0342_aft.JPG,7,4,missing_image,"missing:038_563_DSC_0292_bef.JPG,038_563_DSC_0342_aft.JPG"
+574,590,Lodeh labu siam + wortel,038,038_566_DSC_0293_bef.JPG,36,038_566_DSC_0319_aft.JPG,36,1,missing_image,"missing:038_566_DSC_0293_bef.JPG,038_566_DSC_0319_aft.JPG"
+575,591,Lodeh labu siam + wortel,038,038_586_DSC_0550_bef.JPG,49,038_586_DSC_0580_aft.JPG,32,4,missing_image,"missing:038_586_DSC_0550_bef.JPG,038_586_DSC_0580_aft.JPG"
+576,592,Lodeh labu siam + wortel,038,038_587_DSC_0551_bef.JPG,44,038_587_DSC_0574_aft.JPG,0,3,missing_image,"missing:038_587_DSC_0551_bef.JPG,038_587_DSC_0574_aft.JPG"
+577,593,Lodeh labu siam + wortel,038,038_588_DSC_0539_bef.JPG,56,038_588_DSC_0571_aft.JPG,46,3,missing_image,"missing:038_588_DSC_0539_bef.JPG,038_588_DSC_0571_aft.JPG"
+578,594,Lodeh labu siam + wortel,038,038_589_DSC_0552_bef.JPG,44,038_589_DSC_0593_aft.JPG,44,1,missing_image,"missing:038_589_DSC_0552_bef.JPG,038_589_DSC_0593_aft.JPG"
+579,595,Lodeh labu siam + wortel,038,038_590_DSC_0553_bef.JPG,40,038_590_DSC_0592_aft.JPG,21,3,missing_image,"missing:038_590_DSC_0553_bef.JPG,038_590_DSC_0592_aft.JPG"
+580,596,Lodeh labu siam + wortel,038,038_591_DSC_0536_bef.JPG,34,038_591_DSC_0537_aft.JPG,34,1,missing_image,"missing:038_591_DSC_0536_bef.JPG,038_591_DSC_0537_aft.JPG"
+581,597,Lodeh labu siam + wortel,038,038_592_DSC_0548_bef.JPG,43,038_592_DSC_0549_aft.JPG,43,1,missing_image,"missing:038_592_DSC_0548_bef.JPG,038_592_DSC_0549_aft.JPG"
+582,598,Sop wortel gambas soun,039,039_576_DSC_0469_bef.JPG,36,039_576_DSC_0505_aft.JPG,0,6,missing_image,"missing:039_576_DSC_0469_bef.JPG,039_576_DSC_0505_aft.JPG"
+583,599,Sop wortel gambas soun,039,039_577_DSC_0468_bef.JPG,44,039_577_DSC_0504_aft.JPG,44,1,missing_image,"missing:039_577_DSC_0468_bef.JPG,039_577_DSC_0504_aft.JPG"
+584,600,Sop wortel gambas soun,039,039_578_DSC_0456_bef.JPG,45,039_578_DSC_0471_aft.JPG,44,2,missing_image,"missing:039_578_DSC_0456_bef.JPG,039_578_DSC_0471_aft.JPG"
+585,601,Sop wortel gambas soun,039,039_579_DSC_0455_bef.JPG,31,039_579_DSC_0472_aft.JPG,0,7,missing_image,"missing:039_579_DSC_0455_bef.JPG,039_579_DSC_0472_aft.JPG"
+586,602,Sop wortel gambas soun,039,039_580_DSC_0454_bef.JPG,43,039_580_DSC_0470_aft.JPG,44,1,missing_image,"missing:039_580_DSC_0454_bef.JPG,039_580_DSC_0470_aft.JPG"
+587,603,Sop wortel gambas soun,039,039_581_DSC_0467_bef.JPG,45,039_581_DSC_0494_aft.JPG,4,6,missing_image,"missing:039_581_DSC_0467_bef.JPG,039_581_DSC_0494_aft.JPG"
+588,604,Sop wortel gambas soun,039,039_582_DSC_0466_bef.JPG,32,039_582_DSC_0503_aft.JPG,0,7,missing_image,"missing:039_582_DSC_0466_bef.JPG,039_582_DSC_0503_aft.JPG"
+589,605,Sop wortel gambas soun,039,039_583_DSC_0448_bef.JPG,39,039_583_DSC_0486_aft.JPG,35,2,missing_image,"missing:039_583_DSC_0448_bef.JPG,039_583_DSC_0486_aft.JPG"
+590,606,Sop wortel gambas soun,039,039_584_DSC_0449_bef.JPG,34,039_584_DSC_0492_aft.JPG,4,6,missing_image,"missing:039_584_DSC_0449_bef.JPG,039_584_DSC_0492_aft.JPG"
+591,607,Sop wortel gambas soun,039,039_585_DSC_0450_bef.JPG,38,039_585_DSC_0483_aft.JPG,1,7,missing_image,"missing:039_585_DSC_0450_bef.JPG,039_585_DSC_0483_aft.JPG"
+592,608,Sop wortel gambas soun,039,039_666_DSC_0355_bef.JPG,18,039_666_DSC_0387_aft.JPG,10,6,missing_image,"missing:039_666_DSC_0355_bef.JPG,039_666_DSC_0387_aft.JPG"
+593,609,Sop wortel gambas soun,039,039_667_DSC_0356_bef.JPG,24,039_667_DSC_0386_aft.JPG,0,7,missing_image,"missing:039_667_DSC_0356_bef.JPG,039_667_DSC_0386_aft.JPG"
+594,610,Sop wortel gambas soun,039,039_668_DSC_0357_bef.JPG,28,039_668_DSC_0385_aft.JPG,28,2,missing_image,"missing:039_668_DSC_0357_bef.JPG,039_668_DSC_0385_aft.JPG"
+595,611,Sop wortel gambas soun,039,039_669_DSC_0343_bef.JPG,43,039_669_DSC_0373_aft.JPG,0,7,missing_image,"missing:039_669_DSC_0343_bef.JPG,039_669_DSC_0373_aft.JPG"
+596,612,Sop wortel gambas soun,039,039_670_DSC_0344_bef.JPG,48,039_670_DSC_0376_aft.JPG,13,6,missing_image,"missing:039_670_DSC_0344_bef.JPG,039_670_DSC_0376_aft.JPG"
+597,613,Sop wortel gambas soun,039,039_671_DSC_0345_bef.JPG,49,039_671_DSC_0359_aft.JPG,43,2,missing_image,"missing:039_671_DSC_0345_bef.JPG,039_671_DSC_0359_aft.JPG"
+598,614,Sop wortel gambas soun,039,039_672_DSC_0346_bef.JPG,42,039_672_DSC_0398_aft.JPG,4,6,missing_image,"missing:039_672_DSC_0346_bef.JPG,039_672_DSC_0398_aft.JPG"
+599,615,Sop wortel gambas soun,039,039_673_DSC_0347_bef.JPG,49,039_673_DSC_0358_aft.JPG,14,5,missing_image,"missing:039_673_DSC_0347_bef.JPG,039_673_DSC_0358_aft.JPG"
+600,616,Sop wortel gambas soun,039,039_674_DSC_0348_bef.JPG,45,039_674_DSC_0378_aft.JPG,45,1,missing_image,"missing:039_674_DSC_0348_bef.JPG,039_674_DSC_0378_aft.JPG"
+601,617,Sop buncis soun,040,040_593_DSC_0646_bef.JPG,33,040_593_DSC_0686_aft.JPG,33,1,missing_image,"missing:040_593_DSC_0646_bef.JPG,040_593_DSC_0686_aft.JPG"
+602,618,Sop buncis soun,040,040_594_DSC_0638_bef.JPG,32,040_594_DSC_0653_aft.JPG,33,1,missing_image,"missing:040_594_DSC_0638_bef.JPG,040_594_DSC_0653_aft.JPG"
+603,619,Sop buncis soun,040,040_595_DSC_0637_bef.JPG,53,040_595_DSC_0661_aft.JPG,0,7,missing_image,"missing:040_595_DSC_0637_bef.JPG,040_595_DSC_0661_aft.JPG"
+604,620,Sop buncis soun,040,040_596_DSC_0636_bef.JPG,42,040_596_DSC_0657_aft.JPG,42,1,missing_image,"missing:040_596_DSC_0636_bef.JPG,040_596_DSC_0657_aft.JPG"
+605,622,Sop buncis soun,040,040_598_DSC_0632_bef.JPG,50,040_598_DSC_0691_aft.JPG,17,5,missing_image,"missing:040_598_DSC_0632_bef.JPG,040_598_DSC_0691_aft.JPG"
+606,623,Sop buncis soun,040,040_599_DSC_0635_bef.JPG,32,040_599_DSC_0692_aft.JPG,31,1,missing_image,"missing:040_599_DSC_0635_bef.JPG,040_599_DSC_0692_aft.JPG"
+607,624,Sop buncis soun,040,040_600_DSC_0647_bef.JPG,52,040_600_DSC_0669_aft.JPG,17,4,missing_image,"missing:040_600_DSC_0647_bef.JPG,040_600_DSC_0669_aft.JPG"
+608,625,Sop buncis soun,040,040_601_DSC_0631_bef.JPG,44,040_601_DSC_0682_aft.JPG,42,3,missing_image,"missing:040_601_DSC_0631_bef.JPG,040_601_DSC_0682_aft.JPG"
+609,626,Sop buncis soun,040,040_602_DSC_0643_bef.JPG,43,040_602_DSC_0677_aft.JPG,42,2,missing_image,"missing:040_602_DSC_0643_bef.JPG,040_602_DSC_0677_aft.JPG"
+610,627,Sop buncis soun,040,040_603_DSC_0644_bef.JPG,56,040_603_DSC_0678_aft.JPG,40,6,missing_image,"missing:040_603_DSC_0644_bef.JPG,040_603_DSC_0678_aft.JPG"
+611,628,Asam asam buncis,041,041_604_DSC_0745_bef.JPG,62,041_604_DSC_0802_aft.JPG,58,2,missing_image,"missing:041_604_DSC_0745_bef.JPG,041_604_DSC_0802_aft.JPG"
+612,629,Asam asam buncis,041,041_605_DSC_0746_bef.JPG,39,041_605_DSC_0807_aft.JPG,0,7,missing_image,"missing:041_605_DSC_0746_bef.JPG,041_605_DSC_0807_aft.JPG"
+613,630,Asam asam buncis,041,041_606_DSC_0744_bef.JPG,36,041_606_DSC_0791_aft.JPG,17,7,missing_image,"missing:041_606_DSC_0744_bef.JPG,041_606_DSC_0791_aft.JPG"
+614,631,Asam asam buncis,041,041_607_DSC_0747_bef.JPG,43,041_607_DSC_0783_aft.JPG,0,7,missing_image,"missing:041_607_DSC_0747_bef.JPG,041_607_DSC_0783_aft.JPG"
+615,632,Asam asam buncis,041,041_608_DSC_0729_bef.JPG,31,041_608_DSC_0758_aft.JPG,1,6,missing_image,"missing:041_608_DSC_0729_bef.JPG,041_608_DSC_0758_aft.JPG"
+616,633,Asam asam buncis,041,041_609_DSC_0754_bef.JPG,43,041_609_DSC_0762_aft.JPG,44,1,missing_image,"missing:041_609_DSC_0754_bef.JPG,041_609_DSC_0762_aft.JPG"
+617,634,Asam asam buncis,041,041_610_DSC_0747_bef.JPG,41,041_610_DSC_0792_aft.JPG,0,7,missing_image,"missing:041_610_DSC_0747_bef.JPG,041_610_DSC_0792_aft.JPG"
+618,635,Asam asam buncis,041,041_611_DSC_0748_bef.JPG,55,041_611_DSC_0797_aft.JPG,21,3,missing_image,"missing:041_611_DSC_0748_bef.JPG,041_611_DSC_0797_aft.JPG"
+619,636,Asam asam buncis,041,041_612_DSC_0730_bef.JPG,37,041_612_DSC_0769_aft.JPG,38,2,missing_image,"missing:041_612_DSC_0730_bef.JPG,041_612_DSC_0769_aft.JPG"
+620,637,Asam asam buncis,041,041_613_DSC_0748_bef.JPG,48,041_613_DSC_0778_aft.JPG,48,1,missing_image,"missing:041_613_DSC_0748_bef.JPG,041_613_DSC_0778_aft.JPG"
+621,638,Asam asam buncis,041,041_614_DSC_0731_bef.JPG,40,041_614_DSC_0773_aft.JPG,37,2,missing_image,"missing:041_614_DSC_0731_bef.JPG,041_614_DSC_0773_aft.JPG"
+622,639,Asam asam buncis,041,041_615_DSC_0732_bef.JPG,25,041_615_DSC_0777_aft.JPG,25,2,missing_image,"missing:041_615_DSC_0732_bef.JPG,041_615_DSC_0777_aft.JPG"
+623,640,Asam asam buncis,041,041_696_DSC_0625_bef.JPG,42,041_696_DSC_0636_aft.JPG,42,1,missing_image,"missing:041_696_DSC_0625_bef.JPG,041_696_DSC_0636_aft.JPG"
+624,641,Asam asam buncis,041,041_697_DSC_0626_bef.JPG,38,041_697_DSC_0643_aft.JPG,0,7,missing_image,"missing:041_697_DSC_0626_bef.JPG,041_697_DSC_0643_aft.JPG"
+625,642,Asam asam buncis,041,041_698_DSC_0618_bef.JPG,44,041_698_DSC_0631_aft.JPG,11,5,missing_image,"missing:041_698_DSC_0618_bef.JPG,041_698_DSC_0631_aft.JPG"
+626,643,Bening Bayam Labu Siam,042,042_616_DSC_0813_bef.JPG,45,042_616_DSC_0880_aft.JPG,15,6,missing_image,"missing:042_616_DSC_0813_bef.JPG,042_616_DSC_0880_aft.JPG"
+627,644,Bening Bayam Labu Siam,042,042_617_DSC_0818_bef.JPG,60,042_617_DSC_0910_aft.JPG,21,4,missing_image,"missing:042_617_DSC_0818_bef.JPG,042_617_DSC_0910_aft.JPG"
+628,646,Bening Bayam Labu Siam,042,042_619_DSC_0858_bef.JPG,39,042_619_DSC_0877_aft.JPG,27,4,missing_image,"missing:042_619_DSC_0858_bef.JPG,042_619_DSC_0877_aft.JPG"
+629,647,Bening Bayam Labu Siam,042,042_620_DSC_0856_bef.JPG,36,042_620_DSC_0867_aft.JPG,2,6,missing_image,"missing:042_620_DSC_0856_bef.JPG,042_620_DSC_0867_aft.JPG"
+630,648,Bening Bayam Labu Siam,042,042_621_DSC_0857_bef.JPG,40,042_621_DSC_0866_aft.JPG,0,6,missing_image,"missing:042_621_DSC_0857_bef.JPG,042_621_DSC_0866_aft.JPG"
+631,649,Bening Bayam Labu Siam,042,042_622_DSC_0812_bef.JPG,29,042_622_DSC_0908_aft.JPG,25,1,missing_image,"missing:042_622_DSC_0812_bef.JPG,042_622_DSC_0908_aft.JPG"
+632,650,Bening Bayam Labu Siam,042,042_623_DSC_0814_bef.JPG,42,042_623_DSC_0885_aft.JPG,2,6,missing_image,"missing:042_623_DSC_0814_bef.JPG,042_623_DSC_0885_aft.JPG"
+633,651,Bening Bayam Labu Siam,042,042_624_DSC_0815_bef.JPG,49,042_624_DSC_0892_aft.JPG,47,3,missing_image,"missing:042_624_DSC_0815_bef.JPG,042_624_DSC_0892_aft.JPG"
+634,652,Bening Bayam Labu Siam,042,042_625_DSC_0816_bef.JPG,50,042_625_DSC_0898_aft.JPG,49,1,missing_image,"missing:042_625_DSC_0816_bef.JPG,042_625_DSC_0898_aft.JPG"
+635,653,Sop kembang tahu Wortel,043,043_627_DSC_0937_bef.JPG,29,043_627_DSC_0980_aft.JPG,1,7,missing_image,"missing:043_627_DSC_0937_bef.JPG,043_627_DSC_0980_aft.JPG"
+636,654,Sop kembang tahu Wortel,043,043_628_DSC_0938_bef.JPG,27,043_628_DSC_0984_aft.JPG,19,4,missing_image,"missing:043_628_DSC_0938_bef.JPG,043_628_DSC_0984_aft.JPG"
+637,655,Kare Wortel Labu Siam,044,044_636_DSC_0027_bef.JPG,45,044_636_DSC_0091_aft.JPG,0,7,missing_image,"missing:044_636_DSC_0027_bef.JPG,044_636_DSC_0091_aft.JPG"
+638,656,Kare Wortel Labu Siam,044,044_637_DSC_0026_bef.JPG,41,044_637_DSC_0087_aft.JPG,41,1,missing_image,"missing:044_637_DSC_0026_bef.JPG,044_637_DSC_0087_aft.JPG"
+639,657,Kare Wortel Labu Siam,044,044_638_DSC_0025_bef.JPG,34,044_638_DSC_0086_aft.JPG,10,6,missing_image,"missing:044_638_DSC_0025_bef.JPG,044_638_DSC_0086_aft.JPG"
+640,658,Kare Wortel Labu Siam,044,044_639_DSC_0048_bef.JPG,36,044_639_DSC_0087_aft.JPG,0,7,missing_image,"missing:044_639_DSC_0048_bef.JPG,044_639_DSC_0087_aft.JPG"
+641,659,Kare Wortel Labu Siam,044,044_640_DSC_0047_bef.JPG,49,044_640_DSC_0076_aft.JPG,46,2,missing_image,"missing:044_640_DSC_0047_bef.JPG,044_640_DSC_0076_aft.JPG"
+642,660,Kare Wortel Labu Siam,044,044_641_DSC_0059_bef.JPG,35,044_641_DSC_0095_aft.JPG,35,1,missing_image,"missing:044_641_DSC_0059_bef.JPG,044_641_DSC_0095_aft.JPG"
+643,661,Kare Wortel Labu Siam,044,044_642_DSC_0060_bef.JPG,49,044_642_DSC_0101_aft.JPG,13,6,missing_image,"missing:044_642_DSC_0060_bef.JPG,044_642_DSC_0101_aft.JPG"
+644,663,Kare Wortel Labu Siam,044,044_644_DSC_0062_bef.JPG,52,044_644_DSC_0113_aft.JPG,51,1,missing_image,"missing:044_644_DSC_0062_bef.JPG,044_644_DSC_0113_aft.JPG"
+645,664,Kare Wortel Labu Siam,044,044_645_DSC_0024_bef.JPG,62,044_645_DSC_0107_aft.JPG,0,7,missing_image,"missing:044_645_DSC_0024_bef.JPG,044_645_DSC_0107_aft.JPG"
+646,665,Sayur Labu Siam kacang Panjang,045,045_646_DSC_0141_bef.JPG,46,045_646_DSC_0180_aft.JPG,45,1,missing_image,"missing:045_646_DSC_0141_bef.JPG,045_646_DSC_0180_aft.JPG"
+647,666,Sayur Labu Siam kacang Panjang,045,045_647_DSC_0142_bef.JPG,34,045_647_DSC_0182_aft.JPG,0,7,missing_image,"missing:045_647_DSC_0142_bef.JPG,045_647_DSC_0182_aft.JPG"
+648,667,Sayur Labu Siam kacang Panjang,045,045_648_DSC_0145_bef.JPG,35,045_648_DSC_0194_aft.JPG,0,7,missing_image,"missing:045_648_DSC_0145_bef.JPG,045_648_DSC_0194_aft.JPG"
+649,668,Sayur Labu Siam kacang Panjang,045,045_649_DSC_0146_bef.JPG,21,045_649_DSC_0193_aft.JPG,21,1,missing_image,"missing:045_649_DSC_0146_bef.JPG,045_649_DSC_0193_aft.JPG"
+650,669,Sayur Labu Siam kacang Panjang,045,045_650_DSC_0143_bef.JPG,38,045_650_DSC_0173_aft.JPG,36,1,missing_image,"missing:045_650_DSC_0143_bef.JPG,045_650_DSC_0173_aft.JPG"
+651,670,Sayur Labu Siam kacang Panjang,045,045_651_DSC_0144_bef.JPG,39,045_651_DSC_0175_aft.JPG,0,7,missing_image,"missing:045_651_DSC_0144_bef.JPG,045_651_DSC_0175_aft.JPG"
+652,671,Sayur Labu Siam kacang Panjang,045,045_652_DSC_0137_bef.JPG,40,045_652_DSC_0207_aft.JPG,36,2,missing_image,"missing:045_652_DSC_0137_bef.JPG,045_652_DSC_0207_aft.JPG"
+653,672,Sayur Labu Siam kacang Panjang,045,045_653_DSC_0138_bef.JPG,43,045_653_DSC_0215_aft.JPG,29,3,missing_image,"missing:045_653_DSC_0138_bef.JPG,045_653_DSC_0215_aft.JPG"
+654,673,Sayur Labu Siam kacang Panjang,045,045_654_DSC_0139_bef.JPG,39,045_654_DSC_0203_aft.JPG,4,6,missing_image,"missing:045_654_DSC_0139_bef.JPG,045_654_DSC_0203_aft.JPG"
+655,674,Sayur Labu Siam kacang Panjang,045,045_655_DSC_0140_bef.JPG,45,045_655_DSC_0211_aft.JPG,46,1,missing_image,"missing:045_655_DSC_0140_bef.JPG,045_655_DSC_0211_aft.JPG"
+656,675,Sayur Labu Siam kacang Panjang,045,045_656_DSC_0142_bef.JPG,51,045_656_DSC_0199_aft.JPG,0,7,missing_image,"missing:045_656_DSC_0142_bef.JPG,045_656_DSC_0199_aft.JPG"
+657,676,Urap urap,046,046_657_DSC_0230_bef.JPG,79,046_657_DSC_0274_aft.JPG,79,1,missing_image,"missing:046_657_DSC_0230_bef.JPG,046_657_DSC_0274_aft.JPG"
+658,677,Urap urap,046,046_658_DSC_0252_bef.JPG,82,046_658_DSC_0305_aft.JPG,81,1,missing_image,"missing:046_658_DSC_0252_bef.JPG,046_658_DSC_0305_aft.JPG"
+659,678,Urap urap,046,046_659_DSC_0255_bef.JPG,98,046_659_DSC_0309_aft.JPG,13,7,missing_image,"missing:046_659_DSC_0255_bef.JPG,046_659_DSC_0309_aft.JPG"
+660,679,sop wortel labu Siam,047,047_675_DSC_0446_bef.JPG,45,047_675_DSC_0476_aft.JPG,30,3,missing_image,"missing:047_675_DSC_0446_bef.JPG,047_675_DSC_0476_aft.JPG"
+661,680,sop wortel labu Siam,047,047_676_DSC_0447_bef.JPG,51,047_676_DSC_0477_aft.JPG,25,4,missing_image,"missing:047_676_DSC_0447_bef.JPG,047_676_DSC_0477_aft.JPG"
+662,681,sop wortel labu Siam,047,047_677_DSC_0449_bef.JPG,42,047_677_DSC_0478_aft.JPG,15,5,missing_image,"missing:047_677_DSC_0449_bef.JPG,047_677_DSC_0478_aft.JPG"
+663,682,sop wortel labu Siam,047,047_678_DSC_0453_bef.JPG,53,047_678_DSC_0456_aft.JPG,4,6,missing_image,"missing:047_678_DSC_0453_bef.JPG,047_678_DSC_0456_aft.JPG"
+664,684,sop wortel labu Siam,047,047_680_DSC_0445_bef.JPG,50,047_680_DSC_0489_aft.JPG,49,1,missing_image,"missing:047_680_DSC_0445_bef.JPG,047_680_DSC_0489_aft.JPG"
+665,685,sop wortel labu Siam,047,047_681_DSC_0439_bef.JPG,43,047_681_DSC_0468_aft.JPG,43,1,missing_image,"missing:047_681_DSC_0439_bef.JPG,047_681_DSC_0468_aft.JPG"
+666,686,sop wortel labu Siam,047,047_682_DSC_0438_bef.JPG,42,047_682_DSC_0466_aft.JPG,30,3,missing_image,"missing:047_682_DSC_0438_bef.JPG,047_682_DSC_0466_aft.JPG"
+667,687,sop wortel labu Siam,047,047_683_DSC_0437_bef.JPG,38,047_683_DSC_0473_aft.JPG,38,1,missing_image,"missing:047_683_DSC_0437_bef.JPG,047_683_DSC_0473_aft.JPG"
+668,688,sop wortel labu Siam,047,047_684_DSC_0452_bef.JPG,50,047_684_DSC_0459_aft.JPG,50,1,missing_image,"missing:047_684_DSC_0452_bef.JPG,047_684_DSC_0459_aft.JPG"
+669,689,sayur buncis soun,048,048_685_DSC_0542_bef.JPG,37,048_685_DSC_0587_aft.JPG,37,1,missing_image,"missing:048_685_DSC_0542_bef.JPG,048_685_DSC_0587_aft.JPG"
+670,690,sayur buncis soun,048,048_688_DSC_0528_bef.JPG,36,048_688_DSC_0581_aft.JPG,0,7,missing_image,"missing:048_688_DSC_0528_bef.JPG,048_688_DSC_0581_aft.JPG"
+671,691,sayur buncis soun,048,048_689_DSC_0529_bef.JPG,27,048_689_DSC_0582_aft.JPG,0,7,missing_image,"missing:048_689_DSC_0529_bef.JPG,048_689_DSC_0582_aft.JPG"
+672,692,sayur buncis soun,048,048_690_DSC_0515_bef.JPG,40,048_690_DSC_0566_aft.JPG,10,6,missing_image,"missing:048_690_DSC_0515_bef.JPG,048_690_DSC_0566_aft.JPG"
+673,693,sayur buncis soun,048,048_691_DSC_0516_bef.JPG,45,048_691_DSC_0562_aft.JPG,0,7,missing_image,"missing:048_691_DSC_0516_bef.JPG,048_691_DSC_0562_aft.JPG"
+674,694,sayur buncis soun,048,048_692_DSC_0517_bef.JPG,27,048_692_DSC_0557_aft.JPG,0,7,missing_image,"missing:048_692_DSC_0517_bef.JPG,048_692_DSC_0557_aft.JPG"
+675,695,sayur buncis soun,048,048_693_DSC_0525_bef.JPG,20,048_693_DSC_0573_aft.JPG,20,1,missing_image,"missing:048_693_DSC_0525_bef.JPG,048_693_DSC_0573_aft.JPG"
+676,696,sayur buncis soun,048,048_694_DSC_0526_bef.JPG,20,048_694_DSC_0572_aft.JPG,19,1,missing_image,"missing:048_694_DSC_0526_bef.JPG,048_694_DSC_0572_aft.JPG"
+677,697,sayur buncis soun,048,048_695_DSC_0527_bef.JPG,21,048_695_DSC_0603_aft.JPG,20,4,missing_image,"missing:048_695_DSC_0527_bef.JPG,048_695_DSC_0603_aft.JPG"
+678,698,Sayur buncis soun kacang merah,049,049_686_DSC_0546_bef.JPG,50,049_686_DSC_0594_aft.JPG,22,4,missing_image,"missing:049_686_DSC_0546_bef.JPG,049_686_DSC_0594_aft.JPG"
+679,699,Sayur buncis soun kacang merah,049,049_687_DSC_0547_bef.JPG,39,049_687_DSC_0597_aft.JPG,4,6,missing_image,"missing:049_687_DSC_0547_bef.JPG,049_687_DSC_0597_aft.JPG"

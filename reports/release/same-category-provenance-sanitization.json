@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "status": "complete",
+  "kind": "non_scientific_provenance_sanitization",
+  "appliedAt": "2026-09-20T07:55:00Z",
+  "scope": "reports/experiments/same_category_v1",
+  "reason": "Remove one build-host absolute path before public repository packaging.",
+  "transformation": {
+    "field": "implementation.path",
+    "replacement": "src/plategauge/same_category_diagnostic.py",
+    "originalValueDisclosed": false,
+    "originalRunId": "d4819024718db72c43a53afcd5a227a6c4f128fb92f7d6c56bbfe066c2012169",
+    "sanitizedRunId": "5a6f6c490737da6284e81b6c88f82d24308c96ceb60609ae3975697a26d47e5c"
+  },
+  "scientificPayloadChanged": false,
+  "predictionsChanged": false,
+  "metricsChanged": false,
+  "confirmatoryProtocolChanged": false,
+  "confirmatoryResultsChanged": false,
+  "modelBytesChanged": false,
+  "integrityUpdates": {
+    "runDescriptorSha256": "3c48183f3be608a517c864926abdcad247b72675345d460373654210419b0add",
+    "summarySha256": "5d989d9d6ff0f2912b33137013b0ce37a3c9db7d65f976c68356f66d2df7dd08",
+    "resultSha256ByFold": {
+      "0": "ad2a290c94152199f9fac5137d758a19368371a03933834996a64de44bcddcbf",
+      "1": "94b87d4a89018202b6546d73ef0a1ec788beb67f99ad32cd12e99365b922ad7c",
+      "2": "7e1e9ca12a209e53f5dd53ce9afd560711fca2b394c9d2560d3eb54be380234e",
+      "3": "8f3699346d5e9c60f2858cd530fcd5499fa7ef672b00ab211c61d6acad3cc013",
+      "4": "651773716d2208a33d36e9b05f5f1f057162baa987345e08134cec33b79dc4f9"
+    }
+  },
+  "preservation": "The pre-sanitization evidence remains in the already-issued Gate C source-and-evidence archive."
+}

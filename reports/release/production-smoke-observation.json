@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "kind": "local_production_dist_smoke",
+  "observedAt": "2026-09-20T17:15:39.2133631Z",
+  "status": "passed",
+  "environment": {
+    "target": "local Vite preview of web/dist at the production /plategauge/ base path",
+    "browserProject": "chromium-production-release",
+    "publicDeployment": false
+  },
+  "command": "PLATEGAUGE_EXPECTED_SOURCE_URL=https://github.com/aldaqrouqtaysir/plategauge/tree/v1.0.0 pnpm test:production",
+  "tests": {
+    "collected": 2,
+    "passed": 2,
+    "failed": 0,
+    "checks": [
+      "full-navigation same-origin request allowlist",
+      "real frozen ONNX fixed-pair worker inference",
+      "no file input or numeric prediction rendering",
+      "self-contained LICENSE, NOTICE, privacy, AI-assistance, dataset/model attribution, and production dependency inventory",
+      "versioned benchmark-only label and canonical HTTPS source link",
+      "absence of stale pre-release status wording"
+    ]
+  },
+  "configSha256": "46694714f3629f583ce9092e3a0ca7053f35ab50a2ec5c56bde448a1e3c1cefd",
+  "testSha256": "600ba89c8f33d62a1b2c959af4f82106194252fa176a7bd011b9d92c01c46bd3",
+  "bundleAudit": "reports/release/static-bundle-audit.json",
+  "bundleAuditFileSha256": "8ee2a409f2f109561598435b3c5c8cd69e662d6b299113024bbb14be507f4417",
+  "publicSmokeStatus": "blocked_until_an_authorized_public_url_exists",
+  "note": "The final two-test production run passed with approved local process access and the same immutable source URL used by the release workflow. An earlier local invocation omitted that expected-source parameter, so its assertion expected the repository root while the audited build correctly linked to the v1.0.0 source tree; no model, network-boundary, or application-runtime failure occurred."
+}

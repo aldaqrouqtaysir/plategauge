@@ -1,0 +1,13 @@
+node_modules/
+dist/
+coverage/
+playwright-report/
+test-results/
+public/ort/
+public/legal/
+# The frozen release candidate is intentionally versioned so a reviewed tag
+# contains the exact bytes verified by the release gate. Other ONNX files stay
+# excluded.
+public/models/*.onnx
+!public/models/plategauge.onnx
+!public/models/release.json

@@ -1,0 +1,22 @@
+{
+  "artifacts": [
+    {
+      "path": "workload/predictions.csv",
+      "role": "predictions",
+      "sha256": "b403b2892507fab1ac6de682af51ff8ac6941ed7e9875f4d01586ac936adb895",
+      "size_bytes": 11249
+    }
+  ],
+  "payload": {
+    "macro_category_mae": 0.17433018511573595,
+    "prediction_count": 102,
+    "training_count": 412
+  },
+  "payload_sha256": "c8c97fb1f16c1941a735616e71a5adf1e4ca8cda7556d45d014eea4ffc73f9a8",
+  "protocol_id": "9450069d1260248bb5900c20c0b0784086513573735fb408c2bd2c85bb373e8f",
+  "runner_fingerprint": "89e6eaafe67abd780b399984bd3bf326696d4a8dda8b6cbaffd0ba95f242a5ca",
+  "schema_version": "1.0",
+  "status": "complete",
+  "task_id": "outer.fold-4.paired_resnet50",
+  "task_spec_sha256": "de3ce854373bf310a570de69c9625982640704ec34e1261390e557d45f7d8597"
+}

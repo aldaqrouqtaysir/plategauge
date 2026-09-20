@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aldaqrouqtaysir.github.io/plategauge/schemas/browser-benchmark-measurement-v1.json",
+  "title": "PlateGauge browser benchmark measurement",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "kind",
+    "status",
+    "model_sha256",
+    "release_evidence_sha256",
+    "measured_at",
+    "reference_device",
+    "runtime",
+    "measurements"
+  ],
+  "properties": {
+    "schema_version": { "const": "1.0" },
+    "kind": { "const": "browser_benchmark_measurement" },
+    "status": { "const": "measured" },
+    "model_sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "release_evidence_sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "measured_at": { "type": "string", "format": "date-time" },
+    "reference_device": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "label",
+        "manufacturer_model",
+        "cpu",
+        "ram_gb",
+        "operating_system",
+        "physical_device"
+      ],
+      "properties": {
+        "label": { "type": "string", "minLength": 1 },
+        "manufacturer_model": { "type": "string", "minLength": 1 },
+        "cpu": { "type": "string", "minLength": 1 },
+        "ram_gb": { "type": "number", "exclusiveMinimum": 0 },
+        "operating_system": { "type": "string", "minLength": 1 },
+        "physical_device": { "const": true }
+      }
+    },
+    "runtime": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "browser_name",
+        "browser_version",
+        "onnxruntime_web_version",
+        "execution_provider",
+        "wasm_threads",
+        "webgpu_enabled",
+        "build_source"
+      ],
+      "properties": {
+        "browser_name": { "type": "string", "minLength": 1 },
+        "browser_version": { "type": "string", "minLength": 1 },
+        "onnxruntime_web_version": { "type": "string", "minLength": 1 },
+        "execution_provider": { "const": "wasm" },
+        "wasm_threads": { "const": 1 },
+        "webgpu_enabled": { "const": false },
+        "build_source": { "enum": ["local_static_build", "github_pages"] }
+      }
+    },
+    "measurements": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "warmup_runs",
+        "warm_inference_ms",
+        "first_load_bytes",
+        "peak_application_memory_mb",
+        "memory_measurement_method",
+        "memory_measurement_notes"
+      ],
+      "properties": {
+        "warmup_runs": { "type": "integer", "minimum": 3 },
+        "warm_inference_ms": {
+          "type": "array",
+          "minItems": 20,
+          "items": { "type": "number", "exclusiveMinimum": 0 }
+        },
+        "first_load_bytes": { "type": "integer", "minimum": 1 },
+        "peak_application_memory_mb": { "type": "number", "exclusiveMinimum": 0 },
+        "memory_measurement_method": {
+          "enum": [
+            "browser_process_rss",
+            "performance.measureUserAgentSpecificMemory",
+            "os_process_monitor"
+          ]
+        },
+        "memory_measurement_notes": { "type": "string", "minLength": 1 }
+      }
+    }
+  }
+}

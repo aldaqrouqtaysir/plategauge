@@ -1,0 +1,71 @@
+{
+  "schema_version": "1.0",
+  "status": "NOT_ACTIVE_REQUIRES_APPROVAL",
+  "binding": false,
+  "created_date": "2026-09-19",
+  "reason": "Six confirmed near-duplicate image components cross the currently frozen category-disjoint folds.",
+  "warning": "This advisory result does not amend configs/frozen_folds.json or src/plategauge/folds.py. No training or outer-fold evaluation may begin until an amendment is explicitly approved, recorded, and applied consistently.",
+  "inputs": {
+    "manifest": "data/manifests/lefood_v1_manifest.csv",
+    "manifest_sha256": "e124542954f6776bdb9b20552b8be083cfa1e4890521d1c1b325d87edc64ee1d",
+    "duplicate_candidates": "data/manifests/lefood_v1_duplicate_candidates.csv",
+    "duplicate_candidates_sha256": "2cab543ff6427d12586432f470f80b8ed9b1e8f1f136e365f3a98655ee04e58a",
+    "audit_report": "data/manifests/lefood_v1_audit.json",
+    "audit_report_sha256": "ece427f6a891772453fa9745bb3e8ee37e31298b5e20e073957146255cce0526"
+  },
+  "constraints": {
+    "retain_all_valid_records": 514,
+    "keep_categories_atomic": true,
+    "keep_duplicate_induced_category_components_atomic": true,
+    "fold_sizes": [103, 103, 103, 103, 102]
+  },
+  "optimization": {
+    "method": "deterministic exhaustive dynamic programming over connected category components and remaining fold capacities",
+    "objective_order": [
+      "minimize number of records moved from the preregistered fold assignment",
+      "then minimize number of categories moved"
+    ],
+    "states_evaluated": 5113609,
+    "memoized_state_hits": 8346050,
+    "optimal_moved_records": 90,
+    "optimal_moved_categories": 8
+  },
+  "duplicate_induced_category_components": [
+    ["004", "023"],
+    ["009", "029"],
+    ["013", "015"],
+    ["019", "032"]
+  ],
+  "candidate_folds": {
+    "0": {
+      "categories": ["001", "005", "019", "022", "032"],
+      "n": 103
+    },
+    "1": {
+      "categories": ["002", "008", "010", "014"],
+      "n": 103
+    },
+    "2": {
+      "categories": ["009", "011", "012", "016", "025", "028", "029", "033"],
+      "n": 103
+    },
+    "3": {
+      "categories": ["003", "006", "013", "015", "017", "021", "026", "031"],
+      "n": 103
+    },
+    "4": {
+      "categories": ["000", "004", "007", "018", "020", "023", "024", "027", "030"],
+      "n": 102
+    }
+  },
+  "moved_categories": [
+    {"category": "003", "n": 1, "from_fold": 1, "to_fold": 3},
+    {"category": "004", "n": 17, "from_fold": 3, "to_fold": 4},
+    {"category": "008", "n": 4, "from_fold": 3, "to_fold": 1},
+    {"category": "009", "n": 21, "from_fold": 4, "to_fold": 2},
+    {"category": "015", "n": 20, "from_fold": 4, "to_fold": 3},
+    {"category": "024", "n": 21, "from_fold": 2, "to_fold": 4},
+    {"category": "027", "n": 3, "from_fold": 0, "to_fold": 4},
+    {"category": "032", "n": 3, "from_fold": 1, "to_fold": 0}
+  ]
+}

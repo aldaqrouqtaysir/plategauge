@@ -1,0 +1,90 @@
+{
+  "evidence_sha256": "a0c528e7c69879d3c6b01959e4ebec39062a947f5f8873aa09a3b74f2b572ce9",
+  "fixtures": [
+    {
+      "expected_normalized_chw_float32_sha256": "c089b985e3247359979599a0dcb8d08ac2e352af2955111f7fcfa3076c156124",
+      "expected_rgba_bytes": 200704,
+      "expected_rgba_sha256": "5861a9c63c239817b4a18e4f90db4bc165e3d0747bfb55a479d8570581688a09",
+      "expected_tensor_float_count": 150528,
+      "expected_tensor_shape": [
+        3,
+        224,
+        224
+      ],
+      "fixture_id": "identity_pattern",
+      "geometry": {
+        "crop_height": 224,
+        "crop_left": 16,
+        "crop_top": 16,
+        "crop_width": 224,
+        "resized_height": 256,
+        "resized_width": 256,
+        "source_height": 256,
+        "source_width": 256
+      },
+      "source_file": "identity_pattern.png",
+      "source_sha256": "73cb82e597b69af7d8592a5be7ede1e38d6af68c8393629a26b772d509e8b6d3"
+    },
+    {
+      "expected_normalized_chw_float32_sha256": "3dde6aadb3a64ff9de07307af3d11b5d69e6a159bdad955bc8d848f6ad68c689",
+      "expected_rgba_bytes": 200704,
+      "expected_rgba_sha256": "50cb501609e8487529cb5a3d7ba11e056f560e9d5486fa4f6ed201884d6ec409",
+      "expected_tensor_float_count": 150528,
+      "expected_tensor_shape": [
+        3,
+        224,
+        224
+      ],
+      "fixture_id": "landscape_uniform",
+      "geometry": {
+        "crop_height": 224,
+        "crop_left": 58,
+        "crop_top": 16,
+        "crop_width": 224,
+        "resized_height": 256,
+        "resized_width": 341,
+        "source_height": 480,
+        "source_width": 640
+      },
+      "source_file": "landscape_uniform.png",
+      "source_sha256": "c7b104db58e202de74038e0adeacf13c323bc9c7e2f9b7f93aca6e6c250aac6a"
+    },
+    {
+      "expected_normalized_chw_float32_sha256": "2d1126b0829f50cae67cc1e33a8b9d6d959e0bd424d6481344c0aac65f1aefbb",
+      "expected_rgba_bytes": 200704,
+      "expected_rgba_sha256": "a2545ab26e5d03c701518bb83733d16cce28d89d11e6264ffacec8e91309ad5b",
+      "expected_tensor_float_count": 150528,
+      "expected_tensor_shape": [
+        3,
+        224,
+        224
+      ],
+      "fixture_id": "portrait_uniform",
+      "geometry": {
+        "crop_height": 224,
+        "crop_left": 16,
+        "crop_top": 58,
+        "crop_width": 224,
+        "resized_height": 341,
+        "resized_width": 256,
+        "source_height": 640,
+        "source_width": 480
+      },
+      "source_file": "portrait_uniform.png",
+      "source_sha256": "57ce2904bc0dfa081d5790da3ba02ab4baa84382f4bb06a8a612cd88f50fcdee"
+    }
+  ],
+  "kind": "python_browser_preprocessing_golden",
+  "pipeline": {
+    "browser_output": "RGBA uint8",
+    "center_crop": 224,
+    "color": "RGB",
+    "interpolation": "bicubic",
+    "model_tensor": "CHW float32 ImageNet-normalized little-endian",
+    "orientation": "EXIF transpose",
+    "resize_rounding": "ties-to-even",
+    "resize_short_edge": 256
+  },
+  "schema_version": "1.0",
+  "scope_note": "The patterned identity-resize fixture verifies every crop/channel/normalization byte. Uniform landscape and portrait fixtures verify resize geometry without relying on browser-specific interpolation rounding."
+}

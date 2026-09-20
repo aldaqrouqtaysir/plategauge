@@ -1,0 +1,67 @@
+{
+  "benchmarkEvidence": {
+    "categoryRecordCount": 34,
+    "path": "evidence/benchmark-evidence.json",
+    "sha256": "c6f7d435d077bc67649d192efb169e247a1a208e5e9bdc0b6feabd772887c412",
+    "sourceFileCount": 18,
+    "workloadRecordCount": 8
+  },
+  "bundleDirectory": "web/dist",
+  "dynamicAssets": [
+    "assets/index-Bw6kJaCa.css",
+    "assets/index-nqxY0SKm.js",
+    "assets/model.worker-BgEuwxGF.js"
+  ],
+  "examples": {
+    "count": 20,
+    "sha256": {
+      "examples/lefood-0142-after.jpg": "600bf9d02f5202a4516089033bd3493f7e6d235ea36e0ceadcbfc8ff57798f90",
+      "examples/lefood-0142-before.jpg": "c391b7661a71f6680d9f212f5647df20c9e861f32194ecb8b6cfef9482dcd430",
+      "examples/lefood-0192-after.jpg": "ea71f3b1113d564bf04d1056c6177bdc063194f5a84fb88b9150158997a28b90",
+      "examples/lefood-0192-before.jpg": "e90d69a5f213cfa5b30c651a5e9572308adb245bed9bc87c02a8d5c316c44506",
+      "examples/lefood-0226-after.jpg": "0870947f94762e976c88f92f914a964a910091551452aa783f67575edfb2493c",
+      "examples/lefood-0226-before.jpg": "4f80732093d53470be408c6ed0767cb34a70642e9ef5118ac84469b4a7ff364d",
+      "examples/lefood-0320-after.jpg": "37b29358002b9af3c4aa232abdbf68373b60a9ab5c389692081720767f7af007",
+      "examples/lefood-0320-before.jpg": "6d36d99759f316592f6f55e5f618dbc25b12c398891fae9b1ad298f2706d32c9",
+      "examples/lefood-0400-after.jpg": "90a834b8ab027870945f172411a4853d3f2002ca6331b8efbc530cefa51322c8",
+      "examples/lefood-0400-before.jpg": "c6b33b2f7e08dccbf029d0b3472f7de40c3d028c7923961100c0e9d85075b13d",
+      "examples/lefood-0441-after.jpg": "31491b867591f54edb96a2f7f9f7c3fc4c90aad5d090fbb68e2640d8b63811de",
+      "examples/lefood-0441-before.jpg": "bd21d6b6470a02847891cc56e0e5f8641585579e6a1f795f506fd603dcc458cf",
+      "examples/lefood-0461-after.jpg": "13fc7c8f26abb02ac4e6b6297d983f0fb6c8749e5057d8dd70123f04234e1961",
+      "examples/lefood-0461-before.jpg": "bbf9a1093567f1d15fdf832add5b0d8971247bbd238e0975f8b2aa5cbcd5f81e",
+      "examples/lefood-0489-after.jpg": "a8e52b372bc217629ede58f1f5dbf596c2938df945ecf22d3613176c0f6e1e51",
+      "examples/lefood-0489-before.jpg": "209222d9f5dfc4fb3a718fecf329c611ca452361a59dbecf4eaca4d41bee1b13",
+      "examples/lefood-0507-after.jpg": "961f06ee3e4b78a594b0bb8589c56830f3a9a5708d97fcb2d4ddec6ef2f759f9",
+      "examples/lefood-0507-before.jpg": "7309f6fbd6b926cd9f8ca4025475af5bce1c2d6769c39f4c43eb851755a99072",
+      "examples/lefood-0530-after.jpg": "4f22baeaaf0614f0fe9e98552e26b6c49ad147dcc039c69ef17e77acee1b5136",
+      "examples/lefood-0530-before.jpg": "ab17bb449bfadf076ee0b06de57d9a826136a67ae2260451b7070a478e2bbc26"
+    }
+  },
+  "fileCount": 36,
+  "forbiddenFiles": [],
+  "highConfidenceSecrets": [],
+  "hostPaths": [],
+  "htmlResourceReferences": [
+    "/plategauge/assets/index-nqxY0SKm.js",
+    "/plategauge/assets/index-Bw6kJaCa.css"
+  ],
+  "inventorySha256": "19bddecb77d6af2fef39fd47e6d6954398ab9b909f58a7dab23302d8b8684485",
+  "kind": "static_release_bundle_audit",
+  "legalEvidenceSha256": {
+    "legal/AI_ASSISTANCE_LOG.md": "b9d0fd0ea8bbc377ffdf54eb21d859ea26205634c1b252dff1f7c0d2b25a5afb",
+    "legal/LICENSE.txt": "91cfd2a2fd0ad018890f2a0f9d058b6c5018173e25cb2a360a7c092368f7309b",
+    "legal/NOTICE.txt": "62069f2c0f5bf7ed8d2ef6c5c91d0c659102aadb3c23f30641f3af5cb7e8128e",
+    "legal/PRIVACY_NOTICE.md": "f0538e6ac2e2a77b9bcfdd4c5245673f473b8a7986180b41a27f978ca712502a",
+    "legal/THIRD_PARTY_LICENSES.json": "a13aa63eb691ef5cbc9362c1d637ffdbac1bfa45c435d019ae2860a77fb35bb0"
+  },
+  "model": {
+    "manifestSha256": "76be7ee370b709235675c97119a4194d9b2e8220ad42734ada98f9b99c4cd599",
+    "modelVersion": "v1.0.0",
+    "sha256": "9c830e80cab86acd85c5b27b5733126594561844d0398d602a039c68befbd675",
+    "sizeBytes": 10355122
+  },
+  "remoteRuntimeResources": [],
+  "schemaVersion": 1,
+  "sourceMaps": 0,
+  "status": "passed"
+}

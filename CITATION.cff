@@ -1,0 +1,32 @@
+cff-version: 1.2.0
+message: "If you use PlateGauge, cite this software and the LeFood-Set source dataset."
+title: "PlateGauge: A category-shift benchmark and failure explorer for food-leftover estimation"
+type: software
+authors:
+  - family-names: "Al Daqrouq"
+    given-names: "Taysir"
+version: "1.0.0"
+license: Apache-2.0
+repository-code: "https://github.com/aldaqrouqtaysir/plategauge"
+keywords:
+  - computer vision
+  - food waste measurement
+  - uncertainty
+  - local-browser inference
+references:
+  - type: dataset
+    title: "LeFood-Set v1"
+    authors:
+      - family-names: "Sari"
+        given-names: "Yuita Arum"
+      - family-names: "Wani"
+        given-names: "Yudi Arimba"
+      - family-names: "Nakazawa"
+        given-names: "Atsushi"
+    doi: "10.17632/cchsk79jkt.1"
+    url: "https://data.mendeley.com/datasets/cchsk79jkt/1"
+notes: >-
+  The project was directed and evidence-reviewed by Taysir Al Daqrouq with
+  documented substantial AI assistance. Task-level provenance and claim
+  boundaries are recorded in the AI-assistance, contribution, and evidence
+  records in the repository; this citation does not imply unaided authorship.

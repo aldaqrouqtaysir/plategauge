@@ -1,0 +1,49 @@
+PlateGauge
+Copyright 2026 Taysir Al Daqrouq
+
+This product includes software developed for PlateGauge and distributed under
+the Apache License, Version 2.0. This notice does not relicense third-party
+data, pretrained weights, or dependencies.
+
+Dataset
+-------
+LeFood-Set v1, DOI 10.17632/cchsk79jkt.1, was created by Yuita Arum Sari,
+Yudi Arimba Wani, and Atsushi Nakazawa and is provided under Creative Commons
+Attribution 4.0 International (CC BY 4.0):
+https://creativecommons.org/licenses/by/4.0/
+
+PlateGauge filters dataset rows, pairs and hashes images, computes derived
+labels and evaluation splits, preprocesses images, and trains derived model
+weights. Those are PlateGauge changes; the dataset authors do not endorse this
+project. The full dataset archive and source collection are not distributed.
+The benchmark explorer includes 20 byte-identical source JPEGs, renamed to the
+stable `<source-id>-<before|after>.jpg` convention and disclosed as five
+selected successes plus five largest errors rather than a random sample. The
+trained FP32 ONNX artifact is also treated conservatively as dataset-derived.
+Those examples and the model retain this attribution, the source DOI, the
+license link, and this change notice.
+
+Pretrained model
+----------------
+The MobileNetV3-Small base checkpoint is
+`timm/mobilenetv3_small_100.lamb_in1k`, distributed through Hugging Face and
+identified there as Apache-2.0:
+https://huggingface.co/timm/mobilenetv3_small_100.lamb_in1k
+
+Pinned revision:
+`1824797e7887cbec1990e4adbd6675960a36c589`
+
+Pinned weight SHA-256:
+`46d2c063b18125884c48937afa4c49e18128869e52e8db96df48bf0a4d7ff697`
+
+The frozen PlateGauge FP32 ONNX artifact has SHA-256
+`9c830e80cab86acd85c5b27b5733126594561844d0398d602a039c68befbd675`.
+
+Software dependencies
+---------------------
+PlateGauge depends on separately licensed open-source packages, including
+PyTorch, timm, ONNX, ONNX Runtime, NumPy, Pillow, openpyxl, React, and
+TypeScript ecosystem packages. Their own licenses apply. The static release
+bundle includes the current generated production JavaScript dependency/license
+inventory at `legal/THIRD_PARTY_LICENSES.json`; the repository also preserves
+the locked Python inventory and time-stamped vulnerability-scan evidence.

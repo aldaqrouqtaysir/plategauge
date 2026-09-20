@@ -1,0 +1,84 @@
+{
+  "evaluation_fold": 4,
+  "expected_counts": {
+    "prediction_count": 102,
+    "training_count": 412
+  },
+  "outer_fold": 4,
+  "parameters": {
+    "batch_size": 32,
+    "configuration": "M2",
+    "dropout": 0.4,
+    "encoder_learning_rate": 0.0001,
+    "epoch": 8,
+    "freeze_encoder_epochs": 5,
+    "gradient_clip": 1.0,
+    "head_learning_rate": 0.001,
+    "input_size": 224,
+    "interval_loss_weight": 0.5,
+    "maximum_epochs": 80,
+    "outer_open_policy": "open_once_after_inner_selection",
+    "patience": 12,
+    "pretrained_artifact": {
+      "checkpoint": "mobilenetv3_small_100.lamb_in1k",
+      "filename": "model.safetensors",
+      "license": "Apache-2.0",
+      "repository": "timm/mobilenetv3_small_100.lamb_in1k",
+      "revision": "1824797e7887cbec1990e4adbd6675960a36c589",
+      "sha256": "46d2c063b18125884c48937afa4c49e18128869e52e8db96df48bf0a4d7ff697",
+      "size_bytes": 10241912
+    },
+    "seed": 20260919,
+    "selection_metric": "macro_category_mae",
+    "uncertainty_policy": {
+      "abstention_threshold": 0.3,
+      "calibration_count": 412,
+      "interval_correction": 0.09346315177047954,
+      "maximum_abstention_width": 0.3,
+      "method": "selected_primary_inner_validation_predictions_only",
+      "nominal_coverage": 0.9,
+      "retained_width_quantile": 1.0,
+      "retention_quantile": 0.8,
+      "sources": [
+        {
+          "result_sha256": "2da88249dfbb898df575e2eb5ecf061e1417bbdff474e76bc00ce4438f591e4b",
+          "task_id": "inner.primary.outer-4.validation-0.m2",
+          "validation_fold": 0,
+          "validation_predictions_sha256": "d3e7a1b1a200b6ae7a6335e37693d1516b575d4b8682269d443e3682bd446d15"
+        },
+        {
+          "result_sha256": "6e78acdeb46edeb42d8feb0b6fc4a0ba51765258c291dc607ae99f42d2f90c8b",
+          "task_id": "inner.primary.outer-4.validation-1.m2",
+          "validation_fold": 1,
+          "validation_predictions_sha256": "006ffc062ec4760078c64f1338fc39598739955d9d4f74034c3d7893a7cf3bfd"
+        },
+        {
+          "result_sha256": "fa97ca57205b6261e721311896d91ef1275e36dda574d2b9f513cdc23ca82601",
+          "task_id": "inner.primary.outer-4.validation-2.m2",
+          "validation_fold": 2,
+          "validation_predictions_sha256": "b65dd0d49f9fcf5624d61ee705975072dd9de114fa1f233b157622dde3de735e"
+        },
+        {
+          "result_sha256": "bc1ddbcd16700b44909ad19bd8e30b34d5de8b606dc7f1755a3ea7919ca01623",
+          "task_id": "inner.primary.outer-4.validation-3.m2",
+          "validation_fold": 3,
+          "validation_predictions_sha256": "61837a31cb3a46841ad7fda8fa5adf2ad1d85e2122a83dbf72563a08f5c2b57a"
+        }
+      ]
+    },
+    "weight_decay": 0.0001
+  },
+  "required_artifact_roles": [
+    "predictions"
+  ],
+  "stage": "outer",
+  "task_id": "outer.fold-4.paired_mobilenet",
+  "training_folds": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "validation_folds": [],
+  "workload": "paired_mobilenet"
+}

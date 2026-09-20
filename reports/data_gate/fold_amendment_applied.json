@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0",
+  "status": "ACTIVE_APPROVED",
+  "applied_date": "2026-09-19",
+  "approval_basis": "Explicit applicant approval in the project thread",
+  "source_candidate": {
+    "path": "reports/data_gate/fold_amendment_candidate.json",
+    "sha256": "92ddb108511ab082ede3606ca4f9cce75288c1186316ca7a9b1cb2b070040610"
+  },
+  "before": {
+    "frozen_folds_sha256": "2604c650119ff823dfff29803a4ebe4b5fa475bd550f38a17c9892bb6f1d414e",
+    "manifest_sha256": "e124542954f6776bdb9b20552b8be083cfa1e4890521d1c1b325d87edc64ee1d",
+    "duplicate_candidates_sha256": "2cab543ff6427d12586432f470f80b8ed9b1e8f1f136e365f3a98655ee04e58a",
+    "audit_report_sha256": "ece427f6a891772453fa9745bb3e8ee37e31298b5e20e073957146255cce0526",
+    "cross_fold_duplicate_components": 6
+  },
+  "after": {
+    "frozen_folds_sha256": "feb8143a9d8e238cefd0b60f629f7313a9962a53cca54b9c6783293ccaa4ecbe",
+    "experiment_config_sha256": "58b9a9c1cdcfd4aa9dd6333f5bf29996e7123d01a7101c179b63af69166283a4",
+    "folds_code_sha256": "a8418818f95f297107e184b9cff3caf22c8745f539ecb4f0532a8c5b308ad35b",
+    "manifest_sha256": "0d8aae8e28b5aa8fcd5c35b89a40c7e90db55df893562043086485dde1f7ee16",
+    "duplicate_candidates_sha256": "2cab543ff6427d12586432f470f80b8ed9b1e8f1f136e365f3a98655ee04e58a",
+    "source_audit_sha256": "f950a5d27805354bf94eaf98ed281f81888cc15efef8f8a3fc7c6cb228bc62ec",
+    "audit_report_sha256": "bd6322294895d474b1250b90e8f12c8a296ddf32156a8d5934a81367b1d63dd1"
+  },
+  "verification": {
+    "matched_pairs": 524,
+    "valid_pairs": 514,
+    "invalid_mass_pairs": 10,
+    "valid_categories": 34,
+    "fold_sizes": [103, 103, 103, 103, 102],
+    "categories_disjoint": true,
+    "manifest_matches_active_folds": true,
+    "code_matches_active_config": true,
+    "candidate_matches_active_folds": true,
+    "protocol_status": "approved_for_execution",
+    "duplicate_components": 9,
+    "cross_fold_duplicate_components": 0,
+    "files_verified": true,
+    "hashes_verified": true,
+    "audit_passed": true
+  },
+  "approved_change": {
+    "moved_valid_records": 90,
+    "moved_excluded_records": 3,
+    "manifest_rows_reassigned": 93,
+    "moved_categories": 8
+  },
+  "manifest_integrity": {
+    "rows_compared": 524,
+    "non_outer_fold_fields_unchanged": true,
+    "outer_fold_rows_changed": 93,
+    "valid_rows_changed": 90,
+    "excluded_rows_changed": 3,
+    "changed_categories": ["003", "004", "008", "009", "015", "024", "027", "032"]
+  },
+  "scope_guard": {
+    "models_fitted": false,
+    "outcomes_opened": false
+  }
+}
