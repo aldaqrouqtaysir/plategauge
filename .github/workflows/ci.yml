@@ -24,9 +24,24 @@ jobs:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
       - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
         with:
-          python-version: "3.12.14"
+          # Windows setup-python cannot supply 3.12.14; bootstrap as in portability CI.
+          python-version: ${{ matrix.os == 'windows-latest' && '3.12.10' || '3.12.14' }}
+      - name: Install only the pinned runtime manager and managed Python
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install --disable-pip-version-check uv==0.12.17
+          uv python install 3.12.14
+      - name: Verify the exact managed interpreter without project discovery
+        shell: bash
+        run: >-
+          uv run --no-project --no-config --offline --python 3.12.14 --managed-python
+          python -c "import sys; assert sys.version_info[:3] == (3, 12, 14)"
       - name: Test scope, failure classification and workflow boundaries without network
-        run: python -m unittest discover -s tests/python -p test_monitor_documentation.py -v
+        shell: bash
+        run: >-
+          uv run --no-project --no-config --offline --python 3.12.14 --managed-python
+          python -m unittest discover -s tests/python -p test_monitor_documentation.py -v
 
   python:
     name: Python quality and tests

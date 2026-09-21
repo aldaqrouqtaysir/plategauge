@@ -1,7 +1,8 @@
 # Monitoring/documentation correction — local candidate
 
-This correction is not published or deployed. It changes monitoring and reference
-documentation only. The live application remains immutable v1.0.2, using the
+This replacement candidate is local-only, not published or deployed. Its parent
+was published to PR 10 for checks but did not advance main. It changes monitoring
+and reference documentation only. The live application remains immutable v1.0.2, using the
 unchanged v1.0.0 model. Publication needs separate approval of the exact source.
 There is no new app version, model, scientific result or application-use approval.
 
@@ -40,8 +41,41 @@ Neither those failures nor the preceding failed release history is waived.
   checker exits cannot become a success. Blocked/rate-limited references remain
   unresolved failures, separately identified from missing references/timeouts.
 - Network-free synthetic regressions run in the existing Python suite and a
-  dedicated Windows/Linux CI job. Hosted execution still requires authorization;
-  a local test is not evidence that the hosted workflow has run.
+  dedicated Windows/Linux CI job. The parent ran in authorized hosted CI with
+  the setup failure recorded below. Hosted execution of this replacement still
+  requires authorization; local tests do not establish hosted success.
+
+## Windows runtime correction (21 September 2026)
+
+Parent `8aea30b87386a0d0fb7d64752ddf4d45b0b8eeea` was submitted as
+[PR 10](https://github.com/aldaqrouqtaysir/plategauge/pull/10).
+[CI run 35592005024](https://github.com/aldaqrouqtaysir/plategauge/actions/runs/35592005024)
+finished with nine passing jobs and one failed job. The new Windows job requested
+Python 3.12.14 directly from setup-python, which could not supply that version
+for Windows 2025. Its tests never executed. Main was not advanced; the revised
+weekly monitor was not dispatched. Neither failure is waived.
+
+This local-only amendment reuses the existing passing Windows portability job's
+bootstrap pattern: setup-python supplies 3.12.10 on Windows (3.12.14 on Linux),
+pinned uv 0.12.17 installs managed 3.12.14, and an explicit version assertion
+precedes the tests. Runtime acquisition may use networking; the test command
+uses uv's offline mode, no project/config discovery and a required managed
+interpreter. Only the runtime manager is installed: no project dependencies,
+training extras, project synchronization or model execution are part of this job.
+The five-minute limit and strict failure behavior remain.
+
+The workflow-contract regression rejects the historical Windows setup and
+mutations that bypass version checks, remove isolation/offline flags, unpin the
+runtime manager, install project dependencies, relax the timeout or suppress
+failure. The local review previously missed runtime acquisition because its
+Windows tests used an already-installed interpreter. This correction does not
+claim to have reproduced a clean GitHub runner locally; hosted verification of
+the exact replacement remains a separate approval and evidence step.
+
+Only the monitoring CI setup, its contract tests and this correction record
+change relative to the parent. The weekly workflow and monitoring implementation
+are byte-identical to that parent. Scientific values and bound evidence are
+unchanged. No release tag, app version or authority flag changes.
 
 ## Reference decisions (checked 21 September 2026)
 

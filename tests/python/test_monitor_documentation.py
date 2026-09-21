@@ -346,7 +346,88 @@ class WorkflowContractTests(unittest.TestCase):
         synthetic = ci.split("  monitoring-tests:", 1)[1].split("  python:", 1)[0]
         self.assertIn("[ubuntu-latest, windows-latest]", synthetic)
         self.assertIn("test_monitor_documentation.py", synthetic)
-        self.assertNotIn("pip install", synthetic)
+        # Installing the runtime manager is allowed; project dependencies are not.
+        self.assert_runtime_contract(synthetic)
+
+    def assert_runtime_contract(self, synthetic: str) -> None:
+        bootstrap = "python-version: ${{ matrix.os == 'windows-latest' && '3.12.10' || '3.12.14' }}"
+        install = (
+            "          set -euo pipefail\n"
+            "          python -m pip install --disable-pip-version-check uv==0.12.17\n"
+            "          uv python install 3.12.14\n"
+        )
+        runtime = "uv run --no-project --no-config --offline --python 3.12.14 --managed-python"
+        verify = (
+            runtime
+            + '\n          python -c "import sys; assert sys.version_info[:3] == (3, 12, 14)"'
+        )
+        tests = (
+            runtime + "\n          python -m unittest discover -s tests/python "
+            "-p test_monitor_documentation.py -v"
+        )
+        for required in (bootstrap, install, verify, tests, "timeout-minutes: 5"):
+            self.assertIn(required, synthetic)
+        self.assertLess(synthetic.index(bootstrap), synthetic.index(install))
+        self.assertLess(synthetic.index(install), synthetic.index(verify))
+        self.assertLess(synthetic.index(verify), synthetic.index(tests))
+        self.assertEqual(synthetic.count("shell: bash"), 3)
+        self.assertEqual(synthetic.count("pip install"), 1)
+        for forbidden in (
+            "uv sync",
+            "uv pip",
+            "--with ",
+            "--with-requirements",
+            "--all-extras",
+            "continue-on-error",
+            "|| true",
+        ):
+            self.assertNotIn(forbidden, synthetic)
+
+    def test_runtime_contract_rejects_the_previous_windows_setup(self) -> None:
+        # Reproduce the failed job's setup, not a failure in the monitoring code.
+        previous = """    name: Synthetic monitoring tests (${{ matrix.os }})
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 5
+    steps:
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: "3.12.14"
+      - name: Test scope, failure classification and workflow boundaries without network
+        run: python -m unittest discover -s tests/python -p test_monitor_documentation.py -v
+"""
+        with self.assertRaises(AssertionError):
+            self.assert_runtime_contract(previous)
+
+    def test_runtime_contract_rejects_bypass_and_dependency_installation(self) -> None:
+        root = Path(__file__).resolve().parents[2]
+        ci = (root / ".github/workflows/ci.yml").read_text()
+        synthetic = ci.split("  monitoring-tests:", 1)[1].split("  python:", 1)[0]
+        self.assert_runtime_contract(synthetic)
+        replacements = (
+            ("'3.12.10'", "'3.12.14'"),
+            ("uv==0.12.17", "uv"),
+            ("uv python install 3.12.14", "echo skipped runtime installation"),
+            ("--no-project ", ""),
+            ("--no-config ", ""),
+            ("--offline ", ""),
+            ("--managed-python", ""),
+            ("assert sys.version_info[:3] == (3, 12, 14)", "print(sys.version)"),
+            ("set -euo pipefail", "set +e"),
+            ("timeout-minutes: 5", "timeout-minutes: 60"),
+        )
+        for original, replacement in replacements:
+            with self.subTest(bypass=original), self.assertRaises(AssertionError):
+                self.assert_runtime_contract(synthetic.replace(original, replacement))
+        for extra in (
+            "uv sync --all-extras",
+            "uv pip install plategauge",
+            "continue-on-error: true",
+        ):
+            with self.subTest(extra=extra), self.assertRaises(AssertionError):
+                self.assert_runtime_contract(synthetic + "\n        " + extra + "\n")
 
 
 if __name__ == "__main__":
