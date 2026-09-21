@@ -13,6 +13,21 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  monitoring-tests:
+    name: Synthetic monitoring tests (${{ matrix.os }})
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: "3.12.14"
+      - name: Test scope, failure classification and workflow boundaries without network
+        run: python -m unittest discover -s tests/python -p test_monitor_documentation.py -v
+
   python:
     name: Python quality and tests
     needs: web

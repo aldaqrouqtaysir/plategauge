@@ -4,20 +4,29 @@
 benchmark/failure-explorer candidate for local Gate D review only. Public
 deployment and Gate D approval had not occurred at this checkpoint.
 
+**Operations update (21 September 2026):** v1.0.2 was subsequently approved,
+deployed and live-verified. Its first weekly run passed live checks but failed
+documentation links. The [monitoring correction](MONITORING_CORRECTION.md) is
+a local-only successor, not yet published; it separates those statuses without
+changing the deployed app or accepting blocked/broken references as successful.
+
 ## What could be monitored without tracking visitors
 
 After an explicitly approved deployment, the release workflow must verify the
 HTTPS destination, compare every hosted file byte-for-byte with the exact
 audited distribution preserved for rollback, and exercise the bundled
-fixed-pair harness. A scheduled GitHub Actions smoke check then compares every
-frozen public evidence, example, model/runtime, and legal asset with the
-`v1.0.2` sources (reusing the frozen `v1.0.0` model); checks version, model checksum, internal links, request
-boundaries, and fixed-pair execution; and preserves the observation artifacts
-for 90 days. It must not add client analytics, accept visitor images, or collect
-predictions.
+fixed-pair harness. The scheduled GitHub Actions live job compares the 25 tracked
+`web/public` files with immutable `v1.0.2` sources (reusing the frozen `v1.0.0`
+model), checks the page/model checksum, request boundaries and fixed replay,
+and preserves observation artifacts for 90 days. It does not byte-compare
+generated JavaScript, runtime or legal build assets; the separate release check
+covered all 36 deployed files. It must not add client analytics, accept visitor
+images or collect predictions. The proposed separate documentation job checks
+only tracked project Markdown and retains its own unresolved-reference status.
 
-No live public smoke monitoring is active before deployment. Current evidence
-comes from local production-build and browser tests.
+Before the original deployment, only local build/browser evidence existed.
+Live-release and first-monitor observations now exist; local correction tests
+do not establish successful hosted execution of the proposed successor.
 
 ## Current failure behavior
 
@@ -66,11 +75,13 @@ and a fixed bundled replay in the unlinked harness. Any future field-monitoring
 or custom-input design requires new evidence, privacy/consent review, and
 approval.
 
-## Review period after a future release
+## Review period and successor publication
 
-If Gate D later authorizes deployment, configure `PLATEGAUGE_PUBLIC_URL` to the
-explicit HTTPS Pages URL and run the fail-closed static smoke check weekly
+`PLATEGAUGE_PUBLIC_URL` is configured to the explicitly approved HTTPS Pages URL.
+The fail-closed static smoke check is scheduled weekly
 through the application cycle and once before each shared demo. A missing or
 non-HTTPS URL is a failed workflow, not a skipped success. Stop scheduled runs
-when they cease to provide value. This is a proposed release operation, not a
-currently active monitor.
+when they cease to provide value. The current published monitor is active, with
+its first failed documentation result preserved. Publishing this correction and
+dispatching its revised workflow require separate approval. No app redeployment
+is necessary, and the v1.0.2 tag must remain immutable.

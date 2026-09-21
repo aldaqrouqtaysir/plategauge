@@ -10,8 +10,9 @@ permissions:
 
 jobs:
   smoke:
-    name: Public page and link smoke check
+    name: Live v1.0.2 page, integrity and fixed replay
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
@@ -42,19 +43,21 @@ jobs:
         working-directory: web
         run: pnpm exec playwright install --with-deps chromium
       - name: Verify public page and same-origin model files
+        timeout-minutes: 3
         env:
           PUBLIC_URL: ${{ vars.PLATEGAUGE_PUBLIC_URL }}
         run: |
           set -euo pipefail
           base="${PUBLIC_URL%/}"
-          curl --fail --silent --show-error --location "$base/" > /dev/null
-          curl --fail --silent --show-error --location "$base/models/release.json" -o release.json
+          curl --fail --silent --show-error --location --connect-timeout 10 --max-time 60 "$base/" > /dev/null
+          curl --fail --silent --show-error --location --connect-timeout 10 --max-time 60 "$base/models/release.json" -o release.json
           model_path="$(python -c 'import json; print(json.load(open("release.json"))["modelPath"])')"
           expected_sha="$(python -c 'import json; print(json.load(open("release.json"))["modelSha256"])')"
-          curl --fail --silent --show-error --location "$base/${model_path#./}" -o model.onnx
+          curl --fail --silent --show-error --location --connect-timeout 10 --max-time 60 "$base/${model_path#./}" -o model.onnx
           actual_sha="$(sha256sum model.onnx | cut -d ' ' -f 1)"
           test "$actual_sha" = "$expected_sha"
-      - name: Verify all frozen public evidence and legal assets byte-for-byte
+      - name: Verify tracked public assets byte-for-byte against v1.0.2
+        timeout-minutes: 5
         env:
           PUBLIC_URL: ${{ vars.PLATEGAUGE_PUBLIC_URL }}
         run: |
@@ -63,10 +66,11 @@ jobs:
           while IFS= read -r -d '' expected; do
             relative="${expected#web/public/}"
             mkdir -p "weekly-live/$(dirname "$relative")"
-            curl --fail --silent --show-error --location --compressed "$base/$relative" -o "weekly-live/$relative"
+            curl --fail --silent --show-error --location --compressed --connect-timeout 10 --max-time 60 "$base/$relative" -o "weekly-live/$relative"
             cmp --silent "$expected" "weekly-live/$relative"
           done < <(find web/public -type f -print0 | sort -z)
       - name: Run deployed real-model inference without image network traffic
+        timeout-minutes: 3
         working-directory: web
         env:
           PLATEGAUGE_PUBLIC_URL: ${{ vars.PLATEGAUGE_PUBLIC_URL }}
@@ -81,8 +85,48 @@ jobs:
             weekly-live
           if-no-files-found: warn
           retention-days: 90
-      - name: Check repository documentation links
+
+  documentation-links:
+    name: Tracked project documentation links
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      # Current workflow source, not the older deployed application's source.
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: "3.12.14"
+      - name: Enumerate tracked project Markdown into fresh external diagnostics
+        run: |
+          set -euo pipefail
+          diagnostics="$(python scripts/prepare_release_diagnostics.py --repo-root . --temp-root "$RUNNER_TEMP" --scope "links-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}")"
+          echo "PG_LINK_DIAGNOSTICS=$diagnostics" >> "$GITHUB_ENV"
+          python scripts/monitor_documentation.py prepare --repo-root . --output-dir "$diagnostics"
+      - name: Check exactly the enumerated files
+        id: links
+        timeout-minutes: 5
         uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8 # v2
         with:
-          args: --no-progress --accept 200,429 './**/*.md'
+          lycheeVersion: v0.24.2
+          args: >-
+            --no-progress --cache=false --accept 200 --timeout 15
+            --max-retries 1 --max-concurrency 4 --host-concurrency 2 --max-redirects 5
+            --files-from '${{ env.PG_LINK_DIAGNOSTICS }}/inputs.txt'
+          format: json
+          output: ${{ env.PG_LINK_DIAGNOSTICS }}/raw.json
+          jobSummary: false
           fail: true
+      - name: Classify link and checker failures without suppressing them
+        if: ${{ always() && env.PG_LINK_DIAGNOSTICS != '' }}
+        env:
+          CHECKER_EXIT: ${{ steps.links.outputs.exit_code }}
+        run: |
+          python scripts/monitor_documentation.py summarize --report "$PG_LINK_DIAGNOSTICS/raw.json" --output-dir "$PG_LINK_DIAGNOSTICS" --checker-exit "$CHECKER_EXIT"
+      - name: Preserve inputs, raw link results and failure classification
+        if: ${{ always() && env.PG_LINK_DIAGNOSTICS != '' }}
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: documentation-links-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ env.PG_LINK_DIAGNOSTICS }}
+          if-no-files-found: error
+          retention-days: 90
