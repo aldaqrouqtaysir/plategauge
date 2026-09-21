@@ -180,13 +180,3 @@ details are in [the data manifest](docs/DATA_MANIFEST.md),
 PlateGauge source code is licensed under the [Apache License 2.0](LICENSE).
 LeFood-Set v1 is CC BY 4.0; the trained artifact is dataset-derived and must
 retain attribution and change notices. See [NOTICE](NOTICE).
-
-This is a substantially AI-assisted project. Taysir Al Daqrouq set the
-objectives and constraints, approved the protocol and duplicate-safe fold
-amendment, reviewed the frozen evidence—including the negative paired-model
-result—and selected the benchmark/failure-explorer form and claim boundaries.
-The public authorship and AI-assistance records summarize those boundaries;
-more detailed private workflow records are deliberately not part of the public
-tree. Gate C approval alone is not evidence of independent unaided
-implementation or independent technical reproduction. Release authorization
-follows the machine-verifiable condition above.
