@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "gate": "D",
+  "decision": "approved",
+  "approvedBy": "Taysir Al Daqrouq",
+  "approvedAt": "2026-09-21T08:09:29+04:00",
+  "releaseTag": "v1.0.0",
+  "sourceCommitSha": "9367457b8c793b5abd3a97ba33dc41cb4bf4e3ff",
+  "evidence": {
+    "modelSha256": "9c830e80cab86acd85c5b27b5733126594561844d0398d602a039c68befbd675",
+    "releaseManifestSha256": "76be7ee370b709235675c97119a4194d9b2e8220ad42734ada98f9b99c4cd599",
+    "resultsSha256": "75d653292e34f1ad31118c5cf6249027ba3395f449bdcdeba717a94bc9444c12",
+    "claimEvidenceSha256": "a2588967ff1c65029089d472c431e24b814e6c8b8449ab91a2f17c949d0bc05b"
+  }
+}
