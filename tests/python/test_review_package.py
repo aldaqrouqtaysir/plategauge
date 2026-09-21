@@ -215,6 +215,80 @@ class ReviewPackageTests(unittest.TestCase):
             self.assertNotIn("plategauge/docs/application/private.md", names)
             self.assertNotIn("plategauge/artifacts/checkpoints/model.pt", names)
 
+    def test_zip_canonicalizes_aliases_before_sorting_without_changing_bytes(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            base = Path(directory).resolve()
+            root = base / "source"
+            alias = base / "short-name-alias"
+            first = self._write(root, "a.txt", b"alpha\n")
+            second = self._write(root, "nested/b.txt", b"beta\n")
+            expected = base / "expected.zip"
+            observed = base / "observed.zip"
+            write_deterministic_zip(expected, root, [first, second], prefix="tree")
+            original_resolve = Path.resolve
+
+            def resolve(path: Path, strict: bool = False) -> Path:
+                # Portable reproduction of Windows 8.3 expansion. No symlink is
+                # involved; hosted Windows also exercises its real temp alias.
+                if path.is_relative_to(alias):
+                    path = root / path.relative_to(alias)
+                return original_resolve(path, strict=strict)
+
+            with patch.object(Path, "resolve", resolve):
+                write_deterministic_zip(
+                    observed, alias, [alias / "nested/b.txt", alias / "a.txt"], prefix="tree"
+                )
+                with self.assertRaisesRegex(DataIntegrityError, "Duplicate"):
+                    write_deterministic_zip(
+                        base / "duplicate.zip", root, [first, alias / "a.txt"]
+                    )
+            self.assertEqual(expected.read_bytes(), observed.read_bytes())
+
+    def test_zip_rejects_unsafe_inputs_without_overwriting_existing_output(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            base = Path(directory).resolve()
+            root = base / "source"
+            first = self._write(root, "a.txt")
+            outside = self._write(base, "outside.txt")
+            destination = self._write(base, "existing.zip", b"keep-existing-output")
+            cases = ([first, first], [outside], [root], [root / "missing.txt"])
+            for files in cases:
+                with self.subTest(files=files), self.assertRaises(DataIntegrityError):
+                    write_deterministic_zip(destination, root, files)
+                self.assertEqual(destination.read_bytes(), b"keep-existing-output")
+            with self.assertRaisesRegex(DataIntegrityError, "root must be a directory"):
+                write_deterministic_zip(destination, first, [])
+            self.assertFalse(list(base.glob(".existing.zip.*.tmp")))
+
+    def test_zip_checks_original_file_and_parent_for_links_before_resolving_them_away(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            base = Path(directory).resolve()
+            root = base / "source"
+            file = self._write(root, "nested/file.txt")
+            for linked in (file, file.parent):
+                for check in ("is_symlink", "is_junction"):
+                    with (
+                        self.subTest(linked=linked, check=check),
+                        patch.object(Path, check, lambda path, linked=linked: path == linked),
+                        self.assertRaisesRegex(DataIntegrityError, "linked source"),
+                    ):
+                        write_deterministic_zip(base / "blocked.zip", root, [file])
+            self.assertFalse((base / "blocked.zip").exists())
+
+    @unittest.skipIf(os.name == "nt", "native symlink creation may require Windows privileges")
+    def test_zip_rejects_real_symlink_file_and_directory(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            base = Path(directory).resolve()
+            root = base / "source"
+            file = self._write(root, "nested/file.txt")
+            link = root / "linked.txt"
+            link.symlink_to(file)
+            folder = root / "linked-dir"
+            folder.symlink_to(file.parent, target_is_directory=True)
+            for path in (link, folder / file.name):
+                with self.subTest(path=path), self.assertRaisesRegex(DataIntegrityError, "linked"):
+                    write_deterministic_zip(base / "blocked.zip", root, [path])
+
     def test_outputs_inside_public_repo_are_rejected(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory) / "repo"

@@ -19,14 +19,24 @@ describe("WebKit uniform fixture compatibility budget", () => {
     const { rgba, tensor } = fixture(delta);
     expect(() => verifyUniformPreprocess(rgba, tensor, color)).toThrow("one 8-bit level");
   });
-  it("rejects alpha drift, channel swaps, and wrong size", () => {
+  it("allows only one alpha level without changing the expected RGB tensor", () => {
     const { rgba, tensor } = fixture();
     rgba[3] = 254;
-    expect(() => verifyUniformPreprocess(rgba, tensor, color)).toThrow("opaque");
-    rgba[3] = 255;
+    const comparison = verifyUniformPreprocess(rgba, tensor, color);
+    expect(comparison).toEqual({ maxRgbDelta: 0, maxTensorDelta: 0, maxAlphaDelta: 1, nonOpaquePixels: 1 });
+    expect(verifyUniformPreprocess(fixture().rgba, tensor, color).maxAlphaDelta).toBe(0);
+  });
+  it.each([0, 128, 253])("rejects alpha %i", (alpha) => {
+    const { rgba, tensor } = fixture();
+    rgba[3] = alpha;
+    expect(() => verifyUniformPreprocess(rgba, tensor, color)).toThrow("254–255");
+  });
+  it("rejects channel swaps and either malformed buffer", () => {
+    const { rgba, tensor } = fixture();
     [rgba[0], rgba[1]] = [rgba[1]!, rgba[0]!];
     expect(() => verifyUniformPreprocess(rgba, tensor, color)).toThrow("one 8-bit level");
     expect(() => verifyUniformPreprocess(rgba.subarray(4), tensor, color)).toThrow("buffer size");
+    expect(() => verifyUniformPreprocess(rgba, tensor.subarray(4), color)).toThrow("buffer size");
   });
   it.each([Number.NaN, Number.POSITIVE_INFINITY, 0])("rejects invalid or wrong tensor values (%s)", (value) => {
     const { rgba, tensor } = fixture();

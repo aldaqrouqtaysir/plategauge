@@ -218,6 +218,25 @@ def _inventory_digest(entries: list[dict[str, Any]]) -> str:
     return hashlib.sha256(canonical.encode("utf-8")).hexdigest()
 
 
+def _canonical_zip_source(base: Path, path: Path) -> tuple[str, Path]:
+    """Resolve aliases before lexical comparison without accepting linked inputs."""
+
+    try:
+        resolved = path.resolve(strict=True)
+        if not resolved.is_relative_to(base) or not resolved.is_file():
+            raise DataIntegrityError(f"Cannot package non-regular or outside source path: {path}")
+        # Preserve the original spelling until link checks finish. Resolving a
+        # symlink first and checking only its target would silently admit it.
+        for component in (path, *path.parents):
+            if component.is_symlink() or component.is_junction():
+                raise DataIntegrityError(f"Cannot package linked source path: {path}")
+            if component.resolve(strict=True) == base:
+                break
+        return resolved.relative_to(base).as_posix(), resolved
+    except (OSError, RuntimeError) as exc:
+        raise DataIntegrityError(f"Cannot resolve regular source path: {path}") from exc
+
+
 def write_deterministic_zip(
     target: str | Path,
     root: str | Path,
@@ -229,8 +248,18 @@ def write_deterministic_zip(
 
     destination = Path(target)
     base = Path(root).resolve()
+    if not base.is_dir():
+        raise DataIntegrityError(f"ZIP source root must be a directory: {root}")
+    candidates: dict[str, tuple[Path, Path]] = {}
+    for path in files:
+        relative, resolved = _canonical_zip_source(base, path)
+        if relative in candidates:
+            raise DataIntegrityError(f"Duplicate ZIP source path: {relative}")
+        candidates[relative] = (path, resolved)
+    # Windows short names and full paths now share one canonical sort key.
+    # Validation finishes before touching an existing output or creating a temp.
+    ordered = sorted(candidates.items())
     destination.parent.mkdir(parents=True, exist_ok=True)
-    ordered = sorted(files, key=lambda path: path.relative_to(base).as_posix())
     entries: list[dict[str, Any]] = []
     handle, temporary_name = tempfile.mkstemp(
         prefix=f".{destination.name}.", suffix=".tmp", dir=destination.parent
@@ -246,11 +275,9 @@ def write_deterministic_zip(
             strict_timestamps=True,
         ) as archive:
             archive.comment = b"PlateGauge deterministic Gate D review candidate\n"
-            for path in ordered:
-                resolved = path.resolve()
-                if not resolved.is_relative_to(base) or not resolved.is_file() or path.is_symlink():
-                    raise DataIntegrityError(f"Cannot package non-regular source path: {path}")
-                relative = resolved.relative_to(base).as_posix()
+            for relative, (path, resolved) in ordered:
+                if _canonical_zip_source(base, path) != (relative, resolved):
+                    raise DataIntegrityError(f"ZIP source path changed during packaging: {path}")
                 archive_name = f"{prefix.rstrip('/')}/{relative}" if prefix else relative
                 data = resolved.read_bytes()
                 info = zipfile.ZipInfo(archive_name, date_time=ZIP_TIMESTAMP)

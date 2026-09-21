@@ -44,9 +44,10 @@ const manifest = JSON.parse(
   readFileSync(fileURLToPath(new URL("manifest.json", fixtureRoot)), "utf8"),
 ) as GoldenManifest;
 
-test("preprocessing preserves exact goldens with bounded WebKit resize compatibility", async ({ page, browserName }, testInfo) => {
-  await page.goto("/");
-  for (const fixture of manifest.fixtures) {
+// One test per fixture: a failing resize must not hide later observations.
+for (const fixture of manifest.fixtures) {
+  test(`preprocessing ${fixture.fixture_id} preserves its bounded compatibility contract`, async ({ page, browserName }, testInfo) => {
+    await page.goto("/");
     const encoded = readFileSync(
       fileURLToPath(new URL(fixture.source_file, fixtureRoot)),
     ).toString("base64");
@@ -57,6 +58,10 @@ test("preprocessing preserves exact goldens with bounded WebKit resize compatibi
       if (!harness) throw new Error("Preprocessing golden harness is unavailable in test mode.");
       return harness(file);
     }, { base64: encoded });
+    await testInfo.attach(`${fixture.fixture_id}-observation.json`, {
+      body: JSON.stringify(actual),
+      contentType: "application/json",
+    });
     expect(actual.geometry.resizedWidth, fixture.fixture_id).toBe(
       fixture.geometry.resized_width,
     );
@@ -65,10 +70,6 @@ test("preprocessing preserves exact goldens with bounded WebKit resize compatibi
     );
     expect(actual.geometry.cropLeft, fixture.fixture_id).toBe(fixture.geometry.crop_left);
     expect(actual.geometry.cropTop, fixture.fixture_id).toBe(fixture.geometry.crop_top);
-    await testInfo.attach(`${fixture.fixture_id}-observation.json`, {
-      body: JSON.stringify(actual),
-      contentType: "application/json",
-    });
     const uniformColors: Record<string, readonly [number, number, number]> = {
       landscape_uniform: [17, 101, 233],
       portrait_uniform: [201, 77, 31],
@@ -90,5 +91,5 @@ test("preprocessing preserves exact goldens with bounded WebKit resize compatibi
         fixture.expected_normalized_chw_float32_sha256,
       );
     }
-  }
-});
+  });
+}

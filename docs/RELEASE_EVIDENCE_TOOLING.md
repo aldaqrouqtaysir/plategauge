@@ -55,7 +55,7 @@ pnpm exec playwright test tests/e2e/preprocess-golden.spec.ts
 and float32-normalized tensor byte without interpolation. Uniform landscape and
 portrait fixtures verify resize geometry exactly. For these two uniform
 fixtures only, WebKit compatibility permits at most one RGB level per channel;
-alpha must remain 255 and every tensor value must exactly normalize the
+alpha must remain within 254–255 and every tensor value must exactly normalize the
 observed pixels. Chromium and Firefox retain exact RGBA/tensor hashes for all
 fixtures; WebKit retains exact hashes for the patterned identity fixture.
 This synthetic-fixture check does not establish image parity on real photos.
@@ -68,6 +68,10 @@ synthetic source PNGs may produce different lossless compression bytes across
 Pillow/zlib builds; the regeneration test therefore compares decoded pixels
 exactly as well as geometry and normalized-tensor hashes. Browser observations
 are attached to test reports so platform failures can be inspected numerically.
+Each fixture runs as an independent test, so one failure cannot prevent the
+other observations. The bounded alpha allowance follows the reviewed D-R2
+diagnostics documented in `MAINTENANCE_1_0_1.md`; alpha is not a model input.
+It does not alter production pixels, golden bytes, or the RGB/tensor limits.
 
 ## Browser performance gate
 

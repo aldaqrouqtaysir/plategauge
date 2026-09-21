@@ -8,15 +8,23 @@ export function verifyUniformPreprocess(
   rgba: Uint8Array,
   tensorBytes: Uint8Array,
   color: readonly [number, number, number],
-): { maxRgbDelta: number; maxTensorDelta: number } {
+): { maxRgbDelta: number; maxTensorDelta: number; maxAlphaDelta: number; nonOpaquePixels: number } {
   if (rgba.length !== PIXELS * 4 || tensorBytes.length !== PIXELS * 3 * 4) {
     throw new Error("Unexpected fixture buffer size");
   }
   const tensor = new DataView(tensorBytes.buffer, tensorBytes.byteOffset, tensorBytes.byteLength);
   let maxRgbDelta = 0;
   let maxTensorDelta = 0;
+  let maxAlphaDelta = 0;
+  let nonOpaquePixels = 0;
   for (let pixel = 0; pixel < PIXELS; pixel++) {
-    if (rgba[4 * pixel + 3] !== 255) throw new Error("Fixture alpha must remain opaque");
+    const alpha = rgba[4 * pixel + 3]!;
+    // Hosted Linux WebKit returned 254 on 112 landscape pixels despite an
+    // opaque canvas. Alpha is not a model input. Bound only this test-specific
+    // readback difference; do not modify pixels or production preprocessing.
+    if (alpha < 254) throw new Error("Uniform alpha must remain within 254–255");
+    maxAlphaDelta = Math.max(maxAlphaDelta, 255 - alpha);
+    if (alpha !== 255) nonOpaquePixels++;
     for (let channel = 0; channel < 3; channel++) {
       const byte = rgba[4 * pixel + channel]!;
       const rgbDelta = Math.abs(byte - color[channel]!);
@@ -33,5 +41,5 @@ export function verifyUniformPreprocess(
       maxTensorDelta = Math.max(maxTensorDelta, Math.abs(actual - normalize(color[channel]!)));
     }
   }
-  return { maxRgbDelta, maxTensorDelta };
+  return { maxRgbDelta, maxTensorDelta, maxAlphaDelta, nonOpaquePixels };
 }
