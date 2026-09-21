@@ -5,7 +5,7 @@ type: software
 authors:
   - family-names: "Al Daqrouq"
     given-names: "Taysir"
-version: "1.0.1"
+version: "1.0.2"
 license: Apache-2.0
 repository-code: "https://github.com/aldaqrouqtaysir/plategauge"
 keywords:

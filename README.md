@@ -13,11 +13,13 @@ a comparable angle, distance, and lighting.
 > and the fail-closed release pipeline passes. If that approval record is absent
 > or invalid, or any release check fails, deployment is blocked.
 
-The `v1.0.1` maintenance candidate repairs cross-platform release checks.
-Its frozen model still identifies itself as `v1.0.0`; the model and bound
-evidence bytes are unchanged. The existing `v1.0.0` tag is immutable.
-See the [maintenance release notes](docs/MAINTENANCE_1_0_1.md) for the scope,
-verification limits, and separate publication requirement.
+The `v1.0.2` maintenance candidate isolates generated diagnostics from source
+and rehearses the same engineering checks used by the real release. The
+published `v1.0.1` source release failed its final engineering gate and did not
+deploy. Its failure is preserved; both existing tags remain immutable.
+The frozen model still identifies itself as `v1.0.0`; model and bound evidence
+bytes are unchanged. See the [maintenance notes](docs/MAINTENANCE_1_0_2.md)
+for the correction, verification limits, and separate publication requirement.
 
 ![PlateGauge benchmark and failure explorer](reports/media/01-question-and-boundary.png)
 

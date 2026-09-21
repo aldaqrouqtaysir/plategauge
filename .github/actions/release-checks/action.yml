@@ -1,0 +1,136 @@
+name: Verify release engineering
+description: Shared no-deployment release-order audits, tests and production packaging checks.
+inputs:
+  source-url:
+    description: Exact source URL embedded in the static build
+    required: true
+  artifact-label:
+    description: Diagnostic artifact suffix; does not grant release approval
+    required: true
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+      with:
+        python-version: "3.12.14"
+        cache: pip
+    - name: Install the locked Python environment
+      shell: bash
+      run: |
+        python -m pip install --disable-pip-version-check uv==0.12.17
+        uv sync --locked --all-extras
+    - name: Verify browser benchmark evidence is canonical
+      shell: bash
+      run: uv run python scripts/verify_web_benchmark_evidence.py verify --repo-root .
+    - name: Isolate generated diagnostic reports outside source
+      shell: bash
+      run: |
+        diagnostics="$(python scripts/prepare_release_diagnostics.py --repo-root . --temp-root "$RUNNER_TEMP" --scope "${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}-${GITHUB_JOB}")"
+        echo "PG_DIAGNOSTICS_DIR=$diagnostics" >> "$GITHUB_ENV"
+    - name: Audit Python dependencies and inventory licenses
+      shell: bash
+      run: |
+        audit_status=0
+        uv run pip-audit --skip-editable --format=json --output "$PG_DIAGNOSTICS_DIR/python-audit.json" || audit_status=$?
+        python -c "import json,os,pathlib,sys; report=json.loads((pathlib.Path(os.environ['PG_DIAGNOSTICS_DIR']) / 'python-audit.json').read_text()); dependencies=report.get('dependencies',[]) if isinstance(report,dict) else None; skipped=sorted((item.get('name'),item.get('skip_reason')) for item in dependencies or [] if isinstance(item,dict) and 'skip_reason' in item); expected=[('plategauge','distribution marked as editable')]; sys.exit(f'unexpected unaudited Python dependencies: {skipped!r}') if not isinstance(dependencies,list) or skipped != expected else None"
+        uv run pip-licenses --format=json > "$PG_DIAGNOSTICS_DIR/python-licenses.json"
+        python -c "import json,os,pathlib,sys; report=json.loads((pathlib.Path(os.environ['PG_DIAGNOSTICS_DIR']) / 'python-licenses.json').read_text()); sys.exit('empty or invalid Python license inventory') if not isinstance(report,list) or not report else None"
+        test "$audit_status" -eq 0
+    - uses: ./.github/actions/secret-scan
+      with:
+        report-path: ${{ env.PG_DIAGNOSTICS_DIR }}/gitleaks.json
+    - uses: pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1 # v4
+      with:
+        version: 11.19.0
+        run_install: false
+    - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+      with:
+        node-version: "22.20.0"
+        cache: pnpm
+        cache-dependency-path: web/pnpm-lock.yaml
+    - name: Install locked web dependencies
+      working-directory: web
+      shell: bash
+      run: pnpm install --frozen-lockfile
+    - name: Audit JavaScript dependencies and inventory licenses
+      working-directory: web
+      shell: bash
+      run: |
+        audit_status=0
+        pnpm audit --audit-level=moderate --json > "$PG_DIAGNOSTICS_DIR/node-audit.json" || audit_status=$?
+        node -e "const r=require(process.env.PG_DIAGNOSTICS_DIR+'/node-audit.json'); if(!r||typeof r!=='object'||r.error) process.exit(1)"
+        pnpm licenses list --prod --json > "$PG_DIAGNOSTICS_DIR/node-licenses.json"
+        node -e "const r=require(process.env.PG_DIAGNOSTICS_DIR+'/node-licenses.json'); if(!r||typeof r!=='object'||!Object.keys(r).length||r.error) process.exit(1)"
+        test "$audit_status" -eq 0
+    - name: Run web quality and unit checks
+      working-directory: web
+      shell: bash
+      run: pnpm lint && pnpm typecheck && pnpm test:unit
+    - name: Install supported release-test browsers
+      working-directory: web
+      shell: bash
+      run: pnpm exec playwright install --with-deps chromium firefox webkit
+    - name: Run browser, privacy, and accessibility checks
+      working-directory: web
+      shell: bash
+      run: pnpm test:e2e
+    - name: Run production-path ONNX integration check
+      working-directory: web
+      shell: bash
+      run: pnpm test:integration
+    - name: Preserve release browser diagnostics even on failure
+      if: always()
+      uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+      with:
+        name: release-browser-diagnostics-${{ inputs.artifact-label }}
+        path: |
+          web/playwright-report
+          web/test-results
+        if-no-files-found: warn
+        retention-days: 90
+    - name: Build the static release
+      working-directory: web
+      env:
+        VITE_SOURCE_URL: ${{ inputs.source-url }}
+      shell: bash
+      run: pnpm build
+    - name: Run Python release checks against the built distribution
+      shell: bash
+      run: |
+        uv run ruff check .
+        uv run mypy src scripts
+        uv run python -m pytest --cov=plategauge --cov-branch --cov-report=term-missing
+    - name: Audit the exact static release allowlist and notices
+      shell: bash
+      run: >-
+        uv run python scripts/audit_release_bundle.py
+        --repo-root .
+        --bundle web/dist
+        --output "$PG_DIAGNOSTICS_DIR/static-bundle-audit.json"
+    - name: Smoke-test the exact production dist from first navigation
+      working-directory: web
+      env:
+        PLATEGAUGE_EXPECTED_SOURCE_URL: ${{ inputs.source-url }}
+      shell: bash
+      run: pnpm test:production
+    - name: Verify packaged model evidence is byte-identical
+      shell: bash
+      run: |
+        cmp --silent web/public/models/plategauge.onnx web/dist/models/plategauge.onnx
+        cmp --silent web/public/models/release.json web/dist/models/release.json
+    - name: Preserve production smoke diagnostics even on failure
+      if: always()
+      uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+      with:
+        name: production-smoke-diagnostics-${{ inputs.artifact-label }}
+        path: web/test-results
+        if-no-files-found: warn
+        retention-days: 90
+    - name: Upload release scan evidence
+      if: ${{ always() && env.PG_DIAGNOSTICS_DIR != '' }}
+      uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+      with:
+        name: release-scan-evidence-${{ inputs.artifact-label }}
+        path: ${{ env.PG_DIAGNOSTICS_DIR }}
+        if-no-files-found: error
+        retention-days: 90

@@ -813,8 +813,8 @@ export default function App() {
           <a href="#limits">Limits</a>
         </nav>
         <div className="release-pill">
-          <span className="release-label-wide">PlateGauge v1.0.1 · benchmark and failure explorer</span>
-          <span className="release-label-compact">v1.0.1 · benchmark explorer</span>
+          <span className="release-label-wide">PlateGauge v1.0.2 · benchmark and failure explorer</span>
+          <span className="release-label-compact">v1.0.2 · benchmark explorer</span>
         </div>
       </header>
 

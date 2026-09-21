@@ -35,7 +35,7 @@ test("serves the built fixed-example release using only allowlisted same-origin 
   });
 
   await page.goto("./?benchmark=1", { waitUntil: "domcontentloaded" });
-  await expect(page.getByText("PlateGauge v1.0.1 · benchmark and failure explorer")).toBeVisible();
+  await expect(page.getByText("PlateGauge v1.0.2 · benchmark and failure explorer")).toBeVisible();
   await expect(page.getByText(/benchmark-only category-shift/i)).toBeVisible();
   await expect(page.getByTestId("model-ready")).toContainText("Frozen model ready.");
   await expect(page.getByTestId("fixed-example-ready")).toContainText("lefood-0192 ready");

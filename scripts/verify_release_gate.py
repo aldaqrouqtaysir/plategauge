@@ -24,7 +24,7 @@ SHA256_PATTERN = re.compile(r"^[0-9a-f]{64}$")
 COMMIT_PATTERN = re.compile(r"^[0-9a-f]{40}$")
 # A maintenance release may reuse a frozen model without rewriting any bound
 # manifest bytes. Only these explicit release/model pairs are recognized.
-MODEL_VERSION_BY_RELEASE = {"v1.0.0": "v1.0.0", "v1.0.1": "v1.0.0"}
+MODEL_VERSION_BY_RELEASE = {"v1.0.0": "v1.0.0", "v1.0.1": "v1.0.0", "v1.0.2": "v1.0.0"}
 
 MODEL_PATH = Path("web/public/models/plategauge.onnx")
 RELEASE_MANIFEST_PATH = Path("web/public/models/release.json")

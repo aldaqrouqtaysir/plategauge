@@ -61,7 +61,7 @@ The model checkpoint revision, pretrained-weight digest, exported model digest,
 dataset attribution, runtime dependency inventory, and release manifest are
 recorded. Third-party workflow actions are pinned to full commit identifiers;
 Python, Node, pnpm, and the environment installer are version-pinned. The
-release workflow is designed to check out the exact `v1.0.1` tag,
+release workflow is designed to check out the exact `v1.0.2` tag,
 accept only the separately reviewed approval child commit, rebuild the site,
 rerun audits, inspect the exact distribution, and run real-model production
 smoke tests before Pages deployment. It preserves that audited distribution for

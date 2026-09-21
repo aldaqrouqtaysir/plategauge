@@ -1,5 +1,11 @@
 # Public release checklist
 
+> Historical source-freeze checklist. Counts and pending boxes below describe
+> that checkpoint, not current deployment status. The v1.0.1 release attempt
+> was blocked; the [v1.0.2 maintenance record](MAINTENANCE_1_0_2.md) describes
+> the current unapproved correction. Exact-source review and passing release
+> checks remain mandatory; no live deployment is established here.
+
 Gate C was approved on 20 September 2026 for the benchmark/failure explorer and
 the claim boundaries in the Gate C review memo. No release is authorized until
 the named maintainer separately approves Gate D. Checked items below are

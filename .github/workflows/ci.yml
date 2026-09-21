@@ -43,19 +43,21 @@ jobs:
       - name: Audit Python dependencies and inventory licenses
         if: ${{ !cancelled() }}
         run: |
-          mkdir -p ci-artifacts
+          diagnostics="$(python scripts/prepare_release_diagnostics.py --repo-root . --temp-root "$RUNNER_TEMP" --scope "${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}-${GITHUB_JOB}")"
+          echo "PG_DIAGNOSTICS_DIR=$diagnostics" >> "$GITHUB_ENV"
+          export PG_DIAGNOSTICS_DIR="$diagnostics"
           audit_status=0
-          uv run pip-audit --skip-editable --format=json --output ci-artifacts/python-audit.json || audit_status=$?
-          python -c "import json,pathlib,sys; report=json.loads(pathlib.Path('ci-artifacts/python-audit.json').read_text()); dependencies=report.get('dependencies',[]) if isinstance(report,dict) else None; skipped=sorted((item.get('name'),item.get('skip_reason')) for item in dependencies or [] if isinstance(item,dict) and 'skip_reason' in item); expected=[('plategauge','distribution marked as editable')]; sys.exit(f'unexpected unaudited Python dependencies: {skipped!r}') if not isinstance(dependencies,list) or skipped != expected else None"
-          uv run pip-licenses --format=json > ci-artifacts/python-licenses.json
-          python -c "import json,pathlib,sys; report=json.loads(pathlib.Path('ci-artifacts/python-licenses.json').read_text()); sys.exit('empty or invalid Python license inventory') if not isinstance(report,list) or not report else None"
+          uv run pip-audit --skip-editable --format=json --output "$PG_DIAGNOSTICS_DIR/python-audit.json" || audit_status=$?
+          python -c "import json,os,pathlib,sys; report=json.loads((pathlib.Path(os.environ['PG_DIAGNOSTICS_DIR']) / 'python-audit.json').read_text()); dependencies=report.get('dependencies',[]) if isinstance(report,dict) else None; skipped=sorted((item.get('name'),item.get('skip_reason')) for item in dependencies or [] if isinstance(item,dict) and 'skip_reason' in item); expected=[('plategauge','distribution marked as editable')]; sys.exit(f'unexpected unaudited Python dependencies: {skipped!r}') if not isinstance(dependencies,list) or skipped != expected else None"
+          uv run pip-licenses --format=json > "$PG_DIAGNOSTICS_DIR/python-licenses.json"
+          python -c "import json,os,pathlib,sys; report=json.loads((pathlib.Path(os.environ['PG_DIAGNOSTICS_DIR']) / 'python-licenses.json').read_text()); sys.exit('empty or invalid Python license inventory') if not isinstance(report,list) or not report else None"
           test "$audit_status" -eq 0
       - name: Upload Python scan evidence
-        if: ${{ always() && hashFiles('ci-artifacts/**') != '' }}
+        if: ${{ always() && env.PG_DIAGNOSTICS_DIR != '' }}
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: python-scan-evidence
-          path: ci-artifacts
+          path: ${{ env.PG_DIAGNOSTICS_DIR }}
           if-no-files-found: error
 
   checkout-portability:
@@ -104,6 +106,7 @@ jobs:
           tests/python/test_fold_amendment.py
           tests/python/test_preprocess_contract.py
           tests/python/test_release_gate.py
+          tests/python/test_release_diagnostics.py
 
   web:
     name: Browser app quality and unit tests
@@ -126,12 +129,14 @@ jobs:
         run: pnpm install --frozen-lockfile
       - name: Audit JavaScript dependencies and inventory production licenses
         run: |
-          mkdir -p ../ci-artifacts
+          diagnostics="$(python ../scripts/prepare_release_diagnostics.py --repo-root .. --temp-root "$RUNNER_TEMP" --scope "${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}-${GITHUB_JOB}")"
+          echo "PG_DIAGNOSTICS_DIR=$diagnostics" >> "$GITHUB_ENV"
+          export PG_DIAGNOSTICS_DIR="$diagnostics"
           audit_status=0
-          pnpm audit --audit-level=moderate --json > ../ci-artifacts/node-audit.json || audit_status=$?
-          node -e "const r=require('../ci-artifacts/node-audit.json'); if(!r||typeof r!=='object'||r.error) process.exit(1)"
-          pnpm licenses list --prod --json > ../ci-artifacts/node-licenses.json
-          node -e "const r=require('../ci-artifacts/node-licenses.json'); if(!r||typeof r!=='object'||!Object.keys(r).length||r.error) process.exit(1)"
+          pnpm audit --audit-level=moderate --json > "$PG_DIAGNOSTICS_DIR/node-audit.json" || audit_status=$?
+          node -e "const r=require(process.env.PG_DIAGNOSTICS_DIR+'/node-audit.json'); if(!r||typeof r!=='object'||r.error) process.exit(1)"
+          pnpm licenses list --prod --json > "$PG_DIAGNOSTICS_DIR/node-licenses.json"
+          node -e "const r=require(process.env.PG_DIAGNOSTICS_DIR+'/node-licenses.json'); if(!r||typeof r!=='object'||!Object.keys(r).length||r.error) process.exit(1)"
           test "$audit_status" -eq 0
       - name: Lint
         run: pnpm lint
@@ -150,11 +155,11 @@ jobs:
           path: web/dist
           if-no-files-found: error
       - name: Upload JavaScript scan evidence
-        if: always()
+        if: ${{ always() && env.PG_DIAGNOSTICS_DIR != '' }}
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: javascript-scan-evidence
-          path: ci-artifacts
+          path: ${{ env.PG_DIAGNOSTICS_DIR }}
           if-no-files-found: error
 
   browser:
@@ -213,13 +218,42 @@ jobs:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
           fetch-depth: 0
+      - name: Isolate secret-scan diagnostics outside source
+        shell: bash
+        run: |
+          diagnostics="$(python scripts/prepare_release_diagnostics.py --repo-root . --temp-root "$RUNNER_TEMP" --scope "${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}-${GITHUB_JOB}")"
+          echo "PG_DIAGNOSTICS_DIR=$diagnostics" >> "$GITHUB_ENV"
       - uses: ./.github/actions/secret-scan
         with:
-          report-path: ci-artifacts/gitleaks.json
+          report-path: ${{ env.PG_DIAGNOSTICS_DIR }}/gitleaks.json
       - name: Preserve secret-scan diagnostics
-        if: ${{ always() && hashFiles('ci-artifacts/gitleaks.json') != '' }}
+        if: ${{ always() && env.PG_DIAGNOSTICS_DIR != '' }}
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: secret-scan-evidence
-          path: ci-artifacts/gitleaks.json
+          path: ${{ env.PG_DIAGNOSTICS_DIR }}/gitleaks.json
           if-no-files-found: error
+
+  release-rehearsal:
+    name: Complete release-order rehearsal (no deployment)
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 0
+      - name: Require an unapproved source candidate
+        run: test ! -e release/gate-d-approval.json
+      - uses: ./.github/actions/release-checks
+        with:
+          source-url: ${{ github.server_url }}/${{ github.repository }}/tree/${{ github.event.pull_request.head.sha || github.sha }}
+          artifact-label: rehearsal-${{ github.run_id }}
+      - name: Preserve the rehearsed candidate (not release approval)
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: rehearsed-static-dist-${{ github.run_id }}
+          path: web/dist
+          if-no-files-found: error
+          retention-days: 90

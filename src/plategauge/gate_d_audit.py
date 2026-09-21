@@ -225,11 +225,11 @@ def _candidate_version_check(root: Path, bundle: dict[str, Any]) -> AuditCheck:
         "modelManifest": bundle["model"]["modelVersion"],
     }
     expected = {
-        "pyproject": "1.0.1",
-        "uvLock": "1.0.1",
-        "pythonRuntime": "1.0.1",
-        "webPackage": "1.0.1",
-        "citation": "1.0.1",
+        "pyproject": "1.0.2",
+        "uvLock": "1.0.2",
+        "pythonRuntime": "1.0.2",
+        "webPackage": "1.0.2",
+        "citation": "1.0.2",
         "modelManifest": "v1.0.0",
     }
     mismatches = [key for key, value in expected.items() if observed.get(key) != value]
@@ -238,7 +238,7 @@ def _candidate_version_check(root: Path, bundle: dict[str, Any]) -> AuditCheck:
         id="candidate_version_consistency",
         status=status,
         summary=(
-            "Software metadata identifies 1.0.1 with the unchanged v1.0.0 model manifest; "
+            "Software metadata identifies 1.0.2 with the unchanged v1.0.0 model manifest; "
             "release authorization remains a separate pending check."
             if status == "pass"
             else "Local candidate version metadata is inconsistent."
@@ -365,6 +365,7 @@ def audit_gate_d_candidate(repo_root: str | Path) -> dict[str, Any]:
         "release_ref=refs/tags/$tag",
         "test \"$changed_paths\" = \"release/gate-d-approval.json\"",
         "scripts/verify_release_gate.py",
+        "uses: ./.github/actions/release-checks",
         "scripts/verify_web_benchmark_evidence.py",
         "scripts/audit_release_bundle.py",
         "pnpm test:production",
@@ -373,7 +374,9 @@ def audit_gate_d_candidate(repo_root: str | Path) -> dict[str, Any]:
         "pnpm test:public-smoke",
         "needs: [guard, deploy]",
     )
-    missing_guards = [marker for marker in guard_markers if marker not in workflow]
+    engineering = (root / ".github/actions/release-checks/action.yml").read_text(encoding="utf-8")
+    release_checks = workflow + "\n" + engineering
+    missing_guards = [marker for marker in guard_markers if marker not in release_checks]
     checks.extend(
         [
             AuditCheck(
@@ -394,7 +397,7 @@ def audit_gate_d_candidate(repo_root: str | Path) -> dict[str, Any]:
                 id="release_workflow_guards",
                 status="pass" if not missing_guards else "fail",
                 summary=(
-                    "Release workflow pins refs/tags/v1.0.1, verifies the approval-only child, audits and preserves dist, "
+                    "Release workflow pins refs/tags/v1.0.2, verifies the approval-only child, audits and preserves dist, "
                     "production-smokes before deployment, then byte-verifies and smokes the live site."
                     if not missing_guards
                     else "Release workflow is missing required fail-closed guards."
@@ -454,19 +457,19 @@ def audit_gate_d_candidate(repo_root: str | Path) -> dict[str, Any]:
         AuditCheck(
             id="release_tag",
             status="pending",
-            summary="The v1.0.1 tag and its publication need separate approval; v1.0.0 remains immutable.",
+            summary="The v1.0.2 tag and its publication need separate approval; v1.0.0 remains immutable.",
             evidence={"tags": tags},
         ),
         AuditCheck(
             id="remote_and_public_url",
             status="pending",
-            summary="No Git remote or public URL exists; live smoke is therefore intentionally blocked.",
+            summary="This local technical audit does not establish remote or live deployment state.",
             evidence={"remotes": remotes, "publicUrl": None},
         ),
         AuditCheck(
             id="gate_d_approval",
             status="pending",
-            summary="Applicant Gate D approval is absent and has not been inferred from Gate C.",
+            summary="This audit never infers approval; the separate committed-approval verifier is required.",
             evidence={"approvalFilePresent": (root / "release/gate-d-approval.json").exists()},
         ),
         AuditCheck(

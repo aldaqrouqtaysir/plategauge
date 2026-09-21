@@ -7,8 +7,14 @@ describe("release source link", () => {
     const immutableSource =
       "${{ github.server_url }}/${{ github.repository }}/tree/${{ needs.guard.outputs.release_tag }}";
 
-    expect(workflow).toContain(`VITE_SOURCE_URL: ${immutableSource}`);
-    expect(workflow).toContain(`PLATEGAUGE_EXPECTED_SOURCE_URL: ${immutableSource}`);
+    const sharedChecks = readFileSync(
+      resolve(process.cwd(), "../.github/actions/release-checks/action.yml"),
+      "utf8",
+    );
+    expect(workflow).toContain("uses: ./.github/actions/release-checks");
+    expect(workflow).toContain(`source-url: ${immutableSource}`);
+    expect(sharedChecks).toContain("VITE_SOURCE_URL: ${{ inputs.source-url }}");
+    expect(sharedChecks).toContain("PLATEGAUGE_EXPECTED_SOURCE_URL: ${{ inputs.source-url }}");
     expect(workflow).not.toContain(
       "VITE_SOURCE_URL: ${{ github.server_url }}/${{ github.repository }}\n",
     );

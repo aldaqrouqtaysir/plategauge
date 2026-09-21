@@ -14,7 +14,7 @@ version 1 has exactly these fields:
   "decision": "approved",
   "approvedBy": "Taysir Al Daqrouq",
   "approvedAt": "ISO-8601 timestamp with UTC offset",
-  "releaseTag": "v1.0.1",
+  "releaseTag": "v1.0.2",
   "sourceCommitSha": "40-character lowercase SHA of the frozen source commit",
   "evidence": {
     "modelSha256": "64 lowercase hexadecimal characters",
@@ -46,7 +46,12 @@ The release tag must point to a single approval commit immediately after
 `release/gate-d-approval.json`; this avoids an impossible self-referential commit
 hash while binding the approval to the complete frozen source tree.
 
-The `v1.0.1` software patch reuses the exact `v1.0.0` model manifest. The
+The `v1.0.2` software patch reuses the exact `v1.0.0` model manifest. The
 verifier pins this explicit release/model pairing; it does not accept arbitrary
 version mismatches. All model, manifest, result, and claim-map digests still
 have to match a new approval record for the exact source commit.
+
+The shared engineering action also runs on an unapproved CI checkout with
+read-only repository permissions. Its rehearsal artifact is not approval;
+only a separately reviewed approval-only child can enter the guarded release.
+Both previously published tags remain immutable, including failed v1.0.1.

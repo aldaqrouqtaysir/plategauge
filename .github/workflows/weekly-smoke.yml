@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
-          ref: refs/tags/v1.0.1
+          ref: refs/tags/v1.0.2
       - name: Require an explicit HTTPS public URL
         env:
           PUBLIC_URL: ${{ vars.PLATEGAUGE_PUBLIC_URL }}

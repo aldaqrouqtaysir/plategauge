@@ -1,6 +1,11 @@
 # PlateGauge 1.0.1 maintenance candidate
 
-This is a D-R2 engineering candidate pending exact-source release approval.
+> Historical candidate record. D-R2 later passed CI and was approved/published
+> as v1.0.1, but its release workflow failed before deployment. See the
+> [v1.0.2 correction record](MAINTENANCE_1_0_2.md). The original chronology below
+> is retained, not rewritten as a successful deployment.
+
+At this snapshot, this was a D-R2 engineering candidate pending exact-source release approval.
 Its isolated verification branch/PR may run hosted CI, but does not authorize
 moving public main, tagging or deploying. D-R1 source
 `eee743c86039707570827fea6aaa1c2e17f5287d` is public and its hosted CI failed;

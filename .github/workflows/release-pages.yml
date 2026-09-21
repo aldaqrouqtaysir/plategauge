@@ -4,9 +4,9 @@ on:
   workflow_dispatch:
     inputs:
       tag:
-        description: Approved v1.0.1 maintenance release tag
+        description: Approved v1.0.2 maintenance release tag
         required: true
-        default: v1.0.1
+        default: v1.0.2
   release:
     types: [published]
 
@@ -35,7 +35,7 @@ jobs:
         run: |
           tag="$RELEASE_TAG"
           if [ "$EVENT_NAME" = "workflow_dispatch" ]; then tag="$INPUT_TAG"; fi
-          test "$tag" = "v1.0.1"
+          test "$tag" = "v1.0.2"
           echo "release_tag=$tag" >> "$GITHUB_OUTPUT"
           echo "release_ref=refs/tags/$tag" >> "$GITHUB_OUTPUT"
 
@@ -58,16 +58,11 @@ jobs:
           changed_paths="$(git diff --name-only "$source_commit_sha" HEAD)"
           test "$changed_paths" = "release/gate-d-approval.json"
           echo "source_commit_sha=$source_commit_sha" >> "$GITHUB_OUTPUT"
-      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+      - name: Run the shared release-order verification
+        uses: ./.github/actions/release-checks
         with:
-          python-version: "3.12.14"
-          cache: pip
-      - name: Install the locked Python environment
-        run: |
-          python -m pip install --disable-pip-version-check uv==0.12.17
-          uv sync --locked --all-extras
-      - name: Verify browser benchmark evidence is canonical
-        run: uv run python scripts/verify_web_benchmark_evidence.py verify --repo-root .
+          source-url: ${{ github.server_url }}/${{ github.repository }}/tree/${{ needs.guard.outputs.release_tag }}
+          artifact-label: ${{ needs.guard.outputs.release_tag }}
       - name: Verify committed Gate D approval and frozen evidence
         run: >-
           uv run python scripts/verify_release_gate.py
@@ -75,94 +70,6 @@ jobs:
           --approval release/gate-d-approval.json
           --expected-tag "${{ needs.guard.outputs.release_tag }}"
           --expected-source-commit "${{ steps.checkout.outputs.source_commit_sha }}"
-      - name: Audit Python dependencies and inventory licenses
-        run: |
-          mkdir -p release-scan-artifacts
-          audit_status=0
-          uv run pip-audit --skip-editable --format=json --output release-scan-artifacts/python-audit.json || audit_status=$?
-          python -c "import json,pathlib,sys; report=json.loads(pathlib.Path('release-scan-artifacts/python-audit.json').read_text()); dependencies=report.get('dependencies',[]) if isinstance(report,dict) else None; skipped=sorted((item.get('name'),item.get('skip_reason')) for item in dependencies or [] if isinstance(item,dict) and 'skip_reason' in item); expected=[('plategauge','distribution marked as editable')]; sys.exit(f'unexpected unaudited Python dependencies: {skipped!r}') if not isinstance(dependencies,list) or skipped != expected else None"
-          uv run pip-licenses --format=json > release-scan-artifacts/python-licenses.json
-          python -c "import json,pathlib,sys; report=json.loads(pathlib.Path('release-scan-artifacts/python-licenses.json').read_text()); sys.exit('empty or invalid Python license inventory') if not isinstance(report,list) or not report else None"
-          test "$audit_status" -eq 0
-      - uses: ./.github/actions/secret-scan
-        with:
-          report-path: release-scan-artifacts/gitleaks.json
-      - uses: pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1 # v4
-        with:
-          version: 11.19.0
-          run_install: false
-      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
-        with:
-          node-version: "22.20.0"
-          cache: pnpm
-          cache-dependency-path: web/pnpm-lock.yaml
-      - name: Install locked web dependencies
-        working-directory: web
-        run: pnpm install --frozen-lockfile
-      - name: Audit JavaScript dependencies and inventory licenses
-        working-directory: web
-        run: |
-          audit_status=0
-          pnpm audit --audit-level=moderate --json > ../release-scan-artifacts/node-audit.json || audit_status=$?
-          node -e "const r=require('../release-scan-artifacts/node-audit.json'); if(!r||typeof r!=='object'||r.error) process.exit(1)"
-          pnpm licenses list --prod --json > ../release-scan-artifacts/node-licenses.json
-          node -e "const r=require('../release-scan-artifacts/node-licenses.json'); if(!r||typeof r!=='object'||!Object.keys(r).length||r.error) process.exit(1)"
-          test "$audit_status" -eq 0
-      - name: Run web quality and unit checks
-        working-directory: web
-        run: pnpm lint && pnpm typecheck && pnpm test:unit
-      - name: Install supported release-test browsers
-        working-directory: web
-        run: pnpm exec playwright install --with-deps chromium firefox webkit
-      - name: Run browser, privacy, and accessibility checks
-        working-directory: web
-        run: pnpm test:e2e
-      - name: Run production-path ONNX integration check
-        working-directory: web
-        run: pnpm test:integration
-      - name: Preserve release browser diagnostics even on failure
-        if: always()
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
-        with:
-          name: release-browser-diagnostics-${{ needs.guard.outputs.release_tag }}
-          path: |
-            web/playwright-report
-            web/test-results
-          if-no-files-found: warn
-          retention-days: 90
-      - name: Build the static release
-        working-directory: web
-        env:
-          VITE_SOURCE_URL: ${{ github.server_url }}/${{ github.repository }}/tree/${{ needs.guard.outputs.release_tag }}
-        run: pnpm build
-      - name: Run Python release checks against the built distribution
-        run: |
-          uv run ruff check .
-          uv run mypy src scripts
-          uv run python -m pytest --cov=plategauge --cov-branch --cov-report=term-missing
-      - name: Audit the exact static release allowlist and notices
-        run: >-
-          uv run python scripts/audit_release_bundle.py
-          --repo-root .
-          --bundle web/dist
-          --output release-scan-artifacts/static-bundle-audit.json
-      - name: Smoke-test the exact production dist from first navigation
-        working-directory: web
-        env:
-          PLATEGAUGE_EXPECTED_SOURCE_URL: ${{ github.server_url }}/${{ github.repository }}/tree/${{ needs.guard.outputs.release_tag }}
-        run: pnpm test:production
-      - name: Verify packaged model evidence is byte-identical
-        run: |
-          cmp --silent web/public/models/plategauge.onnx web/dist/models/plategauge.onnx
-          cmp --silent web/public/models/release.json web/dist/models/release.json
-      - name: Upload release scan evidence
-        if: ${{ always() && hashFiles('release-scan-artifacts/**') != '' }}
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
-        with:
-          name: release-scan-evidence-${{ needs.guard.outputs.release_tag }}
-          path: release-scan-artifacts
-          if-no-files-found: error
-          retention-days: 90
       - name: Preserve the exact audited distribution for rollback
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
