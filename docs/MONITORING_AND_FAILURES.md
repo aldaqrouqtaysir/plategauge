@@ -11,7 +11,7 @@ HTTPS destination, compare every hosted file byte-for-byte with the exact
 audited distribution preserved for rollback, and exercise the bundled
 fixed-pair harness. A scheduled GitHub Actions smoke check then compares every
 frozen public evidence, example, model/runtime, and legal asset with the
-`v1.0.0` sources; checks version, model checksum, internal links, request
+`v1.0.1` sources (reusing the frozen `v1.0.0` model); checks version, model checksum, internal links, request
 boundaries, and fixed-pair execution; and preserves the observation artifacts
 for 90 days. It must not add client analytics, accept visitor images, or collect
 predictions.

@@ -225,11 +225,11 @@ def _candidate_version_check(root: Path, bundle: dict[str, Any]) -> AuditCheck:
         "modelManifest": bundle["model"]["modelVersion"],
     }
     expected = {
-        "pyproject": "1.0.0",
-        "uvLock": "1.0.0",
-        "pythonRuntime": "1.0.0",
-        "webPackage": "1.0.0",
-        "citation": "1.0.0",
+        "pyproject": "1.0.1",
+        "uvLock": "1.0.1",
+        "pythonRuntime": "1.0.1",
+        "webPackage": "1.0.1",
+        "citation": "1.0.1",
         "modelManifest": "v1.0.0",
     }
     mismatches = [key for key, value in expected.items() if observed.get(key) != value]
@@ -238,7 +238,7 @@ def _candidate_version_check(root: Path, bundle: dict[str, Any]) -> AuditCheck:
         id="candidate_version_consistency",
         status=status,
         summary=(
-            "All local candidate metadata consistently identifies 1.0.0/v1.0.0; "
+            "Software metadata identifies 1.0.1 with the unchanged v1.0.0 model manifest; "
             "release authorization remains a separate pending check."
             if status == "pass"
             else "Local candidate version metadata is inconsistent."
@@ -394,7 +394,7 @@ def audit_gate_d_candidate(repo_root: str | Path) -> dict[str, Any]:
                 id="release_workflow_guards",
                 status="pass" if not missing_guards else "fail",
                 summary=(
-                    "Release workflow pins refs/tags/v1.0.0, verifies the approval-only child, audits and preserves dist, "
+                    "Release workflow pins refs/tags/v1.0.1, verifies the approval-only child, audits and preserves dist, "
                     "production-smokes before deployment, then byte-verifies and smokes the live site."
                     if not missing_guards
                     else "Release workflow is missing required fail-closed guards."
@@ -448,13 +448,13 @@ def audit_gate_d_candidate(repo_root: str | Path) -> dict[str, Any]:
         AuditCheck(
             id="source_commit",
             status="pending",
-            summary="No source commit exists; creating/reviewing it is a Gate D action.",
+            summary="The exact maintenance source commit needs separate publication review.",
             evidence={"present": head.returncode == 0},
         ),
         AuditCheck(
             id="release_tag",
             status="pending",
-            summary="No v1.0.0 tag exists; tagging is prohibited before Gate D approval.",
+            summary="The v1.0.1 tag and its publication need separate approval; v1.0.0 remains immutable.",
             evidence={"tags": tags},
         ),
         AuditCheck(

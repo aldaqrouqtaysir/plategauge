@@ -53,10 +53,21 @@ pnpm exec playwright test tests/e2e/preprocess-golden.spec.ts
 
 `identity_pattern.png` verifies every center-cropped RGBA byte, channel order,
 and float32-normalized tensor byte without interpolation. Uniform landscape and
-portrait fixtures verify resize geometry exactly while avoiding
-browser-specific interpolation rounding. The worker uses explicit `Math.fround`
+portrait fixtures verify resize geometry exactly. For these two uniform
+fixtures only, WebKit compatibility permits at most one RGB level per channel;
+alpha must remain 255 and every tensor value must exactly normalize the
+observed pixels. Chromium and Firefox retain exact RGBA/tensor hashes for all
+fixtures; WebKit retains exact hashes for the patterned identity fixture.
+This synthetic-fixture check does not establish image parity on real photos.
+The worker uses explicit `Math.fround`
 steps so its ImageNet normalization matches NumPy float32 operations. The
 Playwright test runs in the normal Chromium, Firefox, and WebKit matrix.
+
+The committed PNG, tensor, and manifest hashes remain verified. Regenerating
+synthetic source PNGs may produce different lossless compression bytes across
+Pillow/zlib builds; the regeneration test therefore compares decoded pixels
+exactly as well as geometry and normalized-tensor hashes. Browser observations
+are attached to test reports so platform failures can be inspected numerically.
 
 ## Browser performance gate
 

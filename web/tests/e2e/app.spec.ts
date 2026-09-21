@@ -157,7 +157,7 @@ test("keeps navigation and readable compact content at a narrow viewport", async
   await expect(mobileNav.getByRole("link", { name: "Engineering", exact: true })).toBeVisible();
   await expect(mobileNav.getByRole("link", { name: "Limits", exact: true })).toBeVisible();
   await expect(page.locator(".release-label-wide")).toBeHidden();
-  await expect(page.locator(".release-label-compact")).toHaveText("v1.0.0 · benchmark explorer");
+  await expect(page.locator(".release-label-compact")).toHaveText("v1.0.1 · benchmark explorer");
 
   await expect(page.getByRole("heading", { name: /including where it failed/i })).toBeVisible();
   await mobileNav.getByRole("link", { name: "Evidence explorer", exact: true }).click();

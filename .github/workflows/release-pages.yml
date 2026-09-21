@@ -4,9 +4,9 @@ on:
   workflow_dispatch:
     inputs:
       tag:
-        description: Approved v1.0.0 release tag
+        description: Approved v1.0.1 maintenance release tag
         required: true
-        default: v1.0.0
+        default: v1.0.1
   release:
     types: [published]
 
@@ -35,7 +35,7 @@ jobs:
         run: |
           tag="$RELEASE_TAG"
           if [ "$EVENT_NAME" = "workflow_dispatch" ]; then tag="$INPUT_TAG"; fi
-          test "$tag" = "v1.0.0"
+          test "$tag" = "v1.0.1"
           echo "release_tag=$tag" >> "$GITHUB_OUTPUT"
           echo "release_ref=refs/tags/$tag" >> "$GITHUB_OUTPUT"
 
@@ -75,11 +75,6 @@ jobs:
           --approval release/gate-d-approval.json
           --expected-tag "${{ needs.guard.outputs.release_tag }}"
           --expected-source-commit "${{ steps.checkout.outputs.source_commit_sha }}"
-      - name: Run Python release checks
-        run: |
-          uv run ruff check .
-          uv run mypy src scripts
-          uv run python -m pytest --cov=plategauge --cov-branch --cov-report=term-missing
       - name: Audit Python dependencies and inventory licenses
         run: |
           mkdir -p release-scan-artifacts
@@ -89,9 +84,9 @@ jobs:
           uv run pip-licenses --format=json > release-scan-artifacts/python-licenses.json
           python -c "import json,pathlib,sys; report=json.loads(pathlib.Path('release-scan-artifacts/python-licenses.json').read_text()); sys.exit('empty or invalid Python license inventory') if not isinstance(report,list) or not report else None"
           test "$audit_status" -eq 0
-      - uses: gitleaks/gitleaks-action@ff98106e4c7b2bc287b24eaf42907196329070c7 # v2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: ./.github/actions/secret-scan
+        with:
+          report-path: release-scan-artifacts/gitleaks.json
       - uses: pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1 # v4
         with:
           version: 11.19.0
@@ -125,11 +120,26 @@ jobs:
       - name: Run production-path ONNX integration check
         working-directory: web
         run: pnpm test:integration
+      - name: Preserve release browser diagnostics even on failure
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: release-browser-diagnostics-${{ needs.guard.outputs.release_tag }}
+          path: |
+            web/playwright-report
+            web/test-results
+          if-no-files-found: warn
+          retention-days: 90
       - name: Build the static release
         working-directory: web
         env:
           VITE_SOURCE_URL: ${{ github.server_url }}/${{ github.repository }}/tree/${{ needs.guard.outputs.release_tag }}
         run: pnpm build
+      - name: Run Python release checks against the built distribution
+        run: |
+          uv run ruff check .
+          uv run mypy src scripts
+          uv run python -m pytest --cov=plategauge --cov-branch --cov-report=term-missing
       - name: Audit the exact static release allowlist and notices
         run: >-
           uv run python scripts/audit_release_bundle.py
@@ -146,6 +156,7 @@ jobs:
           cmp --silent web/public/models/plategauge.onnx web/dist/models/plategauge.onnx
           cmp --silent web/public/models/release.json web/dist/models/release.json
       - name: Upload release scan evidence
+        if: ${{ always() && hashFiles('release-scan-artifacts/**') != '' }}
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: release-scan-evidence-${{ needs.guard.outputs.release_tag }}

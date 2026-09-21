@@ -90,7 +90,13 @@ def restore_preregistered_inputs(root: Path) -> None:
     audit["cross_fold_duplicate_components"] = 6
     audit["issues"] = [PREREGISTERED_DUPLICATE_ISSUE]
     audit["passed"] = False
-    audit_path.write_text(json.dumps(audit, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    # The historical audit was hashed as CRLF. Reconstruct those exact bytes on
+    # every host; the pinned hashes and frozen evidence are not rewritten.
+    audit_path.write_text(
+        json.dumps(audit, indent=2, sort_keys=True) + "\n",
+        encoding="utf-8",
+        newline="\r\n",
+    )
 
 
 def prepare_historical_repo(root: Path) -> None:

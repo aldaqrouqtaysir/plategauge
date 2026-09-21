@@ -9,9 +9,15 @@ a comparable angle, distance, and lighting.
 > **Evidence and release boundary:** Gate C selected the **benchmark and failure
 > explorer** form on 20 September 2026; it did not authorize an unrestricted
 > numeric estimator. A checkout is authorized for release only when its
-> `v1.0.0` tag contains a verified `release/gate-d-approval.json` approval child
+> release tag contains a verified `release/gate-d-approval.json` approval child
 > and the fail-closed release pipeline passes. If that approval record is absent
 > or invalid, or any release check fails, deployment is blocked.
+
+The `v1.0.1` maintenance candidate repairs cross-platform release checks.
+Its frozen model still identifies itself as `v1.0.0`; the model and bound
+evidence bytes are unchanged. The existing `v1.0.0` tag is immutable.
+See the [maintenance release notes](docs/MAINTENANCE_1_0_1.md) for the scope,
+verification limits, and separate publication requirement.
 
 ![PlateGauge benchmark and failure explorer](reports/media/01-question-and-boundary.png)
 

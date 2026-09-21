@@ -10,6 +10,7 @@ data/manifests/lefood_v1_duplicate_candidates.csv text eol=lf
 data/manifests/lefood_v1_manifest.csv text eol=lf
 data/manifests/lefood_v1_source_audit.csv text eol=lf
 docs/AI_ASSISTANCE_PUBLIC.md text eol=lf
+docs/CLAIM_EVIDENCE_MAP.csv text eol=lf
 docs/PRIVACY_NOTICE.md text eol=lf
 release/browser-benchmark-measurement.json text eol=lf
 reports/bootstrap_comparisons.json text eol=lf

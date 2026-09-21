@@ -22,6 +22,9 @@ REQUIRED_APPROVER = "Taysir Al Daqrouq"
 MAX_MODEL_BYTES = 15_000_000
 SHA256_PATTERN = re.compile(r"^[0-9a-f]{64}$")
 COMMIT_PATTERN = re.compile(r"^[0-9a-f]{40}$")
+# A maintenance release may reuse a frozen model without rewriting any bound
+# manifest bytes. Only these explicit release/model pairs are recognized.
+MODEL_VERSION_BY_RELEASE = {"v1.0.0": "v1.0.0", "v1.0.1": "v1.0.0"}
 
 MODEL_PATH = Path("web/public/models/plategauge.onnx")
 RELEASE_MANIFEST_PATH = Path("web/public/models/release.json")
@@ -98,6 +101,8 @@ def _require_aware_timestamp(value: object) -> None:
 def _verify_release_manifest(
     manifest: dict[str, Any], *, expected_tag: str, model_sha256: str
 ) -> None:
+    if expected_tag not in MODEL_VERSION_BY_RELEASE:
+        raise ReleaseGateError("Unsupported release/model version binding")
     required = {
         "schemaVersion",
         "modelVersion",
@@ -112,7 +117,7 @@ def _verify_release_manifest(
         raise ReleaseGateError("release.json fields differ from the frozen web schema")
     expected_values = {
         "schemaVersion": 1,
-        "modelVersion": expected_tag,
+        "modelVersion": MODEL_VERSION_BY_RELEASE[expected_tag],
         "modelPath": "models/plategauge.onnx",
         "modelSha256": model_sha256,
         "beforeInputName": "before",

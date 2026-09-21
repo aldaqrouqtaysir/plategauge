@@ -17,6 +17,12 @@ the later repair does not retroactively relabel it.
 
 This correction and its verification were substantially AI-assisted. They do
 not establish applicant-performed independent reproduction. PlateGauge makes
-no such claim. Release status must be determined from the exact `v1.0.0` tag,
+no such claim. Release status must be determined from the exact reviewed tag,
 its `release/gate-d-approval.json` record, and the post-deployment checks—not
 from this note alone.
+
+The first hosted `v1.0.0` source CI run failed after these local observations.
+The `v1.0.1` maintenance work records and corrects the remaining fixture/runtime
+portability issues; see [the maintenance notes](MAINTENANCE_1_0_1.md). A clean
+LF checkout on Windows is not evidence of native Linux execution. Hosted Linux
+and Windows verification remains required before deployment.

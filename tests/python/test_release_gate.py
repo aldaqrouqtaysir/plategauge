@@ -71,6 +71,52 @@ def make_release(root: Path) -> Path:
 
 
 class ReleaseGateTests(unittest.TestCase):
+    def test_maintenance_release_reuses_exact_frozen_model_manifest(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            approval = make_release(root)
+            manifest = root / "web/public/models/release.json"
+            before = manifest.read_bytes()
+            payload = json.loads(approval.read_text(encoding="utf-8"))
+            payload["releaseTag"] = "v1.0.1"
+            approval.write_text(json.dumps(payload), encoding="utf-8")
+            result = verify_release_gate(
+                root, approval, expected_tag="v1.0.1",
+                expected_source_commit=COMMIT, validate_model_runtime=False,
+            )
+            self.assertEqual(result["status"], "verified")
+            self.assertEqual(manifest.read_bytes(), before)
+
+            # A fresh approval still cannot introduce another model version.
+            data = json.loads(before)
+            data["modelVersion"] = "v1.0.1"
+            manifest.write_text(json.dumps(data), encoding="utf-8")
+            payload["evidence"]["releaseManifestSha256"] = digest(manifest)
+            approval.write_text(json.dumps(payload), encoding="utf-8")
+            with self.assertRaisesRegex(ReleaseGateError, "modelVersion"):
+                verify_release_gate(
+                    root, approval, expected_tag="v1.0.1",
+                    expected_source_commit=COMMIT, validate_model_runtime=False,
+                )
+
+    def test_old_approval_and_unknown_maintenance_tag_remain_blocked(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            approval = make_release(root)
+            with self.assertRaisesRegex(ReleaseGateError, "releaseTag"):
+                verify_release_gate(
+                    root, approval, expected_tag="v1.0.1",
+                    expected_source_commit=COMMIT, validate_model_runtime=False,
+                )
+            payload = json.loads(approval.read_text(encoding="utf-8"))
+            payload["releaseTag"] = "v1.0.2"
+            approval.write_text(json.dumps(payload), encoding="utf-8")
+            with self.assertRaisesRegex(ReleaseGateError, "Unsupported release/model"):
+                verify_release_gate(
+                    root, approval, expected_tag="v1.0.2",
+                    expected_source_commit=COMMIT, validate_model_runtime=False,
+                )
+
     def test_valid_hash_bound_approval_passes(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)

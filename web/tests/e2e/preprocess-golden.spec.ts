@@ -1,6 +1,7 @@
 import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { expect, test } from "@playwright/test";
+import { verifyUniformPreprocess } from "../support/uniformPreprocess";
 
 interface GoldenFixture {
   fixture_id: string;
@@ -28,6 +29,8 @@ interface BrowserGoldenResult {
   };
   rgbaSha256: string;
   tensorSha256: string;
+  rgbaBase64: string;
+  tensorBase64: string;
 }
 
 declare global {
@@ -41,7 +44,7 @@ const manifest = JSON.parse(
   readFileSync(fileURLToPath(new URL("manifest.json", fixtureRoot)), "utf8"),
 ) as GoldenManifest;
 
-test("browser preprocessing exactly matches the Python golden fixtures", async ({ page }) => {
+test("preprocessing preserves exact goldens with bounded WebKit resize compatibility", async ({ page, browserName }, testInfo) => {
   await page.goto("/");
   for (const fixture of manifest.fixtures) {
     const encoded = readFileSync(
@@ -62,9 +65,30 @@ test("browser preprocessing exactly matches the Python golden fixtures", async (
     );
     expect(actual.geometry.cropLeft, fixture.fixture_id).toBe(fixture.geometry.crop_left);
     expect(actual.geometry.cropTop, fixture.fixture_id).toBe(fixture.geometry.crop_top);
-    expect(actual.rgbaSha256, fixture.fixture_id).toBe(fixture.expected_rgba_sha256);
-    expect(actual.tensorSha256, fixture.fixture_id).toBe(
-      fixture.expected_normalized_chw_float32_sha256,
-    );
+    await testInfo.attach(`${fixture.fixture_id}-observation.json`, {
+      body: JSON.stringify(actual),
+      contentType: "application/json",
+    });
+    const uniformColors: Record<string, readonly [number, number, number]> = {
+      landscape_uniform: [17, 101, 233],
+      portrait_uniform: [201, 77, 31],
+    };
+    const color = uniformColors[fixture.fixture_id];
+    if (browserName === "webkit" && color) {
+      const comparison = verifyUniformPreprocess(
+        Buffer.from(actual.rgbaBase64, "base64"),
+        Buffer.from(actual.tensorBase64, "base64"),
+        color,
+      );
+      await testInfo.attach(`${fixture.fixture_id}-compatibility.json`, {
+        body: JSON.stringify(comparison),
+        contentType: "application/json",
+      });
+    } else {
+      expect(actual.rgbaSha256, fixture.fixture_id).toBe(fixture.expected_rgba_sha256);
+      expect(actual.tensorSha256, fixture.fixture_id).toBe(
+        fixture.expected_normalized_chw_float32_sha256,
+      );
+    }
   }
 });

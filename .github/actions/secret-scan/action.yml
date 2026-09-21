@@ -1,0 +1,28 @@
+name: Scan complete Git history
+description: Run checksum-pinned Gitleaks over all fetched refs, including root commits.
+inputs:
+  report-path:
+    description: Local JSON report destination
+    required: true
+runs:
+  using: composite
+  steps:
+    - name: Install and run pinned Gitleaks
+      shell: bash
+      env:
+        REPORT_PATH: ${{ inputs.report-path }}
+      run: |
+        set -euo pipefail
+        test "$(uname -s)" = Linux
+        test "$(uname -m)" = x86_64
+        test "$(git rev-parse --is-shallow-repository)" = false
+        scan_tmp="$(mktemp -d)"
+        trap 'rm -f "$scan_tmp/gitleaks.tar.gz" "$scan_tmp/gitleaks"; rmdir "$scan_tmp"' EXIT
+        curl --fail --silent --show-error --location \
+          https://github.com/gitleaks/gitleaks/releases/download/v8.24.3/gitleaks_8.24.3_linux_x64.tar.gz \
+          -o "$scan_tmp/gitleaks.tar.gz"
+        printf '%s  %s\n' 9991e0b2903da4c8f6122b5c3186448b927a5da4deef1fe45271c3793f4ee29c "$scan_tmp/gitleaks.tar.gz" | sha256sum --check --strict
+        tar -xzf "$scan_tmp/gitleaks.tar.gz" -C "$scan_tmp" gitleaks
+        mkdir -p "$(dirname "$REPORT_PATH")"
+        "$scan_tmp/gitleaks" detect --source . --log-opts=--all --redact \
+          --report-format=json --report-path="$REPORT_PATH" --exit-code=2

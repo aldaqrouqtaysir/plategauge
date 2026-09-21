@@ -61,7 +61,7 @@ The model checkpoint revision, pretrained-weight digest, exported model digest,
 dataset attribution, runtime dependency inventory, and release manifest are
 recorded. Third-party workflow actions are pinned to full commit identifiers;
 Python, Node, pnpm, and the environment installer are version-pinned. The
-release workflow is designed to check out the exact `v1.0.0` tag,
+release workflow is designed to check out the exact `v1.0.1` tag,
 accept only the separately reviewed approval child commit, rebuild the site,
 rerun audits, inspect the exact distribution, and run real-model production
 smoke tests before Pages deployment. It preserves that audited distribution for
@@ -75,8 +75,9 @@ production smoke blocks release pending review.
 
 ## Findings and residual limitations
 
-No fatal or major technical finding is open in the current local candidate.
-The following release-state items remain deliberately unresolved:
+The following items describe the historical 20 September source-freeze review.
+The hosted CI failures and maintenance follow-up are recorded separately in
+[MAINTENANCE_1_0_1.md](MAINTENANCE_1_0_1.md):
 
 - There is no source commit or history yet, so a history-wide secret scan and a
   commit-bound artifact manifest cannot exist.

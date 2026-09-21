@@ -37,10 +37,10 @@ secret, or arbitrary-image input.
    immutable source commit, and let the named maintainer inspect its exact identity.
 3. Obtain explicit Gate D approval for that source commit and public claim set.
 4. Create only the separately verified approval-record child commit, then tag
-   that approved child `v1.0.0`; no other source change may enter the tag.
+   that approved child `v1.0.1`; no other source change may enter the tag.
 5. Configure the repository and required-reviewer Pages environment.
 6. Let `.github/workflows/release-pages.yml` check out exactly
-   `refs/tags/v1.0.0`, verify the parent/approval relation, install from locks,
+   `refs/tags/v1.0.1`, verify the parent/approval relation, install from locks,
    refresh vulnerability/license/history scans, rebuild, audit the exact
    distribution, and run real-model production smoke before deployment.
 7. After deployment, verify the explicit live URL, version/model/example
@@ -48,6 +48,12 @@ secret, or arbitrary-image input.
    inference; record build, archive, URL, and rollback evidence.
 
 Every step must be executed and recorded rather than inferred from local files.
+
+For this maintenance release, the software version is `1.0.1` and the reused
+model version remains `v1.0.0`. The verifier accepts that explicit mapping and
+still requires new approval bound to the exact maintenance source commit and
+all four unchanged evidence hashes. The old tag and approval cannot authorize
+this candidate. The maintenance candidate contains no approval record.
 
 ## Rollback
 

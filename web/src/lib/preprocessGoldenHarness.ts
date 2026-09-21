@@ -6,6 +6,17 @@ export interface GoldenBrowserResult {
   geometry: PreprocessGeometry;
   rgbaSha256: string;
   tensorSha256: string;
+  rgbaBase64: string;
+  tensorBase64: string;
+}
+
+function base64(bytes: Uint8Array): string {
+  // Test-only diagnostics; keep argument counts bounded for every browser.
+  let binary = "";
+  for (let offset = 0; offset < bytes.length; offset += 8192) {
+    binary += String.fromCharCode(...bytes.subarray(offset, offset + 8192));
+  }
+  return btoa(binary);
 }
 
 async function digestHex(buffer: ArrayBuffer): Promise<string> {
@@ -35,6 +46,8 @@ export async function evaluateGoldenFile(file: File): Promise<GoldenBrowserResul
     geometry: calculatePreprocessGeometry(width, height),
     rgbaSha256: await digestHex(rgba.slice().buffer),
     tensorSha256: await digestHex(tensor.slice().buffer),
+    rgbaBase64: base64(new Uint8Array(rgba.buffer)),
+    tensorBase64: base64(new Uint8Array(tensor.buffer)),
   };
 }
 
