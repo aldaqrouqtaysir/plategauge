@@ -4,6 +4,11 @@ PlateGauge is a fixed-example benchmark and failure explorer. It is not an
 upload-based estimator, scale replacement, or food-waste impact claim. No raw
 dataset download or model retraining is needed for this review.
 
+[Open the live explorer](https://aldaqrouqtaysir.github.io/plategauge/) or
+[run it locally](DEVELOPMENT.md). The published release is
+[v1.0.2](https://github.com/aldaqrouqtaysir/plategauge/releases/tag/v1.0.2);
+the source-freeze records below remain dated historical evidence.
+
 ## Minute 1 — read the outcome
 
 Read the README's **At a glance** and **What the evaluation found** sections.
@@ -40,7 +45,7 @@ the locked environment is already installed, verify the browser evidence with:
 ```
 
 This checks the generated visible values and examples against canonical frozen
-sources; it does not retrain or modify evidence. The release candidate also
+sources; it does not retrain or modify evidence. The released source also
 uses path-specific line-ending rules to reconstruct the same evidence bytes on
 default-Windows and LF-preserving checkouts; see
 `docs/REPRODUCIBILITY_NOTE.md`.

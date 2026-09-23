@@ -1,5 +1,34 @@
 # Monitoring/documentation correction — local candidate
 
+## Status addendum — 23 September 2026
+
+The candidate-stage account below is retained as a historical record, including
+its then-current publication restrictions. The subsequent public source commit
+[`567c5b3`](https://github.com/aldaqrouqtaysir/plategauge/commit/567c5b3f0f7b695641b58cc561bf0ed8c85595a4)
+contains the Windows runtime correction;
+[its hosted CI run](https://github.com/aldaqrouqtaysir/plategauge/actions/runs/35594696311)
+passed on 21 September 2026.
+
+The [subsequent two-job monitor](https://github.com/aldaqrouqtaysir/plategauge/actions/runs/35594724981)
+also ran on 21 September. Its live v1.0.2 page, integrity and fixed-replay job
+passed; its tracked-documentation-link job failed. The overall workflow remains
+a failed observation, not a successful link audit. This addendum does not
+reclassify the retained diagnostic findings or claim that blocked references
+have become accessible.
+
+Later documentation deletions on public main were followed by a
+[failed source CI run at `299c64a`](https://github.com/aldaqrouqtaysir/plategauge/actions/runs/35604443399).
+That source-build regression is distinct from the deployed tag and from the
+earlier documentation-link failure. A repair needs its own verification; this
+dated note is not a claim that a new CI or monitoring run has passed.
+
+The published application remains the
+[v1.0.2 benchmark release](https://github.com/aldaqrouqtaysir/plategauge/releases/tag/v1.0.2).
+This documentation update changes no application, workflow, model, frozen
+evidence, release tag or deployment authority.
+
+## Historical candidate record — preserved
+
 This replacement candidate is local-only, not published or deployed. Its parent
 was published to PR 10 for checks but did not advance main. It changes monitoring
 and reference documentation only. The live application remains immutable v1.0.2, using the

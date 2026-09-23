@@ -19,7 +19,10 @@ evidence-improving contributions are welcome; feature expansion is not.
 - Keep raw data and generated checkpoints out of Git unless a release process
   explicitly licenses and inventories an artifact.
 - Add tests for behavior changes and keep code deterministic where practical.
-- Run the Python and web checks documented in the README.
+- Follow the pinned setup and scoped checks in the
+  [development guide](docs/DEVELOPMENT.md). It separates browser development,
+  synthetic monitoring tests, and frozen-evidence verification from research
+  reproduction; none of these instructions calls for a new training run.
 - Do not add telemetry, external image uploads, accounts, medical or nutrition
   claims, or server-side processing.
 - Record third-party licenses for every new dataset, model, or dependency.

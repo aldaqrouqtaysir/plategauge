@@ -2,8 +2,16 @@
 
 ## Supported versions
 
-No production release is supported yet. Security fixes apply to the current
-development branch and, after release, to the latest tagged version.
+As of 23 September 2026, the latest published benchmark release is
+[v1.0.2](https://github.com/aldaqrouqtaysir/plategauge/releases/tag/v1.0.2).
+Report security issues against that release or the current development branch.
+This is a research benchmark and failure explorer, not a production food-weight
+estimator or a service with a support-level guarantee.
+
+Any correction is reviewed as a new source change; existing release tags and
+frozen evidence are not rewritten. Publishing source does not by itself
+authorize deployment. The release approval and verification requirements in
+[the deployment guide](docs/DEPLOYMENT.md) still apply.
 
 ## Reporting a vulnerability
 
