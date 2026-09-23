@@ -5,6 +5,10 @@ tags, scientific evidence and historical failed checks remain unchanged.
 
 ## 23 September 2026 - experimental camera r3 presentation refinement
 
+- The initial hosted CI run found one legacy E2E assertion still expecting the
+  removed standalone upload notice. A test-only follow-up checks the equivalent
+  boundary in the new contextual caption; the zero-file-input and scientific
+  assertions remain. The immutable r3 tag and website archive are unchanged.
 - Group headline metrics with their labels and captions, fix responsive
   spacing, remove the heading's em dash and integrate evaluation context into
   the results, example selector and method cards.

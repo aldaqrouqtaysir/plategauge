@@ -17,7 +17,7 @@ test("presents the frozen negative finding instead of a custom-image estimator",
   await expect(page.getByText(/0 means none of the recorded mass remained/)).toBeVisible();
   await expect(page.getByText(/benchmark and failure explorer, not an unrestricted estimator/i)).toBeVisible();
   await expect(page.locator('input[type="file"]')).toHaveCount(0);
-  await expect(page.getByText(/Uploads are disabled/)).toBeVisible();
+  await expect(page.locator("#example-selection-context")).toContainText("uploads and new-image estimates are unavailable here");
   await expect(page.getByRole("heading", { name: "Target-range errors" })).toBeVisible();
   const worstSlice = page.locator(".slice-row").filter({ hasText: "(0.50, 0.75]" });
   await expect(worstSlice).toContainText("n=57");
