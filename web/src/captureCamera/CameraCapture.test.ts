@@ -132,7 +132,7 @@ describe("user-initiated camera component with fully mocked hardware", () => {
     expect(screen.getByRole("button", { name: /02 After photo/ })).toBeDisabled();
     expect(screen.queryByText("Private camera preview")).not.toBeInTheDocument();
     expect(screen.getByRole("contentinfo")).toHaveTextContent("CC BY 4.0");
-    expect(screen.getByRole("button", { name: "Open camera" })).toHaveAccessibleDescription(/Not validated for user photos or field use; not a scale measurement/);
+    expect(screen.getByRole("button", { name: "Open camera" })).toHaveAccessibleDescription(/Not validated for your photos or field use; not a scale measurement/);
     expect(screen.queryByText("PlateGauge / camera preview")).not.toBeInTheDocument();
     expect(screen.queryByText("Local development · on-device capture · no inference")).not.toBeInTheDocument();
     expect(screen.getByRole("link", { name: "PlateGauge" })).toBeInTheDocument();
@@ -865,7 +865,7 @@ describe("user-initiated camera component with fully mocked hardware", () => {
     render(createElement(CameraCapture)); await take("before");
     expect(createSessionFile).not.toHaveBeenCalled(); expect(createUrl).not.toHaveBeenCalled();
     expect(screen.getByTestId("session-controls")).toHaveTextContent("The downloaded file is unencrypted.");
-    expect(screen.getByTestId("session-controls")).toHaveTextContent("Clearing this page does not delete downloaded files.");
+    expect(screen.getByTestId("session-controls")).toHaveTextContent("clearing this page does not delete the file.");
     fireEvent.click(screen.getByRole("button", { name: "Save session" }));
     await waitFor(() => expect(createUrl).toHaveBeenCalledOnce());
     expect(vi.mocked(createSessionFile).mock.calls[0]![0]).toEqual({ before, after: null, startingMass: "" });
