@@ -1002,10 +1002,6 @@ export default function App() {
 
       <footer>
         <div className="brand footer-brand"><span className="brand-mark" aria-hidden="true"><span /></span><span>PlateGauge</span></div>
-        <div className="footer-disclosure">
-          <p>Substantially AI-assisted. Taysir Al Daqrouq set the objectives and constraints, approved the protocol and claim boundaries, and reviewed the frozen evidence.</p>
-          <p>This explorer accepts no uploads and sends no inference API requests. GitHub Pages serves the static files and may process ordinary request metadata.</p>
-        </div>
         <div className="footer-links">
           <a href={`${import.meta.env.BASE_URL}legal/PRIVACY_NOTICE.md`}>Privacy</a>
           <a href={`${import.meta.env.BASE_URL}legal/NOTICE.txt`}>Notices</a>

@@ -51,12 +51,15 @@ test("serves the built fixed-example release using only allowlisted same-origin 
     "href",
     "/plategauge/legal/NOTICE.txt",
   );
-  await expect(page.getByText(/Substantially AI-assisted/i)).toBeVisible();
-  await expect(
-    page.getByText(/set the objectives and constraints, approved the protocol and claim boundaries/i),
-  ).toBeVisible();
-  await expect(page.getByText(/accepts no uploads and sends no inference API requests/i)).toBeVisible();
-  await expect(page.getByText(/GitHub Pages serves the static files and may process ordinary request metadata/i)).toBeVisible();
+  await expect(page.locator(".footer-disclosure")).toHaveCount(0);
+  await expect(page.getByText(/Substantially AI-assisted/i)).toHaveCount(0);
+  await expect(page.getByText(/accepts no uploads and sends no inference API requests/i)).toHaveCount(0);
+  await expect(page.getByRole("link", { name: "Privacy", exact: true })).toHaveAttribute(
+    "href", "/plategauge/legal/PRIVACY_NOTICE.md",
+  );
+  await expect(page.getByRole("link", { name: "AI-assistance disclosure", exact: true })).toHaveAttribute(
+    "href", "/plategauge/legal/AI_ASSISTANCE_LOG.md",
+  );
   await expect(page.getByRole("link", { name: "Notices", exact: true })).toHaveAttribute(
     "href",
     "/plategauge/legal/NOTICE.txt",

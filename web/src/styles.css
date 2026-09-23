@@ -1424,7 +1424,7 @@ p {
 
 footer {
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  grid-template-columns: 1fr auto;
   gap: 30px;
   align-items: center;
   padding: 35px max(5vw, calc((100vw - 1220px) / 2));
@@ -1438,11 +1438,6 @@ footer p {
   font-size: 0.65rem;
   line-height: 1.5;
   text-align: center;
-}
-
-.footer-disclosure {
-  display: grid;
-  gap: 5px;
 }
 
 .footer-links {
