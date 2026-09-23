@@ -2,32 +2,68 @@
 
 ## Supported versions
 
-As of 23 September 2026, the latest published benchmark release is
-[v1.0.2](https://github.com/aldaqrouqtaysir/plategauge/releases/tag/v1.0.2).
-Report security issues against that release or the current development branch.
-This is a research benchmark and failure explorer, not a production food-weight
-estimator or a service with a support-level guarantee.
+As of 23 September 2026, the live site uses the
+[camera-experimental-r1 prerelease](https://github.com/aldaqrouqtaysir/plategauge/releases/tag/camera-experimental-r1).
+[v1.0.2](https://github.com/aldaqrouqtaysir/plategauge/releases/tag/v1.0.2)
+remains the latest stable benchmark release and rollback target. Report the
+affected release, route and source revision when possible. See
+[current release status](docs/CURRENT_RELEASE.md).
+
+Neither profile is a production food-weight estimator or a service with a
+support-level guarantee. Camera-photo accuracy has not been validated.
 
 Any correction is reviewed as a new source change; existing release tags and
 frozen evidence are not rewritten. Publishing source does not by itself
 authorize deployment. The release approval and verification requirements in
-[the deployment guide](docs/DEPLOYMENT.md) still apply.
+[the camera release guide](docs/CAMERA_RELEASE.md) still apply.
 
 ## Reporting a vulnerability
 
 Do not publish a working exploit or include sensitive images in a public issue.
-Use GitHub's private vulnerability-reporting feature for the repository when
-available. If it is not enabled, open a minimal issue asking the maintainer for
-a private contact channel without disclosing exploit details.
+Use **Security > Advisories > Report a vulnerability** on GitHub. Private
+reporting was enabled for this repository on 23 September 2026. If unavailable,
+open a minimal issue asking for a private contact channel without disclosing
+exploit details. Dependency vulnerability alerts are also enabled; an empty
+alert list is not a guarantee that all dependencies are safe.
 
 Include the affected version, browser/operating system, reproduction steps,
 impact, and whether any image bytes left the browser. Receipt should be
 acknowledged within seven days. This is a small research project and cannot
 promise a production-service response time.
 
-## Security boundaries
+## Current camera security boundaries
 
-- The Gate C-approved visitor interface is a fixed benchmark and failure
+- Camera access starts only after an explicit action and browser permission;
+  no microphone is requested. Inference is another explicit action. Opening a
+  route does not activate hardware or start estimation.
+- Photos, optional starting mass and estimates are processed locally. No
+  inference API, account, analytics, application database or automatic photo
+  history exists. GitHub Pages and the network still handle ordinary requests
+  for static assets; this is not a zero-network claim.
+- Explicit Save session downloads an **unencrypted** file containing photos,
+  model crops and any entered mass. The browser/OS controls downloaded files
+  and backups; Clear cannot delete those copies. Resume only files you trust.
+  Checksums detect corruption, not malicious edits or forged capture provenance.
+- Camera streams stop on hide, navigation and cleanup. Hiding clears estimates
+  but retains the in-memory pair; Clear or reload releases it. Forensic erasure
+  of browser/OS memory is not promised.
+- The model is hash-checked before use in a dedicated worker. Input/work bounds,
+  cancellation and worker termination constrain processing. CSP and same-origin
+  assets reduce exposure but do not eliminate browser or dependency risks.
+- The camera profile requires a secure, top-level page on the configured host
+  or loopback. This runtime check is not a verified HTTP anti-framing header.
+- Non-food scenes, mismatched foods and incorrect user-entered mass can produce
+  misleading outputs. The app does not certify inputs or model accuracy; do
+  not use outputs for medical, nutritional, purchasing or safety decisions.
+
+See the released [camera privacy notice](docs/CAMERA_PRIVACY_NOTICE.md) and
+[camera system card](docs/CAMERA_SYSTEM_CARD.md). Their candidate-stage status
+wording describes the frozen source checkpoint; publication status is recorded
+separately in [current release status](docs/CURRENT_RELEASE.md).
+
+## Historical v1.0.2 benchmark boundaries
+
+- The Gate C-approved benchmark visitor interface is a fixed benchmark and failure
   explorer. It accepts no visitor files, camera input, mass input, or free-form
   metadata and renders no new numeric estimate.
 - The normal visitor route does not initialize the model. A deliberately
@@ -48,5 +84,6 @@ promise a production-service response time.
   header. Framing/clickjacking therefore remains an explicit, low-consequence
   residual risk for this read-only interface.
 
-See `docs/SECURITY_REVIEW.md`, `docs/PRIVACY_NOTICE.md`, and
-`docs/MONITORING_AND_FAILURES.md` for the release checklist and limitations.
+The historical `docs/SECURITY_REVIEW.md` and `docs/PRIVACY_NOTICE.md` describe
+that benchmark profile, not the later camera extension. Current operational
+observations appear in [monitoring](docs/MONITORING_AND_FAILURES.md).

@@ -2,7 +2,8 @@
 
 **Capture a before-and-after pair. Explore the evidence behind the estimate.**
 
-[Open the live demo](https://aldaqrouqtaysir.github.io/plategauge/) ·
+[Open camera](https://aldaqrouqtaysir.github.io/plategauge/?capture=1) ·
+[Explore the evidence](https://aldaqrouqtaysir.github.io/plategauge/?view=evidence) ·
 [Benchmark results](docs/RESULTS.md) ·
 [Five-minute walkthrough](docs/REVIEWER_QUICKSTART.md) ·
 [Run locally](docs/DEVELOPMENT.md)
@@ -13,11 +14,15 @@ after, review the model's crop, and explicitly request an experimental estimate.
 Then explore the frozen evaluation to see where the model succeeds and fails.
 **Camera-photo accuracy has not been validated; this is not a food scale.**
 
-The live link remains benchmark-only until the separately approved camera
-release is deployed and passes its public verification; a local camera build
-does not by itself change the public website.
+The live site runs the
+[experimental camera release](https://github.com/aldaqrouqtaysir/plategauge/releases/tag/camera-experimental-r1),
+published and verified on 23 September 2026. The frozen benchmark remains
+available under **Evidence**. See [current release and verification](docs/CURRENT_RELEASE.md).
 
-![PlateGauge benchmark and failure explorer](reports/media/01-question-and-boundary.png)
+![PlateGauge capture-first homepage, with the camera off](reports/media/camera-home-2026-09-23.png)
+
+Live interface captured on 23 September 2026; the illustrated pair is not a
+photograph or model output. [Screenshot provenance and idle camera view](reports/media/CAMERA_SCREENSHOTS_2026-09-23.md).
 
 ## Explore the project
 
@@ -36,9 +41,9 @@ does not by itself change the public website.
 There are two separately guarded release profiles. Historical
 [v1.0.2](https://github.com/aldaqrouqtaysir/plategauge/releases/tag/v1.0.2)
 is a **fixed-example benchmark and failure explorer**. The
-`camera-experimental-r1` profile adds an explicitly experimental camera workflow
-and keeps the benchmark under **Evidence**. Publishing that profile requires its
-own approval; changes on `main` do not automatically deploy. See the
+[`camera-experimental-r1`](https://github.com/aldaqrouqtaysir/plategauge/releases/tag/camera-experimental-r1)
+prerelease adds the experimental camera workflow and keeps the benchmark under
+**Evidence**. Changes on `main` do not automatically deploy. See the
 [release and rollback guide](docs/CAMERA_RELEASE.md). Neither profile needs a
 raw-dataset download, training, an account, or paid infrastructure to use.
 
@@ -104,6 +109,10 @@ weighed from a photograph. See the [camera system card](docs/CAMERA_SYSTEM_CARD.
 
 ## Run locally
 
+For the camera experience shown on the live site, follow the
+[camera build and verification guide](docs/CAMERA_CANDIDATE_BUILD.md).
+The short development path below starts the **benchmark profile**, not the camera:
+
 Use Node.js 22 and the repository-pinned `pnpm@11.19.0`:
 
 ```sh
@@ -126,7 +135,8 @@ and optional Save session / Resume session files. Photos are not uploaded or
 automatically saved. The unchanged paired baseline supplies the experimental
 estimate; this is **not a new model or validation for camera photos**.
 
-The ordinary build remains the benchmark described above.
+The ordinary build remains the benchmark described above; it is not the
+currently deployed camera profile.
 Use the [camera build guide](docs/CAMERA_CANDIDATE_BUILD.md) for the separately
 enabled local build, its tests and publication boundary. Its
 [system card](docs/CAMERA_SYSTEM_CARD.md) and
@@ -167,10 +177,11 @@ docs/                Methods, cards, development, and project records
 - [Evaluation protocol](docs/EVALUATION_PROTOCOL.md) and [research decisions](docs/RESEARCH_DECISIONS.md)
 - [Datasheet](docs/DATASHEET.md), [data licenses](docs/DATA_LICENSES.md), and [reproducibility note](docs/REPRODUCIBILITY_NOTE.md)
 - [Claim-evidence map](docs/CLAIM_EVIDENCE_MAP.csv), [contribution record](docs/AUTHORSHIP.md), and [development disclosure](docs/AI_ASSISTANCE_PUBLIC.md)
-- [Contributing](CONTRIBUTING.md), [security](SECURITY.md), and [monitoring](docs/MONITORING_AND_FAILURES.md)
+- [Current release](docs/CURRENT_RELEASE.md), [release history](CHANGELOG.md), and [monitoring](docs/MONITORING_AND_FAILURES.md)
+- [Contributing](CONTRIBUTING.md) and [security](SECURITY.md)
 
 Source code is [Apache-2.0](LICENSE). LeFood-Set v1 and the dataset-derived
 trained artifact carry CC BY 4.0 attribution and change notices; see [NOTICE](NOTICE).
 Historical release records describe their dated state, not the status of every
 later checkout. Released scientific evidence, model identity (`v1.0.0`), and
-existing release tags are unchanged by the separate camera candidate.
+existing release tags are unchanged by the separate camera release.

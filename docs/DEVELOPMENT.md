@@ -1,9 +1,12 @@
 # Local development and focused verification
 
-These instructions cover the public fixed-example benchmark and failure
-explorer. They do not enable a camera or arbitrary-image estimator, download raw
-LeFood-Set data, train a model, or authorize publication. To review the project
-without installing tools, use the [reviewer quickstart](REVIEWER_QUICKSTART.md).
+PlateGauge has two build profiles. The live site uses the experimental camera
+profile; the default development/build commands below use the historical
+benchmark profile. For the live experience, use the
+[camera build guide](CAMERA_CANDIDATE_BUILD.md) after the pinned-tool setup below.
+Neither path downloads raw LeFood data or trains a model. To review without
+installing tools, use the [reviewer quickstart](REVIEWER_QUICKSTART.md).
+See [current release status](CURRENT_RELEASE.md) for exact published identities.
 
 Use the public repository, not a private research checkout. Keep its committed
 notices, examples, model and evidence files intact. The existing model is included
@@ -32,7 +35,7 @@ any local changes; an uncommitted checkout is not an exact published-source
 reproduction. Do not substitute a tag or claim release approval merely because
 a local build succeeds.
 
-## Browser development
+## Benchmark browser development
 
 From the repository root:
 
@@ -112,6 +115,18 @@ for manual inspection after that test finishes; open
 its fixed-example model replay, not custom-photo validity or field performance.
 Building and previewing do not deploy anything. Public deployment remains
 governed by the [release procedure](DEPLOYMENT.md).
+
+## Camera build and verification
+
+From a clean public checkout with the pinned tools installed, follow the
+[camera build guide](CAMERA_CANDIDATE_BUILD.md). Its `build:camera` command
+produces `dist-camera/`; `preview:camera` serves the capture-first experience
+at `http://127.0.0.1:4192/plategauge/`. The camera browser tests use generated
+frames, not physical hardware or model-accuracy ground truth.
+
+Source builds are development artifacts. The live release delivers an exact,
+previously verified ZIP; a new build can differ in bytes across platforms.
+Changes on `main` and local builds do not deploy automatically.
 
 ## Optional Python checks without training
 

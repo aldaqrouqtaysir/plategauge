@@ -1,5 +1,34 @@
 # Monitoring, incidents, and failure handling
 
+## Current live profile — 23 September 2026
+
+The live site now serves the experimental camera profile, with the frozen
+benchmark under **Evidence**. [Current release status](CURRENT_RELEASE.md)
+separates this deployment from the historical observations below.
+
+- [Camera release run 35847456472](https://github.com/aldaqrouqtaysir/plategauge/actions/runs/35847456472)
+  passed predeployment and HTTPS smoke (five tests each) and exact comparison
+  of all 46 published files against the approved inventory.
+- [First camera monitor run 35847916308](https://github.com/aldaqrouqtaysir/plategauge/actions/runs/35847916308)
+  passed all five generated-camera smoke tests. The profile variable is
+  `camera-experimental-r1`; its weekly check runs Mondays at 05:37 UTC. The old
+  benchmark-root smoke is inactive while this profile is selected.
+- [Main-source CI 35848168116](https://github.com/aldaqrouqtaysir/plategauge/actions/runs/35848168116)
+  passed after the separate import-order correction at `4f6bb44`.
+- [Documentation check 35848362866](https://github.com/aldaqrouqtaysir/plategauge/actions/runs/35848362866)
+  remains failed: 99 of 100 link occurrences passed; the sole failure was an
+  external MDPI paper returning HTTP 403. This is not a confirmed missing
+  page or application outage, and the failure was not suppressed.
+
+These are the latest recorded runs at this documentation checkpoint, not a
+claim that future runs passed. Camera checks use generated frames, never physical
+hardware or visitor photos. The camera profile adds cancellation, retake,
+permission and session-file states described in its
+[system card](CAMERA_SYSTEM_CARD.md). Its output has no validated accuracy,
+calibrated interval or reliable-abstention claim. No visitor telemetry is added.
+Follow the [camera release and rollback procedure](CAMERA_RELEASE.md) for the
+active profile; historical benchmark-only statements below are not its contract.
+
 ## Status addendum — 23 September 2026
 
 The dated source-freeze and candidate-stage statements below describe their

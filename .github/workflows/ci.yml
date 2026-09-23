@@ -227,6 +227,118 @@ jobs:
           if-no-files-found: warn
           retention-days: 14
 
+  camera-source-regression:
+    name: Camera source regression (generated input, no deployment)
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+    defaults:
+      run:
+        working-directory: web
+    env:
+      PG_CAMERA_SOURCE_COMMIT: ${{ github.event.pull_request.head.sha || github.sha }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+      - uses: pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1 # v4
+        with:
+          version: 11.19.0
+          run_install: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: "22.20.0"
+          cache: pnpm
+          cache-dependency-path: web/pnpm-lock.yaml
+      - name: Bind the source and isolate generated diagnostics
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "$PG_CAMERA_SOURCE_COMMIT"
+          diagnostics="$(python ../scripts/prepare_release_diagnostics.py --repo-root .. --temp-root "$RUNNER_TEMP" --scope "${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}-${GITHUB_JOB}")"
+          echo "PG_CAMERA_DIAGNOSTICS=$diagnostics" >> "$GITHUB_ENV"
+          echo "PLATEGAUGE_CAMERA_CANDIDATE_ARTIFACTS=$diagnostics/generated-only" >> "$GITHUB_ENV"
+          echo "PLAYWRIGHT_JSON_OUTPUT_NAME=$diagnostics/raw-report.json" >> "$GITHUB_ENV"
+      - name: Install the locked environment and browser revisions
+        run: |
+          pnpm install --frozen-lockfile
+          pnpm exec playwright install --with-deps chromium firefox webkit
+      - name: Build current-source camera candidate, never the released artifact
+        env:
+          VITE_SOURCE_URL: https://github.com/aldaqrouqtaysir/plategauge/tree/${{ github.event.pull_request.head.sha || github.sha }}
+        run: pnpm build:camera
+      - name: Run every camera-source scenario on all three engines
+        run: pnpm exec playwright test --config playwright.camera-candidate.config.ts --reporter=list,json
+      - name: Create an allowlisted metadata-only result summary
+        if: ${{ always() && env.PG_CAMERA_DIAGNOSTICS != '' }}
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          import math
+          import os
+          import re
+          from pathlib import Path
+
+          directory = Path(os.environ["PG_CAMERA_DIAGNOSTICS"])
+          report = json.loads((directory / "raw-report.json").read_text(encoding="utf-8"))
+          source = os.environ["PG_CAMERA_SOURCE_COMMIT"]
+          if not re.fullmatch(r"[a-f0-9]{40}", source):
+              raise ValueError("Invalid tested source identity")
+          stats = report["stats"]
+          safe_stats = {}
+          for key in ("expected", "unexpected", "flaky", "skipped", "duration"):
+              value = stats[key]
+              if type(value) not in (int, float) or not math.isfinite(value) or value < 0:
+                  raise ValueError("Invalid numeric test summary")
+              if key != "duration" and type(value) is not int:
+                  raise ValueError("Test counts must be integers")
+              safe_stats[key] = value
+          outcomes = {name: {status: 0 for status in ("expected", "unexpected", "flaky", "skipped")}
+                      for name in ("chromium", "firefox", "webkit")}
+
+          def collect(suite):
+              for spec in suite.get("specs", []):
+                  for test in spec["tests"]:
+                      outcomes[test["projectName"]][test["status"]] += 1
+              for child in suite.get("suites", []):
+                  collect(child)
+
+          for suite in report["suites"]:
+              collect(suite)
+          for status in ("expected", "unexpected", "flaky", "skipped"):
+              if sum(engine[status] for engine in outcomes.values()) != safe_stats[status]:
+                  raise ValueError("Engine outcomes do not match test totals")
+          errors = report.get("errors", [])
+          if not isinstance(errors, list):
+              raise ValueError("Invalid runner error collection")
+          summary = {
+              "schemaVersion": 1,
+              "scope": "current-source generated-camera regression; not release approval",
+              "sourceCommit": source,
+              "physicalDeviceEvidence": False,
+              "accuracyValidation": False,
+              "stats": safe_stats,
+              "outcomesByEngine": outcomes,
+              "runnerErrorCount": len(errors),
+          }
+          (directory / "summary.json").write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
+          if errors or any(safe_stats[key] for key in ("unexpected", "flaky", "skipped")):
+              raise ValueError("Camera regression did not complete with every scenario passing")
+          if any(engine["expected"] == 0 for engine in outcomes.values()):
+              raise ValueError("A required browser engine did not run")
+          PY
+      - name: Preserve only sanitized camera regression metadata
+        if: ${{ always() && env.PG_CAMERA_DIAGNOSTICS != '' }}
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: camera-source-regression-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ env.PG_CAMERA_DIAGNOSTICS }}/summary.json
+          if-no-files-found: error
+          retention-days: 30
+
   dependency-review:
     name: Dependency review
     if: github.event_name == 'pull_request'

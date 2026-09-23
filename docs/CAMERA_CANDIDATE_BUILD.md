@@ -1,8 +1,9 @@
-# Build and verify the experimental camera candidate
+# Build and verify the experimental camera profile
 
-`camera-experimental-r1` is a separate, unpublished extension. The public
-benchmark and its historical results remain unchanged. The package's existing
-`1.0.2` number is not a claim that this candidate has been released as v1.0.2.
+`camera-experimental-r1` was published and live-verified on 23 September 2026.
+See [current release status](CURRENT_RELEASE.md) for the exact source, prerelease
+and checks. The historical benchmark and research results remain unchanged.
+The package's existing `1.0.2` number is not the camera release identifier.
 
 ## What is included
 
@@ -22,17 +23,35 @@ do not open physical camera hardware.
 
 ## Reproduce a build
 
-Use Node 22 or later, the repository's pinned pnpm version and its unchanged
-lockfile. Verification for this candidate uses Node 22.20.0 and pnpm 11.19.0.
-Run these PowerShell commands from `web/` in a clean candidate checkout:
+Use Node **22.20.0**, pnpm **11.19.0** and the unchanged lockfile. Follow the
+[pinned-tool and clone setup](DEVELOPMENT.md#pinned-tools-and-checkout) first.
+Run these shared commands from `web/` in a clean public checkout:
 
 ```powershell
 pnpm install --frozen-lockfile
 pnpm typecheck
 pnpm lint
 pnpm test:unit
+pnpm exec playwright install chromium firefox webkit
+```
+
+On Linux, Playwright may also require OS libraries; see the
+[browser setup notes](DEVELOPMENT.md#browser-tests).
+
+Set the exact source identity, then build and test. PowerShell, from `web/`:
+
+```powershell
 $candidateRevision = git rev-parse HEAD
 $env:VITE_SOURCE_URL = "https://github.com/aldaqrouqtaysir/plategauge/tree/$candidateRevision"
+pnpm build:camera
+pnpm test:camera-candidate
+pnpm preview:camera
+```
+
+Bash, from `web/`:
+
+```bash
+export VITE_SOURCE_URL="https://github.com/aldaqrouqtaysir/plategauge/tree/$(git rev-parse HEAD)"
 pnpm build:camera
 pnpm test:camera-candidate
 pnpm preview:camera
@@ -42,6 +61,13 @@ Open `http://127.0.0.1:4192/plategauge/`. The primary capture button leads to
 `?capture=1`; Evidence uses `?view=evidence`. Merely opening either URL never
 starts the camera or a prediction. The source link resolves publicly only
 after the exact commit is published; a local commit is not a published release.
+The browser test starts its own server on port 4198; the final preview command
+is for manual inspection after tests finish. Stop it with Ctrl+C when finished.
+
+These commands reproduce a source build, not necessarily the byte-identical
+released distribution. That release uses a pinned prebuilt ZIP because HTML
+newline bytes can differ across build platforms; see
+[exact-artifact delivery](CAMERA_RELEASE.md#exact-artifact-delivery).
 
 The test command requires installed Playwright Chromium, Firefox and WebKit
 runtimes. `PLATEGAUGE_FIREFOX_EXECUTABLE` can select a documented compatible
@@ -90,11 +116,12 @@ documented. Do not infer them from headless browser tests or example predictions
 
 ## Publication boundary
 
-Existing Pages workflows and immutable v1 tags remain unchanged. This work does
-not push, tag, publish, deploy, introduce a better model, approve public accuracy
-claims or authorize application use. A future publication decision must name
-the exact clean source and verified build, review the experimental scope, and
-preserve the historical benchmark. Do not publish private research history.
+Running this guide does not push, tag, publish, deploy, introduce a better model
+or validate public accuracy claims. The published camera tag and historical v1
+tags are immutable. Any future release must identify its exact source and
+verified build, preserve the benchmark and follow the
+[release process](CAMERA_RELEASE.md). Changes on `main` do not automatically
+deploy. Do not publish private research history.
 
 See [the camera system card](CAMERA_SYSTEM_CARD.md) and
 [privacy notice](CAMERA_PRIVACY_NOTICE.md). Implementation and automated checks
