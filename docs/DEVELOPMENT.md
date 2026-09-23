@@ -76,6 +76,12 @@ required operating-system libraries as well. That may require elevated system
 permissions. Use supported installed runtimes; do not disable security or privacy
 assertions to work around a missing browser.
 
+If the default local Firefox cache cannot launch, both the baseline and camera
+test configurations accept `PLATEGAUGE_FIREFOX_EXECUTABLE` pointing to an
+independently verified copy of the **same Playwright Firefox revision**. Record
+the override and failed attempt; do not substitute an unrelated browser version.
+CI leaves this override unset and uses its locked installation.
+
 The end-to-end configuration serves test mode on port 4173 and uses a test-model
 response. The separate integration configuration serves port 4174 with a
 committed synthetic ONNX fixture to exercise the real inference code path.
@@ -167,6 +173,11 @@ broader engineering sequence. Passing the scoped commands above does not imply
 that every CI, vulnerability, licensing, release or live-site check passed.
 Retain failures and identify the exact command, source revision and environment
 when reporting them. Do not rewrite historical test counts after a new run.
+
+Release-operations tests, safe media authoring and dependency-update boundaries
+are covered in the [maintenance guide](MAINTENANCE.md). Historical recording
+commands require a fresh explicit external output; they are not a way to replace
+the published screenshots or demo in place.
 
 Keep generated diagnostics outside tracked source and do not publish personal
 paths, images or private research material. See [CONTRIBUTING](../CONTRIBUTING.md),

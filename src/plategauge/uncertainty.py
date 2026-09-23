@@ -4,18 +4,22 @@ from __future__ import annotations
 
 import math
 from dataclasses import asdict, dataclass
-from typing import Any
+from typing import Any, Literal
 
 import numpy as np
 
 from .metrics import macro_category_mae, target_slice_labels
+
+QuantileStrategy = Literal["legacy_numpy_higher_v1", "finite_rank_v2"]
+LEGACY_QUANTILE_STRATEGY: QuantileStrategy = "legacy_numpy_higher_v1"
+FINITE_RANK_QUANTILE_STRATEGY: QuantileStrategy = "finite_rank_v2"
 
 
 def ordered_quantiles_numpy(raw: np.ndarray) -> np.ndarray:
     """Map unconstrained triples to q05 <= q50 <= q95 within [0, 1]."""
 
     values = np.asarray(raw, dtype=np.float64)
-    if values.shape[-1] != 3 or not np.isfinite(values).all():
+    if values.ndim == 0 or values.size == 0 or values.shape[-1] != 3 or not np.isfinite(values).all():
         raise ValueError("Raw quantile values must be finite with final dimension 3")
     sigmoid = 1.0 / (1.0 + np.exp(-np.clip(values, -60.0, 60.0)))
     median = sigmoid[..., 1]
@@ -33,12 +37,28 @@ def pinball_loss_numpy(targets: np.ndarray, predictions: np.ndarray, quantile: f
     return float(np.mean(np.maximum(quantile * residual, (quantile - 1.0) * residual)))
 
 
-def finite_sample_quantile(values: np.ndarray, *, coverage: float = 0.90) -> float:
-    """Higher empirical quantile with the standard finite-sample rank correction."""
+def finite_sample_quantile(
+    values: np.ndarray,
+    *,
+    coverage: float = 0.90,
+    strategy: QuantileStrategy = LEGACY_QUANTILE_STRATEGY,
+) -> float:
+    """Return an explicitly versioned empirical residual quantile.
+
+    The default preserves the frozen NumPy-higher recipe exactly. It can pick
+    one order statistic above the finite-sample rank. The opt-in v2 strategy
+    selects rank ceil((n + 1) * coverage), clipped to n, directly. Neither
+    strategy establishes coverage under category or acquisition shift.
+    """
 
     scores = np.asarray(values, dtype=np.float64).reshape(-1)
     if scores.size == 0 or not np.isfinite(scores).all() or not 0.0 < coverage < 1.0:
         raise ValueError("Invalid empirical quantile inputs")
+    if strategy not in (LEGACY_QUANTILE_STRATEGY, FINITE_RANK_QUANTILE_STRATEGY):
+        raise ValueError("Unknown empirical quantile strategy")
+    if strategy == FINITE_RANK_QUANTILE_STRATEGY:
+        index = min(len(scores), math.ceil((len(scores) + 1) * coverage)) - 1
+        return float(np.partition(scores, index)[index])
     probability = min(1.0, math.ceil((len(scores) + 1) * coverage) / len(scores))
     return float(np.quantile(scores, probability, method="higher"))
 
@@ -49,8 +69,9 @@ def interval_correction(
     upper: np.ndarray,
     *,
     coverage: float = 0.90,
+    strategy: QuantileStrategy = LEGACY_QUANTILE_STRATEGY,
 ) -> float:
-    """Calculate a symmetric correction from inner out-of-fold residuals only."""
+    """Calculate a symmetric correction; frozen callers retain the legacy recipe."""
 
     y = np.asarray(targets, dtype=np.float64).reshape(-1)
     low = np.asarray(lower, dtype=np.float64).reshape(-1)
@@ -58,7 +79,33 @@ def interval_correction(
     if not (len(y) == len(low) == len(high)) or np.any(low > high):
         raise ValueError("Interval calibration arrays must align and be ordered")
     scores = np.maximum.reduce((low - y, y - high, np.zeros_like(y)))
-    return finite_sample_quantile(scores, coverage=coverage)
+    return finite_sample_quantile(scores, coverage=coverage, strategy=strategy)
+
+
+def _validated_intervals(
+    lower: np.ndarray, upper: np.ndarray
+) -> tuple[np.ndarray, np.ndarray]:
+    low = np.asarray(lower)
+    high = np.asarray(upper)
+    if (
+        low.size == 0
+        or low.shape != high.shape
+        or not np.isfinite(low).all()
+        or not np.isfinite(high).all()
+        or np.any(low > high)
+    ):
+        raise ValueError("Intervals must be non-empty, finite, equal-shaped and ordered")
+    return low, high
+
+
+def _interval_widths(lower: np.ndarray, upper: np.ndarray) -> np.ndarray:
+    low, high = _validated_intervals(lower, upper)
+    # Finite endpoints alone do not prevent subtraction from overflowing.
+    with np.errstate(over="ignore", invalid="ignore"):
+        widths: np.ndarray = high - low
+    if not np.isfinite(widths).all() or np.any(widths < 0):
+        raise ValueError("Interval widths must be finite and non-negative")
+    return widths
 
 
 def correct_intervals(
@@ -66,10 +113,9 @@ def correct_intervals(
 ) -> tuple[np.ndarray, np.ndarray]:
     if correction < 0 or not math.isfinite(correction):
         raise ValueError("correction must be finite and non-negative")
-    low = np.asarray(lower, dtype=np.float64)
-    high = np.asarray(upper, dtype=np.float64)
-    if low.shape != high.shape or np.any(low > high):
-        raise ValueError("Intervals must have equal shapes and be ordered")
+    low, high = _validated_intervals(
+        np.asarray(lower, dtype=np.float64), np.asarray(upper, dtype=np.float64)
+    )
     return np.clip(low - correction, 0.0, 1.0), np.clip(high + correction, 0.0, 1.0)
 
 
@@ -80,18 +126,20 @@ def derive_abstention_threshold(
     maximum_width: float = 0.30,
     retention_quantile: float = 0.80,
 ) -> float:
-    widths = np.asarray(corrected_upper) - np.asarray(corrected_lower)
-    if widths.size == 0 or np.any(widths < 0) or not np.isfinite(widths).all():
-        raise ValueError("Corrected intervals must be finite and ordered")
+    if not math.isfinite(maximum_width) or not 0.0 <= maximum_width <= 1.0:
+        raise ValueError("maximum_width must be finite and in [0, 1]")
+    if not math.isfinite(retention_quantile) or not 0.0 <= retention_quantile <= 1.0:
+        raise ValueError("retention_quantile must be finite and in [0, 1]")
+    widths = _interval_widths(corrected_lower, corrected_upper)
     return min(maximum_width, float(np.quantile(widths, retention_quantile, method="higher")))
 
 
 def retention_mask(
     corrected_lower: np.ndarray, corrected_upper: np.ndarray, threshold: float
 ) -> np.ndarray:
-    widths = np.asarray(corrected_upper) - np.asarray(corrected_lower)
     if threshold < 0 or not math.isfinite(threshold):
         raise ValueError("Abstention threshold must be finite and non-negative")
+    widths = _interval_widths(corrected_lower, corrected_upper)
     retained: np.ndarray = widths <= threshold + 1e-12
     return retained
 
@@ -120,6 +168,7 @@ def evaluate_interval_gate(
     high = np.asarray(upper, dtype=np.float64).reshape(-1)
     if not (len(y) == len(low) == len(high)) or len(y) == 0 or np.any(low > high):
         raise ValueError("Invalid interval gate inputs")
+    low, high = _validated_intervals(low, high)
     covered = (y >= low) & (y <= high)
     labels = target_slice_labels(y)
     slice_coverage = {

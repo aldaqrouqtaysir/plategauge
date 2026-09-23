@@ -113,6 +113,14 @@ describe("explicit local session round trips (synthetic bytes only)", () => {
     expect(restored.after).toBeNull(); expect(restored.startingMass).toBe("");
     releaseRestoredSession(restored);
   });
+  it("retains the existing 64-character mass boundary with exact valid round trips", async () => {
+    const boundary = "0".repeat(63) + "1";
+    const blob = await createSessionFile({ before: photo().photo, after: null, startingMass: boundary }, controller().signal);
+    const restored = await restoreSessionFile(new File([blob], `saved${SESSION_FILE_ACCEPT}`), controller().signal);
+    expect(restored.startingMass).toBe(boundary);
+    releaseRestoredSession(restored);
+    await expect(createSessionFile({ before: photo().photo, after: null, startingMass: "0" + boundary }, controller().signal)).rejects.toMatchObject({ code: "invalid" });
+  });
   it("returns independent pixel copies and invalidates every owned accessor on release", async () => {
     const restored = await read(fixture(false));
     const first = restored.before.copyPixels(); first.data.fill(0);

@@ -3,6 +3,20 @@
 This file distinguishes repository maintenance from deployed releases. Existing
 tags, scientific evidence and historical failed checks remain unchanged.
 
+## 23 September 2026 - comprehensive maintenance audit
+
+- Fix new-tab navigation clearing captures, hidden keyboard focus and differing
+  starting-mass validation; provide safe, actionable estimate error messages.
+- Align current-facing release documentation and dependency update handling;
+  keep historical releases and media immutable.
+- Require fresh external media outputs and add ordinary CI coverage for
+  standalone release-verification tooling.
+- Harden numerical utility validation and expose an explicitly opt-in corrected
+  residual rank while preserving the frozen legacy default and all results.
+- Add synthetic regression tests. See [audit and repair scope](docs/MAINTENANCE_AUDIT_2026-09-23.md)
+  and [research utility erratum](docs/RESEARCH_UTILITY_ERRATA.md). Source changes
+  do not deploy automatically; the model and claim boundaries are unchanged.
+
 ## 23 September 2026 - experimental camera r3 presentation refinement
 
 - The initial hosted CI run found one legacy E2E assertion still expecting the

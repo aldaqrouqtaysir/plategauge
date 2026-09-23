@@ -5,6 +5,7 @@ import CameraCapture from "./CameraCapture";
 import { captureFrame, requestCamera, stopStream, type CameraPhoto } from "./camera";
 import type * as CameraModule from "./camera";
 import { estimatePair } from "../experimentalEstimator/estimate";
+import { EstimateError, estimateErrorMessage } from "../experimentalEstimator/errors";
 import { createSessionFile, restoreSessionFile } from "./session";
 import type { DeviceObservations } from "./deviceCheckReport";
 
@@ -142,7 +143,7 @@ describe("user-initiated camera component with fully mocked hardware", () => {
     expect(video.srcObject).toBe(stream);
     const link = screen.getByRole("link", { name });
     expect(link).toHaveAttribute("href", href);
-    link.addEventListener("click", (event) => event.preventDefault(), { once: true });
+    document.addEventListener("click", (event) => event.preventDefault(), { once: true });
     fireEvent.click(link);
     expect(track.stop).toHaveBeenCalledOnce();
     expect(video.srcObject).toBeNull();
@@ -154,13 +155,37 @@ describe("user-initiated camera component with fully mocked hardware", () => {
     expect(before.release).toHaveBeenCalledOnce();
   });
 
+  it.each(["Back to home", "PlateGauge", "Capture", "Evidence", "About", "Privacy", "Attribution & notices", "Source"])("preserves unsaved photos when %s is opened in another tab", async (name) => {
+    const before = syntheticPhoto("before-new-tab"); vi.mocked(captureFrame).mockResolvedValueOnce(before);
+    render(createElement(CameraCapture)); await take("before");
+    const link = screen.getByRole("link", { name });
+    document.addEventListener("click", (event) => event.preventDefault(), { once: true });
+    fireEvent.click(link, { ctrlKey: true });
+    expect(before.release).not.toHaveBeenCalled();
+    expect(screen.getByRole("img", { name: "Your before photo" })).toHaveAttribute("src", before.url);
+    expect(screen.getByRole("button", { name: "Continue to after" })).toBeEnabled();
+    // An actual document exit still owns final cleanup.
+    fireEvent(window, new Event("pagehide"));
+    expect(before.release).toHaveBeenCalledOnce();
+  });
+
+  it("preserves a capture if another handler prevents navigation", async () => {
+    const before = syntheticPhoto("prevented-navigation"); vi.mocked(captureFrame).mockResolvedValueOnce(before);
+    render(createElement(CameraCapture)); await take("before");
+    const link = screen.getByRole("link", { name: "Evidence" });
+    link.addEventListener("click", (event) => event.preventDefault(), { once: true });
+    fireEvent.click(link);
+    expect(before.release).not.toHaveBeenCalled();
+    expect(screen.getByRole("img", { name: "Your before photo" })).toBeInTheDocument();
+  });
+
   it("stops a late permission result after the home action cancels its request", async () => {
     let resolve!: (stream: MediaStream) => void;
     vi.mocked(requestCamera).mockReturnValueOnce(new Promise((done) => { resolve = done; }));
     render(createElement(CameraCapture));
     fireEvent.click(screen.getByRole("button", { name: "Open camera" }));
     const link = screen.getByRole("link", { name: "Back to home" });
-    link.addEventListener("click", (event) => event.preventDefault(), { once: true });
+    document.addEventListener("click", (event) => event.preventDefault(), { once: true });
     fireEvent.click(link);
     expect(vi.mocked(requestCamera).mock.calls[0]![0].aborted).toBe(true);
     const { stream, track } = syntheticStream();
@@ -179,7 +204,7 @@ describe("user-initiated camera component with fully mocked hardware", () => {
     await waitFor(() => expect(capture).toBeEnabled());
     fireEvent.click(capture);
     const link = screen.getByRole("link", { name: "Back to home" });
-    link.addEventListener("click", (event) => event.preventDefault(), { once: true });
+    document.addEventListener("click", (event) => event.preventDefault(), { once: true });
     fireEvent.click(link);
     const photo = syntheticPhoto("late-home");
     await act(async () => { resolve(photo); await Promise.resolve(); });
@@ -276,7 +301,7 @@ describe("user-initiated camera component with fully mocked hardware", () => {
     await screen.findByRole("button", { name: "Take before photo" });
     act(() => { track.muted = true; track.dispatchEvent(new Event("mute")); });
     await waitFor(() => expect(track.stop).toHaveBeenCalled());
-    expect(screen.getByRole("alert")).toHaveFocus();
+    await waitFor(() => expect(screen.getByRole("alert")).toHaveFocus());
     expect(captureFrame).not.toHaveBeenCalled();
   });
 
@@ -486,6 +511,25 @@ describe("user-initiated camera component with fully mocked hardware", () => {
     expect(screen.queryByRole("alert")).not.toBeInTheDocument();
   });
 
+  it("aligns UI and export mass lengths without silently changing a supplied value", async () => {
+    render(createElement(CameraCapture)); await pair();
+    const input = screen.getByLabelText("Starting food mass (g, optional)");
+    expect(input).toHaveAttribute("maxlength", "64");
+    // Programmatic input can bypass the native limit; validation must remain fail-closed.
+    fireEvent.change(input, { target: { value: "0".repeat(64) + "1" } });
+    expect(input).toHaveAttribute("aria-invalid", "true");
+    expect(screen.getByRole("alert")).toHaveTextContent("64 characters");
+    expect(screen.getByRole("button", { name: "Save session" })).toBeDisabled();
+    expect(screen.getByRole("button", { name: "Estimate remaining" })).toBeDisabled();
+    expect(createSessionFile).not.toHaveBeenCalled(); expect(estimatePair).not.toHaveBeenCalled();
+    const boundary = "0".repeat(63) + "1";
+    fireEvent.change(input, { target: { value: boundary } });
+    expect(input).toHaveAttribute("aria-invalid", "false");
+    fireEvent.click(screen.getByRole("button", { name: "Save session" }));
+    await waitFor(() => expect(createSessionFile).toHaveBeenCalledOnce());
+    expect(vi.mocked(createSessionFile).mock.calls[0]![0].startingMass).toBe(boundary);
+  });
+
   it("accepts exact zero output without inventing nonzero remaining mass", async () => {
     vi.mocked(estimatePair).mockResolvedValueOnce({ ...mockEstimate, leftoverFraction: 0 });
     render(createElement(CameraCapture)); await pair();
@@ -531,13 +575,28 @@ describe("user-initiated camera component with fully mocked hardware", () => {
     expect(screen.getByTestId("experimental-estimate-result")).toHaveAttribute("data-leftover-fraction", "0.8");
   });
 
+  it("shows allowlisted actionable estimator errors without losing the pair", async () => {
+    const error = new EstimateError("identical_pair");
+    vi.mocked(estimatePair).mockRejectedValueOnce(error);
+    render(createElement(CameraCapture)); await pair();
+    fireEvent.click(screen.getByRole("button", { name: "Estimate remaining" }));
+    const alert = await screen.findByRole("alert");
+    await waitFor(() => expect(alert).toHaveFocus());
+    expect(alert).toHaveTextContent(estimateErrorMessage(error));
+    expect(alert).toHaveTextContent(/identical|same/i);
+    expect(screen.getByRole("img", { name: "Your before photo for review" })).toBeInTheDocument();
+    expect(screen.getByRole("img", { name: "Your after photo for review" })).toBeInTheDocument();
+    expect(screen.queryByTestId("experimental-estimate-result")).not.toBeInTheDocument();
+  });
+
   it("supports a sanitized error and explicit retry without losing photos", async () => {
     vi.mocked(estimatePair).mockRejectedValueOnce(new Error("sensitive internal detail"));
     render(createElement(CameraCapture)); await pair();
     fireEvent.click(screen.getByRole("button", { name: "Estimate remaining" }));
     const alert = await screen.findByRole("alert");
-    expect(alert).toHaveFocus();
+    await waitFor(() => expect(alert).toHaveFocus());
     expect(alert).toHaveTextContent("Estimate unavailable");
+    expect(alert).toHaveTextContent(estimateErrorMessage(new Error("untrusted details")));
     expect(alert).not.toHaveTextContent("sensitive internal detail");
     fireEvent.click(screen.getByRole("button", { name: "Retry estimate" }));
     await screen.findByTestId("experimental-estimate-result");
@@ -580,7 +639,7 @@ describe("user-initiated camera component with fully mocked hardware", () => {
     render(createElement(CameraCapture)); await pair();
     fireEvent.click(screen.getByRole("button", { name: "Estimate remaining" }));
     const link = screen.getByRole("link", { name });
-    link.addEventListener("click", (event) => event.preventDefault(), { once: true });
+    document.addEventListener("click", (event) => event.preventDefault(), { once: true });
     fireEvent.click(link);
     expect(vi.mocked(estimatePair).mock.calls[0]![2].aborted).toBe(true);
     await act(async () => { pending.resolve(mockEstimate); await Promise.resolve(); });
@@ -887,7 +946,7 @@ describe("user-initiated camera component with fully mocked hardware", () => {
     render(createElement(CameraCapture)); await pair();
     fireEvent.change(screen.getByLabelText("Starting food mass (g, optional)"), { target: { value: "99" } });
     chooseSession(); await screen.findByTestId("session-replace-confirmation");
-    expect(screen.getByRole("button", { name: "Keep current session" })).toHaveFocus();
+    await waitFor(() => expect(screen.getByRole("button", { name: "Keep current session" })).toHaveFocus());
     expect(screen.getByLabelText("Starting food mass (g, optional)")).toHaveValue("99");
     expect(screen.getByRole("img", { name: "Your before photo for review" })).toHaveAttribute("src", "blob:generated-1");
     fireEvent.click(screen.getByRole("button", { name: "Keep current session" }));
@@ -923,7 +982,8 @@ describe("user-initiated camera component with fully mocked hardware", () => {
     fireEvent.click(screen.getByRole("button", { name: "Estimate remaining" }));
     chooseSession();
     expect(vi.mocked(estimatePair).mock.calls[0]![2].aborted).toBe(true);
-    expect(await screen.findByTestId("session-error")).toHaveFocus();
+    const sessionError = await screen.findByTestId("session-error");
+    await waitFor(() => expect(sessionError).toHaveFocus());
     expect(screen.getByTestId("session-error")).not.toHaveTextContent("private filename");
     expect(screen.getByLabelText("Starting food mass (g, optional)")).toHaveValue("99");
     expect(screen.getByRole("img", { name: "Your before photo for review" })).toHaveAttribute("src", "blob:generated-1");

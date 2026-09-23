@@ -35,7 +35,8 @@ downgrade; misuse measurements remain diagnostic.
 
 The exporter constructs the architecture with `pretrained=False`, loads the
 full frozen state dictionary strictly, exports through a temporary directory,
-and publishes only after both gates pass: no more than 15 MiB and maximum
+and publishes only after both gates pass: no more than 15,000,000 bytes (15 MB,
+decimal) and maximum
 PyTorch-to-ONNX drift of `1e-4` on eight deterministic manifest pairs. The
 immutable evidence sidecar records the ONNX byte count and SHA-256, parity
 input digest and sample IDs, frozen selection/config/task hashes, and dataset

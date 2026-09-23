@@ -18,6 +18,7 @@ from plategauge.export import (
     write_web_release_manifest,
 )
 from plategauge.model import build_paired_model
+from plategauge.release_export import MAXIMUM_FP32_MODEL_BYTES
 
 
 def main() -> int:
@@ -44,8 +45,10 @@ def main() -> int:
     metadata = export_paired_onnx(
         model, arguments.output, model_version=arguments.model_version
     )
-    if arguments.output.stat().st_size > 15 * 1024 * 1024:
-        raise SystemExit("Exported FP32 model exceeds the 15 MiB release gate")
+    if arguments.output.stat().st_size > MAXIMUM_FP32_MODEL_BYTES:
+        raise SystemExit(
+            f"Exported FP32 model exceeds the {MAXIMUM_FP32_MODEL_BYTES:,}-byte release gate"
+        )
     generator = np.random.default_rng(20260919)
     before = generator.normal(size=(1, 3, 224, 224)).astype(np.float32)
     after = generator.normal(size=(1, 3, 224, 224)).astype(np.float32)

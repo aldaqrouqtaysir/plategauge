@@ -2,6 +2,27 @@
 
 ## Current live profile — 23 September 2026
 
+The active profile is `camera-experimental-r3`. Its
+[deployment/live check 35893477387](https://github.com/aldaqrouqtaysir/plategauge/actions/runs/35893477387)
+and [weekly smoke 35894343530](https://github.com/aldaqrouqtaysir/plategauge/actions/runs/35894343530)
+passed: the exact 45-file inventory and six generated-input browser/harness checks
+were verified. [Source CI 35893340197](https://github.com/aldaqrouqtaysir/plategauge/actions/runs/35893340197)
+passed after a source-only legacy test-caption correction; the deployed archive
+was unchanged. The active weekly workflow is `weekly-camera-r3-smoke.yml`, on
+Mondays at 05:37 UTC. Earlier camera profiles and the benchmark-root smoke remain
+inactive while r3 is selected.
+
+Documentation monitoring is independent. Its latest recorded
+[run 35857323362](https://github.com/aldaqrouqtaysir/plategauge/actions/runs/35857323362)
+failed with 163/164 links successful and one MDPI HTTP 403. That is an unresolved
+upstream access restriction, not a verified missing page or application outage.
+No 403 is treated as success. See [current identities and recovery instructions](CURRENT_RELEASE.md).
+
+These dated observations are not promises of future results. Generated frames
+establish software behavior, not physical-camera accuracy or device validation.
+
+## Historical r1 operational checkpoint — preserved
+
 The live site now serves the experimental camera profile, with the frozen
 benchmark under **Evidence**. [Current release status](CURRENT_RELEASE.md)
 separates this deployment from the historical observations below.

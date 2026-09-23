@@ -1,6 +1,7 @@
 import { boundedOperation, LocalOperationError, wipeBuffer } from "../capturePrototype/operations";
 import { EXPERIMENTAL_MODEL, validModelPixels } from "../experimentalEstimator/contract";
 import { CAMERA_LIMITS, type CameraPhoto } from "./camera";
+import { parseStartingMass } from "./startingMass";
 
 /**
  * Explicit, unencrypted local files only; no estimate or device/timestamp schema fields.
@@ -68,14 +69,10 @@ function record(value: unknown, keys: readonly string[]): Record<string, unknown
   return object;
 }
 function mass(value: unknown): string {
-  if (typeof value !== "string" || value.length > 64) throw new SessionError("invalid");
-  const text = value.trim();
-  if (!text) return "";
-  const number = Number(text);
-  if (!/^(?:\d+(?:\.\d*)?|\.\d+)$/.test(text) || !Number.isFinite(number) || number <= 0 || number > 100_000) {
-    throw new SessionError("invalid");
-  }
-  return text;
+  if (typeof value !== "string") throw new SessionError("invalid");
+  const parsed = parseStartingMass(value);
+  if (parsed.error) throw new SessionError("invalid");
+  return parsed.text;
 }
 function dimensions(width: unknown, height: unknown): asserts width is number {
   if (typeof width !== "number" || typeof height !== "number"

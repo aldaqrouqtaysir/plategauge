@@ -118,6 +118,14 @@ describe("explicit one-shot worker ownership (generated pixels and mocked worker
     await expect(estimatePair(photo(), malformed, signal)).rejects.toThrow("invalid");
     expect(MockWorker.instances).toHaveLength(0);
   });
+  it("preserves allowlisted preflight codes for actionable UI recovery", async () => {
+    const signal = new AbortController().signal;
+    await expect(estimatePair(photo(), photo(), signal)).rejects.toMatchObject({ code: "identical_pair" });
+    await expect(estimatePair(photo(), { ...photo(2), width: 224 }, signal)).rejects.toMatchObject({ code: "mismatched_shape" });
+    const malformed = photo(2); malformed.copyPixels.mockReturnValue({ ...pixels(), height: 0 });
+    await expect(estimatePair(photo(), malformed, signal)).rejects.toMatchObject({ code: "invalid_input" });
+    expect(MockWorker.instances).toHaveLength(0);
+  });
   it("cleans a first copy when the second photo was released", async () => {
     const before = photo(), after = photo(2);
     after.copyPixels.mockImplementation(() => { throw new Error("released"); });
@@ -137,7 +145,7 @@ describe("explicit one-shot worker ownership (generated pixels and mocked worker
   it("bounds an unresponsive runtime", async () => {
     vi.useFakeTimers();
     const pending = estimatePair(photo(), photo(2), new AbortController().signal);
-    const failure = expect(pending).rejects.toThrow("too long");
+    const failure = expect(pending).rejects.toMatchObject({ code: "timeout" });
     await vi.advanceTimersByTimeAsync(60_000); await failure;
     expect(MockWorker.instances[0]!.terminate).toHaveBeenCalled();
     expect(vi.getTimerCount()).toBe(0);

@@ -4,7 +4,7 @@ The camera release combines explicit on-device capture and estimation with
 the unchanged benchmark and failure explorer. The
 [camera-experimental-r3 update](CAMERA_R3_RELEASE.md) refines responsive metric
 spacing, integrates evaluation context into the relevant sections and retires
-the former development-disclosure page and link from the current site. Its
+an obsolete presentation resource. Its
 release-specific workflow records publication and live verification;
 main-source changes do not deploy automatically. The r1/r2 identities and
 verification records remain historical, not the new r3 artifact identities.
@@ -29,6 +29,44 @@ Camera-photo accuracy is **not validated**. The model is unchanged, and its
 failed benchmark acceptance gates remain intact. This release does not establish
 food-weight accuracy, operational usefulness or food-waste reduction. It is not
 for medical, nutritional, purchasing or safety decisions.
+
+## Current identities and observed checks
+
+| Component | Identity / observation |
+|---|---|
+| Published prerelease | [camera-experimental-r3](https://github.com/aldaqrouqtaysir/plategauge/releases/tag/camera-experimental-r3) |
+| Frozen app source | `62efadcfd342a193458036912b38b0a613bf94be` |
+| Tag / approval commit | `089b91e7f301453bc5753f5aa601d6340b10bde5` |
+| Exact distribution | [45-file inventory](../release/camera-r3/inventory.json); SHA-256 `ddf3fd89a19aa2032bec60ab16a9a52decfc59be782dc73df04d093dd6f524f3` |
+| [Deployment and live verification 35893477387](https://github.com/aldaqrouqtaysir/plategauge/actions/runs/35893477387) | Passed: exact archive and 45 live files; six local and six HTTPS checks |
+| [R3 weekly smoke 35894343530](https://github.com/aldaqrouqtaysir/plategauge/actions/runs/35894343530) | Passed after `PLATEGAUGE_ACTIVE_PROFILE=camera-experimental-r3` was selected |
+| [Source CI 35893340197](https://github.com/aldaqrouqtaysir/plategauge/actions/runs/35893340197) | Passed for `cb3a3b310658eb25d5cf94c0aa118b3ae4446ef2`; dependency review inapplicable to push |
+
+These are dated observations from 23 September 2026, not guarantees about future
+runs. The source-only assertion correction after the app freeze did not rebuild
+or change the served artifact. Current checks use generated camera frames, not
+physical-device or independent measured-mass validation.
+
+## Operating the current release
+
+The active workflow is `weekly-camera-r3-smoke.yml`, pinned to the published r3
+tag. To verify that release, run it without changing its inventory or source.
+`release-camera-r3-pages.yml` delivers only the approved r3 archive when dispatched
+at `camera-experimental-r3`; it never rebuilds from `main`.
+
+If a justified recovery is needed, dispatch `rollback-camera-r3-pages.yml` at
+that same tag. It verifies and restores the unchanged 36-file `v1.0.2` benchmark
+archive. Only after its live verification succeeds, select
+`PLATEGAUGE_ACTIVE_PROFILE=v1.0.2` and run `weekly-smoke.yml`. Preserve the failed
+camera evidence. A rollback changes which product is live, not its scientific
+claims. These instructions do not initiate or authorize a recovery by themselves.
+
+For a new release, prepare a new source, operations directory, approval-only
+record and tag; do not mutate the published ones. The
+[r3 artifact record](CAMERA_R3_RELEASE.md) and
+[smoke contract](../release/camera-r3/README-smoke.md) bind the current delivery.
+The [r1 procedure](CAMERA_RELEASE.md) is historical context, not a command list
+for today's profile. See [maintenance](MAINTENANCE.md) for safe source changes.
 
 ## R1 baseline identities (preserved)
 
@@ -76,6 +114,6 @@ model identity, input requirements and scientific limitations are unchanged.
 For practical use, start with the [reviewer guide](REVIEWER_QUICKSTART.md),
 [camera privacy notice](CAMERA_PRIVACY_NOTICE.md) and
 [security policy](../SECURITY.md). For maintenance, use the
-[release/rollback guide](CAMERA_RELEASE.md), [monitoring record](MONITORING_AND_FAILURES.md)
+[current operating guide](#operating-the-current-release), [monitoring record](MONITORING_AND_FAILURES.md)
 and [change history](../CHANGELOG.md). Source builds and research reproduction
 are different activities; the [development guide](DEVELOPMENT.md) keeps them separate.

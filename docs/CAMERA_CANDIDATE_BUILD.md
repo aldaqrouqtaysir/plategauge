@@ -1,6 +1,6 @@
 # Build and verify the experimental camera profile
 
-`camera-experimental-r1` was published and live-verified on 23 September 2026.
+`camera-experimental-r3` was published and live-verified on 23 September 2026.
 See [current release status](CURRENT_RELEASE.md) for the exact source, prerelease
 and checks. The historical benchmark and research results remain unchanged.
 The package's existing `1.0.2` number is not the camera release identifier.
@@ -120,7 +120,7 @@ Running this guide does not push, tag, publish, deploy, introduce a better model
 or validate public accuracy claims. The published camera tag and historical v1
 tags are immutable. Any future release must identify its exact source and
 verified build, preserve the benchmark and follow the
-[release process](CAMERA_RELEASE.md). Changes on `main` do not automatically
+[current release process](CURRENT_RELEASE.md#operating-the-current-release). Changes on `main` do not automatically
 deploy. Do not publish private research history.
 
 See [the camera system card](CAMERA_SYSTEM_CARD.md) and

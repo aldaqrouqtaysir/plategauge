@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { isCurrentDocumentNavigation } from "./navigation";
 import "./localPreview.css";
 
 type Props = {
@@ -20,7 +21,7 @@ export default function LocalHeader({ current, onNavigate }: Props) {
     return () => { document.title = previousTitle; };
   }, [current]);
   return <header className="lp-header">
-    <a className="lp-brand" href={base} onClick={onNavigate} aria-label="PlateGauge">
+    <a className="lp-brand" href={base} onClick={(event) => { if (isCurrentDocumentNavigation(event)) onNavigate?.(); }} aria-label="PlateGauge">
       <span className="lp-mark" aria-hidden="true">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" focusable="false">
           <circle cx="12" cy="12" r="8.5" /><circle cx="12" cy="12" r="5.5" />
@@ -29,9 +30,9 @@ export default function LocalHeader({ current, onNavigate }: Props) {
       </span><span>PlateGauge</span>
     </a>
     <nav aria-label="Primary navigation">
-      <a href={`${base}?capture=1`} onClick={onNavigate} aria-current={current === "capture" ? "page" : undefined}>Capture</a>
-      <a href={`${base}?view=evidence`} onClick={onNavigate} aria-current={current === "evidence" ? "page" : undefined}>Evidence</a>
-      <a href={`${base}#about`} onClick={onNavigate}>About</a>
+      <a href={`${base}?capture=1`} onClick={(event) => { if (isCurrentDocumentNavigation(event)) onNavigate?.(); }} aria-current={current === "capture" ? "page" : undefined}>Capture</a>
+      <a href={`${base}?view=evidence`} onClick={(event) => { if (isCurrentDocumentNavigation(event)) onNavigate?.(); }} aria-current={current === "evidence" ? "page" : undefined}>Evidence</a>
+      <a href={`${base}#about`} onClick={(event) => { if (isCurrentDocumentNavigation(event)) onNavigate?.(); }}>About</a>
     </nav>
   </header>;
 }

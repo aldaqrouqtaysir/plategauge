@@ -2,6 +2,7 @@ import { defineConfig, devices } from "@playwright/test";
 
 const e2ePort = process.env.PLATEGAUGE_E2E_PORT ?? "4173";
 const e2eBaseUrl = `http://127.0.0.1:${e2ePort}`;
+const firefoxExecutable = process.env.PLATEGAUGE_FIREFOX_EXECUTABLE;
 
 export default defineConfig({
   testDir: "./tests/e2e",
@@ -24,7 +25,7 @@ export default defineConfig({
   },
   projects: [
     { name: "chromium", use: { ...devices["Desktop Chrome"] } },
-    { name: "firefox", use: { ...devices["Desktop Firefox"] } },
+    { name: "firefox", use: { ...devices["Desktop Firefox"], ...(firefoxExecutable ? { launchOptions: { executablePath: firefoxExecutable } } : {}) } },
     { name: "webkit", use: { ...devices["Desktop Safari"] } },
   ],
 });

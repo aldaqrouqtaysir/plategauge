@@ -1,8 +1,9 @@
 import { createHash } from "node:crypto";
-import { mkdir, readFile, rm, writeFile } from "node:fs/promises";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { chromium } from "@playwright/test";
+import { mediaTimestamp, reserveMediaOutput } from "./media-output.mjs";
 
 const arguments_ = process.argv.slice(2);
 
@@ -15,20 +16,18 @@ function option(name, fallback) {
 }
 
 const sourceUrl = option("--url", "http://127.0.0.1:4177/plategauge/");
-const outputDirectory = resolve(
-  option("--output", fileURLToPath(new URL("../../reports/media/", import.meta.url))),
-);
-const temporaryVideoDirectory = resolve(outputDirectory, ".demo-video-tmp");
-const outputVideo = resolve(outputDirectory, "plategauge-local-review-demo.webm");
-const outputManifest = resolve(outputDirectory, "demo-video-manifest.json");
+const requestedOutput = option("--output");
+const repository = fileURLToPath(new URL("../../", import.meta.url));
 
 if (!/^https?:\/\/127\.0\.0\.1(?::\d+)?\//u.test(sourceUrl)) {
   throw new Error("Demo recording is restricted to a local 127.0.0.1 preview URL.");
 }
 
-await mkdir(outputDirectory, { recursive: true });
-await rm(temporaryVideoDirectory, { recursive: true, force: true });
-await mkdir(temporaryVideoDirectory, { recursive: true });
+const outputDirectory = await reserveMediaOutput(requestedOutput, repository);
+const temporaryVideoDirectory = resolve(outputDirectory, ".demo-video-tmp");
+const outputVideo = resolve(outputDirectory, "plategauge-local-review-demo.webm");
+const outputManifest = resolve(outputDirectory, "demo-video-manifest.json");
+await mkdir(temporaryVideoDirectory);
 
 const browser = await chromium.launch({ headless: true });
 const context = await browser.newContext({
@@ -163,15 +162,17 @@ try {
 if (!video) throw new Error("Playwright did not create a video handle.");
 if (!recordingError) await video.saveAs(outputVideo);
 await context.close();
+// Delete only Playwright's own recorded file; leave the fresh diagnostics
+// directory (and every failed attempt) for the author to review explicitly.
+if (!recordingError) await video.delete();
 await browser.close();
 if (recordingError) throw recordingError;
-await rm(temporaryVideoDirectory, { recursive: true, force: true });
 
 const bytes = await readFile(outputVideo);
 const manifest = {
   schemaVersion: 1,
   status: "LOCAL_REVIEW_DRAFT_NOT_RELEASED",
-  generatedDate: "2026-09-20",
+  generatedDate: mediaTimestamp().slice(0, 10),
   sourceUrl: "redacted; recording restricted to 127.0.0.1",
   file: {
     name: "plategauge-local-review-demo.webm",
@@ -186,6 +187,6 @@ const manifest = {
     "Not evidence of release approval, deployment, or operational validity.",
   ],
 };
-await writeFile(outputManifest, `${JSON.stringify(manifest, null, 2)}\n`, "utf8");
+await writeFile(outputManifest, `${JSON.stringify(manifest, null, 2)}\n`, { encoding: "utf8", flag: "wx" });
 
 console.log(JSON.stringify({ outputVideo, outputManifest, ...manifest.file }, null, 2));

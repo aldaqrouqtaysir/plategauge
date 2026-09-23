@@ -1,6 +1,7 @@
 version: 2
 updates:
-  - package-ecosystem: pip
+  # Keep pyproject.toml and uv.lock consistent; pip-only updates cannot do this.
+  - package-ecosystem: uv
     directory: /
     schedule:
       interval: weekly
@@ -12,6 +13,23 @@ updates:
     open-pull-requests-limit: 3
   - package-ecosystem: github-actions
     directory: /
+    # Published delivery profiles are preserved. New operational revisions are
+    # reviewed as successors; see docs/MAINTENANCE.md, not an automatic rewrite.
+    exclude-paths:
+      - .github/workflows/release-pages.yml
+      - .github/workflows/release-camera-pages.yml
+      - .github/workflows/rollback-camera-pages.yml
+      - .github/workflows/weekly-camera-smoke.yml
+      - .github/workflows/release-camera-r2-pages.yml
+      - .github/workflows/rollback-camera-r2-pages.yml
+      - .github/workflows/weekly-camera-r2-smoke.yml
+      - .github/workflows/release-camera-r3-pages.yml
+      - .github/workflows/rollback-camera-r3-pages.yml
+      - .github/workflows/weekly-camera-r3-smoke.yml
+      # The next separately reviewed successor is reserved explicitly.
+      - .github/workflows/release-camera-r4-pages.yml
+      - .github/workflows/rollback-camera-r4-pages.yml
+      - .github/workflows/weekly-camera-r4-smoke.yml
     schedule:
       interval: weekly
     open-pull-requests-limit: 3

@@ -70,14 +70,23 @@ def onnx_parity(
 ) -> float:
     """Return maximum absolute PyTorch/ONNX prediction drift."""
 
+    before_array = np.asarray(before, dtype=np.float32)
+    after_array = np.asarray(after, dtype=np.float32)
+    if (
+        before_array.ndim != 4
+        or before_array.shape[0] < 1
+        or before_array.shape[1:] != (3, 224, 224)
+        or after_array.shape != before_array.shape
+        or not np.isfinite(before_array).all()
+        or not np.isfinite(after_array).all()
+    ):
+        raise ValueError("Parity inputs must be finite, matching [batch, 3, 224, 224] arrays")
     try:
         import onnxruntime as ort  # type: ignore[import-untyped]
         import torch
     except ImportError as exc:  # pragma: no cover - environment-dependent
         package = "onnxruntime" if "onnxruntime" in str(exc) else "torch"
         raise missing_extra("ONNX parity", "export", package) from exc
-    before_array = np.asarray(before, dtype=np.float32)
-    after_array = np.asarray(after, dtype=np.float32)
     with torch.inference_mode():
         expected = model(
             torch.from_numpy(before_array), torch.from_numpy(after_array)
@@ -86,6 +95,16 @@ def onnx_parity(
     actual = session.run(
         ["quantiles"], {"before": before_array, "after": after_array}
     )[0]
+    expected = np.asarray(expected)
+    actual = np.asarray(actual)
+    output_shape = (before_array.shape[0], 3)
+    if (
+        expected.shape != output_shape
+        or actual.shape != output_shape
+        or not np.isfinite(expected).all()
+        or not np.isfinite(actual).all()
+    ):
+        raise ValueError("Parity outputs must be finite, matching [batch, 3] arrays")
     return float(np.max(np.abs(expected - actual)))
 
 
@@ -97,7 +116,11 @@ def assert_onnx_parity(
     *,
     tolerance: float = 1e-4,
 ) -> float:
+    if not np.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("Parity tolerance must be finite and non-negative")
     drift = onnx_parity(model, onnx_path, before, after)
+    if not np.isfinite(drift) or drift < 0:
+        raise AssertionError("ONNX drift must be finite and non-negative")
     if drift > tolerance:
         raise AssertionError(f"ONNX drift {drift:.8g} exceeds tolerance {tolerance:.8g}")
     return drift

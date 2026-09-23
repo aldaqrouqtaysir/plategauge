@@ -29,9 +29,21 @@ describe("camera candidate notices", () => {
     expect(onNavigate).not.toHaveBeenCalled();
     for (const name of ["Privacy", "Attribution & notices", "Source"]) {
       const link = screen.getByRole("link", { name });
-      link.addEventListener("click", (event) => event.preventDefault(), { once: true });
+      // Suppress jsdom navigation after the React handler has observed primary intent.
+      document.addEventListener("click", (event) => event.preventDefault(), { once: true });
       fireEvent.click(link);
     }
     expect(onNavigate).toHaveBeenCalledTimes(3);
+  });
+
+  it("keeps ownership when a notice opens elsewhere or activation is prevented", () => {
+    const onNavigate = vi.fn(); render(createElement(CaptureFooter, { onNavigate }));
+    const link = screen.getByRole("link", { name: "Privacy" });
+    for (const options of [{ ctrlKey: true }, { metaKey: true }, { shiftKey: true }, { altKey: true }]) {
+      document.addEventListener("click", (event) => event.preventDefault(), { once: true });
+      fireEvent.click(link, options);
+    }
+    link.addEventListener("click", (event) => event.preventDefault(), { once: true }); fireEvent.click(link);
+    expect(onNavigate).not.toHaveBeenCalled();
   });
 });

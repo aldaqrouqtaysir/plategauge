@@ -3,7 +3,7 @@
 ## Supported versions
 
 As of 23 September 2026, the live site uses the
-[camera-experimental-r1 prerelease](https://github.com/aldaqrouqtaysir/plategauge/releases/tag/camera-experimental-r1).
+[camera-experimental-r3 prerelease](https://github.com/aldaqrouqtaysir/plategauge/releases/tag/camera-experimental-r3).
 [v1.0.2](https://github.com/aldaqrouqtaysir/plategauge/releases/tag/v1.0.2)
 remains the latest stable benchmark release and rollback target. Report the
 affected release, route and source revision when possible. See
@@ -15,7 +15,7 @@ support-level guarantee. Camera-photo accuracy has not been validated.
 Any correction is reviewed as a new source change; existing release tags and
 frozen evidence are not rewritten. Publishing source does not by itself
 authorize deployment. The release approval and verification requirements in
-[the camera release guide](docs/CAMERA_RELEASE.md) still apply.
+[the current operating guide](docs/CURRENT_RELEASE.md#operating-the-current-release) still apply.
 
 ## Reporting a vulnerability
 

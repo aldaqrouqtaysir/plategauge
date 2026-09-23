@@ -4,10 +4,13 @@ import { cameraErrorMessage, captureFrame, requestCamera, stopStream, type Camer
 import LocalHeader from "../localPreview/LocalHeader";
 import CaptureFooter from "../localPreview/CaptureFooter";
 import { estimatePair } from "../experimentalEstimator/estimate";
+import { estimateErrorMessage } from "../experimentalEstimator/errors";
+import { isCurrentDocumentNavigation } from "../localPreview/navigation";
 import ModelCropPreview from "./ModelCropPreview";
 import { getModelCropFrame } from "./framing";
 import { createSessionFile, restoreSessionFile, SESSION_FILE_ACCEPT, sessionErrorMessage } from "./session";
 import DeviceCheck from "./DeviceCheck";
+import { parseStartingMass, STARTING_MASS_MAX_LENGTH } from "./startingMass";
 import "../capturePrototype/capturePrototype.css";
 import "./cameraCapture.css";
 
@@ -21,16 +24,6 @@ type SessionState = { status: "idle" | "saving" | "restoring" | "confirm" | "sav
 
 function releaseImportedPhotos(session: RestoredSession): void {
   for (const photo of new Set([session.before, session.after])) photo?.release();
-}
-
-function parseStartingMass(value: string): { value?: number; error?: string } {
-  const text = value.trim();
-  if (!text) return {};
-  const mass = Number(text);
-  if (!/^(?:\d+(?:\.\d*)?|\.\d+)$/.test(text) || !Number.isFinite(mass) || mass <= 0 || mass > 100_000) {
-    return { error: "Enter a starting mass greater than 0 and no more than 100,000 g, or leave it blank." };
-  }
-  return { value: mass };
 }
 
 const captureIcons = {
@@ -461,9 +454,9 @@ export default function CameraCapture() {
       setEstimate({ status: "complete", value: { ...value, ...(initialMassG === undefined ? {} : { initialMassG }) } });
       setLatestEstimateWallMs(performance.now() - estimateStartedAt);
       setNotice("Experimental estimate ready. This baseline is unvalidated for your photos; the result is not a measurement.");
-    } catch {
+    } catch (cause) {
       if (controller.signal.aborted || current !== estimateGeneration.current) return;
-      setEstimate({ status: "error", message: "The local model could not produce an estimate. Your photos remain available. Retry, or retake the pair if the problem continues." });
+      setEstimate({ status: "error", message: estimateErrorMessage(cause) });
       setNotice("Estimate failed. No numeric result is available.");
     } finally {
       if (current === estimateGeneration.current) estimateActive.current = null;
@@ -479,7 +472,7 @@ export default function CameraCapture() {
     <a className="cp-skip-link" href="#main">Skip to capture workflow</a>
     <LocalHeader current="capture" onNavigate={clearPhotos} />
     <main className="cp-main" id="main" tabIndex={-1}>
-      <a className="lp-back-home" href={import.meta.env.BASE_URL} onClick={clearPhotos}><span aria-hidden="true">←</span> Back to home</a>
+      <a className="lp-back-home" href={import.meta.env.BASE_URL} onClick={(event) => { if (isCurrentDocumentNavigation(event)) clearPhotos(); }}><span aria-hidden="true">←</span> Back to home</a>
       <div className="cp-intro"><div><p className="cp-eyebrow">Your plate. Your camera. Your device.</p><h1>A clearer picture<br /><span className="rc-hero-accent">of what remains.</span></h1></div><p>Take two photos. Match the framing. Review the difference — with your photos kept on your device.</p></div>
       <div className="cp-boundary" id="rc-capture-disclosure"><CaptureIcon name="info" /><p><strong>Experimental estimate.</strong> Uses the v1 paired research baseline. Not validated for user photos or field use; not a scale measurement.</p></div>
       <ol className="cp-steps" aria-label="Capture steps">{steps.map((item, index) => <li key={item}><button type="button" aria-current={step === item ? "step" : undefined} data-complete={item === "before" ? Boolean(before) : item === "after" ? Boolean(after) : estimate.status === "complete"} disabled={(item === "after" && !before) || (item === "review" && !completePair)} onClick={() => navigate(item)}><span>{String(index + 1).padStart(2, "0")}</span><strong>{item === "review" ? "Review & estimate" : `${item === "before" ? "Before" : "After"} photo`}</strong><small>{item === "before" ? before ? "Photo captured ✓" : "Set the starting point" : item === "after" ? after ? "Photo captured ✓" : "Match your framing" : estimate.status === "complete" ? "Estimate ready" : "Inspect the model input"}</small></button></li>)}</ol>
@@ -527,7 +520,7 @@ export default function CameraCapture() {
             <div className="rc-estimator-heading"><p className="cp-eyebrow">Local inference · only when requested</p><h3 id="rc-estimator-title">Estimate the fraction remaining.</h3></div>
             <p id="rc-estimator-scope">Uses the v1 paired research baseline, which has not been validated for your photos. No confidence interval is available. This result is not a scale measurement and must not guide nutrition, health, procurement, or other operational decisions.</p>
             <label className="rc-mass-label" htmlFor="rc-starting-mass">Starting food mass (g, optional)
-              <input id="rc-starting-mass" type="text" inputMode="decimal" autoComplete="off" spellCheck={false} value={startingMass} aria-invalid={Boolean(parsedMass.error)} aria-describedby={parsedMass.error ? "rc-mass-help rc-mass-error" : "rc-mass-help"} onChange={(event) => { invalidateEstimate(); invalidateSession(); setStartingMass(event.target.value); setNotice("Starting mass updated. Run an estimate to apply it to this pair."); }} />
+              <input id="rc-starting-mass" type="text" inputMode="decimal" maxLength={STARTING_MASS_MAX_LENGTH} autoComplete="off" spellCheck={false} value={startingMass} aria-invalid={Boolean(parsedMass.error)} aria-describedby={parsedMass.error ? "rc-mass-help rc-mass-error" : "rc-mass-help"} onChange={(event) => { invalidateEstimate(); invalidateSession(); setStartingMass(event.target.value); setNotice("Starting mass updated. Run an estimate to apply it to this pair."); }} />
             </label>
             <p id="rc-mass-help" className="rc-estimate-help">Use the initial net food mass, excluding the plate. Leave blank for a fraction-only result. Grams are calculated only from the starting mass you supply.</p>
             {parsedMass.error && <p id="rc-mass-error" className="rc-estimate-field-error" role="alert">{parsedMass.error}</p>}

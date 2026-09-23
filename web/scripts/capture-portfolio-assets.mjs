@@ -1,8 +1,9 @@
 import { createHash } from "node:crypto";
-import { lstat, mkdir, readFile, readdir, writeFile } from "node:fs/promises";
+import { lstat, readFile, readdir, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { chromium } from "@playwright/test";
+import { mediaTimestamp, reserveMediaOutput } from "./media-output.mjs";
 
 const arguments_ = process.argv.slice(2);
 
@@ -17,9 +18,8 @@ function option(name, fallback) {
 }
 
 const sourceUrl = option("--url", "http://127.0.0.1:4177/plategauge/");
-const outputDirectory = resolve(
-  option("--output", fileURLToPath(new URL("../../reports/media/", import.meta.url))),
-);
+const requestedOutput = option("--output");
+const repository = fileURLToPath(new URL("../../", import.meta.url));
 const bundleDirectory = resolve(
   option("--bundle", fileURLToPath(new URL("../dist/", import.meta.url))),
 );
@@ -106,7 +106,7 @@ async function loadCaptureProvenance() {
     throw new Error("The current bundled model differs from the canonical static audit.");
   }
   return {
-    generatedDate: new Date().toISOString().slice(0, 10),
+    generatedDate: mediaTimestamp().slice(0, 10),
     modelSha256,
     productionInventorySha256: inventorySha256,
     staticBundleAuditVerified: true,
@@ -118,7 +118,7 @@ if (!/^https?:\/\/127\.0\.0\.1(?::\d+)?\//u.test(sourceUrl)) {
   throw new Error("Review capture is restricted to a local 127.0.0.1 preview URL.");
 }
 
-await mkdir(outputDirectory, { recursive: true });
+const outputDirectory = await reserveMediaOutput(requestedOutput, repository);
 const captureProvenance = await loadCaptureProvenance();
 
 const browser = await chromium.launch({ headless: true });
@@ -272,7 +272,7 @@ const manifest = {
 await writeFile(
   resolve(outputDirectory, "portfolio-media-manifest.json"),
   `${JSON.stringify(manifest, null, 2)}\n`,
-  "utf8",
+  { encoding: "utf8", flag: "wx" },
 );
 
 console.log(JSON.stringify({ outputDirectory, files }, null, 2));
