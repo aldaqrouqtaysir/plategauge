@@ -1,6 +1,6 @@
 # Build and verify the experimental camera profile
 
-`camera-experimental-r3` was published and live-verified on 23 September 2026.
+`camera-experimental-r5` was published, deployed and live-verified on 23 September 2026.
 See [current release status](CURRENT_RELEASE.md) for the exact source, prerelease
 and checks. The historical benchmark and research results remain unchanged.
 The package's existing `1.0.2` number is not the camera release identifier.

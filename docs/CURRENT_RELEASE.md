@@ -2,12 +2,12 @@
 
 The camera release combines explicit on-device capture and estimation with
 the unchanged benchmark and failure explorer. The
-[camera-experimental-r3 update](CAMERA_R3_RELEASE.md) refines responsive metric
-spacing, integrates evaluation context into the relevant sections and retires
-an obsolete presentation resource. Its
-release-specific workflow records publication and live verification;
-main-source changes do not deploy automatically. The r1/r2 identities and
-verification records remain historical, not the new r3 artifact identities.
+[camera-experimental-r5 maintenance release](CAMERA_R5_RELEASE.md) improves
+keyboard access, preserves unsaved captures when a link opens in another tab,
+aligns mass/session validation and clarifies recoverable errors. The prerelease
+is published, deployed and live-verified on 23 September 2026. Main-source changes
+do not deploy automatically. The dated r1/r2/r3 records and undeployed r4 remain
+historical; the r5 observations below identify the current artifact.
 
 [Open camera](https://aldaqrouqtaysir.github.io/plategauge/?capture=1) ·
 [Explore evidence](https://aldaqrouqtaysir.github.io/plategauge/?view=evidence) ·
@@ -34,6 +34,65 @@ for medical, nutritional, purchasing or safety decisions.
 
 | Component | Identity / observation |
 |---|---|
+| Published prerelease | [camera-experimental-r5](https://github.com/aldaqrouqtaysir/plategauge/releases/tag/camera-experimental-r5) |
+| Frozen app source | `40493849af148124a45b6a6c65d9c9146c03fdb4` |
+| Reviewed release operations | `4acd818be4dd8c071a24beb03cf65ce89d555001` |
+| Tag / approval commit | `cc09cf7ff65eff6f07a9df60b9e629d1a69dfe9f` |
+| Annotated tag object | `0c36c3b2c2cefbf75144586a75c93d2a37b9fe68` |
+| Exact distribution | [45-file inventory](../release/camera-r5/inventory.json); SHA-256 `4f187ffba720de77cc2349d1fcdbd2b29d03c131aac132006b036fc8514e57e5` |
+| [Bound local verification](../release/camera-r5/verification-evidence.json) | SHA-256 `a457f8433be2ea164f19d608e2e37562b46d8f45e3be325ccd8c616de35afb5e` |
+| [R5 source CI 35899982443](https://github.com/aldaqrouqtaysir/plategauge/actions/runs/35899982443) | Passed for `4acd818be4dd8c071a24beb03cf65ce89d555001`; all applicable jobs succeeded |
+| [Release workflow 35900187059](https://github.com/aldaqrouqtaysir/plategauge/actions/runs/35900187059) | Passed: predeployment verification, deployment, all 45 live-file hashes and eight HTTPS checks |
+| Active monitoring profile | `PLATEGAUGE_ACTIVE_PROFILE=camera-experimental-r5` |
+| [R5 weekly smoke 35901135854](https://github.com/aldaqrouqtaysir/plategauge/actions/runs/35901135854) | Passed after r5 profile selection: all 45 live-file hashes and eight HTTPS checks |
+
+These are dated observations from 23 September 2026, not guarantees about future
+runs. Publication, deployment and weekly monitoring are distinct checks. Current checks use
+generated camera frames, not physical-device or independent measured-mass
+validation. The model and frozen scientific evidence remain unchanged.
+
+## Operating the current release
+
+The active profile is `PLATEGAUGE_ACTIVE_PROFILE=camera-experimental-r5`.
+Run `weekly-camera-r5-smoke.yml` to verify it against the published r5 tag.
+Do not change the profile to hide a failed check.
+`release-camera-r5-pages.yml` delivers only the approved r5 archive when dispatched
+at `camera-experimental-r5`; it never rebuilds from `main`.
+
+If a justified recovery of the deployed r5 profile is needed, dispatch `rollback-camera-r5-pages.yml` at
+that same tag. It verifies and restores the unchanged 36-file `v1.0.2` benchmark
+archive. Only after its live verification succeeds, select
+`PLATEGAUGE_ACTIVE_PROFILE=v1.0.2` and run `weekly-smoke.yml`. Preserve the failed
+camera evidence. A rollback changes which product is live, not its scientific
+claims. These instructions do not initiate or authorize a recovery by themselves.
+
+For a new release, prepare a new source, operations directory, approval-only
+record and tag; do not mutate the published ones. The
+[r5 artifact record](CAMERA_R5_RELEASE.md) and
+[smoke contract](../release/camera-r5/README-smoke.md) bind the r5 delivery.
+The [r1 procedure](CAMERA_RELEASE.md) is historical context, not a command list
+for today's profile. See [maintenance](MAINTENANCE.md) for safe source changes.
+
+## R4 published but not deployed — preserved
+
+[camera-experimental-r4](https://github.com/aldaqrouqtaysir/plategauge/releases/tag/camera-experimental-r4)
+remains an immutable prerelease. Its [protected release verification 35898553111](https://github.com/aldaqrouqtaysir/plategauge/actions/runs/35898553111)
+passed seven checks and timed out waiting for the modified Privacy Markdown-link
+popup on Linux. Deployment and live verification were skipped; r3 stayed live.
+The platform cause is not conclusively established. R5 tests the existing HTML
+Evidence link without changing the audited app code or weakening the network
+checks. See the [r4 artifact record](CAMERA_R4_RELEASE.md) and
+[r5 successor explanation](CAMERA_R5_RELEASE.md).
+
+R4 app-source [CI 35897686057](https://github.com/aldaqrouqtaysir/plategauge/actions/runs/35897686057)
+and operations [CI 35898359826](https://github.com/aldaqrouqtaysir/plategauge/actions/runs/35898359826)
+passed. Neither result overrides the failed deployment prerequisite. Its tag,
+archive and failed verification remain unchanged.
+
+## R3 identities and observed checks (preserved)
+
+| Component | Identity / observation |
+|---|---|
 | Published prerelease | [camera-experimental-r3](https://github.com/aldaqrouqtaysir/plategauge/releases/tag/camera-experimental-r3) |
 | Frozen app source | `62efadcfd342a193458036912b38b0a613bf94be` |
 | Tag / approval commit | `089b91e7f301453bc5753f5aa601d6340b10bde5` |
@@ -46,27 +105,6 @@ These are dated observations from 23 September 2026, not guarantees about future
 runs. The source-only assertion correction after the app freeze did not rebuild
 or change the served artifact. Current checks use generated camera frames, not
 physical-device or independent measured-mass validation.
-
-## Operating the current release
-
-The active workflow is `weekly-camera-r3-smoke.yml`, pinned to the published r3
-tag. To verify that release, run it without changing its inventory or source.
-`release-camera-r3-pages.yml` delivers only the approved r3 archive when dispatched
-at `camera-experimental-r3`; it never rebuilds from `main`.
-
-If a justified recovery is needed, dispatch `rollback-camera-r3-pages.yml` at
-that same tag. It verifies and restores the unchanged 36-file `v1.0.2` benchmark
-archive. Only after its live verification succeeds, select
-`PLATEGAUGE_ACTIVE_PROFILE=v1.0.2` and run `weekly-smoke.yml`. Preserve the failed
-camera evidence. A rollback changes which product is live, not its scientific
-claims. These instructions do not initiate or authorize a recovery by themselves.
-
-For a new release, prepare a new source, operations directory, approval-only
-record and tag; do not mutate the published ones. The
-[r3 artifact record](CAMERA_R3_RELEASE.md) and
-[smoke contract](../release/camera-r3/README-smoke.md) bind the current delivery.
-The [r1 procedure](CAMERA_RELEASE.md) is historical context, not a command list
-for today's profile. See [maintenance](MAINTENANCE.md) for safe source changes.
 
 ## R1 baseline identities (preserved)
 

@@ -14,9 +14,8 @@ after, review the model's crop, and explicitly request an experimental estimate.
 Then explore the frozen evaluation to see where the model succeeds and fails.
 **Camera-photo accuracy has not been validated; this is not a food scale.**
 
-The live site runs the
-[experimental camera release](https://github.com/aldaqrouqtaysir/plategauge/releases/tag/camera-experimental-r3),
-published and verified on 23 September 2026. The frozen benchmark remains
+The [r5 camera maintenance release](https://github.com/aldaqrouqtaysir/plategauge/releases/tag/camera-experimental-r5)
+is published, deployed and live-verified on 23 September 2026. The frozen benchmark remains
 available under **Evidence**. See [current release and verification](docs/CURRENT_RELEASE.md).
 
 ![PlateGauge capture-first homepage, with the camera off](reports/media/camera-home-2026-09-23.png)
@@ -41,7 +40,7 @@ photograph or model output. [Screenshot provenance and idle camera view](reports
 There are two separately guarded release profiles. Historical
 [v1.0.2](https://github.com/aldaqrouqtaysir/plategauge/releases/tag/v1.0.2)
 is a **fixed-example benchmark and failure explorer**. The
-[`camera-experimental-r3`](https://github.com/aldaqrouqtaysir/plategauge/releases/tag/camera-experimental-r3)
+[`camera-experimental-r5`](https://github.com/aldaqrouqtaysir/plategauge/releases/tag/camera-experimental-r5)
 prerelease adds the experimental camera workflow and keeps the benchmark under
 **Evidence**. Changes on `main` do not automatically deploy. See the
 [current release and rollback guide](docs/CURRENT_RELEASE.md#operating-the-current-release). Neither profile needs a
@@ -163,7 +162,7 @@ only to the documented reference laptop, not unmeasured phones or devices.
 ```text
 src/plategauge/       Python data, models, training, evaluation, and export
 web/                 React/TypeScript camera workflow, evidence explorer, tests
-release/camera-r3/   Current exact-bundle delivery, approval checks, smoke tests
+release/camera-r5/   R5 exact-bundle delivery, approval checks, smoke tests
 configs/             Frozen experiment configurations
 data/                Manifests and provenance; raw data stays outside Git
 tests/               Python and integrity tests
@@ -178,7 +177,8 @@ docs/                Methods, cards, development, and project records
 - [Datasheet](docs/DATASHEET.md), [data licenses](docs/DATA_LICENSES.md), and [reproducibility note](docs/REPRODUCIBILITY_NOTE.md)
 - [Claim-evidence map](docs/CLAIM_EVIDENCE_MAP.csv)
 - [Current release](docs/CURRENT_RELEASE.md), [release history](CHANGELOG.md), and [monitoring](docs/MONITORING_AND_FAILURES.md)
-- [Maintainer checks and dependency updates](docs/MAINTENANCE.md)
+- [Maintenance audit and repairs](docs/MAINTENANCE_AUDIT_2026-09-23.md)
+- [Maintainer checks and dependency updates](docs/MAINTENANCE.md), and [research utility erratum](docs/RESEARCH_UTILITY_ERRATA.md)
 - [Contributing](CONTRIBUTING.md) and [security](SECURITY.md)
 
 Source code is [Apache-2.0](LICENSE). LeFood-Set v1 and the dataset-derived

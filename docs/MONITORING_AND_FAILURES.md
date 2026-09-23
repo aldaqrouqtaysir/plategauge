@@ -1,6 +1,33 @@
 # Monitoring, incidents, and failure handling
 
-## Current live profile — 23 September 2026
+## R5 publication status — 23 September 2026
+
+The active profile is `camera-experimental-r5`.
+[Source CI 35899982443](https://github.com/aldaqrouqtaysir/plategauge/actions/runs/35899982443)
+passed all applicable jobs. [Release workflow 35900187059](https://github.com/aldaqrouqtaysir/plategauge/actions/runs/35900187059)
+passed predeployment verification, deployment, exact comparison of all 45 live
+files and eight HTTPS checks. [R5 weekly smoke 35901135854](https://github.com/aldaqrouqtaysir/plategauge/actions/runs/35901135854)
+also passed after r5 profile selection, checking all 45 live-file hashes and
+eight HTTPS-mode harness checks independently of the deployment run.
+
+R5's `weekly-camera-r5-smoke.yml` is pinned to its release tag and scheduled for
+Mondays at 05:37 UTC. It checks all 45 static files and eight bounded harness
+checks without native-camera access or visitor telemetry. A source commit or
+published archive is not a live check. Keep monitoring aligned with the artifact
+actually served; see [current release and recovery](CURRENT_RELEASE.md).
+
+## Historical r4 verification failure — not deployed
+
+[Release run 35898553111](https://github.com/aldaqrouqtaysir/plategauge/actions/runs/35898553111)
+passed seven checks but timed out waiting for the modified Privacy Markdown-link
+popup on Linux. Deployment and live verification were skipped, so r3 remained
+live. Both source/operations CI runs passed, but that did not waive the failed
+release check. The r4 tag, archive and failure remain immutable. R5 uses the
+existing HTML Evidence link for the same real-popup, photo-retention, network
+and actual-exit assertions. The underlying platform cause is not conclusively
+established; no MIME diagnosis or successful r4 deployment is claimed.
+
+## Historical r3 operational checkpoint — preserved
 
 The active profile is `camera-experimental-r3`. Its
 [deployment/live check 35893477387](https://github.com/aldaqrouqtaysir/plategauge/actions/runs/35893477387)
