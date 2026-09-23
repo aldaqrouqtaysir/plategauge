@@ -47,6 +47,17 @@ SECRET_PATTERNS = (
     re.compile(r"\bsk-[A-Za-z0-9_-]{32,}\b"),
     re.compile(r"\bxox[baprs]-[A-Za-z0-9-]{20,}\b"),
 )
+# Reviewed, camera-off interface screenshots only. This supplements the historical
+# media allowlist; it never admits arbitrary reports/media images or source data.
+# Provenance: reports/media/CAMERA_SCREENSHOTS_2026-09-23.md.
+REVIEWED_CAMERA_SCREENSHOT_SHA256 = {
+    "reports/media/camera-home-2026-09-23.png": (
+        "63ccb2605da0a5c5096240bf7e085c229f13d2189b7178a6102933a94a8153e1"
+    ),
+    "reports/media/camera-idle-2026-09-23.png": (
+        "ee0da4e35f68e7e06fda1193637ba628dabf2348046ee60b7c6dd29b3fcd56ab"
+    ),
+}
 
 
 @dataclass(frozen=True, slots=True)
@@ -127,6 +138,14 @@ def _raw_data_candidates(root: Path, files: list[Path]) -> list[str]:
             and not relative.startswith(allowed_image_prefixes)
             and relative not in allowed_image_paths
         ):
+            expected = REVIEWED_CAMERA_SCREENSHOT_SHA256.get(relative)
+            if expected is not None and not path.is_symlink():
+                try:
+                    if sha256_file(path) == expected:
+                        continue
+                except OSError:
+                    # An unreadable reviewed path is not evidence of approval.
+                    pass
             candidates.append(relative)
     return sorted(candidates)
 

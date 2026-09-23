@@ -16,6 +16,13 @@ tags, scientific evidence and historical failed checks remain unchanged.
 - Enable private security reporting and dependency vulnerability alerts; update
   repository metadata to describe the experimental camera and benchmark.
 - Documentation updates do not deploy a new site or claim new model accuracy.
+- The first maintenance CI run rejected the two new interface screenshots under
+  the raw-data publication safeguard. Preserve that failure; accept only the
+  two reviewed paths with their exact SHA-256 hashes and regression-test that
+  unapproved or altered image files still fail. No scientific hash was repaired.
+- Pin ordinary CI and weekly-monitor Linux runners to Ubuntu 24.04, avoiding
+  the announced `ubuntu-latest` transition beginning 19 October. Frozen release
+  workflows and existing release tags are unchanged.
 
 ## 23 September 2026 — import-only CI correction
 
