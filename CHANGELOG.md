@@ -3,6 +3,18 @@
 This file distinguishes repository maintenance from deployed releases. Existing
 tags, scientific evidence and historical failed checks remain unchanged.
 
+## 23 September 2026 - remaining maintenance closeout
+
+- Update Node and Python setup actions in current CI and general monitoring to
+  verified v7 commit pins. Keep the selected language versions, package locks,
+  permissions and all immutable release profiles unchanged.
+- Check dependency-update exclusions against every discovered frozen camera
+  profile, including mutation coverage for omitted paths and broad wildcards.
+- Harden maintenance commands with locked execution and clarify historical
+  screenshots and benchmark-only media authoring instructions.
+- These source-only maintenance changes do not redeploy or change the live r6
+  application, model, evidence or scientific claims.
+
 ## 23 September 2026 - concise camera guidance
 
 - Remove the floating introductory sentence and decorative repeated headings.

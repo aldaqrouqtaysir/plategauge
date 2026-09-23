@@ -37,8 +37,8 @@ With the locked development environment and web dependencies installed, run
 from the repository root:
 
 ```text
-uv run python scripts/verify_release_operations.py --phase synthetic
-uv run python scripts/verify_release_operations.py --phase typing
+uv run --locked python scripts/verify_release_operations.py --phase synthetic
+uv run --locked python scripts/verify_release_operations.py --phase typing
 ```
 
 ## New screenshots and recordings

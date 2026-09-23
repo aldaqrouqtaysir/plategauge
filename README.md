@@ -20,10 +20,12 @@ available under **Evidence**. See [current release and verification](docs/CURREN
 The [presentation update](docs/CAMERA_R6_RELEASE.md) simplifies capture guidance
 without changing the model or workflow.
 
-![PlateGauge capture-first homepage, with the camera off](reports/media/camera-home-2026-09-23.png)
+![Historical r1 capture-first homepage, with the camera off](reports/media/camera-home-2026-09-23.png)
 
-Live interface captured on 23 September 2026; the illustrated pair is not a
-photograph or model output. [Screenshot provenance and idle camera view](reports/media/CAMERA_SCREENSHOTS_2026-09-23.md).
+Historical `camera-experimental-r1` interface captured on 23 September 2026,
+not the current r6 layout. The illustrated pair is not a photograph or model
+output. [Historical screenshot provenance and idle camera view](reports/media/CAMERA_SCREENSHOTS_2026-09-23.md) ·
+[Current release and interface](docs/CURRENT_RELEASE.md).
 
 ## Explore the project
 

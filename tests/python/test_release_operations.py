@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import importlib.util
+import re
 import subprocess
 import tempfile
 import unittest
@@ -82,16 +83,102 @@ class ReleaseOperationsTests(unittest.TestCase):
         ):
             operations.run_checks(self.root, "synthetic")
 
+    def assert_bot_preservation(self, config: str, profiles: list[Path]) -> None:
+        """Check the narrow YAML block without adding a runtime YAML dependency."""
+        self.assertIn("package-ecosystem: uv", config)
+        self.assertNotIn("package-ecosystem: pip", config)
+        marker = "  - package-ecosystem: github-actions\n"
+        self.assertEqual(config.count(marker), 1)
+        actions = config.split(marker)[1].split("\n  - package-ecosystem:", 1)[0]
+        block = re.search(r"(?ms)^    exclude-paths:\n(.*?)(?=^    \S|\Z)", actions)
+        self.assertIsNotNone(block, "GitHub Actions needs its own preservation block")
+        assert block is not None
+        entries = [
+            line.strip() for line in block.group(1).splitlines()
+            if line.strip() and not line.lstrip().startswith("#")
+        ]
+        self.assertTrue(entries and all(line.startswith("- ") for line in entries))
+        paths = [line[2:] for line in entries]
+        self.assertEqual(len(paths), len(set(paths)), "Duplicate preservation paths")
+        # Exact reserved successor names remain possible before their profile exists.
+        # Ordinary CI/monitoring and wildcard scopes must not be excluded.
+        allowed = re.compile(
+            r"^\.github/workflows/(?:release-pages|"
+            r"(?:release|rollback)-camera(?:-r[1-9][0-9]{0,2})?-pages|"
+            r"weekly-camera(?:-r[1-9][0-9]{0,2})?-smoke)\.yml\Z"
+        )
+        for path in paths:
+            self.assertRegex(path, allowed)
+        required = {".github/workflows/release-pages.yml"}
+        for profile in profiles:
+            revision = profile.name.removeprefix("camera")
+            for prefix, suffix in (("release", "pages"), ("rollback", "pages"), ("weekly", "smoke")):
+                required.add(f".github/workflows/{prefix}-camera{revision}-{suffix}.yml")
+        self.assertTrue(required.issubset(paths), f"Missing preservation paths: {required - set(paths)}")
+
     def test_bot_preserves_current_frozen_and_reserved_successor_workflows(self) -> None:
         root = SCRIPT.parents[1]
         config = (root / ".github/dependabot.yml").read_text(encoding="utf-8")
-        self.assertIn("package-ecosystem: uv", config)
-        self.assertNotIn("package-ecosystem: pip", config)
-        self.assertIn("exclude-paths:", config)
-        for profile in ("", "-r2", "-r3", "-r4"):
-            for prefix, suffix in (("release", "pages"), ("rollback", "pages"), ("weekly", "smoke")):
-                self.assertIn(f".github/workflows/{prefix}-camera{profile}-{suffix}.yml", config)
-        self.assertNotIn(".github/workflows/*", config)
+        self.assert_bot_preservation(config, operations.discover_profiles(root))
+
+    def test_bot_policy_rejects_missing_legacy_and_recent_release_paths(self) -> None:
+        root = SCRIPT.parents[1]
+        config = (root / ".github/dependabot.yml").read_text(encoding="utf-8")
+        profiles = operations.discover_profiles(root)
+        paths = [".github/workflows/release-pages.yml"] + [
+            f".github/workflows/{prefix}-camera-{revision}-{suffix}.yml"
+            for revision in ("r5", "r6")
+            for prefix, suffix in (("release", "pages"), ("rollback", "pages"), ("weekly", "smoke"))
+        ]
+        for path in paths:
+            with self.subTest(path=path):
+                row = f"      - {path}\n"
+                self.assertIn(row, config)
+                with self.assertRaises(AssertionError):
+                    self.assert_bot_preservation(config.replace(row, "", 1), profiles)
+
+    def test_bot_policy_rejects_wildcards_and_ordinary_workflow_exclusions(self) -> None:
+        root = SCRIPT.parents[1]
+        config = (root / ".github/dependabot.yml").read_text(encoding="utf-8")
+        profiles = operations.discover_profiles(root)
+        for path in (
+            ".github/workflows/*", ".github/workflows/release-camera-*.yml",
+            ".github/workflows/**/action.yml", ".github/workflows/weekly-*.yml",
+            "**/.github/workflows/release-pages.yml",
+            ".github/workflows/ci.yml", ".github/workflows/weekly-smoke.yml",
+        ):
+            with self.subTest(path=path), self.assertRaises(AssertionError):
+                changed = config.replace("    exclude-paths:\n", f"    exclude-paths:\n      - {path}\n")
+                self.assert_bot_preservation(changed, profiles)
+
+    def test_bot_policy_rejects_duplicate_exclusions(self) -> None:
+        root = SCRIPT.parents[1]
+        config = (root / ".github/dependabot.yml").read_text(encoding="utf-8")
+        changed = config.replace(
+            "    exclude-paths:\n",
+            "    exclude-paths:\n      - .github/workflows/release-pages.yml\n",
+        )
+        with self.assertRaises(AssertionError):
+            self.assert_bot_preservation(changed, operations.discover_profiles(root))
+
+    def test_bot_policy_tracks_discovered_profiles_and_allows_exact_reservations(self) -> None:
+        root = SCRIPT.parents[1]
+        config = (root / ".github/dependabot.yml").read_text(encoding="utf-8")
+        profiles = operations.discover_profiles(root)
+        revision = 1 + max(
+            int(path.name.removeprefix("camera-r"))
+            for path in profiles if path.name != "camera"
+        )
+        successor = self.profile(f"camera-r{revision}")
+        with self.assertRaises(AssertionError):
+            self.assert_bot_preservation(config, [*profiles, successor])
+        reservations = "".join(
+            f"      - .github/workflows/{prefix}-camera-r{revision}-{suffix}.yml\n"
+            for prefix, suffix in (("release", "pages"), ("rollback", "pages"), ("weekly", "smoke"))
+        )
+        changed = config.replace("    exclude-paths:\n", "    exclude-paths:\n" + reservations)
+        self.assert_bot_preservation(changed, profiles)
+        self.assert_bot_preservation(changed, [*profiles, successor])
 
 
 if __name__ == "__main__":

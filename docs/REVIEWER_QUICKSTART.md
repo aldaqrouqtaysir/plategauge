@@ -90,3 +90,13 @@ measurement and are validated through separate focused tests and artifact
 checks. No user study, field validation, external-site validation, or phone
 performance result exists. These historical counts are not the current camera
 test totals; current release checks are linked in [the release overview](CURRENT_RELEASE.md).
+
+## Creating new review media
+
+For current commands, use the [media-generation guide](MAINTENANCE.md#new-screenshots-and-recordings),
+not the command examples preserved with historical media. `pnpm capture:portfolio`
+and `pnpm record:demo` are benchmark-only authoring tools, not camera demos.
+Both require `--output` naming a new absolute directory outside the checkout;
+they must not overwrite existing screenshots, recordings or provenance.
+Review new media and its provenance before publishing. These tools do not test
+physical cameras or establish model accuracy.
