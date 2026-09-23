@@ -1,0 +1,44 @@
+name: Weekly experimental camera r4 smoke check
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '37 5 * * 1'
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    if: ${{ github.repository == 'aldaqrouqtaysir/plategauge' && vars.PLATEGAUGE_ACTIVE_PROFILE == 'camera-experimental-r4' }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: refs/tags/camera-experimental-r4
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.12.14'
+      - name: Check the committed approval and exact public files
+        run: |
+          python release/camera-r4/verify_release.py approval --repo-root . --approval release/camera-r4/approval.json --expected-tag camera-experimental-r4 --require-tag
+          python release/camera-r4/verify_release.py live --inventory release/camera-r4/inventory.json --url https://aldaqrouqtaysir.github.io/plategauge/
+      - uses: ./release/camera-r4/browser-action
+      - name: Test generated camera input, inference, session and evidence routes
+        working-directory: web
+        env:
+          PLATEGAUGE_CAMERA_SMOKE_MODE: https
+          PLATEGAUGE_CAMERA_SMOKE_INVENTORY: ${{ github.workspace }}/release/camera-r4/inventory.json
+          PLATEGAUGE_CAMERA_SMOKE_ARTIFACTS: ${{ runner.temp }}/pg-camera-weekly-smoke
+        run: pnpm exec playwright test --config ../release/camera-r4/playwright.live.config.ts
+      - name: Preserve compact monitoring results only
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: camera-weekly-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/pg-camera-weekly-smoke/report.json
+          if-no-files-found: warn
+          retention-days: 30

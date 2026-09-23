@@ -1,0 +1,128 @@
+{
+  "schemaVersion": 1,
+  "recordedDate": "2026-09-23",
+  "purpose": "Local verification of audit-backed engineering maintenance, not a new scientific result or proof of deployment",
+  "appSourceCommit": "1f55a7b21cf0aff395df4930d0232a0b0838361d",
+  "publicBaseCommit": "cb3a3b310658eb25d5cf94c0aa118b3ae4446ef2",
+  "authorizationContext": "The user requested an end-to-end audit followed by supported fixes under previously delegated routine maintenance and publication authority. Approval is applied under that delegation, not an assertion that the applicant independently reviewed this exact commit or reproduced the tests.",
+  "change": "Fix modified-link capture loss, keyboard skip-link stacking, starting-mass/session consistency and safe estimation errors; repair current docs, dependency automation, media preservation, CI coverage and prospective numerical utilities.",
+  "cameraBundle": {
+    "fileCount": 45,
+    "inventorySha256": "42f7b26fe0b7349cec30537cf84bddc14db9cc4b90d4a26ca1ab213b2174eecb",
+    "archiveSha256": "bab8d848d2ba476a1bb9b12595327896ffa21893de1525e95c3e9cc85e2f6d41"
+  },
+  "frozenIdentities": {
+    "modelBytes": 10355122,
+    "modelSha256": "9c830e80cab86acd85c5b27b5733126594561844d0398d602a039c68befbd675",
+    "benchmarkEvidenceSha256": "c6f7d435d077bc67649d192efb169e247a1a208e5e9bdc0b6feabd772887c412",
+    "scientificValuesChanged": false,
+    "historicalReleaseRecordsChanged": false,
+    "legacyCalibrationDefaultPreserved": true
+  },
+  "applicationVerification": {
+    "typecheck": "passed",
+    "eslint": "passed with zero warnings",
+    "webUnitTests": {
+      "passed": 778,
+      "failed": 0,
+      "reportSha256": "6d251772ea711bad85651faaf19a6202b5fb72706864a8d884dea714c35ea503",
+      "configuredStatementsCoveragePercent": 97.11,
+      "configuredBranchCoveragePercent": 95.26
+    },
+    "pythonTests": {
+      "passed": 276,
+      "skipped": 4,
+      "failed": 0,
+      "configuredNonTrainingBranchCoveragePercent": 85.81,
+      "reportSha256": "4603c7ca1629768bfcfc02490bbe27a34f5f9270c64b1c2109a16edd954967a5"
+    },
+    "benchmarkBrowserTests": {
+      "passed": 33,
+      "failed": 0,
+      "engines": [
+        "Chromium",
+        "Firefox",
+        "WebKit"
+      ],
+      "reportSha256": "d5da860e2338fba868c75bb277077d150947ddff4ac221f81c1626fca5c73efa"
+    },
+    "benchmarkProductionTests": {
+      "passed": 2,
+      "failed": 0,
+      "reportSha256": "de0631a8c05f924734e9402ed962f300f3affdb18ddfe694809fbd59a5003415"
+    },
+    "cameraBuiltBrowserTests": {
+      "passed": 60,
+      "failed": 0,
+      "skipped": 0,
+      "flaky": 0,
+      "engines": [
+        "Chromium",
+        "Firefox",
+        "WebKit"
+      ],
+      "layoutWidths": [
+        320,
+        768,
+        980,
+        1440
+      ],
+      "reportSha256": "232449c460d14025902f806e65b5d1424948de43915f2b0360211b42dcae5479"
+    },
+    "bundleSourceBinding": "Full camera regression used identical app code before final source-URL binding; the eight extracted-archive checks used the final source-pinned artifact.",
+    "publicTreeAudit": "Local technical checks passed; historical governance pending markers are not used as current deployment observations.",
+    "fullHistorySecretScan": {
+      "commits": 26,
+      "leaksFound": 0
+    }
+  },
+  "releaseOperationsVerification": {
+    "preservedValidatorTests": {
+      "passed": 111,
+      "failed": 0,
+      "profiles": [
+        "camera",
+        "camera-r2",
+        "camera-r3"
+      ]
+    },
+    "successorValidatorTests": {
+      "passed": 42,
+      "failed": 0
+    },
+    "validatorSourceSha256": "8f9e3b23cbb1d363e9547916545f1e05980158ac3e34a76e567aca70c12ae710",
+    "validatorTestSourceSha256": "b83e3ee998c8c7daf97ba6241c5c9efbe695e709ed81f321b69fc6ddef7ded4e",
+    "ruffAndStrictMypy": "passed",
+    "harnessTypecheck": "passed",
+    "actionlint": "1.7.12 passed on three new workflows and two exact guard-only changes; external shellcheck and pyflakes disabled",
+    "localArchivedArtifactSmoke": {
+      "passed": 8,
+      "failed": 0,
+      "skipped": 0,
+      "flaky": 0,
+      "reportSha256": "24d00e43c7772edbed3a35b28233695903e7998810a7b2ac9318e8de0d39b4cd",
+      "input": "Generated camera frames through an independently locked synthetic API with the unchanged pinned ONNX model",
+      "retiredResourceHttpStatus": 404
+    },
+    "priorAttempts": [
+      "First full web suite: 777 passed, one pre-existing async-focus race failed. The assertion now waits for the actual focus effect; complete rerun passed 778.",
+      "First baseline browser suite: 22 passed and 11 Firefox launch/setup failures in the default local cache. Same-revision explicit Firefox runtime then passed all 33; override is documented.",
+      "First Python suite: 273 passed, four skipped, two fixture setup errors from denied shared Windows pytest temp root, and coverage below threshold because tests did not run. A fresh scoped temp/cache full run passed 276 with four skips and 85.81%; threshold unchanged.",
+      "Independent review caught finite-endpoint subtraction overflow in the initial utility refactor; restored fail-closed finite-width validation and synthetic regression passed."
+    ]
+  },
+  "rollback": {
+    "release": "v1.0.2",
+    "fileCount": 36,
+    "inventorySha256": "f1ac0b4f48e58f99e879f30a28f825d2998b40ad3a0c93b271822089c65c5d83",
+    "archiveSha256": "5cec4fe17a236149ff26b0ac3103249014f6087b1a162308d0e1b2eeac4c2cd6",
+    "historicalResourcesPreserved": true
+  },
+  "limitations": [
+    "No physical camera or personal image used in automated verification",
+    "No training, recalibration, new data, model replacement or scientific-value change",
+    "The corrected finite_rank_v2 utility is opt-in and not enabled in frozen orchestration or the site",
+    "No accuracy, guaranteed interval, operational impact or independent applicant reproduction claim",
+    "Hosted CI, deployment and HTTPS verification are separate observations"
+  ]
+}
