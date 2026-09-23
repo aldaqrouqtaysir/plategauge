@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "recordedDate": "2026-09-23",
+  "purpose": "Concise capture-page presentation maintenance; local evidence, not proof of deployment or a new scientific result",
+  "appSourceCommit": "d2fc03257e8ebfdae3923aa454fa8b3645212731",
+  "publicBaseCommit": "09692c252ba19b01899c004257788cd34237914e",
+  "authorizationContext": "The user explicitly requested less text and removal of the detached hero sentence, under existing delegated maintenance and publication authority. This record does not assert applicant-performed independent reproduction.",
+  "changes": [
+    "Remove detached hero sentence and repeated decorative headings",
+    "Shorten capture checklist, capture instruction and local-session copy",
+    "Move supplementary privacy/storage explanation into native keyboard-accessible details",
+    "Keep experimental estimate and unencrypted-file warnings visible and bound to actions"
+  ],
+  "cameraBundle": {
+    "fileCount": 45,
+    "inventorySha256": "a95a1770aaae2373887fd3bc38d8adcd8f9f856c6b02c41bd92ebec3f68c2fc8",
+    "archiveSha256": "b4d8dba94790881b434796769f9735932f2ae0cf0e7e7acf12638530a6098c96"
+  },
+  "frozenIdentities": {
+    "modelBytes": 10355122,
+    "modelSha256": "9c830e80cab86acd85c5b27b5733126594561844d0398d602a039c68befbd675",
+    "benchmarkEvidenceSha256": "c6f7d435d077bc67649d192efb169e247a1a208e5e9bdc0b6feabd772887c412",
+    "scientificValuesChanged": false,
+    "historicalReleaseRecordsChanged": false
+  },
+  "applicationVerification": {
+    "typecheck": "passed",
+    "eslint": "passed with zero warnings",
+    "webUnitTests": {
+      "passed": 779,
+      "failed": 0,
+      "reportSha256": "902eed4dccca472bde404ead71baefeb858db339f5635191e81e40747231850a",
+      "configuredStatementsCoveragePercent": 97.11,
+      "configuredBranchCoveragePercent": 95.26
+    },
+    "cameraBuiltBrowserTests": {
+      "passed": 72,
+      "failed": 0,
+      "skipped": 0,
+      "flaky": 0,
+      "engines": [
+        "Chromium",
+        "Firefox",
+        "WebKit"
+      ],
+      "layoutWidths": [
+        320,
+        768,
+        980,
+        1440
+      ],
+      "reportSha256": "801bf6ddfe01e58b3aecccc0724d3e2bb9ed4f4b8d2278bdd596b7649fd6220b"
+    },
+    "bundleSourceBinding": "The 72-check suite used identical application code at 239659281fb0d9a71a71cd4c0cb90f2bc17ec12e. Final source d2fc03257e8ebfdae3923aa454fa8b3645212731 changes two test assertions only. Final-source build was independently inventoried, packed and tested with the eight-check exact-archive harness.",
+    "visualReview": "Reviewed generated idle-capture screenshots at 1440 and 320 pixels; no observed overlapping text or horizontal overflow. Native privacy expansion, keyboard operation, accessible action descriptions and axe scans passed at all four widths in all three engines.",
+    "fullHistorySecretScan": {
+      "commits": 34,
+      "leaksFound": 0
+    },
+    "readOnlyReview": "No material safety/privacy information loss or stronger claim found; camera and inference remain explicit, session warning remains adjacent to actions."
+  },
+  "releaseOperationsVerification": {
+    "successorValidatorTests": {
+      "passed": 44,
+      "failed": 0,
+      "sourcePin": "d2fc03257e8ebfdae3923aa454fa8b3645212731"
+    },
+    "validatorSourceSha256": "a787e9785c30bfafe9a280a8fb60b90c2eb602079749bcc3c96b5738e5160980",
+    "validatorTestSourceSha256": "0291f9e9662c8111326ba96cd894b9e1d83aa904f9c6fd2e5df846c52ba4274c",
+    "ruffAndStrictMypy": "passed",
+    "harnessTypecheck": "passed after final copy-assertion correction",
+    "actionlint": "1.7.12 passed on three new workflows and two exact guard-only changes; external shellcheck and pyflakes disabled",
+    "localArchivedArtifactSmoke": {
+      "passed": 8,
+      "failed": 0,
+      "skipped": 0,
+      "flaky": 0,
+      "reportSha256": "fc206254e9f58f0b53cff444b17f097f552e4517ef8968bb82272a86a1220458",
+      "input": "Locked generated camera fixtures and the unchanged pinned model; no native camera or personal photos"
+    }
+  },
+  "priorAttempts": [
+    "An initial lint invocation was interrupted during slow local execution; complete lint subsequently passed with zero warnings.",
+    "Initial focused and full unit runs each found two assertions tied to old warning wording. The full run had 777 passing and two failing tests; exact equivalent-wording assertions were updated and the full rerun passed all 779.",
+    "Initial exact-archive run passed seven checks and failed one old session-warning regex. Only the new r6 regex was corrected to the displayed equivalent warning; all eight passed in a fresh diagnostics directory.",
+    "A first 44-test verifier run used the initial source pin. A complete fresh 44-test suite passed after the final test-only source pin change; only the final-pin result is bound here."
+  ],
+  "rollback": {
+    "release": "v1.0.2",
+    "fileCount": 36,
+    "inventorySha256": "f1ac0b4f48e58f99e879f30a28f825d2998b40ad3a0c93b271822089c65c5d83",
+    "archiveSha256": "5cec4fe17a236149ff26b0ac3103249014f6087b1a162308d0e1b2eeac4c2cd6"
+  },
+  "limitations": [
+    "No new scientific experiment, training, recalibration or accuracy claim",
+    "No physical-device or personal-photo validation",
+    "Previous scientific and release evidence remains unchanged",
+    "Hosted CI, deployment and HTTPS checks are recorded separately after observation"
+  ]
+}
