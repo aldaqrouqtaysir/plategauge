@@ -19,6 +19,7 @@
     "playwright.integration.config.ts",
     "playwright.production.config.ts",
     "playwright.public-smoke.config.ts",
+    "playwright.camera-candidate.config.ts",
     "eslint.config.js"
   ]
 }

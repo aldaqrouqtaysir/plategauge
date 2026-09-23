@@ -1,0 +1,253 @@
+/* Local camera and experimental-estimate visual layer; benchmark and fixture presentation remain untouched. */
+.rc-app {
+  --cp-ink: #203e34;
+  --cp-soft: #54655d;
+  --cp-line: #dce3da;
+  --rc-forest: #244f3e;
+  --rc-paper: #fffefa;
+  --rc-sage: #edf2e9;
+  background: #f4f5ef;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+.rc-app button, .rc-app select, .rc-app input { font-family: inherit; }
+.rc-icon { display: block; width: 22px; height: 22px; flex-shrink: 0; }
+.rc-app .cp-header { max-width: 1220px; min-height: 82px; padding: 20px 40px; gap: 24px; }
+.rc-app .cp-brand { font-size: 22px; font-weight: 750; letter-spacing: -.8px; gap: 10px; }
+.rc-brand-mark { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 11px; background: var(--rc-forest); color: #f6f9ed; }
+.rc-brand-mark .rc-icon { width: 25px; height: 25px; }
+.rc-app .cp-back-link { display: inline-flex; align-items: center; gap: 7px; min-height: 44px; font-size: 12px; text-decoration-color: #bccbbf; text-underline-offset: 5px; }
+.rc-app .cp-back-link:hover { text-decoration-color: var(--rc-forest); }
+.rc-app .cp-main { padding: 32px 40px 30px; }
+.rc-app .cp-intro { grid-template-columns: 1.15fr 1fr; gap: 48px; align-items: center; margin-bottom: 25px; }
+.rc-app .cp-eyebrow { color: #556c56; font-size: 10px; font-weight: 700; letter-spacing: .12em; }
+.rc-app .cp-intro .cp-eyebrow { margin-bottom: 14px; }
+.rc-app .cp-intro h1 { font-size: clamp(34px, 3.9vw, 49px); line-height: 1.08; letter-spacing: -.035em; }
+.rc-hero-accent { color: #4c7056; }
+.rc-app .cp-intro > p { font-size: 14px; line-height: 1.8; max-width: 365px; }
+.rc-app .cp-boundary { padding: 12px 16px; border-color: #dce4d7; border-radius: 10px; background: #edf2e8; color: #42563f; gap: 11px; }
+.rc-app .cp-boundary .rc-icon { width: 18px; height: 18px; }
+.rc-app .cp-boundary p { font-size: 12px; }
+.rc-app .cp-boundary strong { font-weight: 650; }
+
+/* Progress stays legible even when later steps are unavailable. */
+.rc-app .cp-steps { gap: 12px; margin: 22px 0; }
+.rc-app .cp-steps li { min-width: 0; }
+.rc-app .cp-steps button { border: 1px solid #dce3d8; border-radius: 12px; background: #f9faf5; padding: 14px; grid-template-columns: 34px minmax(0, 1fr); gap: 4px 11px; min-height: 78px; align-items: center; }
+.rc-app .cp-steps button:disabled { opacity: 1; color: #5b6d61; background: #f0f2eb; }
+.rc-app .cp-steps button > span { display: grid; place-items: center; width: 34px; height: 34px; border: 1px solid #d4decf; border-radius: 50%; font-family: inherit; font-size: 12px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.rc-app .cp-steps strong { align-self: end; font-size: 13px; font-weight: 650; }
+.rc-app .cp-steps small { margin: 0; align-self: start; font-size: 11px; line-height: 1.45; }
+.rc-app .cp-steps button[data-complete="true"] { background: #eaf0e4; border-color: #cbd9c2; }
+.rc-app .cp-steps button[aria-current="step"] { background: var(--rc-forest); border-color: var(--rc-forest); color: #fffef8; box-shadow: 0 4px 12px #244f3e0d; }
+.rc-app .cp-steps button[aria-current="step"] > span { color: #ecf4dc; border-color: #829b85; background: #ffffff0b; }
+.rc-app .cp-steps button[aria-current="step"] small { color: #dae6d6; }
+
+.rc-app .cp-workspace { grid-template-columns: minmax(0, 1fr) 264px; gap: 24px; }
+.rc-app .cp-card { padding: 26px; border-radius: 18px; background: var(--rc-paper); border-color: #dce2d7; box-shadow: 0 6px 26px #213c2c06; }
+.rc-app .cp-card h2 { font-family: inherit; font-size: 23px; font-weight: 650; letter-spacing: -.65px; line-height: 1.3; }
+.rc-app .cp-card-heading .cp-eyebrow { margin-bottom: 7px; font-size: 10px; }
+.rc-app .cp-step-glyph { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 12px; color: #527248; background: var(--rc-sage); flex-shrink: 0; }
+.rc-app .cp-step-glyph .rc-icon { width: 23px; height: 23px; }
+.rc-app .cp-instruction { font-size: 13px; line-height: 1.75; margin: 13px 0 18px; }
+.rc-camera-state { display: flex; align-items: center; gap: 8px; margin: 0 0 10px; font-size: 11px; color: var(--cp-soft); }
+.rc-camera-state strong { font-weight: 600; }
+.rc-camera-state > span:last-child { margin-left: auto; font-size: 11px; }
+.rc-state-dot { width: 6px; height: 6px; border-radius: 50%; background: #758174; flex-shrink: 0; }
+.rc-camera-state[data-active="true"] .rc-state-dot { background: #356b43; box-shadow: 0 0 0 3px #e2eddb; }
+
+/* The illustration is CSS/SVG; no external asset or photo alteration. */
+.rc-app .cp-empty-preview { aspect-ratio: auto; min-height: 182px; padding: 22px; border-radius: 13px; border-color: #d8e2d1; background: radial-gradient(ellipse at 50% 22%, #f8faef 0%, #eef3e6 65%, #e8eedf 100%); }
+.rc-app .cp-empty-preview > .rc-empty-mark { display: grid; place-items: center; width: 58px; height: 58px; border-radius: 50%; margin-bottom: 12px; background: #fffef9; border: 1px solid #d4dfca; color: #5b7950; box-shadow: 0 3px 12px #244f3e08; }
+.rc-empty-mark .rc-icon { width: 36px; height: 36px; stroke-width: 1.1; }
+.rc-app .cp-empty-preview strong { font-family: inherit; font-size: 16px; font-weight: 600; letter-spacing: -.2px; }
+.rc-app .cp-empty-preview p { margin: 7px 0 0; max-width: 330px; font-size: 12px; }
+.rc-app .cp-viewfinder { width: 100%; margin-inline: auto; border: 0; outline: 1px solid #b4c5b5; outline-offset: -1px; border-radius: 13px; background: #15271f; }
+.rc-viewfinder video { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: contain; background: #15271f; }
+.rc-viewfinder[hidden] { display: none; }
+.rc-app .rc-live-reference { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: contain; pointer-events: none; transform: none; }
+.rc-app .rc-model-crop-frame { position: absolute; z-index: 2; border: 1.5px solid #eff7dd; border-radius: 2px; box-shadow: 0 0 0 9999px #071b1252; pointer-events: none; }
+.rc-app .rc-model-crop-frame > span { position: absolute; top: 6px; left: 6px; padding: 4px 7px; max-width: calc(100% - 12px); border-radius: 4px; color: #f4f8e8; background: #173d2df2; font-size: 11px; line-height: 1.45; }
+.rc-app .rc-viewfinder .cp-frame-tag { z-index: 3; }
+.rc-app .rc-crop-help { margin: 11px 0; color: var(--cp-soft); font-size: 12px; line-height: 1.75; }
+.rc-app .rc-live-reference-control { padding: 10px 13px; margin: 13px 0; border: 1px solid #dce5d4; border-radius: 10px; background: #f6f8f0; }
+.rc-app .rc-live-reference-control label { display: flex; gap: 10px; min-height: 44px; align-items: center; font-size: 13px; font-weight: 600; cursor: pointer; }
+.rc-app .rc-live-reference-control input { width: 19px; height: 19px; min-height: 0; flex-shrink: 0; margin: 0; accent-color: var(--rc-forest); }
+.rc-app .rc-live-reference-control label:has(input:disabled) { color: #61715f; cursor: default; }
+.rc-app .rc-live-reference-control p { margin: 2px 0 4px; color: var(--cp-soft); font-size: 12px; line-height: 1.7; }
+.rc-app .cp-frame-tag { background: #173d2df2; border: 1px solid #52725f; border-radius: 6px; font-size: 10px; letter-spacing: .01em; }
+.rc-app .cp-selected-preview { aspect-ratio: auto; border-color: #d5e0ce; border-radius: 12px; background: #e9eee4; }
+.rc-app .cp-selected-preview img { max-height: 360px; height: auto; object-fit: contain; }
+.rc-camera-actions { margin-top: 16px; }
+.rc-app .cp-input-controls { gap: 12px; margin-top: 18px; }
+.rc-app .cp-input-controls > label { font-size: 11px; font-weight: 600; gap: 8px; }
+.rc-app .cp-input-controls select { min-height: 48px; border-radius: 9px; border-color: #c9d7c5; background: #fafbf6; font-size: 13px; padding-inline: 12px 28px; }
+.rc-app .cp-primary, .rc-app .cp-secondary { min-height: 48px; border-radius: 9px; padding: 11px 17px; gap: 9px; font-size: 13px !important; font-weight: 600 !important; border-color: var(--rc-forest); transition: background-color 140ms ease, border-color 140ms ease; }
+.rc-app .cp-primary { background: var(--rc-forest); color: #fffef8; box-shadow: 0 2px 5px #244f3e10; }
+.rc-app .cp-primary:not(:disabled):hover { background: #193d2e; }
+.rc-app .cp-secondary { color: var(--rc-forest); background: #fffefa; border-color: #bdcdb7; }
+.rc-app .cp-secondary:not(:disabled):hover { background: #edf2e7; border-color: #8da982; }
+.rc-app .cp-primary:disabled, .rc-app .cp-secondary:disabled { opacity: 1; color: #596b5c; background: #e9ede4; border-color: #d7e0d0; box-shadow: none; }
+.rc-app .cp-primary .rc-icon { width: 18px; height: 18px; }
+.rc-app .cp-text-button { min-height: 44px; font-size: 12px !important; text-decoration-color: #a6b99d; text-underline-offset: 4px; }
+.rc-app .cp-text-button:hover { text-decoration-color: var(--rc-forest); }
+.rc-app :is(button, a, input, select, summary, [tabindex]):focus-visible { outline: 3px solid #9c6026; outline-offset: 4px; }
+.rc-app .cp-card-bottom { border-top-color: #e1e7dc; margin-top: 22px; padding-top: 18px; }
+.rc-app .cp-card-bottom small { font-size: 10px; }
+
+.rc-reference { display: flex; gap: 14px; align-items: center; background: #f2f5ed; border: 1px solid #dbe4d3; border-radius: 11px; padding: 10px; margin: 0 0 17px; }
+.rc-reference img { width: 88px; height: 76px; object-fit: contain; background: #e5eddf; border-radius: 6px; flex-shrink: 0; }
+.rc-reference figcaption { display: grid; gap: 5px; }
+.rc-reference strong { font-size: 12px; font-weight: 650; }
+.rc-reference span, .rc-review-help { font-size: 12px; line-height: 1.7; color: var(--cp-soft); }
+.rc-device-help { color: var(--cp-soft); font-size: 12px; line-height: 1.7; margin: 14px 0 0; }
+.rc-retake-warning { font-size: 12px; line-height: 1.65; color: #6b542b; padding: 11px 13px; margin: 14px 0 0; border-left: 3px solid #b49760; background: #f7f1e3; border-radius: 0 7px 7px 0; }
+
+/* A single switch and a quiet photo mat keep review focused on the pair. */
+.rc-app .cp-comparison-controls { display: inline-flex; gap: 4px; flex-wrap: nowrap; padding: 4px; margin-top: 20px; border-radius: 11px; border: 1px solid #d7e1d0; background: #edf2e6; max-width: 100%; }
+.rc-app .cp-comparison-controls button { border-color: transparent; border-radius: 7px; background: transparent; min-width: 0; font-size: 12px !important; }
+.rc-app .cp-comparison-controls [aria-pressed="true"] { background: var(--rc-paper); border-color: #c6d6bd; color: #244f3e; box-shadow: 0 1px 4px #244f3e0a; }
+.rc-app .cp-comparison { border: 0; border-radius: 12px; background: #f3f5ef; padding: 16px; margin-top: 18px; }
+.rc-app .cp-overlay-images { position: relative; height: clamp(160px, 28vw, 340px); background: #e5ebdf; border-radius: 9px; }
+.rc-app .cp-overlay-images img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+.rc-app .cp-comparison label { font-size: 12px; font-weight: 600; margin-top: 17px; }
+.rc-app .cp-comparison output { font-variant-numeric: tabular-nums; color: #496449; }
+.rc-app .cp-comparison input { min-height: 44px; }
+.rc-app .cp-comparison p { font-size: 11px; }
+.rc-overlay-endpoints { display: flex; justify-content: space-between; gap: 12px; font-size: 11px; color: var(--cp-soft); margin: 0 0 10px; }
+.rc-app .cp-review-pair { gap: 16px; margin: 20px 0; }
+.rc-app .cp-review-pair figure { border-color: #dce5d4; border-radius: 11px; background: #fcfdf8; }
+.rc-app .cp-review-pair img { width: 100%; aspect-ratio: 4 / 3; object-fit: contain; background: #e5ebdf; }
+.rc-app .cp-review-pair figcaption { padding: 4px 12px; gap: 8px; border-top: 1px solid #dce5d4; }
+.rc-app .cp-review-pair strong { font-size: 12px; font-weight: 650; }
+.rc-app .rc-model-review canvas { display: block; width: 100%; height: auto; aspect-ratio: 1; background: #e5ebdf; }
+.rc-app .rc-model-review canvas[hidden] { display: none; }
+.rc-app .rc-review-source { margin-top: 18px; }
+.rc-app .cp-result { background: #edf4e7; border-color: #c8dabb; border-radius: 11px; gap: 13px; padding: 18px; }
+.rc-result-mark { display: grid; place-items: center; flex-shrink: 0; height: 30px; width: 30px; border-radius: 50%; background: #d7e7c9; color: #385d32; }
+.rc-result-mark .rc-icon { width: 20px; height: 20px; }
+.rc-app .cp-result h3 { font-family: inherit; font-size: 14px; line-height: 1.5; font-weight: 650; margin-bottom: 6px; }
+.rc-app .cp-result p { font-size: 12px; }
+
+.rc-session-status { color: var(--cp-soft); font-size: 12px; line-height: 1.7; border-top: 1px solid #e1e7dc; padding-top: 15px; margin: 18px 0 0; }
+.rc-help { margin-top: 7px; font-size: 12px; color: var(--cp-soft); }
+.rc-help summary { min-height: 44px; cursor: pointer; padding: 13px 0; line-height: 1.5; text-underline-offset: 4px; }
+.rc-help summary:hover { text-decoration: underline; }
+.rc-help p { margin: 4px 0 10px; line-height: 1.7; }
+.rc-app .cp-session { border-top: 1px solid #e1e7dc; margin-top: 12px; gap: 16px; min-height: 58px; }
+.rc-app .cp-session p { margin: 8px 0; font-size: 11px; }
+.rc-app .cp-guide { padding: 23px 20px; border: 1px solid #dfe6d8; border-radius: 16px; background: #f9faf4; }
+.rc-app .cp-guide h2 { font-family: inherit; font-size: 21px; line-height: 1.35; font-weight: 600; letter-spacing: -.5px; margin-bottom: 25px; }
+.rc-app .cp-guide li { gap: 11px; margin-bottom: 23px; }
+.rc-app .cp-guide li:last-child { margin-bottom: 0; }
+.rc-app .cp-guide li > span { width: 25px; height: 25px; background: #edf2e7; border-color: #d1ddc7; color: #526d49; font-size: 10px; }
+.rc-app .cp-guide h3 { font-family: inherit; font-weight: 650; font-size: 12px; margin-top: 3px; }
+.rc-app .cp-guide li p { font-size: 12px; line-height: 1.75; }
+.rc-app .cp-privacy-note { margin-top: 24px; padding: 17px 0 0; background: transparent; border: 0; border-top: 1px solid #d6e1cc; border-radius: 0; }
+.rc-app .cp-privacy-note strong { font-size: 12px; font-weight: 650; }
+.rc-app .cp-privacy-note p { font-size: 11px; line-height: 1.8; }
+.rc-review-help { margin: 0; }
+
+.rc-app .rc-estimator { margin: 22px 0; padding: 22px; border: 1px solid #d4dfcc; border-radius: 13px; background: #f6f8f0; }
+.rc-app .rc-estimator-heading .cp-eyebrow { margin-bottom: 7px; font-size: 11px; }
+.rc-app .rc-estimator-heading h3 { margin: 0 0 12px; font-size: 19px; line-height: 1.35; letter-spacing: -.35px; font-weight: 650; }
+.rc-app .rc-estimator > p, .rc-app .rc-estimate-result > p:not(.rc-estimate-number) { color: var(--cp-soft); font-size: 12px; line-height: 1.75; }
+.rc-app .rc-mass-label { display: grid; gap: 8px; margin-top: 19px; font-size: 12px; font-weight: 650; }
+.rc-app .rc-mass-label input { width: min(100%, 250px); min-height: 48px; padding: 11px 13px; border: 1px solid #aebfa6; border-radius: 8px; background: #fffefa; color: var(--cp-ink); font-size: 16px; }
+.rc-app .rc-mass-label input[aria-invalid="true"] { border-color: #9b3c2d; }
+.rc-app .rc-estimate-help { margin: 8px 0 0; }
+.rc-app .rc-estimator > .rc-estimate-field-error { color: #8b3024; font-weight: 600; margin: 8px 0 0; }
+.rc-app .rc-estimate-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; margin-top: 19px; }
+.rc-app .rc-estimate-progress { padding: 12px 14px; margin: 14px 0 0; border-left: 3px solid #648759; background: #eaf0e3; }
+.rc-app .rc-estimate-result { padding: 21px; margin-top: 20px; border: 1px solid #cbdcc0; border-radius: 11px; background: #fffefa; }
+.rc-app .rc-estimate-result .cp-eyebrow { margin: 0 0 8px; font-size: 11px; }
+.rc-app .rc-estimate-result h3 { margin: 0; font-size: 17px; font-weight: 650; }
+.rc-app .rc-estimate-number { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; margin: 17px 0; color: var(--rc-forest); font-family: Georgia, "Times New Roman", serif; font-size: 42px; line-height: 1.15; font-variant-numeric: tabular-nums; }
+.rc-app .rc-estimate-number span { font-family: ui-sans-serif, system-ui, sans-serif; color: var(--cp-soft); font-size: 12px; }
+.rc-app .rc-estimate-result > .rc-estimate-mass { color: var(--cp-ink); font-size: 16px; font-weight: 600; }
+.rc-app .rc-estimate-mass span { display: block; margin-top: 5px; font-size: 12px; font-weight: 400; color: var(--cp-soft); }
+.rc-app .rc-estimate-result > .rc-estimate-metadata { margin-bottom: 0; border-top: 1px solid #dfe6d8; padding-top: 13px; overflow-wrap: anywhere; }
+.rc-app .rc-estimator .cp-error { margin-top: 15px; }
+
+.rc-app .rc-session-files { margin-top: 24px; padding: 21px; border: 1px solid #d8e0d1; border-radius: 13px; background: #fafbf6; }
+.rc-app .rc-session-files .cp-eyebrow { margin: 0 0 6px; font-size: 10px; }
+.rc-app .rc-session-files h3 { margin: 0 0 10px; font-size: 18px; font-weight: 650; letter-spacing: -.3px; }
+.rc-app .rc-session-files p { color: var(--cp-soft); font-size: 12px; line-height: 1.75; }
+.rc-app .rc-session-files .rc-session-disclosure { padding-left: 12px; border-left: 2px solid #b5c6a8; margin: 15px 0; }
+.rc-app .rc-session-disclosure strong { color: var(--cp-ink); }
+.rc-app .rc-session-file-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.rc-app .rc-session-file-actions input[hidden] { display: none; }
+.rc-app .rc-session-file-progress { margin-bottom: 0; }
+.rc-app .rc-session-confirmation { border: 1px solid #b9cbaa; padding: 17px; margin-top: 17px; border-radius: 10px; background: #f0f5e9; }
+.rc-app .rc-session-confirmation h4 { margin: 0; color: var(--cp-ink); font-size: 15px; }
+.rc-app .rc-session-files .cp-error { margin-top: 17px; }
+
+@media (max-width: 940px) {
+  .rc-app .cp-workspace { grid-template-columns: minmax(0, 1fr) 220px; gap: 18px; }
+  .rc-app .cp-header { padding-inline: 26px; }
+  .rc-app .cp-main { padding-inline: 26px; }
+  .rc-app .cp-card { padding: 22px; }
+  .rc-app .cp-guide { padding: 20px 16px; }
+  .rc-app .cp-steps button { gap: 4px 8px; padding: 12px; }
+}
+@media (max-width: 700px) {
+  .rc-app .cp-header { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px 12px; padding: 14px 18px; min-height: 0; }
+  .rc-app .cp-brand { grid-column: 1; grid-row: 1; font-size: 20px; gap: 8px; }
+  .rc-app .rc-brand-mark { width: 31px; height: 31px; border-radius: 9px; }
+  .rc-brand-mark .rc-icon { width: 23px; height: 23px; }
+  .rc-app .cp-back-link { grid-column: 2; grid-row: 1; width: auto; margin: 0; font-size: 10px; gap: 3px; }
+  .rc-app .cp-main { padding: 27px 18px 24px; }
+  .rc-app .cp-intro { display: block; margin-bottom: 20px; }
+  .rc-app .cp-intro .cp-eyebrow { font-size: 9px; letter-spacing: .1em; margin-bottom: 11px; }
+  .rc-app .cp-intro h1 { font-size: 38px; }
+  .rc-app .cp-intro > p { margin-top: 13px; font-size: 13px; line-height: 1.75; max-width: 100%; }
+  .rc-app .cp-boundary { padding: 12px; align-items: start; gap: 9px; }
+  .rc-app .cp-boundary .rc-icon { margin-top: 2px; width: 16px; height: 16px; }
+  .rc-app .cp-boundary p { font-size: 11px; }
+  .rc-app .cp-steps { gap: 7px; margin: 18px 0; }
+  .rc-app .cp-steps button { grid-template-columns: minmax(0, 1fr); grid-template-rows: 26px auto 1fr; gap: 7px; padding: 11px 10px; height: 100%; border-radius: 10px; align-items: start; }
+  .rc-app .cp-steps button > span { grid-row: auto; width: 26px; height: 26px; font-size: 10px; }
+  .rc-app .cp-steps strong { font-size: 11px; align-self: start; }
+  .rc-app .cp-steps small { font-size: 10px; line-height: 1.4; }
+  .rc-app .cp-workspace { display: block; }
+  .rc-app .cp-card { padding: 20px 16px; border-radius: 15px; }
+  .rc-app .cp-card h2 { font-size: 21px; letter-spacing: -.55px; }
+  .rc-app .cp-step-glyph { width: 34px; height: 34px; border-radius: 10px; }
+  .rc-app .cp-step-glyph .rc-icon { width: 21px; height: 21px; }
+  .rc-app .cp-instruction { font-size: 12px; }
+  .rc-app .cp-empty-preview { min-height: 174px; padding: 20px 12px; }
+  .rc-app .cp-empty-preview strong { font-size: 15px; }
+  .rc-app .cp-input-controls select { font-size: 16px; }
+  .rc-app .cp-guide { margin-top: 20px; padding: 20px; }
+  .rc-app .cp-guide h2 { font-size: 20px; margin-bottom: 22px; }
+  .rc-app .cp-comparison-controls { display: flex; }
+  .rc-app .cp-comparison-controls button { flex: 1; padding: 9px; }
+  .rc-app .cp-comparison { padding: 12px; }
+  .rc-app .cp-overlay-images { height: 230px; }
+  .rc-app .cp-review-pair { gap: 10px; }
+  .rc-app .cp-review-pair figcaption { display: grid; grid-template-columns: 1fr; gap: 0; padding: 10px 10px 0; }
+  .rc-app .cp-review-pair .cp-text-button { justify-self: start; font-size: 12px !important; }
+  .rc-app .cp-result { padding: 15px 13px; gap: 10px; }
+  .rc-app .cp-session { align-items: center; }
+  .rc-app .rc-estimator { padding: 17px 13px; }
+  .rc-app .rc-estimate-result { padding: 17px 13px; }
+  .rc-app .rc-estimate-actions { align-items: stretch; flex-direction: column; }
+  .rc-app .rc-mass-label input { width: 100%; }
+  .rc-app .rc-session-files { padding: 17px 13px; }
+  .rc-app .rc-session-file-actions { flex-direction: column; align-items: stretch; }
+  .rc-app .rc-session-confirmation { padding: 14px 11px; }
+}
+@media (max-width: 360px) {
+  .rc-app .cp-header { padding-inline: 13px; gap: 6px; }
+  .rc-app .cp-brand { font-size: 19px; }
+  .rc-app .cp-main { padding-inline: 12px; }
+  .rc-app .cp-intro h1 { font-size: 34px; }
+  .rc-app .cp-card { padding-inline: 12px; }
+  .rc-app .cp-steps button { padding-inline: 8px; }
+  .rc-app .cp-comparison-controls button { font-size: 11px !important; padding-inline: 7px; }
+  .rc-app .cp-overlay-images { height: 190px; }
+  .rc-reference { gap: 10px; }
+  .rc-reference img { width: 66px; height: 66px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .rc-app .cp-primary, .rc-app .cp-secondary { transition: none; }
+}

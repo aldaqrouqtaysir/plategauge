@@ -102,6 +102,20 @@ unit tests, production builds, and browser verification, see the
 [development guide](docs/DEVELOPMENT.md). Building the website does not require
 the raw LeFood dataset, model training, or paid services.
 
+## Experimental camera candidate — not deployed
+
+This checkout also includes a separate capture-first camera candidate: real
+before/after camera capture, model-crop review, explicit on-device estimation,
+and optional Save session / Resume session files. Photos are not uploaded or
+automatically saved. The unchanged paired baseline supplies the experimental
+estimate; this is **not a new model or validation for camera photos**.
+
+The ordinary build and the public website remain the benchmark described above.
+Use the [camera build guide](docs/CAMERA_CANDIDATE_BUILD.md) for the separately
+enabled local candidate, its tests and publication boundary. Its
+[system card](docs/CAMERA_SYSTEM_CARD.md) and
+[privacy notice](docs/CAMERA_PRIVACY_NOTICE.md) describe that extension only.
+
 ## Scope and limitations
 
 This study uses one controlled Indonesian hospital acquisition setup. It does
@@ -110,7 +124,7 @@ UAE cuisines, or other institutions. PlateGauge does not identify foods,
 estimate nutrition, replace a scale, support clinical decisions, or claim
 measured food-waste reduction.
 
-Visitor images are not accepted. GitHub Pages and the visitor's network may
+The released benchmark does not accept visitor images. GitHub Pages and the visitor's network may
 still process ordinary request metadata; see the
 [privacy notice](docs/PRIVACY_NOTICE.md). Browser timing measurements apply
 only to the documented reference laptop, not unmeasured phones or devices.
@@ -139,4 +153,4 @@ Source code is [Apache-2.0](LICENSE). LeFood-Set v1 and the dataset-derived
 trained artifact carry CC BY 4.0 attribution and change notices; see [NOTICE](NOTICE).
 Historical release records describe their dated state, not the status of every
 later checkout. Released scientific evidence, model identity (`v1.0.0`), and
-existing release tags are unchanged by this documentation repair.
+existing release tags are unchanged by the separate camera candidate.

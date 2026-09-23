@@ -72,3 +72,8 @@ reports/security/python-licenses.json text eol=crlf
 # them LF in every checkout so they can be byte-compared deterministically.
 uv.lock text eol=lf
 web/pnpm-lock.yaml text eol=lf
+
+# New camera notices are bundled byte-for-byte; keep their bytes portable
+# without changing any historical evidence rule above.
+docs/CAMERA_*.md text eol=lf
+web/src/libv2/PILLOW_RESAMPLING_NOTICE.md text eol=lf

@@ -63,6 +63,8 @@ reports/release/gate-d-local-candidate-audit.json
 # Web dependencies and generated bundles.
 web/node_modules/
 web/dist/
+web/dist-camera/
+web/coverage/
 web/playwright-report/
 web/test-results/
 web/debug.log

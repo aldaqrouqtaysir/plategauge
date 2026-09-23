@@ -1,0 +1,18 @@
+.rc-device-check { margin-top: 24px; padding: 17px 0 0; border-top: 1px solid #d9e0d2; color: #334d44; font-size: 13px; line-height: 1.65; }
+.rc-device-check summary { cursor: pointer; font-weight: 750; color: #123f33; }
+.rc-device-check summary span { font-weight: 400; color: #4b655a; }
+.rc-device-check > p { margin: 13px 0; }
+.dc-setup { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.dc-setup label { display: grid; gap: 5px; align-content: start; font-weight: 650; }
+.rc-device-check select, .rc-device-check input { width: 100%; min-width: 0; border: 1px solid #82968a; border-radius: 7px; background: #fffef9; color: #183d31; font: inherit; padding: 8px; }
+.rc-device-check select:focus-visible, .rc-device-check input:focus-visible, .rc-device-check summary:focus-visible { outline: 3px solid #356443; outline-offset: 3px; }
+.rc-device-check fieldset { padding: 14px; border: 1px solid #d2dccd; border-radius: 10px; margin: 16px 0; }
+.rc-device-check legend { padding: 0 6px; font-weight: 700; }
+.dc-check { display: grid; grid-template-columns: minmax(0, 1fr) 180px; gap: 12px; align-items: center; padding: 7px 0; }
+.dc-timings { display: grid; gap: 5px; margin: 18px 0 9px; }
+.dc-timings > div { display: flex; justify-content: space-between; gap: 12px; }
+.dc-timings dd { margin: 0; font-variant-numeric: tabular-nums; white-space: nowrap; font-weight: 700; }
+.dc-note { color: #506357; font-size: 12px; }
+.dc-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 15px; }
+.dc-error { color: #8b2d20; font-weight: 600; }
+@media (max-width: 700px) { .dc-setup, .dc-check { grid-template-columns: minmax(0, 1fr); } .dc-check { gap: 5px; } .rc-device-check select, .rc-device-check input { font-size: 16px; } .dc-timings > div { display: block; } .dc-timings dd { margin-top: 2px; } }

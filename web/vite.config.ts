@@ -2,7 +2,7 @@ import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { defineConfig } from "vitest/config";
 import react from "@vitejs/plugin-react";
-import type { Plugin } from "vite";
+import { loadEnv, type Plugin } from "vite";
 
 function integrationModelFixturePlugin(mode: string): Plugin {
   return {
@@ -41,18 +41,30 @@ function integrationModelFixturePlugin(mode: string): Plugin {
 }
 
 export default defineConfig(({ command, mode }) => {
-  if (mode === "production" && process.env.VITE_PLATEGAUGE_TEST_MODEL) {
+  const environment = loadEnv(mode, fileURLToPath(new URL(".", import.meta.url)), "VITE_");
+  const cameraCandidate = mode === "camera-candidate";
+  if (environment.VITE_PLATEGAUGE_CAMERA_CANDIDATE) {
+    throw new Error("The camera capability is selected only by the explicit camera-candidate build mode.");
+  }
+  if (cameraCandidate && command !== "build") {
+    throw new Error("Build the camera candidate first, then preview its static output.");
+  }
+  if ((mode === "production" || cameraCandidate) && environment.VITE_PLATEGAUGE_TEST_MODEL) {
     throw new Error("The test model must never be enabled in a production build.");
   }
   if (command === "build" && mode === "integration") {
     throw new Error("The integration ONNX fixture may only be served by the test dev server.");
   }
-  if (command === "build" && mode === "production") {
-    const sourceUrl = process.env.VITE_SOURCE_URL;
+  if (command === "build" && (mode === "production" || cameraCandidate)) {
+    const sourceUrl = environment.VITE_SOURCE_URL;
     if (!sourceUrl) {
       throw new Error("VITE_SOURCE_URL is required for a production build.");
     }
     const parsedSourceUrl = new URL(sourceUrl);
+    if (cameraCandidate && (parsedSourceUrl.origin !== "https://github.com"
+      || !/^\/aldaqrouqtaysir\/plategauge\/tree\/[a-f0-9]{40}$/.test(parsedSourceUrl.pathname))) {
+      throw new Error("The camera candidate requires the exact source-commit GitHub URL.");
+    }
     if (
       parsedSourceUrl.protocol !== "https:" ||
       parsedSourceUrl.username ||
@@ -65,21 +77,49 @@ export default defineConfig(({ command, mode }) => {
   }
 
   return {
+    define: {
+      "import.meta.env.VITE_PLATEGAUGE_CAMERA_CANDIDATE": JSON.stringify(cameraCandidate ? "1" : "0"),
+      ...((mode === "production" || cameraCandidate) ? { "import.meta.env.VITE_PLATEGAUGE_TEST_MODEL": JSON.stringify("") } : {}),
+    },
     base:
-      process.env.VITE_BASE_PATH ??
+      environment.VITE_BASE_PATH ??
       (mode === "test" || mode === "integration" ? "/" : "/plategauge/"),
-    plugins: [react(), integrationModelFixturePlugin(mode)],
+    plugins: [react(), integrationModelFixturePlugin(mode), ...(cameraCandidate ? [{
+      name: "explicit-camera-candidate-entry",
+      generateBundle() {
+        for (const [source, destination] of [
+          ["../docs/CAMERA_PRIVACY_NOTICE.md", "legal/CAMERA_PRIVACY_NOTICE.md"],
+          ["../docs/CAMERA_SYSTEM_CARD.md", "legal/CAMERA_SYSTEM_CARD.md"],
+          ["./src/libv2/PILLOW_RESAMPLING_NOTICE.md", "legal/PILLOW_RESAMPLING_NOTICE.md"],
+        ] as const) {
+          this.emitFile({ type: "asset", fileName: destination, source: readFileSync(fileURLToPath(new URL(source, import.meta.url))) });
+        }
+      },
+      transformIndexHtml: {
+        order: "pre" as const,
+        handler(html: string) {
+          const entry = '<script type="module" src="/src/main.tsx"></script>';
+          if (html.split(entry).length !== 2) throw new Error("Expected one benchmark entry; refuse an ambiguous candidate build.");
+          return html.replace(entry, '<script type="module" src="/src/candidate/main.tsx"></script>')
+            .replace("PlateGauge · Benchmark &amp; failure explorer", "PlateGauge · Experimental camera")
+            .replace("PlateGauge is a transparent benchmark and failure explorer for a category-shift leftover-fraction computer-vision study.", "Capture a before-and-after pair and explore an experimental, on-device food-leftover estimate. Not a scale or a validated measurement.")
+            .replace("object-src 'none';", "media-src 'self' blob:; frame-src 'none'; object-src 'none';");
+        },
+      },
+    } satisfies Plugin] : [])],
     resolve: {
       conditions: ["onnxruntime-web-use-extern-wasm", "module", "browser", mode],
     },
     build: {
+      outDir: cameraCandidate ? "dist-camera" : "dist",
       target: "es2022",
-      sourcemap: mode !== "production",
+      sourcemap: mode !== "production" && !cameraCandidate,
     },
     worker: {
       format: "es",
     },
     test: {
+      maxWorkers: 2,
       environment: "jsdom",
       globals: true,
       setupFiles: "./src/test/setup.ts",
@@ -93,6 +133,11 @@ export default defineConfig(({ command, mode }) => {
           "src/lib/releaseManifest.ts",
           "src/lib/result.ts",
           "src/lib/testModel.ts",
+          "src/capturePrototype/operations.ts",
+          "src/captureCamera/*.{ts,tsx}",
+          "src/experimentalEstimator/*.ts",
+          "src/libv2/*.ts",
+          "src/candidate/policy.ts",
         ],
         thresholds: {
           lines: 85,

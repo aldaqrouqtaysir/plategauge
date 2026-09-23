@@ -1,0 +1,8 @@
+.candidate-message { max-width: 48rem; margin: 8vh auto; padding: 2rem; color: #173d32; }
+.candidate-message h1 { font-family: Georgia, serif; font-size: clamp(1.8rem, 4vw, 2.8rem); }
+.candidate-message p { line-height: 1.7; }
+.candidate-message button { padding: .8rem 1.2rem; border: 1px solid #315c48; border-radius: .5rem; background: #164d3c; color: #fff; cursor: pointer; }
+.candidate-message button:focus-visible, .candidate-evidence-note a:focus-visible { outline: 3px solid #537c22; outline-offset: 4px; }
+.candidate-evidence-note { display: flex; flex-wrap: wrap; justify-content: center; gap: .4rem 1rem; padding: 1rem; background: #eef1df; color: #234737; font-size: .9rem; }
+.candidate-evidence-note a { color: inherit; font-weight: 700; text-underline-offset: .2em; }
+.candidate-evidence .site-header { display: none; }
