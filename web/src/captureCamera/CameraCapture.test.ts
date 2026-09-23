@@ -102,6 +102,21 @@ describe("user-initiated camera component with fully mocked hardware", () => {
     if (originalRevokeUrl) Object.defineProperty(URL, "revokeObjectURL", originalRevokeUrl); else Reflect.deleteProperty(URL, "revokeObjectURL");
   });
 
+  it("keeps the capture introduction concise without hiding action-boundary warnings", () => {
+    const view = render(createElement(CameraCapture));
+    expect(screen.queryByText(/Take two photos\. Match the framing/)).not.toBeInTheDocument();
+    expect(view.container.querySelector(".cp-intro")?.children).toHaveLength(1);
+    expect(screen.getByRole("heading", { name: "Capture checklist" })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Open camera" })).toHaveAccessibleDescription(/Not validated for your photos or field use; not a scale measurement/);
+    expect(screen.getByRole("button", { name: "Save session" })).toHaveAccessibleDescription(/unencrypted.*photos and starting mass.*does not delete the file/);
+    const privacy = screen.getByText("Privacy & storage").closest("details");
+    expect(privacy).not.toHaveAttribute("open");
+    expect(privacy).toHaveTextContent("photos are not used to train a model");
+    expect(privacy).toHaveTextContent("Hiding the tab stops the camera and clears estimates");
+    expect(view.container.querySelector(".rc-session-status")).toBeEmptyDOMElement();
+    expect(requestCamera).not.toHaveBeenCalled(); expect(estimatePair).not.toHaveBeenCalled();
+  });
+
   it("never requests a camera on mount and exposes only a session-file picker, not image uploads", () => {
     const view = render(createElement(CameraCapture));
     expect(requestCamera).not.toHaveBeenCalled();

@@ -1,5 +1,38 @@
 import { expect, test } from "@playwright/test";
+import AxeBuilder from "@axe-core/playwright";
 import { expectInert, expectPrivate, saveSession, setup, takeBefore, takePair } from "./support";
+
+for (const width of [320, 768, 980, 1440]) {
+  test(`concise capture guidance stays readable and keyboard-accessible at ${width}px`, async ({ page, context, baseURL }, testInfo) => {
+    await page.setViewportSize({ width, height: 1000 });
+    const { network } = await setup(page, context, baseURL);
+    await expect(page.locator(".cp-intro > p")).toHaveCount(0);
+    await expect(page.getByText(/Take two photos\. Match the framing/)).toHaveCount(0);
+    await expect(page.getByRole("button", { name: "Open camera", exact: true })).toHaveAccessibleDescription(/Not validated for your photos or field use; not a scale measurement/);
+    await expect(page.locator("#rc-session-disclosure")).toBeVisible();
+    await expect(page.locator("#rc-session-disclosure")).toContainText("unencrypted");
+    const privacy = page.locator("details.rc-privacy-details");
+    const summary = privacy.locator("summary");
+    await expect(privacy).not.toHaveAttribute("open");
+    await expect(privacy.locator("p").first()).not.toBeVisible();
+    const heading = await page.locator(".cp-intro h1").boundingBox();
+    const boundary = await page.locator("#rc-capture-disclosure").boundingBox();
+    expect(heading).not.toBeNull(); expect(boundary).not.toBeNull();
+    expect(heading!.y + heading!.height + 12).toBeLessThanOrEqual(boundary!.y);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    await page.screenshot({ path: testInfo.outputPath(`concise-capture-${width}.png`), fullPage: true });
+    await summary.focus(); await expect(summary).toBeFocused();
+    await page.keyboard.press("Enter");
+    await expect(privacy).toHaveAttribute("open");
+    await expect(privacy.locator("p").first()).toBeVisible();
+    await expect(privacy).toContainText("Session files are downloaded only when you choose Save session");
+    expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    await page.keyboard.press("Enter");
+    await expect(privacy).not.toHaveAttribute("open");
+    await expectInert(page, network);
+  });
+}
 
 test("capture skip link is visibly painted above navigation and reaches main by keyboard", async ({ page, context, baseURL }) => {
   await page.setViewportSize({ width: 320, height: 844 });

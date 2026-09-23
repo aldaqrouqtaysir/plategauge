@@ -59,7 +59,7 @@ export default function CameraCapture() {
   const [latestEstimateWallMs, setLatestEstimateWallMs] = useState<number | null>(null);
   const [sessionState, setSessionState] = useState<SessionState>({ status: "idle" });
   const [error, setError] = useState("");
-  const [notice, setNotice] = useState("Your camera stays off until you choose Open camera.");
+  const [notice, setNotice] = useState("");
   const videoRef = useRef<HTMLVideoElement>(null);
   // React clears DOM refs before effect cleanup; retain the owned video until detached.
   const attachedVideo = useRef<HTMLVideoElement | null>(null);
@@ -473,13 +473,13 @@ export default function CameraCapture() {
     <LocalHeader current="capture" onNavigate={clearPhotos} />
     <main className="cp-main" id="main" tabIndex={-1}>
       <a className="lp-back-home" href={import.meta.env.BASE_URL} onClick={(event) => { if (isCurrentDocumentNavigation(event)) clearPhotos(); }}><span aria-hidden="true">←</span> Back to home</a>
-      <div className="cp-intro"><div><p className="cp-eyebrow">Your plate. Your camera. Your device.</p><h1>A clearer picture<br /><span className="rc-hero-accent">of what remains.</span></h1></div><p>Take two photos. Match the framing. Review the difference — with your photos kept on your device.</p></div>
-      <div className="cp-boundary" id="rc-capture-disclosure"><CaptureIcon name="info" /><p><strong>Experimental estimate.</strong> Uses the v1 paired research baseline. Not validated for user photos or field use; not a scale measurement.</p></div>
+      <div className="cp-intro"><h1>A clearer picture<br /><span className="rc-hero-accent">of what remains.</span></h1></div>
+      <div className="cp-boundary" id="rc-capture-disclosure"><CaptureIcon name="info" /><p><strong>Experimental estimate.</strong> Not validated for your photos or field use; not a scale measurement.</p></div>
       <ol className="cp-steps" aria-label="Capture steps">{steps.map((item, index) => <li key={item}><button type="button" aria-current={step === item ? "step" : undefined} data-complete={item === "before" ? Boolean(before) : item === "after" ? Boolean(after) : estimate.status === "complete"} disabled={(item === "after" && !before) || (item === "review" && !completePair)} onClick={() => navigate(item)}><span>{String(index + 1).padStart(2, "0")}</span><strong>{item === "review" ? "Review & estimate" : `${item === "before" ? "Before" : "After"} photo`}</strong><small>{item === "before" ? before ? "Photo captured ✓" : "Set the starting point" : item === "after" ? after ? "Photo captured ✓" : "Match your framing" : estimate.status === "complete" ? "Estimate ready" : "Inspect the model input"}</small></button></li>)}</ol>
       <div className="cp-workspace"><section className="cp-card" aria-labelledby="rc-step-title">
         <div className="cp-card-heading"><div><p className="cp-eyebrow">Step {steps.indexOf(step) + 1} of 3</p><h2 id="rc-step-title" ref={titleRef} tabIndex={-1}>{step === "before" ? "Start with a full view." : step === "after" ? "Same plate. Same perspective." : "Review the pair. Then estimate."}</h2></div><span className="cp-step-glyph"><CaptureIcon name="frame" /></span></div>
         {step !== "review" ? <>
-          <p className="cp-instruction">{step === "before" ? "Keep all of one food item inside the model crop rectangle. Keep the plate visible, use even lighting, and leave personal details out of frame." : "Keep the food inside the model crop and match your before photo: same plate, camera, orientation, distance, and light."}</p>
+          <p className="cp-instruction">{step === "before" ? "Keep one food item fully inside the crop. Use even light and keep personal details out of frame." : "Keep the food inside the crop. Match your before photo's plate, camera, orientation, distance, and light."}</p>
           {step === "after" && before && <figure className="rc-reference">
             <img src={before.url} alt="Before photo reference" />
             <figcaption><strong>Your before photo</strong><span>Use the plate edges and background to match your framing. This is a visual reference, not an alignment check.</span></figcaption>
@@ -543,9 +543,9 @@ export default function CameraCapture() {
         <p className="rc-session-status" role="status" aria-live="polite" aria-atomic="true">{notice}</p>
         {step !== "review" && <details className="rc-help" open={Boolean(error)}><summary>Camera permissions and troubleshooting</summary><p>Your browser chooses the closest available camera. Allow camera access when prompted; audio is never requested.</p><p>If an embedded view blocks access, open this page directly in your browser. Check browser and device permissions, and close other apps using the camera.</p><p>You can cancel a request here, but only your browser can dismiss its permission prompt.</p></details>}
         <section className="rc-session-files" data-testid="session-controls" aria-labelledby="rc-session-files-title">
-          <div><p className="cp-eyebrow">Pause now. Pick up later.</p><h3 id="rc-session-files-title">Keep your place.</h3></div>
-          <p>Save after the before photo, or keep the complete pair. Resume only your own PlateGauge session files; ordinary image uploads are not supported.</p>
-          <p className="rc-session-disclosure" id="rc-session-disclosure"><strong>The downloaded file is unencrypted.</strong> It contains your photos and any starting mass, but no estimates. Keep it private and delete it when finished. Clearing this page does not delete downloaded files.</p>
+          <h3 id="rc-session-files-title">Save for later.</h3>
+          <p>Save your progress, or resume your own PlateGauge session file. Not for ordinary image uploads.</p>
+          <p className="rc-session-disclosure" id="rc-session-disclosure"><strong>The downloaded file is unencrypted.</strong> Includes photos and starting mass, not estimates. Keep it private and delete it when finished; clearing this page does not delete the file.</p>
           <div className="rc-session-file-actions">
             <button ref={sessionSaveRef} type="button" className="cp-secondary" disabled={!before || Boolean(parsedMass.error) || sessionBusy || sessionState.status === "confirm"} aria-describedby="rc-session-disclosure" onClick={() => void saveSession()}>Save session</button>
             <button ref={sessionResumeRef} type="button" className="cp-secondary" disabled={sessionBusy || sessionState.status === "confirm"} aria-describedby="rc-session-disclosure" onClick={() => { closeCamera(); invalidateEstimate(); invalidateSession(); sessionFileRef.current?.click(); }}>Resume session</button>
@@ -561,7 +561,20 @@ export default function CameraCapture() {
         </section>
         <DeviceCheck observations={{ cameraReadyNow: ready, beforePresent: Boolean(before), afterPresent: Boolean(after), latestCaptureMs, latestEstimateWallMs, latestModelProcessingMs: estimate.status === "complete" ? estimate.value.processingMs : null }} />
         <div className="cp-session"><p>Leaving or reloading clears this page. Only a session file you choose to download can be resumed later.</p><button className="cp-text-button" type="button" onClick={() => { clearPhotos(); titleRef.current?.focus(); }}>Clear photos</button></div>
-      </section><aside className="cp-guide" aria-label="Capture guidance"><p className="cp-eyebrow">A consistent pair</p><h2>{step === "review" ? "Check what is included." : <>Small details. <br />Better captures.</>}</h2>{step === "review" ? <p className="rc-review-help">Switch to Model input and check both crops before estimating. If food is cut off, retake the photo. Matching shapes and visible food do not establish capture quality or model accuracy.</p> : <ol><li><span>01</span><div><h3>Food inside the crop</h3><p>Keep all of one food item inside the crop rectangle. Avoid personal details anywhere in the full camera frame.</p></div></li><li><span>02</span><div><h3>Match the second photo</h3><p>Use the same viewpoint, orientation, distance, and light. The optional before reference is a visual guide, not registration.</p></div></li><li><span>03</span><div><h3>Review & estimate</h3><p>Inspect the model crops, then choose Estimate remaining. Nothing runs automatically.</p></div></li></ol>}<div className="cp-privacy-note"><strong>On your device. Under your control.</strong><p>No accounts, photo uploads, analytics, automatic saving, or browser history of captures. Session files are downloaded only when you choose Save session. Model assets load locally when requested; photos are not used to train a model. Hiding the tab stops the camera and clears estimates; clearing, reloading, or leaving removes photos from this page, not from your downloads.</p></div></aside></div>
+      </section><aside className="cp-guide" aria-label="Capture guidance">
+        <h2>{step === "review" ? "Before you estimate" : "Capture checklist"}</h2>
+        {step === "review" ? <p className="rc-review-help">Check both Model input crops. Retake if food is cut off. This visual check does not validate the pair or model accuracy.</p> : <ol>
+          <li><span>01</span><div><h3>One food item</h3><p>Fit all of it inside the crop rectangle.</p></div></li>
+          <li><span>02</span><div><h3>Same setup</h3><p>Match the plate, angle, distance, and light.</p></div></li>
+          <li><span>03</span><div><h3>Check the crops</h3><p>Review Model input before estimating.</p></div></li>
+        </ol>}
+        <div className="cp-privacy-note"><strong>Photos stay on your device.</strong>
+          <details className="rc-help rc-privacy-details"><summary>Privacy & storage</summary>
+            <p>No accounts, photo uploads, analytics, automatic saving, or browser history of captures. Model assets load when requested; photos are not used to train a model.</p>
+            <p>Hiding the tab stops the camera and clears estimates. Clearing, reloading, or leaving removes photos from this page. Session files are downloaded only when you choose Save session, and must be deleted separately.</p>
+          </details>
+        </div>
+      </aside></div>
     </main>
     <CaptureFooter onNavigate={clearPhotos} />
   </div>;

@@ -3,6 +3,17 @@
 This file distinguishes repository maintenance from deployed releases. Existing
 tags, scientific evidence and historical failed checks remain unchanged.
 
+## 23 September 2026 - concise camera guidance
+
+- Remove the floating introductory sentence and decorative repeated headings.
+- Shorten capture tips and session guidance; keep the experimental-estimate
+  and unencrypted-file warnings visible beside their actions.
+- Put detailed privacy and storage information in a keyboard-accessible
+  disclosure, with a short on-device statement always visible.
+- Check the capture layout at four widths in three browser engines. No camera,
+  session, model or scientific-result behavior changes; publication status is
+  recorded separately in [Current release](docs/CURRENT_RELEASE.md).
+
 ## 23 September 2026 - comprehensive maintenance audit
 
 - Fix new-tab navigation clearing captures, hidden keyboard focus and differing
