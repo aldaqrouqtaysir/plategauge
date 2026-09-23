@@ -78,8 +78,7 @@ default-Windows and LF-preserving checkouts; see
 
 ### Minute 5 — check reproducibility and boundaries
 
-Read `docs/MODEL_CARD.md`, `docs/DATASHEET.md`, and
-`docs/AI_ASSISTANCE_PUBLIC.md`, then read
+Read `docs/MODEL_CARD.md` and `docs/DATASHEET.md`, then read
 `docs/REPRODUCIBILITY_NOTE.md`. `docs/TEST_REPORT.md` records 209 passed Python
 tests, one intentional skip, and `85.51%` coverage for the configured
 **non-training Python scope**;

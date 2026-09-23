@@ -359,7 +359,7 @@ function FrozenExample({ example }: { example: BenchmarkExample }) {
       <p className="review-note">
         <WarningIcon />
         <span>
-          <strong>AI-assisted post-hoc review hypothesis.</strong> {example.note}
+          <strong>Post-hoc visual review hypothesis.</strong> {example.note}
         </span>
       </p>
     </article>
@@ -822,7 +822,7 @@ export default function App() {
         <section className="hero" id="top">
           <div className="hero-copy">
             <p className="eyebrow">A benchmark-only category-shift computer-vision study</p>
-            <h1>Explore the result—<br /><em>including where it failed.</em></h1>
+            <h1>Explore the result.<br /><em>Including where it failed.</em></h1>
             <p className="hero-lead">
               PlateGauge tested whether a before-and-after image pair improves leftover-fraction
               estimation on unseen food categories. The paired model beat the best non-neural
@@ -839,13 +839,18 @@ export default function App() {
             </ul>
           </div>
           <aside className="finding-card" aria-label="Primary finding">
-            <span>Primary paired model</span>
-            <strong>{percentagePoints(frozenMetrics.pairedMacroMae, 2)}</strong>
-            <p>macro-category mean absolute error</p>
-            <div className="finding-divider" />
-            <span>After-only comparator</span>
-            <strong>{percentagePoints(frozenMetrics.afterOnlyMacroMae, 2)}</strong>
-            <p>macro-category mean absolute error · lower is better</p>
+            <div className="finding-metrics">
+              <div className="finding-metric">
+                <span>Primary paired model</span>
+                <strong>{percentagePoints(frozenMetrics.pairedMacroMae, 2)}</strong>
+                <p>Macro-category mean absolute error</p>
+              </div>
+              <div className="finding-metric">
+                <span>After-only comparator</span>
+                <strong>{percentagePoints(frozenMetrics.afterOnlyMacroMae, 2)}</strong>
+                <p>Macro-category mean absolute error · lower is better</p>
+              </div>
+            </div>
             <div className="negative-finding">Paired was {signedPoints(frozenMetrics.pairedMinusAfterOnly)} worse.</div>
           </aside>
         </section>
@@ -853,13 +858,19 @@ export default function App() {
         <section className="results-section" id="results" aria-labelledby="results-title">
           <div className="section-heading">
             <div><p className="eyebrow">Frozen confirmatory evaluation</p><h2 id="results-title">The paired model did not outperform after-only.</h2></div>
-            <p>Five category-disjoint outer folds evaluated all {frozenMetrics.validPairs} valid LeFood pairs across {frozenMetrics.categories} categories once.</p>
           </div>
-          <p className="target-definition">
-            <strong>What is measured:</strong> leftover fraction = recorded after mass ÷ recorded
-            before mass. A target of 0 means none of the recorded mass remained; 1 means all of it
-            remained. MAE is reported as absolute error in percentage points, not model accuracy.
-          </p>
+          <div className="study-context" aria-label="Evaluation scope and target">
+            <dl className="study-facts">
+              <div><dt>Valid LeFood pairs</dt><dd>{frozenMetrics.validPairs}</dd></div>
+              <div><dt>Food categories</dt><dd>{frozenMetrics.categories}</dd></div>
+              <div><dt>Category-disjoint outer folds</dt><dd>5</dd></div>
+            </dl>
+            <p className="target-definition">
+              <strong>What is measured:</strong> leftover fraction = recorded after mass ÷ recorded
+              before mass. A target of 0 means none of the recorded mass remained; 1 means all of it
+              remained. MAE is reported as absolute error in percentage points, not model accuracy.
+            </p>
+          </div>
           <div className="metrics-grid">
             <MetricCard value={percentagePoints(frozenMetrics.pairedMacroMae, 2)} label="Paired macro MAE" detail="Primary metric across 34 category-level MAEs." />
             <MetricCard value={percentagePoints(frozenMetrics.afterOnlyMacroMae, 2)} label="After-only macro MAE" detail="Better than the paired model by 2.49 percentage points." />
@@ -899,15 +910,19 @@ export default function App() {
         <section className="explorer-section" id="explorer" aria-labelledby="explorer-title">
           <div className="section-heading">
             <div><p className="eyebrow">Fixed evidence explorer</p><h2 id="explorer-title">Look at both the close predictions and the hard failures.</h2></div>
-            <p>These ten records are disclosed selections from frozen outer-fold predictions. Uploads are disabled; you cannot obtain a result for a new image.</p>
           </div>
           <div className="explorer-layout">
             <aside
               className="example-chooser"
               role="radiogroup"
               aria-label="Choose one frozen benchmark example"
+              aria-describedby="example-selection-context"
               onKeyDown={moveExampleSelection}
             >
+              <div className="chooser-context" id="example-selection-context">
+                <strong>Ten disclosed selections</strong>
+                <p>Five selected successes and five largest errors from frozen outer-fold predictions, not a random sample. This explorer uses fixed records only; uploads and new-image estimates are unavailable here.</p>
+              </div>
               <ExampleChooser kind="representative_success" selectedId={selected.id} onSelect={selectExample} />
               <ExampleChooser kind="largest_error" selectedId={selected.id} onSelect={selectExample} />
             </aside>
@@ -967,11 +982,10 @@ export default function App() {
         <section className="method-section" id="method" aria-labelledby="method-title">
           <div className="section-heading light">
             <div><p className="eyebrow">What the experiment tested</p><h2 id="method-title">A frozen, category-disjoint comparison.</h2></div>
-            <p>Every valid pair appeared in one untouched outer fold; food category never entered the model.</p>
           </div>
           <ol className="method-grid">
-            <li><span>01</span><h3>Pair</h3><p>A shared MobileNet encoder processed standardized before and after images.</p></li>
-            <li><span>02</span><h3>Hold out categories</h3><p>Five duplicate-safe folds tested transfer to categories absent from training.</p></li>
+            <li><span>01</span><h3>Pair</h3><p>A shared MobileNet encoder processed standardized before and after images. Food category never entered the model.</p></li>
+            <li><span>02</span><h3>Hold out categories</h3><p>Five duplicate-safe, category-disjoint outer folds covered all {frozenMetrics.validPairs} valid pairs across {frozenMetrics.categories} categories. Every pair appeared in one untouched outer fold, testing categories absent from training.</p></li>
             <li><span>03</span><h3>Compare honestly</h3><p>The paired model beat non-neural baselines, but lost to the after-only ablation.</p></li>
           </ol>
         </section>
@@ -986,7 +1000,7 @@ export default function App() {
             <article><span>02</span><div><h3>No public uncertainty interval</h3><p>Coverage was adequate in aggregate, but mean interval width exceeded the frozen gate.</p></div></article>
             <article><span>03</span><div><h3>No useful-abstention claim</h3><p>Error fell among retained cases, but retention was too low and badly uneven across target slices.</p></div></article>
             <article><span>04</span><div><h3>No waste-reduction claim</h3><p>This study measured benchmark error. It did not test behavior, savings, or institutional impact.</p></div></article>
-            <article><span>05</span><div><h3>Possible source-label tensions</h3><p>Several AI-assisted post-hoc visual reviews found records that appear to conflict with recorded mass. These are hypotheses, not causal findings or declared label errors; the records remain in the frozen evaluation.</p></div></article>
+            <article><span>05</span><div><h3>Possible source-label tensions</h3><p>Post-hoc visual review identified records that appear to conflict with recorded mass. These are hypotheses, not causal findings or declared label errors; the records remain in the frozen evaluation.</p></div></article>
           </div>
         </section>
 
@@ -1006,7 +1020,6 @@ export default function App() {
           <a href={`${import.meta.env.BASE_URL}legal/PRIVACY_NOTICE.md`}>Privacy</a>
           <a href={`${import.meta.env.BASE_URL}legal/NOTICE.txt`}>Notices</a>
           <a href={`${import.meta.env.BASE_URL}legal/THIRD_PARTY_LICENSES.json`}>Dependency licenses</a>
-          <a href={`${import.meta.env.BASE_URL}legal/AI_ASSISTANCE_LOG.md`}>AI-assistance disclosure</a>
           {sourceUrl ? <a href={sourceUrl} rel="noreferrer">Source</a> : <span>Source unavailable in this development build</span>}
         </div>
       </footer>

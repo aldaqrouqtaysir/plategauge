@@ -57,9 +57,7 @@ test("serves the built fixed-example release using only allowlisted same-origin 
   await expect(page.getByRole("link", { name: "Privacy", exact: true })).toHaveAttribute(
     "href", "/plategauge/legal/PRIVACY_NOTICE.md",
   );
-  await expect(page.getByRole("link", { name: "AI-assistance disclosure", exact: true })).toHaveAttribute(
-    "href", "/plategauge/legal/AI_ASSISTANCE_LOG.md",
-  );
+  await expect(page.getByRole("link", { name: "AI-assistance disclosure", exact: true })).toHaveCount(0);
   await expect(page.getByRole("link", { name: "Notices", exact: true })).toHaveAttribute(
     "href",
     "/plategauge/legal/NOTICE.txt",
@@ -112,8 +110,8 @@ test("ships self-contained project, dataset, model, and dependency notices", asy
   }
 
   const assistance = await request.get("./legal/AI_ASSISTANCE_LOG.md");
-  expect(assistance.ok()).toBe(true);
-  expect(await assistance.text()).toContain("AI-assistance disclosure");
+  // A static preview may serve its SPA fallback for a missing resource.
+  expect(await assistance.text()).not.toContain("# Public AI-assistance disclosure");
 
   const evidence = await request.get("./evidence/benchmark-evidence.json");
   expect(evidence.ok()).toBe(true);

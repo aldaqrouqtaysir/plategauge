@@ -287,6 +287,7 @@ p {
 
 .finding-card {
   position: relative;
+  min-width: 0;
   padding: clamp(30px, 4vw, 48px);
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.17);
@@ -306,36 +307,51 @@ p {
   content: "";
 }
 
-.finding-card > span {
+.finding-metrics {
+  position: relative;
+  display: grid;
+  gap: 28px;
+}
+
+.finding-metric {
+  display: grid;
+  min-width: 0;
+  gap: 12px;
+  align-content: start;
+}
+
+.finding-metric + .finding-metric {
+  padding-top: 28px;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.finding-metric > span {
   display: block;
   color: #a9c0b6;
   font-size: 0.7rem;
   font-weight: 750;
   letter-spacing: 0.05em;
+  line-height: 1.5;
   text-transform: uppercase;
 }
 
-.finding-card > strong {
+.finding-metric > strong {
   display: block;
-  margin-top: 6px;
+  margin: 0;
   color: white;
   font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(3rem, 4.5vw, 4.65rem);
   font-weight: 400;
   letter-spacing: -0.05em;
+  line-height: 1.12;
   white-space: nowrap;
 }
 
-.finding-card > p {
-  margin: -4px 0 0;
+.finding-metric > p {
+  margin: 0;
   color: #9fb6ad;
   font-size: 0.73rem;
-}
-
-.finding-divider {
-  height: 1px;
-  margin: 25px 0;
-  background: rgba(255, 255, 255, 0.16);
+  line-height: 1.65;
 }
 
 .negative-finding {
@@ -346,6 +362,7 @@ p {
   color: #ffdac7;
   font-size: 0.77rem;
   font-weight: 780;
+  line-height: 1.65;
 }
 
 .results-section,
@@ -359,9 +376,8 @@ p {
 
 .section-heading {
   display: grid;
-  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
-  gap: 60px;
-  align-items: end;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 20px;
 }
 
 .section-heading h2,
@@ -389,17 +405,51 @@ p {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1px;
-  margin-top: 54px;
+  margin-top: 32px;
   background: var(--line);
   border: 1px solid var(--line);
 }
 
-.target-definition {
-  max-width: 920px;
+.study-context {
   margin: 34px 0 0;
-  padding: 16px 18px;
-  border-left: 3px solid var(--forest);
+  border: 1px solid var(--line);
   background: #eaf0e9;
+}
+
+.study-facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin: 0;
+  padding: 24px;
+}
+
+.study-facts > div {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-start;
+  gap: 8px;
+  min-width: 0;
+}
+
+.study-facts dt {
+  color: var(--ink-soft);
+  font-size: 0.77rem;
+  line-height: 1.5;
+}
+
+.study-facts dd {
+  margin: 0;
+  color: var(--forest);
+  font-size: 1.9rem;
+  font-weight: 650;
+  line-height: 1.15;
+}
+
+.target-definition {
+  margin: 0;
+  padding: 20px 24px;
+  border-top: 1px solid var(--line);
   color: var(--ink-soft);
   font-size: 0.78rem;
   line-height: 1.65;
@@ -410,6 +460,7 @@ p {
 }
 
 .metric-card {
+  min-width: 0;
   min-height: 245px;
   padding: 28px;
   background: var(--paper);
@@ -422,11 +473,13 @@ p {
   font-size: clamp(2.25rem, 4vw, 3.7rem);
   font-weight: 400;
   letter-spacing: -0.04em;
+  line-height: 1.15;
 }
 
 .metric-card h3 {
-  margin: 24px 0 9px;
+  margin: 20px 0 10px;
   font-size: 0.89rem;
+  line-height: 1.4;
 }
 
 .metric-card p {
@@ -902,6 +955,26 @@ p {
   background: var(--line);
 }
 
+.chooser-context {
+  grid-column: 1 / -1;
+  padding: 22px;
+  background: #dfe8dc;
+}
+
+.chooser-context strong {
+  display: block;
+  color: var(--forest);
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+.chooser-context p {
+  margin: 10px 0 0;
+  color: var(--ink-soft);
+  font-size: 0.75rem;
+  line-height: 1.65;
+}
+
 .chooser-group {
   padding: 22px;
   background: var(--paper);
@@ -1318,6 +1391,7 @@ p {
 }
 
 .method-grid li {
+  min-width: 0;
   min-height: 230px;
   padding: 32px;
   background: var(--forest-deep);
@@ -1325,7 +1399,7 @@ p {
 
 .method-grid li > span {
   display: block;
-  margin-bottom: 45px;
+  margin-bottom: 24px;
   color: var(--mint);
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
   font-size: 0.67rem;
@@ -1335,6 +1409,7 @@ p {
   margin: 0 0 10px;
   color: white;
   font-size: 1.1rem;
+  line-height: 1.4;
 }
 
 .method-grid p {
@@ -1472,22 +1547,20 @@ footer p {
     grid-template-columns: 1fr;
   }
 
-  .finding-card {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 7px 25px;
+  .finding-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
   }
 
-  .finding-card .finding-divider {
-    display: none;
+  .finding-metric + .finding-metric {
+    padding-top: 0;
+    padding-left: 28px;
+    border-top: 0;
+    border-left: 1px solid rgba(255, 255, 255, 0.16);
   }
 
-  .finding-card > strong {
+  .finding-metric > strong {
     font-size: 3rem;
-  }
-
-  .negative-finding {
-    grid-column: 1 / -1;
   }
 
   .metrics-grid {
@@ -1686,8 +1759,8 @@ footer p {
 
   .eyebrow,
   .trust-row,
-  .finding-card > span,
-  .finding-card > p,
+  .finding-metric > span,
+  .finding-metric > p,
   .panel-heading > p,
   .slice-label,
   .engineering-grid dt,
@@ -1733,9 +1806,28 @@ footer p {
     font-size: clamp(2.75rem, 14vw, 4rem);
   }
 
-  .finding-card,
+  .finding-metrics,
   .metrics-grid {
     grid-template-columns: 1fr;
+  }
+
+  .finding-metric + .finding-metric {
+    padding-top: 28px;
+    padding-left: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.16);
+    border-left: 0;
+  }
+
+  .study-facts {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .study-facts > div {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
   }
 
   .metric-card {

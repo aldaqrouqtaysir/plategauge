@@ -211,7 +211,9 @@ test("evidence navigation releases camera and photos and ambiguous queries never
   await expect(page.getByText(/Substantially AI-assisted/i)).toHaveCount(0);
   await expect(page.getByText(/accepts no uploads and sends no inference API requests/i)).toHaveCount(0);
   await expect(page.getByRole("link", { name: "Privacy", exact: true })).toHaveAttribute("href", `${BASE}legal/PRIVACY_NOTICE.md`);
-  await expect(page.getByRole("link", { name: "AI-assistance disclosure", exact: true })).toHaveAttribute("href", `${BASE}legal/AI_ASSISTANCE_LOG.md`);
+  await expect(page.getByRole("link", { name: "AI-assistance disclosure", exact: true })).toHaveCount(0);
+  await expect(page.getByText(/AI-assisted post-hoc|Substantially AI-assisted/i)).toHaveCount(0);
+  await expect(page.locator(".review-note")).toContainText("Post-hoc visual review hypothesis.");
   expect((await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa", "wcag21aa"]).analyze()).violations).toEqual([]);
   await expect(page.getByTestId("camera-capture")).toHaveCount(0);
   await expect.poll(() => lifecycle.stopped.length).toBeGreaterThan(beforeStops);

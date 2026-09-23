@@ -25,11 +25,12 @@ reports/experiments/**/tasks/**/workload/*.pt
 reports/media/plategauge-full-page-review.png
 
 # Applicant-private drafts, admissions strategy, continuity notes, and detailed
-# contribution records stay outside the public source tree. Sanitized public
-# disclosures live in AUTHORSHIP.md and AI_ASSISTANCE_PUBLIC.md.
+# contribution records stay outside the current public source tree.
 docs/application/
 docs/mastery/
 docs/AI_ASSISTANCE_LOG.md
+docs/AI_ASSISTANCE_PUBLIC.md
+docs/AUTHORSHIP.md
 docs/APPLICATION_CRITICAL_PATH.md
 docs/APPLICATION_TIMELINE.md
 docs/CONSTRAINTS.md
@@ -45,7 +46,7 @@ docs/STATE.md
 # Internal discovery, selection, detailed governance, and admissions-review
 # records remain in the local workspace but are not part of the prospective
 # public source tree. Public, non-verbatim summaries live in
-# RESEARCH_DECISIONS.md and the release-facing authorship disclosures.
+# RESEARCH_DECISIONS.md.
 docs/DECISION_LOG.md
 docs/FINAL_AUDIT.md
 docs/FINALIST_COMPARISON.md

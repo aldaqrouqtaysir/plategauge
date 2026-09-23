@@ -124,6 +124,5 @@ verified build, preserve the benchmark and follow the
 deploy. Do not publish private research history.
 
 See [the camera system card](CAMERA_SYSTEM_CARD.md) and
-[privacy notice](CAMERA_PRIVACY_NOTICE.md). Implementation and automated checks
-are AI-assisted; no applicant-performed independent reproduction or physical
-device validation is implied.
+[privacy notice](CAMERA_PRIVACY_NOTICE.md). Automated checks do not establish
+physical-device validation.

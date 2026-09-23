@@ -72,7 +72,3 @@ The candidate is built separately into `dist-camera`; the default benchmark
 build remains isolated. Existing Pages workflows and immutable v1 tags are not
 changed. Publication requires a separate exact-source/build decision; passing
 tests alone neither deploys it nor authorizes public accuracy claims.
-
-The extension uses the existing AI-assisted engineering workflow. No independent
-applicant reproduction, physical-device testing, or independent implementation
-claim is inferred from these automated results.

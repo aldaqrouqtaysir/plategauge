@@ -18,7 +18,7 @@ class ReleaseBundleAuditTests(unittest.TestCase):
         report = audit_release_bundle(self.repo_root, self.repo_root / "web/dist")
         self.assertEqual(report["status"], "passed")
         self.assertEqual(report["examples"]["count"], 20)
-        self.assertEqual(report["fileCount"], 36)
+        self.assertEqual(report["fileCount"], 35)
         self.assertEqual(report["benchmarkEvidence"]["workloadRecordCount"], 8)
         self.assertEqual(report["benchmarkEvidence"]["categoryRecordCount"], 34)
         self.assertEqual(report["remoteRuntimeResources"], [])
@@ -39,6 +39,16 @@ class ReleaseBundleAuditTests(unittest.TestCase):
             model = bundle / "models/plategauge.onnx"
             model.write_bytes(model.read_bytes() + b"tamper")
             with self.assertRaisesRegex(DataIntegrityError, "ONNX bytes differ"):
+                audit_release_bundle(self.repo_root, bundle)
+
+    def test_retired_disclosure_asset_is_rejected(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            bundle = Path(directory) / "dist"
+            shutil.copytree(self.repo_root / "web/dist", bundle)
+            (bundle / "legal/AI_ASSISTANCE_LOG.md").write_text(
+                "retired synthetic fixture", encoding="utf-8"
+            )
+            with self.assertRaisesRegex(DataIntegrityError, "allowlist mismatch"):
                 audit_release_bundle(self.repo_root, bundle)
 
     def test_benchmark_evidence_substitution_is_rejected(self) -> None:

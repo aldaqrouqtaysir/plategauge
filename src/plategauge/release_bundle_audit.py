@@ -119,7 +119,6 @@ def _expected_static_files() -> set[str]:
         "evidence/benchmark-evidence.json",
         "examples/ATTRIBUTION.md",
         "legal/LICENSE.txt",
-        "legal/AI_ASSISTANCE_LOG.md",
         "legal/NOTICE.txt",
         "legal/PRIVACY_NOTICE.md",
         "legal/THIRD_PARTY_LICENSES.json",
@@ -228,7 +227,6 @@ def _validate_examples(repo_root: Path, inventory: dict[str, Path]) -> dict[str,
 def _validate_notices(repo_root: Path, inventory: dict[str, Path]) -> dict[str, str]:
     source_map = {
         "legal/LICENSE.txt": repo_root / "LICENSE",
-        "legal/AI_ASSISTANCE_LOG.md": repo_root / "docs/AI_ASSISTANCE_PUBLIC.md",
         "legal/NOTICE.txt": repo_root / "NOTICE",
         "legal/PRIVACY_NOTICE.md": repo_root / "docs/PRIVACY_NOTICE.md",
         "legal/THIRD_PARTY_LICENSES.json": (

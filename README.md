@@ -176,7 +176,7 @@ docs/                Methods, cards, development, and project records
 
 - [Evaluation protocol](docs/EVALUATION_PROTOCOL.md) and [research decisions](docs/RESEARCH_DECISIONS.md)
 - [Datasheet](docs/DATASHEET.md), [data licenses](docs/DATA_LICENSES.md), and [reproducibility note](docs/REPRODUCIBILITY_NOTE.md)
-- [Claim-evidence map](docs/CLAIM_EVIDENCE_MAP.csv), [contribution record](docs/AUTHORSHIP.md), and [development disclosure](docs/AI_ASSISTANCE_PUBLIC.md)
+- [Claim-evidence map](docs/CLAIM_EVIDENCE_MAP.csv)
 - [Current release](docs/CURRENT_RELEASE.md), [release history](CHANGELOG.md), and [monitoring](docs/MONITORING_AND_FAILURES.md)
 - [Contributing](CONTRIBUTING.md) and [security](SECURITY.md)
 

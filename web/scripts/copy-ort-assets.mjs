@@ -1,3 +1,4 @@
+import { createHash } from "node:crypto";
 import { lstat, mkdir, mkdtemp, readFile, readdir, realpath, rename, rmdir, unlink, writeFile } from "node:fs/promises";
 import { dirname, isAbsolute, join, relative, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -17,12 +18,17 @@ const groups = [
   },
   {
     name: "legal",
+    // Retire only this previously generated file with its exact historical bytes.
+    // It is never staged into the next bundle; unknown or changed files still fail closed.
+    retired: [{
+      name: "AI_ASSISTANCE_LOG.md",
+      sha256: "b9d0fd0ea8bbc377ffdf54eb21d859ea26205634c1b252dff1f7c0d2b25a5afb",
+    }],
     sources: [
       [join(repositoryRoot, "LICENSE"), "LICENSE.txt"],
       [join(repositoryRoot, "NOTICE"), "NOTICE.txt"],
       [join(repositoryRoot, "reports", "security", "node-production-licenses.json"), "THIRD_PARTY_LICENSES.json"],
       [join(repositoryRoot, "docs", "PRIVACY_NOTICE.md"), "PRIVACY_NOTICE.md"],
-      [join(repositoryRoot, "docs", "AI_ASSISTANCE_PUBLIC.md"), "AI_ASSISTANCE_LOG.md"],
     ],
   },
 ];
@@ -55,12 +61,21 @@ async function assertPlainDirectory(path, mayBeMissing = false) {
   return true;
 }
 
-async function assertManagedDirectory(path, names) {
+async function assertManagedDirectory(path, names, retired = []) {
   if (!await assertPlainDirectory(path, true)) return false;
   const entries = await readdir(path, { withFileTypes: true });
   for (const entry of entries) {
-    if (!names.includes(entry.name) || !entry.isFile() || entry.isSymbolicLink()) {
+    const retiredAsset = retired.find((asset) => asset.name === entry.name);
+    if ((!names.includes(entry.name) && !retiredAsset) || !entry.isFile() || entry.isSymbolicLink()) {
       throw new Error(`Refusing unexplained or linked file in managed assets: ${join(path, entry.name)}`);
+    }
+    if (retiredAsset) {
+      const retiredPath = join(path, entry.name);
+      const info = await lstat(retiredPath);
+      if (!info.isFile() || info.isSymbolicLink() || info.size > 65_536
+        || createHash("sha256").update(await readFile(retiredPath)).digest("hex") !== retiredAsset.sha256) {
+        throw new Error(`Refusing changed or linked retired asset: ${retiredPath}`);
+      }
     }
   }
   return true;
@@ -71,7 +86,7 @@ async function preflightSources() {
   await assertPlainDirectory(projectRoot);
   if (await assertPlainDirectory(publicDirectory, true)) {
     for (const group of groups) {
-      await assertManagedDirectory(join(publicDirectory, group.name), group.sources.map(([, name]) => name));
+      await assertManagedDirectory(join(publicDirectory, group.name), group.sources.map(([, name]) => name), group.retired);
     }
   }
   return Promise.all(groups.map(async (group) => ({
@@ -90,8 +105,8 @@ async function preflightSources() {
   })));
 }
 
-async function removeManagedDirectory(path, names) {
-  if (!await assertManagedDirectory(path, names)) return;
+async function removeManagedDirectory(path, names, retired = []) {
+  if (!await assertManagedDirectory(path, names, retired)) return;
   // Never recursively remove a path. Only regular, allowlisted generated files are unlinked.
   for (const entry of await readdir(path)) await unlink(join(path, entry));
   await rmdir(path);
@@ -127,13 +142,13 @@ try {
   }
   // Validate every destination again under the exclusive preparation lock before promotion.
   for (const group of preparedGroups) {
-    await assertManagedDirectory(join(publicDirectory, group.name), group.files.map((file) => file.name));
+    await assertManagedDirectory(join(publicDirectory, group.name), group.files.map((file) => file.name), group.retired);
   }
   for (const group of preparedGroups) {
     await assertPlainDirectory(publicDirectory);
     await assertPlainDirectory(stagingDirectory);
     const target = join(publicDirectory, group.name);
-    if (await assertManagedDirectory(target, group.files.map((file) => file.name))) {
+    if (await assertManagedDirectory(target, group.files.map((file) => file.name), group.retired)) {
       await rename(target, join(stagingDirectory, `${group.name}-previous`));
       group.backedUp = true;
     }
@@ -171,7 +186,7 @@ try {
       for (const group of preparedGroups) {
         const names = group.files.map((file) => file.name);
         await removeManagedDirectory(join(stagingDirectory, group.name), names);
-        await removeManagedDirectory(join(stagingDirectory, `${group.name}-previous`), names);
+        await removeManagedDirectory(join(stagingDirectory, `${group.name}-previous`), names, group.retired);
       }
       await rmdir(stagingDirectory);
     }

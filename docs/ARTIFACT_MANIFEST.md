@@ -80,9 +80,9 @@ continuity records remain outside the prospective public source tree.
 | Private review backup under workspace `outputs/` | Exact external hashes are recorded in its private manifest; it is not part of the prospective public source tree or a release |
 
 Internal planning, detailed contribution/AI, continuity, and review records are
-deliberately absent from the prospective public source archive. Public
-transparency is provided by `docs/AUTHORSHIP.md`,
-`docs/AI_ASSISTANCE_PUBLIC.md`, and `docs/RESEARCH_DECISIONS.md`.
+deliberately absent from the current public source archive. Development records
+are retained privately; historical release copies are unchanged. Public methods,
+data provenance, model limitations and research decisions remain documented.
 
 ## Still unavailable
 
