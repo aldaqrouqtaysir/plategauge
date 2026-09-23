@@ -120,6 +120,10 @@ export default defineConfig(({ command, mode }) => {
     },
     test: {
       maxWorkers: 2,
+      // Coverage-instrumented pixel fixtures exceed Vitest's default 5s on
+      // constrained hosts. Runtime deadline behavior is tested with fake clocks;
+      // this runner budget is not an inference/capture performance threshold.
+      testTimeout: 15_000,
       environment: "jsdom",
       globals: true,
       setupFiles: "./src/test/setup.ts",
