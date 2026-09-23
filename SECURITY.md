@@ -3,7 +3,7 @@
 ## Supported versions
 
 As of 23 September 2026, the
-[camera-experimental-r5 prerelease](https://github.com/aldaqrouqtaysir/plategauge/releases/tag/camera-experimental-r5)
+[camera-experimental-r6 prerelease](https://github.com/aldaqrouqtaysir/plategauge/releases/tag/camera-experimental-r6)
 is the deployed, live-verified camera profile.
 [v1.0.2](https://github.com/aldaqrouqtaysir/plategauge/releases/tag/v1.0.2)
 remains the latest stable benchmark release and rollback target. Report the

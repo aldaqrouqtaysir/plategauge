@@ -6,9 +6,11 @@ food-waste reduction. No raw dataset download or model training is needed.
 
 [Open camera](https://aldaqrouqtaysir.github.io/plategauge/?capture=1) or
 [open Evidence](https://aldaqrouqtaysir.github.io/plategauge/?view=evidence).
-The live profile is `camera-experimental-r5`, deployed and live-verified on
+The live profile is `camera-experimental-r6`, deployed and live-verified on
 23 September 2026. V1.0.2 remains the historical stable benchmark. See
 [current release and checks](CURRENT_RELEASE.md).
+The r6 update simplifies capture guidance while retaining the experimental
+boundary and an expandable **Privacy & storage** explanation.
 Choose either track below; using the camera is optional.
 
 ## Track A — try the experimental workflow

@@ -14,9 +14,11 @@ after, review the model's crop, and explicitly request an experimental estimate.
 Then explore the frozen evaluation to see where the model succeeds and fails.
 **Camera-photo accuracy has not been validated; this is not a food scale.**
 
-The [r5 camera maintenance release](https://github.com/aldaqrouqtaysir/plategauge/releases/tag/camera-experimental-r5)
+The [r6 camera maintenance release](https://github.com/aldaqrouqtaysir/plategauge/releases/tag/camera-experimental-r6)
 is published, deployed and live-verified on 23 September 2026. The frozen benchmark remains
 available under **Evidence**. See [current release and verification](docs/CURRENT_RELEASE.md).
+The [presentation update](docs/CAMERA_R6_RELEASE.md) simplifies capture guidance
+without changing the model or workflow.
 
 ![PlateGauge capture-first homepage, with the camera off](reports/media/camera-home-2026-09-23.png)
 
@@ -40,7 +42,7 @@ photograph or model output. [Screenshot provenance and idle camera view](reports
 There are two separately guarded release profiles. Historical
 [v1.0.2](https://github.com/aldaqrouqtaysir/plategauge/releases/tag/v1.0.2)
 is a **fixed-example benchmark and failure explorer**. The
-[`camera-experimental-r5`](https://github.com/aldaqrouqtaysir/plategauge/releases/tag/camera-experimental-r5)
+[`camera-experimental-r6`](https://github.com/aldaqrouqtaysir/plategauge/releases/tag/camera-experimental-r6)
 prerelease adds the experimental camera workflow and keeps the benchmark under
 **Evidence**. Changes on `main` do not automatically deploy. See the
 [current release and rollback guide](docs/CURRENT_RELEASE.md#operating-the-current-release). Neither profile needs a
@@ -162,7 +164,7 @@ only to the documented reference laptop, not unmeasured phones or devices.
 ```text
 src/plategauge/       Python data, models, training, evaluation, and export
 web/                 React/TypeScript camera workflow, evidence explorer, tests
-release/camera-r5/   R5 exact-bundle delivery, approval checks, smoke tests
+release/camera-r6/   R6 exact-bundle delivery, approval checks, smoke tests
 configs/             Frozen experiment configurations
 data/                Manifests and provenance; raw data stays outside Git
 tests/               Python and integrity tests

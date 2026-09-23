@@ -1,6 +1,23 @@
 # Monitoring, incidents, and failure handling
 
-## R5 publication status — 23 September 2026
+## R6 publication status — 23 September 2026
+
+The active profile is `camera-experimental-r6`. The presentation update simplifies
+capture guidance without changing the model or security boundaries.
+[Source CI 35905290466](https://github.com/aldaqrouqtaysir/plategauge/actions/runs/35905290466)
+passed for `efa45fa6be6bddc5092282635761bd38af77c840`.
+[Release workflow 35905487398](https://github.com/aldaqrouqtaysir/plategauge/actions/runs/35905487398)
+passed predeployment verification, deployment, all 45 live-file hashes and eight
+HTTPS-mode harness checks for approval `6154dc0870be3387525811551aa5858665eac447`.
+[R6 weekly smoke 35906209889](https://github.com/aldaqrouqtaysir/plategauge/actions/runs/35906209889)
+also passed after r6 profile selection, independently checking all 45 live-file
+hashes and eight HTTPS-mode harness checks.
+
+`weekly-camera-r6-smoke.yml` is pinned to the r6 tag and runs Mondays at 05:37 UTC.
+Its 45-file comparison and eight bounded checks use no native-camera access or
+visitor telemetry. See [current release and recovery](CURRENT_RELEASE.md).
+
+## Historical r5 publication status — 23 September 2026
 
 The active profile is `camera-experimental-r5`.
 [Source CI 35899982443](https://github.com/aldaqrouqtaysir/plategauge/actions/runs/35899982443)
