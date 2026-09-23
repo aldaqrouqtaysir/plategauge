@@ -3,6 +3,19 @@
 This file distinguishes repository maintenance from deployed releases. Existing
 tags, scientific evidence and historical failed checks remain unchanged.
 
+## 23 September 2026 - experimental camera r3 presentation refinement
+
+- Group headline metrics with their labels and captions, fix responsive
+  spacing, remove the heading's em dash and integrate evaluation context into
+  the results, example selector and method cards.
+- Retire the current development-disclosure page and links; preserve private
+  records, historical releases, required notices and scientific provenance.
+- Test overlap and clipping at 320, 768, 980 and 1440 pixels in three engines.
+  Add fail-closed retirement, absent-resource and exact-bundle checks.
+- Keep camera behavior, model, benchmark values and scientific limits unchanged.
+  See [the r3 release record](docs/CAMERA_R3_RELEASE.md) for verification and
+  delivery; source maintenance does not deploy automatically.
+
 ## 23 September 2026 - experimental camera r2 footer update
 
 - Remove the two-paragraph Evidence-footer text block at the user's request

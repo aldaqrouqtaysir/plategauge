@@ -1,12 +1,13 @@
 # Current release
 
 The camera release combines explicit on-device capture and estimation with
-the unchanged benchmark and failure explorer. The footer-only
-[camera-experimental-r2 update](CAMERA_R2_RELEASE.md) removes two Evidence-footer
-paragraphs while retaining their linked documentation. Its release-specific
-workflow records publication and live verification; main-source changes do
-not deploy automatically. The r1 identities and original verification below
-remain historical records, not the new r2 artifact identities.
+the unchanged benchmark and failure explorer. The
+[camera-experimental-r3 update](CAMERA_R3_RELEASE.md) refines responsive metric
+spacing, integrates evaluation context into the relevant sections and retires
+the former development-disclosure page and link from the current site. Its
+release-specific workflow records publication and live verification;
+main-source changes do not deploy automatically. The r1/r2 identities and
+verification records remain historical, not the new r3 artifact identities.
 
 [Open camera](https://aldaqrouqtaysir.github.io/plategauge/?capture=1) ·
 [Explore evidence](https://aldaqrouqtaysir.github.io/plategauge/?view=evidence) ·
@@ -67,10 +68,10 @@ independent reproduction is established.
 ## Reading historical documents
 
 The model, data, benchmark cards, research reports and historical media describe
-their frozen checkpoints. The bundled camera system card and privacy notice
-were frozen before publication, so their candidate-stage language is retained
-byte-for-byte. This overview records subsequent publication without rewriting
-those artifacts or their claims.
+their frozen checkpoints. The historical r1/r2 copies of the camera system card
+and privacy notice remain byte-for-byte unchanged in their release artifacts.
+The current system card omits the former development-workflow paragraph; its
+model identity, input requirements and scientific limitations are unchanged.
 
 For practical use, start with the [reviewer guide](REVIEWER_QUICKSTART.md),
 [camera privacy notice](CAMERA_PRIVACY_NOTICE.md) and

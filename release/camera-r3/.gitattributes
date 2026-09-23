@@ -1,0 +1,6 @@
+# New release-operation records only; do not normalize historical evidence.
+*.json text eol=lf
+*.py text eol=lf
+*.ts text eol=lf
+*.md text eol=lf
+*.yml text eol=lf

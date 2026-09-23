@@ -1,0 +1,49 @@
+name: Retrieve exact approved camera and rollback distributions
+description: Validate approval before retrieving assets; check archive and every file.
+inputs:
+  purpose:
+    description: release verifies both bundles; rollback needs only the recovery bundle.
+    required: true
+    default: release
+runs:
+  using: composite
+  steps:
+    - name: Check approval-only commit and immutable release bindings
+      shell: bash
+      run: >-
+        python release/camera-r3/verify_release.py approval --repo-root .
+        --approval release/camera-r3/approval.json --expected-tag camera-experimental-r3 --require-tag
+    - name: Retrieve explicitly named assets from the approved release
+      shell: bash
+      env:
+        GH_TOKEN: ${{ github.token }}
+        DELIVERY_PURPOSE: ${{ inputs.purpose }}
+      run: |
+        set -euo pipefail
+        test "$GITHUB_REPOSITORY" = 'aldaqrouqtaysir/plategauge'
+        case "$DELIVERY_PURPOSE" in release|rollback) ;; *) exit 1 ;; esac
+        mkdir "$RUNNER_TEMP/pg-camera-archives"
+        gh release download camera-experimental-r3 --repo aldaqrouqtaysir/plategauge \
+          --pattern rollback-v1.0.2.zip \
+          --dir "$RUNNER_TEMP/pg-camera-archives"
+        if [ "$DELIVERY_PURPOSE" = release ]; then
+          gh release download camera-experimental-r3 --repo aldaqrouqtaysir/plategauge \
+            --pattern camera-experimental-r3.zip --dir "$RUNNER_TEMP/pg-camera-archives"
+        fi
+    - name: Extract only exact approved members into fresh directories
+      shell: bash
+      env:
+        DELIVERY_PURPOSE: ${{ inputs.purpose }}
+      run: |
+        set -euo pipefail
+        camera_sha="$(python -c 'import json; print(json.load(open("release/camera-r3/approval.json"))["bundleArchiveSha256"])')"
+        rollback_sha="$(python -c 'import json; print(json.load(open("release/camera-r3/approval.json"))["rollbackArchiveSha256"])')"
+        case "$DELIVERY_PURPOSE" in release|rollback) ;; *) exit 1 ;; esac
+        if [ "$DELIVERY_PURPOSE" = release ]; then
+          python release/camera-r3/verify_release.py extract --inventory release/camera-r3/inventory.json \
+            --archive "$RUNNER_TEMP/pg-camera-archives/camera-experimental-r3.zip" \
+            --expected-sha256 "$camera_sha" --destination "$RUNNER_TEMP/pg-camera-dist"
+        fi
+        python release/camera-r3/verify_release.py extract --inventory release/camera-r3/rollback-inventory.json \
+          --archive "$RUNNER_TEMP/pg-camera-archives/rollback-v1.0.2.zip" \
+          --expected-sha256 "$rollback_sha" --destination "$RUNNER_TEMP/pg-rollback-dist"
