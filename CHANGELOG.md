@@ -23,6 +23,10 @@ tags, scientific evidence and historical failed checks remain unchanged.
 - Pin ordinary CI and weekly-monitor Linux runners to Ubuntu 24.04, avoiding
   the announced `ubuntu-latest` transition beginning 19 October. Frozen release
   workflows and existing release tags are unchanged.
+- Retain the runner-pin follow-up failure: the monitoring contract test still
+  expected the old floating Linux alias. Update that assertion to require the
+  pinned Linux runner while preserving its Windows/runtime safety assertions
+  and the deliberately historical failing-setup fixture.
 
 ## 23 September 2026 — import-only CI correction
 

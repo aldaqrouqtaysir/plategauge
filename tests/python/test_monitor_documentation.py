@@ -344,7 +344,7 @@ class WorkflowContractTests(unittest.TestCase):
         root = Path(__file__).resolve().parents[2]
         ci = (root / ".github/workflows/ci.yml").read_text()
         synthetic = ci.split("  monitoring-tests:", 1)[1].split("  python:", 1)[0]
-        self.assertIn("[ubuntu-latest, windows-latest]", synthetic)
+        self.assertIn("[ubuntu-24.04, windows-latest]", synthetic)
         self.assertIn("test_monitor_documentation.py", synthetic)
         # Installing the runtime manager is allowed; project dependencies are not.
         self.assert_runtime_contract(synthetic)
