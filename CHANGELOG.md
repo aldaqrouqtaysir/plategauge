@@ -3,6 +3,18 @@
 This file distinguishes repository maintenance from deployed releases. Existing
 tags, scientific evidence and historical failed checks remain unchanged.
 
+## 23 September 2026 - experimental camera r2 footer update
+
+- Remove the two-paragraph Evidence-footer text block at the user's request
+  and simplify its desktop layout. Keep the linked privacy and contribution
+  records unchanged and accessible.
+- Extend existing camera and benchmark smoke assertions to check that removal
+  and the retained links. Camera behavior, model and scientific values do not change.
+- Prepare a separate immutable r2 exact-artifact release with dedicated checks,
+  monitoring and rollback; preserve r1 and all historical tags and records.
+- See [the r2 release record](docs/CAMERA_R2_RELEASE.md) for exact identities and
+  release/live verification links; local checks alone do not mean deployment.
+
 ## 23 September 2026 - postrelease maintenance
 
 - Align the README, reviewer walkthrough, development entry points and security

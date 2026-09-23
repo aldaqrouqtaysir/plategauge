@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "recordedDate": "2026-09-23",
+  "purpose": "Local engineering verification of footer presentation maintenance; not a scientific result or proof of deployment",
+  "appSourceCommit": "5d67e29bf79d088e7c4a6903c6ce2c5c58a10f1a",
+  "publicBaseCommit": "c55a7a08afdb6f5c167134646c46f798fe18d184",
+  "authorizationContext": "The user requested removal of the pictured two-line footer block after granting routine maintenance and publication authority without repeated approval prompts. No applicant-performed independent source review or reproduction is claimed.",
+  "change": "Remove the two-paragraph Evidence-footer block and its unused layout column; retain linked privacy and contribution documents unchanged",
+  "cameraBundle": {
+    "fileCount": 46,
+    "inventorySha256": "d885da02a49fdc54863656ff3c368b41aa8c932c2446bd3bfca6826e9de3009b",
+    "archiveSha256": "492e828d7e57e2decd2e9c1e2fcdd46e0e4f15ad01f94618d5e6d9394938f77d"
+  },
+  "frozenIdentities": {
+    "modelBytes": 10355122,
+    "modelSha256": "9c830e80cab86acd85c5b27b5733126594561844d0398d602a039c68befbd675",
+    "benchmarkEvidenceSha256": "c6f7d435d077bc67649d192efb169e247a1a208e5e9bdc0b6feabd772887c412",
+    "modelImproved": false,
+    "scientificValuesChanged": false,
+    "r1ReleaseRecordsChanged": false
+  },
+  "applicationVerification": {
+    "typecheck": "passed",
+    "eslint": "passed with zero warnings",
+    "benchmarkProductionTests": {
+      "passed": 2,
+      "failed": 0,
+      "reportSha256": "8de37c5a0ba830c55f062d26b796c71cda21ede3cff8ac0e37798d5063c7db14"
+    },
+    "cameraBuiltBrowserTests": {
+      "passed": 39,
+      "failed": 0,
+      "skipped": 0,
+      "flaky": 0,
+      "engines": ["Playwright Chromium", "Playwright Firefox", "Playwright WebKit"],
+      "reportSha256": "c5743522c2674103870fc2fd39f5355acc360a6bc10754834705f60710cbf84d"
+    },
+    "layoutReview": {
+      "viewports": ["1440x900", "375x812"],
+      "removedBlockAbsent": true,
+      "documentationLinksRetained": true,
+      "horizontalOverflow": false,
+      "screenshotsVisuallyReviewed": true,
+      "reportSha256": "f50846c1dc661ca892f7a50ddebbaa8b713ffc82cbeaf6e7a7cd3f4f8b024298"
+    }
+  },
+  "releaseOperationsVerification": {
+    "syntheticValidatorTests": {"passed": 37, "failed": 0},
+    "validatorSourceSha256": "d179d94225ee1f66fa4a2e8754add85864f8b6167c9036027f24b171dcb184e1",
+    "validatorTestSourceSha256": "6cc507ceab362516c4f8d3ddc22547767ed90815fbdb793d3b61b2621ac75b39",
+    "ruffAndStrictMypy": "passed",
+    "harnessTypecheck": "passed",
+    "actionlint": "1.7.12 passed on three new and two narrowly amended workflows; external shellcheck and pyflakes disabled",
+    "localArchivedArtifactSmoke": {
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "flaky": 0,
+      "reportSha256": "396a76a7a0500ac39fecc743bd387c7f3e4c7e4126fb5973a626fff9a00bbaa5",
+      "input": "Generated frames through a locked synthetic camera API; real unchanged pinned ONNX model"
+    },
+    "independentReadOnlyReview": "No substantive blockers; exact r1+r2 routing, archive and approval boundaries preserved",
+    "priorAttempts": "The first local archive extraction correctly rejected a nonexistent parent directory; creating only the required empty parent allowed the unchanged archive to verify. No failed browser run was discarded."
+  },
+  "rollback": {
+    "release": "v1.0.2",
+    "releaseCommit": "b6a3c2519c78d83669444c31c7c139920a1c4506",
+    "inventorySha256": "f1ac0b4f48e58f99e879f30a28f825d2998b40ad3a0c93b271822089c65c5d83",
+    "archiveSha256": "5cec4fe17a236149ff26b0ac3103249014f6087b1a162308d0e1b2eeac4c2cd6",
+    "unchangedFromR1": true
+  },
+  "limitations": [
+    "No physical camera or personal image used in automated verification",
+    "No new accuracy, calibration, operational impact, authorship or applicant mastery claim",
+    "No research training, new data, model or scientific-value change",
+    "Hosted CI, publication and post-deployment checks are separate observations, not inferred from this local record",
+    "Raw diagnostics and layout screenshots remain local; no visitor data is included",
+    "Historical failures and B0-SCOPE-001 remain unwaived"
+  ]
+}

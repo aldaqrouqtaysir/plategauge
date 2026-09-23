@@ -21,7 +21,7 @@ concurrency:
 
 jobs:
   guard:
-    if: ${{ github.event_name != 'release' || github.event.release.tag_name != 'camera-experimental-r1' }}
+    if: ${{ github.event_name != 'release' || (github.event.release.tag_name != 'camera-experimental-r1' && github.event.release.tag_name != 'camera-experimental-r2') }}
     name: Enforce the approved release gate
     runs-on: ubuntu-latest
     outputs:

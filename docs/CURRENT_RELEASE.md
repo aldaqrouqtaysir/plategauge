@@ -1,9 +1,12 @@
 # Current release
 
-As of 23 September 2026, PlateGauge's live site runs the
-[camera-experimental-r1 prerelease](https://github.com/aldaqrouqtaysir/plategauge/releases/tag/camera-experimental-r1).
-It combines explicit on-device capture and estimation with the unchanged
-benchmark and failure explorer.
+The camera release combines explicit on-device capture and estimation with
+the unchanged benchmark and failure explorer. The footer-only
+[camera-experimental-r2 update](CAMERA_R2_RELEASE.md) removes two Evidence-footer
+paragraphs while retaining their linked documentation. Its release-specific
+workflow records publication and live verification; main-source changes do
+not deploy automatically. The r1 identities and original verification below
+remain historical records, not the new r2 artifact identities.
 
 [Open camera](https://aldaqrouqtaysir.github.io/plategauge/?capture=1) ·
 [Explore evidence](https://aldaqrouqtaysir.github.io/plategauge/?view=evidence) ·
@@ -26,7 +29,7 @@ failed benchmark acceptance gates remain intact. This release does not establish
 food-weight accuracy, operational usefulness or food-waste reduction. It is not
 for medical, nutritional, purchasing or safety decisions.
 
-## Exact published identities
+## R1 baseline identities (preserved)
 
 | Component | Identity |
 |---|---|
@@ -46,7 +49,7 @@ affected a development fixture generator, not the deployed files.
 remains the latest stable **benchmark-only** release and the preserved rollback
 target. The camera prerelease does not rename it or change its evidence.
 
-## Verified engineering evidence
+## Original r1 engineering evidence (preserved)
 
 | Check | Recorded result |
 |---|---|

@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   smoke:
-    if: ${{ vars.PLATEGAUGE_ACTIVE_PROFILE != 'camera-experimental-r1' }}
+    if: ${{ vars.PLATEGAUGE_ACTIVE_PROFILE != 'camera-experimental-r1' && vars.PLATEGAUGE_ACTIVE_PROFILE != 'camera-experimental-r2' }}
     name: Live v1.0.2 page, integrity and fixed replay
     runs-on: ubuntu-24.04
     timeout-minutes: 15
