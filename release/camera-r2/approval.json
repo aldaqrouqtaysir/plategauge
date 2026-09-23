@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "decision": "approved",
+  "approvedBy": "Taysir Al Daqrouq",
+  "approvedAt": "2026-09-23T16:18:52Z",
+  "scope": "experimental-camera-publication",
+  "releaseTag": "camera-experimental-r2",
+  "appSourceCommit": "5d67e29bf79d088e7c4a6903c6ce2c5c58a10f1a",
+  "operationsSourceCommit": "85537d6c899c1042b50c3434c33dfacaffae6dee",
+  "publicUrl": "https://aldaqrouqtaysir.github.io/plategauge/",
+  "inventorySha256": "d885da02a49fdc54863656ff3c368b41aa8c932c2446bd3bfca6826e9de3009b",
+  "bundleArchiveSha256": "492e828d7e57e2decd2e9c1e2fcdd46e0e4f15ad01f94618d5e6d9394938f77d",
+  "rollbackArchiveSha256": "5cec4fe17a236149ff26b0ac3103249014f6087b1a162308d0e1b2eeac4c2cd6",
+  "rollbackInventorySha256": "f1ac0b4f48e58f99e879f30a28f825d2998b40ad3a0c93b271822089c65c5d83",
+  "verificationEvidenceSha256": "cb909c327fdb6f0af00776f4720e2e160de84d78815b0a3ebbf6439a3eec03c7"
+}
