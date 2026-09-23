@@ -1,8 +1,8 @@
 """Generate synthetic-only resize references with installed Pillow; never overwrite."""
 
+import argparse
 import hashlib
 import json
-import argparse
 from pathlib import Path
 
 import numpy as np
