@@ -1,0 +1,159 @@
+# Local development and focused verification
+
+These instructions cover the public fixed-example benchmark and failure
+explorer. They do not enable a camera or arbitrary-image estimator, download raw
+LeFood-Set data, train a model, or authorize publication. To review the project
+without installing tools, use the [reviewer quickstart](REVIEWER_QUICKSTART.md).
+
+Use the public repository, not a private research checkout. Keep its committed
+notices, examples, model and evidence files intact. The existing model is included
+for the bounded verification path; no model fitting is part of this guide.
+
+## Pinned tools and checkout
+
+The [CI workflow](../.github/workflows/ci.yml) uses Node.js **22.20.0**, pnpm
+**11.19.0**, and, for Python checks, managed Python **3.12.14** with uv **0.12.17**.
+Install Node.js 22.20.0 and Git first. The following commands install the pinned
+package manager and acquire the public source; these setup steps require network
+access and write local software/dependency files.
+
+```text
+node --version
+npm install --global pnpm@11.19.0
+pnpm --version
+git clone https://github.com/aldaqrouqtaysir/plategauge.git
+cd plategauge
+git rev-parse HEAD
+git status --short
+```
+
+Check that the version output matches the pins. Record the commit you test and
+any local changes; an uncommitted checkout is not an exact published-source
+reproduction. Do not substitute a tag or claim release approval merely because
+a local build succeeds.
+
+## Browser development
+
+From the repository root:
+
+```text
+cd web
+pnpm install --frozen-lockfile
+pnpm dev --host 127.0.0.1 --port 5173 --strictPort
+```
+
+Open `http://127.0.0.1:5173/plategauge/`. Stop the server with Ctrl+C before
+starting browser test servers. The development lifecycle prepares the bundled
+ONNX Runtime and legal notices in `web/public/ort` and `web/public/legal`.
+Missing required source notices are build errors; do not remove the copy step
+or skip checks to get past them. No raw dataset or Python installation is needed
+for this browser-only path.
+
+From `web/`, run the regular checks:
+
+```text
+pnpm lint
+pnpm typecheck
+pnpm test:unit
+```
+
+### Browser tests
+
+The browser installation step downloads test runtimes, not research data:
+
+```text
+pnpm exec playwright install chromium firefox webkit
+pnpm test:e2e
+pnpm test:integration
+```
+
+On a clean Linux machine, CI uses
+`pnpm exec playwright install --with-deps chromium firefox webkit` to install
+required operating-system libraries as well. That may require elevated system
+permissions. Use supported installed runtimes; do not disable security or privacy
+assertions to work around a missing browser.
+
+The end-to-end configuration serves test mode on port 4173 and uses a test-model
+response. The separate integration configuration serves port 4174 with a
+committed synthetic ONNX fixture to exercise the real inference code path.
+Neither is a food-accuracy evaluation. Do not leave an unrelated development
+server on those ports and mistake a test against it for the intended run.
+
+### Build and test the local production bundle
+
+Production builds require `VITE_SOURCE_URL`. Use the exact committed source
+identity, not a moving `main` URL. Keep `VITE_PLATEGAUGE_TEST_MODEL` unset;
+production configuration rejects it. Keep the default `/plategauge/` base path
+for the production tests below.
+
+PowerShell, from `web/`:
+
+```powershell
+$env:VITE_SOURCE_URL = "https://github.com/aldaqrouqtaysir/plategauge/tree/$(git rev-parse HEAD)"
+pnpm build
+$env:PLATEGAUGE_EXPECTED_SOURCE_URL = $env:VITE_SOURCE_URL
+pnpm test:production
+pnpm preview --host 127.0.0.1 --port 4175 --strictPort
+```
+
+Bash, from `web/`:
+
+```bash
+export VITE_SOURCE_URL="https://github.com/aldaqrouqtaysir/plategauge/tree/$(git rev-parse HEAD)"
+pnpm build
+export PLATEGAUGE_EXPECTED_SOURCE_URL="$VITE_SOURCE_URL"
+pnpm test:production
+pnpm preview --host 127.0.0.1 --port 4175 --strictPort
+```
+
+The production test starts its own local preview server. The final command is
+for manual inspection after that test finishes; open
+`http://127.0.0.1:4175/plategauge/`. This test checks the actual built bundle and
+its fixed-example model replay, not custom-photo validity or field performance.
+Building and previewing do not deploy anything. Public deployment remains
+governed by the [release procedure](DEPLOYMENT.md).
+
+## Optional Python checks without training
+
+Run these from the repository root, in a terminal with an existing Python/pip
+installation. Setup may download the pinned runtime manager and Python runtime:
+
+```text
+python -m pip install --disable-pip-version-check uv==0.12.17
+uv python install 3.12.14
+uv run --no-project --no-config --offline --python 3.12.14 --managed-python python -c "import sys; assert sys.version_info[:3] == (3, 12, 14)"
+uv run --no-project --no-config --offline --python 3.12.14 --managed-python python -m unittest discover -s tests/python -p test_monitor_documentation.py -v
+```
+
+The last command runs only synthetic, network-free monitoring regressions using
+the standard library and temporary Git repositories. It does not load a model,
+inspect the dataset, or fit anything. This is a focused check, not a substitute
+for the complete CI suite.
+
+For the separate, read-only verification of committed browser evidence, install
+the locked core Python environment, without training/export extras:
+
+```text
+uv sync --locked --python 3.12.14 --managed-python
+uv run --locked python scripts/verify_web_benchmark_evidence.py verify --repo-root .
+```
+
+This verifies the browser evidence against committed reports, manifests and
+packaged examples. It requires no raw-data acquisition or retraining. Use
+`verify`, not `generate`: a mismatch is a failure to investigate, not permission
+to regenerate frozen evidence. This check is distinct from independent
+reproduction of the research experiment.
+
+## Interpreting results
+
+The [CI workflow](../.github/workflows/ci.yml) and
+[shared release checks](../.github/actions/release-checks/action.yml) define the
+broader engineering sequence. Passing the scoped commands above does not imply
+that every CI, vulnerability, licensing, release or live-site check passed.
+Retain failures and identify the exact command, source revision and environment
+when reporting them. Do not rewrite historical test counts after a new run.
+
+Keep generated diagnostics outside tracked source and do not publish personal
+paths, images or private research material. See [CONTRIBUTING](../CONTRIBUTING.md),
+[security reporting](../SECURITY.md) and the
+[cross-platform evidence-byte contract](REPRODUCIBILITY_NOTE.md).

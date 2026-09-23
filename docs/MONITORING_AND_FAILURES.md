@@ -1,5 +1,30 @@
 # Monitoring, incidents, and failure handling
 
+## Status addendum — 23 September 2026
+
+The dated source-freeze and candidate-stage statements below describe their
+original checkpoints. The monitoring correction was subsequently published:
+[source CI at `567c5b3`](https://github.com/aldaqrouqtaysir/plategauge/actions/runs/35594696311)
+passed, and the
+[revised monitor](https://github.com/aldaqrouqtaysir/plategauge/actions/runs/35594724981)
+completed with a passing live-page/integrity/fixed-replay job and a failing
+tracked-documentation-link job. Both observations are retained; neither an
+application outage nor a clean documentation-link audit follows from that
+mixed result.
+
+The later [main-source CI failure at `299c64a`](https://github.com/aldaqrouqtaysir/plategauge/actions/runs/35604443399)
+followed documentation deletions and must be addressed separately. It does not
+change the approved v1.0.2 tag or establish the current availability of the live
+site. These links identify recorded runs, not a new live check performed by this
+addendum. See the [correction record](MONITORING_CORRECTION.md) for the preserved
+history and current publication clarification.
+
+No monitoring failure is waived. This source-documentation repair does not
+dispatch a workflow, redeploy the app, update a release tag, or add scientific,
+visitor-data or real-world accuracy claims.
+
+## Historical operational record — preserved
+
 **Source-freeze snapshot (20 September 2026):** this was a Gate C-approved
 benchmark/failure-explorer candidate for local Gate D review only. Public
 deployment and Gate D approval had not occurred at this checkpoint.
