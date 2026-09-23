@@ -1,21 +1,29 @@
 # PlateGauge
 
-**Compare vision models. Explore the evidence behind food-leftover estimates.**
+**Capture a before-and-after pair. Explore the evidence behind the estimate.**
 
 [Open the live demo](https://aldaqrouqtaysir.github.io/plategauge/) ·
 [Benchmark results](docs/RESULTS.md) ·
 [Five-minute walkthrough](docs/REVIEWER_QUICKSTART.md) ·
 [Run locally](docs/DEVELOPMENT.md)
 
-PlateGauge turns a computer-vision study into an interactive benchmark and
-failure explorer. Compare compact models, inspect held-out examples, and see
-where estimates break down across food categories—not just how they perform
-on average.
+PlateGauge combines a browser-local experimental camera workflow with an
+interactive computer-vision benchmark. Capture a single food item before and
+after, review the model's crop, and explicitly request an experimental estimate.
+Then explore the frozen evaluation to see where the model succeeds and fails.
+**Camera-photo accuracy has not been validated; this is not a food scale.**
+
+The live link remains benchmark-only until the separately approved camera
+release is deployed and passes its public verification; a local camera build
+does not by itself change the public website.
 
 ![PlateGauge benchmark and failure explorer](reports/media/01-question-and-boundary.png)
 
 ## Explore the project
 
+- **Capture and compare:** the experimental camera profile supports real camera
+  capture, crop review, optional starting mass, and explicit local session files.
+  Opening the page does not turn on the camera or run the model.
 - **Compare models:** paired and after-only MobileNet, handcrafted baselines,
   and heavier vision-model references under a documented evaluation protocol.
 - **Inspect evidence:** browse licensed fixed examples alongside frozen
@@ -25,11 +33,14 @@ on average.
 - **Trace the results:** follow visible values back to versioned reports,
   manifests, model checksums, and automated integrity checks.
 
-The released website is a **fixed-example research explorer**, not a camera or
-upload-based food estimator. No raw-dataset download or training is needed to
-use it. The current public release is
-[v1.0.2](https://github.com/aldaqrouqtaysir/plategauge/releases/tag/v1.0.2);
-development on `main` does not automatically deploy the website.
+There are two separately guarded release profiles. Historical
+[v1.0.2](https://github.com/aldaqrouqtaysir/plategauge/releases/tag/v1.0.2)
+is a **fixed-example benchmark and failure explorer**. The
+`camera-experimental-r1` profile adds an explicitly experimental camera workflow
+and keeps the benchmark under **Evidence**. Publishing that profile requires its
+own approval; changes on `main` do not automatically deploy. See the
+[release and rollback guide](docs/CAMERA_RELEASE.md). Neither profile needs a
+raw-dataset download, training, an account, or paid infrastructure to use.
 
 ## At a glance
 
@@ -64,8 +75,10 @@ or real-world populations.
 The dataset is endpoint-heavy: 254 of 514 records (`49.4%`) are exactly empty
 or exactly full. Interior target ranges are harder. The paired model did not
 meet the predefined numeric-demo, interval, useful-abstention, or robustness
-criteria, so the public interface exposes the evidence without offering new
-estimates for visitor images.
+criteria. The historical benchmark therefore offers no visitor-image estimates.
+The separately gated camera experiment uses the **same model**, not a promoted
+or improved one. Its new-photo estimates are unvalidated experimental outputs;
+camera functionality does not change or waive the benchmark findings.
 
 See the [full results and acceptance criteria](docs/RESULTS.md),
 [machine-readable results](reports/results.json),
@@ -81,10 +94,13 @@ their embeddings, absolute difference, and elementwise product. Its target is:
 leftover_fraction = recorded_weight_after / recorded_weight_before
 ```
 
-The public explorer renders precomputed benchmark evidence. Its normal route
-does not initialize the model. A separate verification route replays bundled,
-hash-checked examples in-browser without displaying new numeric estimates.
-See the [system card](docs/SYSTEM_CARD.md) and [model card](docs/MODEL_CARD.md).
+The benchmark renders precomputed evidence. In the camera profile, inference
+runs only after explicit confirmation, using a hash-checked ONNX model inside
+a browser worker. Photos are processed on-device and are not uploaded.
+Optional grams are calculated from a starting mass supplied by the user—not
+weighed from a photograph. See the [camera system card](docs/CAMERA_SYSTEM_CARD.md),
+[historical benchmark system card](docs/SYSTEM_CARD.md), and
+[model card](docs/MODEL_CARD.md).
 
 ## Run locally
 
@@ -102,17 +118,17 @@ unit tests, production builds, and browser verification, see the
 [development guide](docs/DEVELOPMENT.md). Building the website does not require
 the raw LeFood dataset, model training, or paid services.
 
-## Experimental camera candidate — not deployed
+## Experimental camera profile
 
-This checkout also includes a separate capture-first camera candidate: real
+This checkout includes a separately built capture-first camera profile: real
 before/after camera capture, model-crop review, explicit on-device estimation,
 and optional Save session / Resume session files. Photos are not uploaded or
 automatically saved. The unchanged paired baseline supplies the experimental
 estimate; this is **not a new model or validation for camera photos**.
 
-The ordinary build and the public website remain the benchmark described above.
+The ordinary build remains the benchmark described above.
 Use the [camera build guide](docs/CAMERA_CANDIDATE_BUILD.md) for the separately
-enabled local candidate, its tests and publication boundary. Its
+enabled local build, its tests and publication boundary. Its
 [system card](docs/CAMERA_SYSTEM_CARD.md) and
 [privacy notice](docs/CAMERA_PRIVACY_NOTICE.md) describe that extension only.
 
@@ -124,16 +140,20 @@ UAE cuisines, or other institutions. PlateGauge does not identify foods,
 estimate nutrition, replace a scale, support clinical decisions, or claim
 measured food-waste reduction.
 
-The released benchmark does not accept visitor images. GitHub Pages and the visitor's network may
-still process ordinary request metadata; see the
-[privacy notice](docs/PRIVACY_NOTICE.md). Browser timing measurements apply
+The benchmark does not accept visitor images. Camera photos stay in browser
+memory unless the user explicitly downloads a session file; that file contains
+unencrypted photos and any entered mass. GitHub Pages and the visitor's network
+may still process ordinary request metadata; see the
+[camera privacy notice](docs/CAMERA_PRIVACY_NOTICE.md) and
+[historical benchmark privacy notice](docs/PRIVACY_NOTICE.md). Browser timing measurements apply
 only to the documented reference laptop, not unmeasured phones or devices.
 
 ## Repository map
 
 ```text
 src/plategauge/       Python data, models, training, evaluation, and export
-web/                 React/TypeScript benchmark explorer and browser tests
+web/                 React/TypeScript camera workflow, evidence explorer, tests
+release/camera/      Exact-bundle delivery, approval checks, public smoke tests
 configs/             Frozen experiment configurations
 data/                Manifests and provenance; raw data stays outside Git
 tests/               Python and integrity tests
