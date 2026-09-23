@@ -90,6 +90,11 @@ test("explicit paired estimate uses the pinned model and crop while retaining ex
   expect((await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa", "wcag21aa"]).analyze()).violations).toEqual([]);
   await page.evaluate(() => scrollTo(0, 0));
   await page.screenshot({ path: testInfo.outputPath("generated-estimate-desktop.png"), fullPage: true });
+  await page.setViewportSize({ width: 320, height: 844 });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(1);
+  expect((await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa", "wcag21aa"]).analyze()).violations).toEqual([]);
+  await page.evaluate(() => scrollTo(0, 0));
+  await page.screenshot({ path: testInfo.outputPath("generated-estimate-320.png"), fullPage: true });
   await page.getByRole("button", { name: "Retake after", exact: true }).click();
   await expect(result).toHaveCount(0);
   await page.getByRole("button", { name: "Clear photos", exact: true }).click();
@@ -110,10 +115,12 @@ test("cancelling model loading terminates work and never shows a stale estimate"
     await route.abort("aborted").catch(() => undefined);
   });
   await takePair(page);
-  await page.getByRole("button", { name: "Estimate remaining", exact: true }).click();
+  const estimate = page.getByRole("button", { name: "Estimate remaining", exact: true });
+  await estimate.click();
   await expect.poll(() => requested).toBe(true);
+  await expect(page.getByRole("button", { name: "Cancel estimate", exact: true })).toBeFocused();
   await page.getByRole("button", { name: "Cancel estimate", exact: true }).click();
-  await expect(page.getByRole("button", { name: "Estimate remaining", exact: true })).toBeFocused();
+  await expect(estimate).toBeFocused();
   release();
   await expect.poll(() => page.evaluate(() => (window as unknown as AuditWindow).candidateAudit.workerStops)).toBeGreaterThan(0);
   await expect(page.getByTestId("experimental-estimate-result")).toHaveCount(0);

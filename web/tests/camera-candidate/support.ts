@@ -159,6 +159,8 @@ export async function setup(page: Page, context: BrowserContext, baseURL: string
   const network = await guardNetwork(context, new URL(baseURL).origin);
   const lifecycle = await installCamera(page);
   await page.goto(`${BASE}${route}`);
+  // Candidate focus transitions must not animate a control beneath a pointer.
+  await expect(page.locator("html")).toHaveCSS("scroll-behavior", "auto");
   return { network, lifecycle };
 }
 
@@ -176,6 +178,7 @@ export async function takePair(page: Page): Promise<void> {
   const capture = page.getByRole("button", { name: "Take after photo", exact: true });
   await expect(capture).toBeEnabled(); await capture.click();
   await page.getByRole("button", { name: "Review & estimate", exact: true }).click();
+  await expect(page.getByRole("heading", { name: "Review the pair. Then estimate.", exact: true })).toBeFocused();
 }
 
 export async function expectPrivate(page: Page, network: NetworkAudit): Promise<void> {
