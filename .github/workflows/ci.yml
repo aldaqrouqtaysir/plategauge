@@ -116,7 +116,7 @@ jobs:
           test "$audit_status" -eq 0
       - name: Upload Python scan evidence
         if: ${{ always() && env.PG_DIAGNOSTICS_DIR != '' }}
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: python-scan-evidence
           path: ${{ env.PG_DIAGNOSTICS_DIR }}
@@ -211,14 +211,14 @@ jobs:
           VITE_SOURCE_URL: ${{ github.server_url }}/${{ github.repository }}
         run: pnpm build
       - name: Upload the exact static candidate for integrity tests
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: ci-static-candidate
           path: web/dist
           if-no-files-found: error
       - name: Upload JavaScript scan evidence
         if: ${{ always() && env.PG_DIAGNOSTICS_DIR != '' }}
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: javascript-scan-evidence
           path: ${{ env.PG_DIAGNOSTICS_DIR }}
@@ -250,7 +250,7 @@ jobs:
         run: pnpm test:integration
       - name: Preserve browser diagnostics even on failure
         if: always()
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: browser-diagnostics
           path: |
@@ -364,7 +364,7 @@ jobs:
           PY
       - name: Preserve only sanitized camera regression metadata
         if: ${{ always() && env.PG_CAMERA_DIAGNOSTICS != '' }}
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: camera-source-regression-${{ github.run_id }}-${{ github.run_attempt }}
           path: ${{ env.PG_CAMERA_DIAGNOSTICS }}/summary.json
@@ -402,7 +402,7 @@ jobs:
           report-path: ${{ env.PG_DIAGNOSTICS_DIR }}/gitleaks.json
       - name: Preserve secret-scan diagnostics
         if: ${{ always() && env.PG_DIAGNOSTICS_DIR != '' }}
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: secret-scan-evidence
           path: ${{ env.PG_DIAGNOSTICS_DIR }}/gitleaks.json
@@ -425,7 +425,7 @@ jobs:
           source-url: ${{ github.server_url }}/${{ github.repository }}/tree/${{ github.event.pull_request.head.sha || github.sha }}
           artifact-label: rehearsal-${{ github.run_id }}
       - name: Preserve the rehearsed candidate (not release approval)
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: rehearsed-static-dist-${{ github.run_id }}
           path: web/dist
